@@ -7,13 +7,13 @@ const Fotter = () => {
             <div className=" xs:max-w-[99%] md:max-w-[95%] mx-auto py-5 mt-6 sm:grid grid-cols-2 gap-4 px-4">
                 <div className>
                     <div>
-                        <img src="logo/next tech waves logo.png" alt />
+                        <img src="logo/next tech waves logo.png"  />
                     </div>
                     <div className="grid grid-cols-4 xs:max-w-[40%] sm:max-w-[30%] gap-2 mt-2 ">
-                        <img src="icons/insta.png" alt />
-                        <img src="icons/be.png" alt className="my-auto" />
-                        <img src="icons/lin.png" alt />
-                        <img src="icons/x.png" alt />
+                        <img src="icons/insta.png"  />
+                        <img src="icons/be.png"  className="my-auto" />
+                        <img src="icons/lin.png"  />
+                        <img src="icons/x.png"  />
                     </div>
                 </div>
                 <div className=" sm:text-right  text-center">

@@ -7,8 +7,11 @@ import { AiFillEyeInvisible } from "react-icons/ai";
 import sign_up_side_img from "../assets/img/sign_up_side_img.jpg";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const User_SIgnup = () => {
+  const navigate = useNavigate();
   const [userData, setuserData] = useState({
     name: "",
     email: "",
@@ -25,12 +28,20 @@ export const User_SIgnup = () => {
 
   const formHandler = event => {
     event.preventDefault();
-    console.log(userData);
+
     axios
       .post("http://localhost:4000/register", userData)
       .then(res => {
-        alert(res.data.message);
-        console.log(res)
+        if (res.data.status) {
+          alert(res.data.message);
+          setuserData({
+            name: "",
+            email: "",
+            pwd: "",
+            email_varified: "",
+          });
+          navigate("/email-varify");
+        }
       })
       .catch(err => {
         console.log(err);
@@ -73,7 +84,7 @@ export const User_SIgnup = () => {
                   minLength={3}
                 />
               </div>
-              
+
               <div className='relative z-0 w-full mb-6 group'>
                 <label
                   htmlFor='email'
@@ -130,6 +141,11 @@ export const User_SIgnup = () => {
                 className='text-white bg-blue-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5 mb-5'>
                 Submit
               </button>
+
+              <div className='relative z-0 w-full mb-6 group text-center mt-2'>
+                <Link to='/login'> All ready have an account?</Link>
+              </div>
+
               <div className='relative z-0 w-full mb-6 group text-center mt-2'>
                 Connect with Google
               </div>

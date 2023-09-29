@@ -11,29 +11,29 @@ const Contact = () => {
     </p>
   </div>
   <div className="max-w-[95%] mx-auto sm:py-4 my-4">
-    <form action>
+    <form >
       <div className="grid xs:grid-cols-1 sm:grid-cols-2 gap-4  s">
         <div className>
           <label className="block m:text-mp xs:text-tp md:text-p text-[#000] font-[600]" htmlFor="nm">Name</label>
-          <input type="text" id="nm" className=" border w-full border-[#AEAEAE] rounded-full border focus:border-[#00B2FF] outline-none px-2" />
+          <input type="text" id="nm" className="  w-full border-[#AEAEAE] rounded-full border focus:border-[#00B2FF] outline-none px-2" />
         </div>
         <div className>
           <label className="block m:text-mp xs:text-tp md:text-p text-[#000] font-[600]" htmlFor="cn">Contact
             No.</label>
-          <input type="number" id="cn" className="w-full border border-[#AEAEAE] rounded-full border focus:border-[#00B2FF] outline-none px-2" />
+          <input type="number" id="cn" className="w-full  border-[#AEAEAE] rounded-full border focus:border-[#00B2FF] outline-none px-2" />
         </div>
         <div className>
           <label className="block m:text-mp xs:text-tp md:text-p text-[#000] font-[600]" htmlFor="eid">E-mail</label>
-          <input type="email" id="eid" className="w-full border border-[#AEAEAE] rounded-full border focus:border-[#00B2FF] outline-none px-2" />
+          <input type="email" id="eid" className="w-full  border-[#AEAEAE] rounded-full border focus:border-[#00B2FF] outline-none px-2" />
         </div>
         <div className>
           <label className="block m:text-mp xs:text-tp md:text-p text-[#000] font-[600]" htmlFor="help">How we
             can help you</label>
-          <input type="text" id="help" className="w-full border border-[#AEAEAE] rounded-full border focus:border-[#00B2FF] outline-none px-2" />
+          <input type="text" id="help" className="w-full  border-[#AEAEAE] rounded-full border focus:border-[#00B2FF] outline-none px-2" />
         </div>
       </div>
       <div className="text-center my-8 ">
-        <button className=" bg-[#00B2FF] rounded rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  hover:bg-[#00b3ffd8] transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-[#00b3ffd8] duration-300 ...">Send
+        <button className=" bg-[#00B2FF] rounded rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-[#00b3ffd8] duration-300 ...">Send
           Message</button>
       </div>
     </form>

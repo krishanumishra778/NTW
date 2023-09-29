@@ -21,7 +21,7 @@ const userSignupController = async (req, res) => {
       });
       const data = await User.save();
       if (data) {
-        res.json({ status: "success", message: "Signup success" });
+        res.json({ status:true, message: "Signup success please varify your email" });
 
         const transporter = nodemailer.createTransport({
           service: "gmail",
@@ -34,8 +34,8 @@ const userSignupController = async (req, res) => {
         var mailOptions = {
           from: process.env.EMAIL,
           to: email,
-          subject: "Sending Email using Node.js",
-          text: "That was easy!",
+          subject: "Next Tech Waves",
+          text: "Sign up success",
         };
 
         transporter.sendMail(mailOptions, function (error, info) {
@@ -98,7 +98,7 @@ const emailvarificationcontroller = async (req, res) => {
         res.send({ error });
       } else {
         res.send({
-          status: "success",
+          status: true,
           message: "please check your email and varify",
           otp: otp,
           id: getEmail._id,
@@ -106,7 +106,7 @@ const emailvarificationcontroller = async (req, res) => {
       }
     });
   } else {
-    res.send({ status: "failed", message: "Email Not Found" });
+    res.send({ status: false, message: "Email Not Found" });
   }
 };
 
@@ -117,9 +117,9 @@ const varifycontroller = async (req, res) => {
       { _id: req.body.id },
       { email_varified: "true" }
     );
-    res.send({ message: "email varification success" });
+    res.send({status:true, message: "email varification success" });
   } else {
-    res.send({ message: "user not found" });
+    res.send({status:false, message: "user not found" });
   }
 };
 
