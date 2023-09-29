@@ -26,7 +26,7 @@ export const Home = () => {
         <Trusted/>
         <Contact/>
         <Join/>
-        <Fotter/>
+       
     </div>
   )
 }

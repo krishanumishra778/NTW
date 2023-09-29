@@ -13,18 +13,26 @@ import Contact from "./Components/Contact";
 import Join from "./Components/Join";
 import Testimonials from "./Components/Testimonials";
 import Fotter from "./Components/Fotter";
-import Navbar from "./Components/Navbar";
+import { NavDemo } from "./Components/NavDemo";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from "./Components/Home";
+import { User_SIgnup } from "./Components/User_SIgnup";
 
 export default function App() {
   return (
     <>
-      {/* <Router>
+      <Router>
+        <NavDemo/>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/about-us' element={<About />} />
+          <Route path='/services' element={<Services />} />
+          <Route path='/subscription' element={<Subscription />} />
+          <Route path='/portfolio' element={<Creativeshowcase />} />
+          <Route path='sign-up' element={<User_SIgnup />} />
         </Routes>
-      </Router> */}
+        <Fotter/>
+      </Router>
     </>
   );
 }

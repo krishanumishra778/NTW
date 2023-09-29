@@ -4,7 +4,7 @@ import React from 'react'
 const About = () => {
   return (
 <>
-  <div className="max-w-[1340px] lg:p-9 grid lg:grid-cols-3 mx-auto px-[15px] ">
+  <div className="max-w-[1340px] lg:p-9 grid lg:grid-cols-3 mx-auto px-[15px] " id='about-us'>
     <div className=" flex gap-2  mx-auto">
       <div className>
         <img src="images/about-I.png" className="rounded lg:my-5 xs:my-2" />
