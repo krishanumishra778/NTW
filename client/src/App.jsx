@@ -17,14 +17,14 @@ import { NavDemo } from "./Components/NavDemo";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from "./Components/Home";
 import { User_SIgnup } from "./Components/User_SIgnup";
-import { Email_varification } from "./Components/Email_varification";
 import { Getotp } from "./Components/Getotp";
+import { User_login } from "./Components/User_login";
 
 export default function App() {
   return (
     <>
       <Router>
-        <NavDemo/>
+        <NavDemo />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about-us' element={<About />} />
@@ -32,11 +32,10 @@ export default function App() {
           <Route path='/subscription' element={<Subscription />} />
           <Route path='/portfolio' element={<Creativeshowcase />} />
           <Route path='/sign-up' element={<User_SIgnup />} />
-          <Route path='/email-varify' element={<Email_varification />} />
           <Route path='/get-otp' element={<Getotp />} />
-         
+          <Route path='/log-in' element={<User_login />} />
         </Routes>
-        <Fotter/>
+        <Fotter />
       </Router>
     </>
   );

@@ -57,7 +57,8 @@ export const User_SIgnup = () => {
     if (pwdType === "password") {
       document.getElementById("pwd").type = "text";
     } else {
-      document.getElementById("pwd").type = "password";
+    res.send({status:false,message:"user not found!"})
+    document.getElementById("pwd").type = "password";
     }
   };
   return (

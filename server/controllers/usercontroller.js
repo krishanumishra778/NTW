@@ -41,7 +41,7 @@ const userSignupController = async (req, res) => {
           from: process.env.EMAIL,
           to: email,
           subject: "Next Tech Waves",
-          text: "Sign up success and variy your email",
+          text: `Sign up success and variy your email with ${otp}`,
         };
 
         transporter.sendMail(mailOptions, function (error, info) {
@@ -55,7 +55,7 @@ const userSignupController = async (req, res) => {
     }
   } catch (error) {
     console.log(error);
-    res.send({status:false, message: error });
+    res.send({ status: false, message: error });
   }
 };
 
@@ -66,72 +66,47 @@ const userLogInController = async (req, res) => {
   if (isEmail) {
     hash.compare(pwd, isEmail.pwd, function (err, result) {
       if (err) {
-        res.send({ status: "failed", message: "Invalid user" });
+        res.send({ status: false, message: "Invalid user" });
       }
       if (result) {
-        res.send({ status: "success", message: "login success" });
+        res.send({ status: true, message: "login success" });
       } else {
-        res.send({ status: "failed", message: "Invalid user" });
+        res.send({ status: false, message: "Invalid user" });
       }
     });
   } else {
-    res.send({ status: "failed", message: "Invalid user" });
-  }
-};
-
-const emailvarificationcontroller = async (req, res) => {
-  const { email } = req.body;
-  const getEmail = await user.findOne({ email: email });
-  if (getEmail) {
-    const otp = Math.floor(Math.random() * 9999) + 1000;
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL,
-        pass: process.env.MYPASSWORD,
-      },
-    });
-
-    var mailOptions = {
-      from: process.env.EMAIL,
-      to: getEmail.email,
-      subject: "for email varification",
-      text: `<h1>${otp}</h1>`,
-    };
-
-    transporter.sendMail(mailOptions, function (error, info) {
-      if (error) {
-        res.send({ error });
-      } else {
-        res.send({
-          status: true,
-          message: "please check your email and varify",
-          otp: otp,
-          id: getEmail._id,
-        });
-      }
-    });
-  } else {
-    res.send({ status: false, message: "Email Not Found" });
+    res.send({ status: false, message: "Invalid user" });
   }
 };
 
 const varifycontroller = async (req, res) => {
-  const data = await user.findById({ _id: req.body.id });
-  if (data) {
-    await user.findByIdAndUpdate(
-      { _id: req.body.id },
-      { email_varified: "true" }
+  const id = await user.findOne({ _id: req.body.data._id });
+  if (id) {
+    const update = await user.findByIdAndUpdate(
+      { _id: id._id },
+      { email_varified: true }
     );
-    res.send({ status: true, message: "email varification success" });
+    if (update) {
+      res.send({ status: true, message: "varification success" });
+    }
   } else {
-    res.send({ status: false, message: "user not found" });
+    res.send({ status: false, message: "user not found!" });
+  }
+};
+
+const wrongotpcontroller = async (req, res) => {
+  const dltData = await user.findByIdAndDelete({ _id: req.body._id });
+  if (dltData) {
+    res.send({
+      status: true,
+      message: "you entered wrong otp please signup again",
+    });
   }
 };
 
 module.exports = {
   userSignupController,
   userLogInController,
-  emailvarificationcontroller,
   varifycontroller,
+  wrongotpcontroller,
 };

@@ -33,13 +33,21 @@ export const Getotp = () => {
 
     if (otpFun.otp == otp.otp) {
       axios.post("http://localhost:4000/varify", otpFun).then(res => {
-      
+        if (res.data.status) {
           alert(res.data.message);
-          navigate("/");
-      
+          navigate("/log-in");
+        } else {
+          alert(res.data.message);
+        }
       });
     } else {
       alert("wrong otp");
+      axios.post("http://localhost:4000/wrong-otp", otpFun.data).then(res => {
+        if (res.data.status) {
+          alert(res.data.message);
+          navigate("/sign-up");
+        }
+      });
     }
   };
   return (
