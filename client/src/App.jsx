@@ -19,12 +19,14 @@ import { Home } from "./Components/Home";
 import { User_SIgnup } from "./Components/User_SIgnup";
 import { Email_varification } from "./Components/Email_varification";
 import { Getotp } from "./Components/Getotp";
+import { Head_nav } from "./Components/Head_nav";
 
 export default function App() {
   return (
     <>
       <Router>
         <NavDemo/>
+        <Head_nav/>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about-us' element={<About />} />

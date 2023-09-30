@@ -9,9 +9,16 @@ const Header = () => {
     loop: {},
   });
   return (
-    <div>
-      <div className="py-[20px]">
-        <img src="logo/next tech waves logo.png" alt='' className=" mx-auto" />
+    <div data-aos="fade-down">
+      <div className="py-[20px] hidden md:block ">
+        <div className='grid grid-cols-3 mx-4'>
+
+          <div className=' rounded-full'><img className=' rounded-full' src="images/user.png" alt="" /></div>
+          <div className=' mx-auto'>
+            <img src="logo/next tech waves logo.png" alt='' className="" />
+          </div>
+          <div></div>
+        </div>
       </div>
 
       <div className=" max-w-[1340px] px-[15px]  pt-9  mx-auto flex md:flex justify-between  xs:flex-col-reverse sm:flex-col-reverse lg:flex-row xl:flex-row 2xl:flex-row">
