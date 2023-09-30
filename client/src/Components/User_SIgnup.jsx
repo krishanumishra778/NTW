@@ -34,13 +34,17 @@ export const User_SIgnup = () => {
       .then(res => {
         if (res.data.status) {
           alert(res.data.message);
+          localStorage.setItem("otp", JSON.stringify(res.data));
           setuserData({
             name: "",
             email: "",
             pwd: "",
-            email_varified: "",
+            
           });
-          navigate("/email-varify");
+          navigate("/get-otp");
+        }
+        else{
+          alert(res.data.message)
         }
       })
       .catch(err => {
@@ -53,7 +57,8 @@ export const User_SIgnup = () => {
     if (pwdType === "password") {
       document.getElementById("pwd").type = "text";
     } else {
-      document.getElementById("pwd").type = "password";
+    res.send({status:false,message:"user not found!"})
+    document.getElementById("pwd").type = "password";
     }
   };
   return (
