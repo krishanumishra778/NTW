@@ -34,13 +34,17 @@ export const User_SIgnup = () => {
       .then(res => {
         if (res.data.status) {
           alert(res.data.message);
+          localStorage.setItem("otp", JSON.stringify(res.data));
           setuserData({
             name: "",
             email: "",
             pwd: "",
             
           });
-          // navigate("/email-varify");
+          navigate("/get-otp");
+        }
+        else{
+          alert(res.data.message)
         }
       })
       .catch(err => {

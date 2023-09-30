@@ -10,7 +10,7 @@ const userSignupController = async (req, res) => {
     const { name, email, pwd, email_varified } = req.body;
     const isEmail = await user.findOne({ email: email });
     if (isEmail) {
-      res.send({ status: "failed", message: "Email Already Exists" });
+      res.send({ status: false, message: "Email Already Exists" });
     } else {
       const hashPassword = hash.hashSync(pwd, 10);
       const User = new user({
@@ -20,11 +20,15 @@ const userSignupController = async (req, res) => {
         email_varified: email_varified,
       });
       const data = await User.save();
-      console.log(data)
       if (data) {
-      
-
         const otp = Math.floor(Math.random() * 9999) + 1000;
+        res.json({
+          status: true,
+          message: "Signup success please varify your email",
+          otp: otp,
+          data: data,
+        });
+
         const transporter = nodemailer.createTransport({
           service: "gmail",
           auth: {
@@ -37,7 +41,7 @@ const userSignupController = async (req, res) => {
           from: process.env.EMAIL,
           to: email,
           subject: "Next Tech Waves",
-          text: otp,
+          text: "Sign up success and variy your email",
         };
 
         transporter.sendMail(mailOptions, function (error, info) {
@@ -47,17 +51,11 @@ const userSignupController = async (req, res) => {
             console.log("Email sent: " + info.response);
           }
         });
-        console.log(data)
-        res.json({
-          status: true,
-          message: "Signup success! we sent you otp for email verification",
-          otp:otp,
-        });
       }
     }
   } catch (error) {
     console.log(error);
-    res.send({ message: error });
+    res.send({status:false, message: error });
   }
 };
 
@@ -85,6 +83,7 @@ const emailvarificationcontroller = async (req, res) => {
   const { email } = req.body;
   const getEmail = await user.findOne({ email: email });
   if (getEmail) {
+    const otp = Math.floor(Math.random() * 9999) + 1000;
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
