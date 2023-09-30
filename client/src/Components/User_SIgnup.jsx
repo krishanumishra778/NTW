@@ -40,7 +40,7 @@ export const User_SIgnup = () => {
             pwd: "",
             email_varified: "",
           });
-          navigate("/email-varify");
+          // navigate("/email-varify");
         }
       })
       .catch(err => {
