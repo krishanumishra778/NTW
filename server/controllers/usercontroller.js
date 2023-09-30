@@ -20,9 +20,11 @@ const userSignupController = async (req, res) => {
         email_varified: email_varified,
       });
       const data = await User.save();
+      console.log(data)
       if (data) {
-        res.json({ status:true, message: "Signup success please varify your email" });
+      
 
+        const otp = Math.floor(Math.random() * 9999) + 1000;
         const transporter = nodemailer.createTransport({
           service: "gmail",
           auth: {
@@ -35,7 +37,7 @@ const userSignupController = async (req, res) => {
           from: process.env.EMAIL,
           to: email,
           subject: "Next Tech Waves",
-          text: "Sign up success",
+          text: otp,
         };
 
         transporter.sendMail(mailOptions, function (error, info) {
@@ -44,6 +46,12 @@ const userSignupController = async (req, res) => {
           } else {
             console.log("Email sent: " + info.response);
           }
+        });
+        console.log(data)
+        res.json({
+          status: true,
+          message: "Signup success! we sent you otp for email verification",
+          otp:otp,
         });
       }
     }
@@ -77,7 +85,6 @@ const emailvarificationcontroller = async (req, res) => {
   const { email } = req.body;
   const getEmail = await user.findOne({ email: email });
   if (getEmail) {
-    const otp = Math.floor(Math.random() * 9999) + 1000;
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -117,9 +124,9 @@ const varifycontroller = async (req, res) => {
       { _id: req.body.id },
       { email_varified: "true" }
     );
-    res.send({status:true, message: "email varification success" });
+    res.send({ status: true, message: "email varification success" });
   } else {
-    res.send({status:false, message: "user not found" });
+    res.send({ status: false, message: "user not found" });
   }
 };
 

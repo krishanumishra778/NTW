@@ -38,7 +38,7 @@ export const User_SIgnup = () => {
             name: "",
             email: "",
             pwd: "",
-            email_varified: "",
+            
           });
           // navigate("/email-varify");
         }
