@@ -52,7 +52,7 @@ export const Getotp = () => {
     }
   };
   return (
-    <Layout>
+    
       <div className='grid md:grid-cols-2'>
         <div className='  bg-white '>
           {/* <h1 className='text-2xl text-center font-bold mt-10'>Log In</h1> */}
@@ -90,6 +90,6 @@ export const Getotp = () => {
           <img src='./images/sign_up_side_img.jpg' alt='' className='' />
         </div>
       </div>
-    </Layout>
+    
   );
 };

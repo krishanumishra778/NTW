@@ -4,7 +4,7 @@ import { Layout } from '../layout/Layout'
 
 const Trusted = () => {
   return (
-    <Layout>
+    
       <div className=" my-[20px]">
         <div className="text-[#00B2FF] text-center sm:text-tt  xs:text-mt md:text-title font-[600] mb-4">
           <p>Trusted By Brand’s</p>
@@ -21,7 +21,7 @@ const Trusted = () => {
           </div>
         </div>
       </div>
-    </Layout>
+   
   )
 }
 

@@ -4,7 +4,7 @@ import { Layout } from '../layout/Layout'
 
 const Founder = () => {
   return (
-    <Layout>
+    
         <div className=" mt-8 my-6 md:px-[15px] px-4 mx-auto">
   <p className="text-[#00B2FF]  sm:text-tt  xs:text-mt md:text-title md:text-center text-left font-[600]  ">
     Meet
@@ -21,7 +21,7 @@ const Founder = () => {
   </div>
 </div>
 
-    </Layout>
+    
   )
 }
 

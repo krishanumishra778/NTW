@@ -1,4 +1,6 @@
 import React from 'react'
+
+import { Layout } from './Layout'
 import Header from '../pages/Header'
 import About from '../pages/About'
 import Services from '../pages/Services'
@@ -10,23 +12,24 @@ import Rating from '../pages/Rating'
 import Trusted from '../pages/Trusted'
 import Contact from '../pages/Contact'
 import Join from '../pages/Join'
-import Fotter from './Fotter'
 
 export const Home = () => {
   return (
     <div>
-        <Header/>
-        <About/>
-        <Services/>
-        <Founder/>
-        <Subscription/>
-        <Creativeshowcase/>
-        <Testimonials/>
-        <Rating/>
-        <Trusted/>
-        <Contact/>
-        <Join/>
-       
+     
+        <Header />
+        <About />
+        <Services />
+        <Founder />
+        <Subscription />
+        <Creativeshowcase />
+        <Testimonials />
+        <Rating />
+        <Trusted />
+        <Contact />
+        <Join />
+      
+
     </div>
   )
 }

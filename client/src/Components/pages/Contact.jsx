@@ -4,7 +4,7 @@ import { Layout } from '../layout/Layout'
 
 const Contact = () => {
   return (
-   <Layout>
+   
         <div className=" bg-[url(images/Contact.png)] bg-no-repeat bg-cover object-contain my-[40px]">
   <div className="text-center">
     <p className="text-[#00B2FF] text-center sm:text-tt  xs:text-mt md:text-title font-[600]">Contact Us</p>
@@ -40,7 +40,7 @@ const Contact = () => {
     </form>
   </div>
 </div>
-   </Layout>
+   
   )
 }
 

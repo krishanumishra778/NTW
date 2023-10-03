@@ -15,7 +15,7 @@ const Subscription = () => {
 
 
     return (
-        <Layout>
+        
             <div className="my-10 md:py-12  bg-[url(images/bg-banner.png)] bg-no-repeat bg-cover mx-[15px] px-[10px]">
                 <div>
 
@@ -154,7 +154,7 @@ const Subscription = () => {
                 </div>
                 {/*  */}
             </div>
-        </Layout>
+        
     )
 }
 

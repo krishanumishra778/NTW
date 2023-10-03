@@ -5,18 +5,17 @@ import { FcGoogle } from "react-icons/fc";
 import { AiFillEyeInvisible } from "react-icons/ai";
 
 import axios from "axios";
-<<<<<<< Updated upstream:client/src/Components/User_login.jsx
-import { Link, json, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { loginuser } from "./redux/Action";
 
-=======
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, json, useNavigate } from "react-router-dom";
+
+
+
+
 import { Layout } from "../layout/Layout";
->>>>>>> Stashed changes:client/src/Components/auth/User_login.jsx
+
 
 export const User_login = () => {
-  const dispatch=useDispatch()
+
   const navigate = useNavigate();
   const [userData, setUserData] = useState({
     email: "",
@@ -59,7 +58,7 @@ export const User_login = () => {
     }
   };
   return (
-   <Layout>
+  
      <div className='grid md:grid-cols-2'>
       <div className='  bg-white '>
         <h1 className='text-2xl text-center font-bold mt-10'>Log In</h1>
@@ -144,6 +143,6 @@ export const User_login = () => {
         <img src='./images/sign_up_side_img.jpg' alt='' className='' />
       </div>
     </div>
-   </Layout>
+  
   );
 };

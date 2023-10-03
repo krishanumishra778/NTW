@@ -10,7 +10,7 @@ const Header = () => {
     loop: {},
   });
   return (
-    <Layout>
+    
       <div data-aos="fade-down">
       <div className="py-[20px] hidden md:block ">
         <div className='grid grid-cols-3 mx-4'>
@@ -43,7 +43,7 @@ const Header = () => {
         </div>
       </div>
     </div>
-    </Layout>
+
 
   )
 }

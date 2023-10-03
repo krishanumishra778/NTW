@@ -5,7 +5,7 @@ import { Layout } from '../layout/Layout'
 
 const Testimonials = () => {
   return (
-    <Layout>
+   
        <div className="mx-[15px]  my-6 ">
   <h1 className="text-center text-[#00B2FF]  sm:text-tt  xs:text-mt md:text-title font-[600] ">Client’s
     Testimonials</h1>
@@ -45,7 +45,7 @@ const Testimonials = () => {
     </div>
   </div>
 </div>
-    </Layout>
+    
   )
 }
 

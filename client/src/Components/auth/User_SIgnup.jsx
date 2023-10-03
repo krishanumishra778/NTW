@@ -63,7 +63,7 @@ export const User_SIgnup = () => {
     }
   };
   return (
-    <Layout>
+ 
       <div
       className='max-w-[full] 
   '>
@@ -180,6 +180,6 @@ export const User_SIgnup = () => {
         </div>
       </div>
     </div>
-    </Layout>
+   
   );
 };

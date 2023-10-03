@@ -1,10 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
-import { Layout } from '../layout/Layout'
 
 const Creativeshowcase = () => {
     return (
-        <Layout>
+        <>
             <div className>
                 <div className="my-5">
                     <p className="text-center text-[#00B2FF]  sm:text-tt  xs:text-mt md:text-title font-[600] py-2">Explore Our
@@ -46,7 +45,8 @@ const Creativeshowcase = () => {
                     </div>
                 </div>
             </div>
-        </Layout>
+
+        </>
     )
 }
 
