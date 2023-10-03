@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react'
-import { Layout } from '../layout/Layout';
 
 const Subscription = () => {
     const [changePrice, setChangePrice] = useState(true);
@@ -15,8 +14,8 @@ const Subscription = () => {
 
 
     return (
-        
-            <div className="my-10 md:py-12  bg-[url(images/bg-banner.png)] bg-no-repeat bg-cover mx-[15px] px-[10px]">
+        <>
+            <div className="my-10 md:py-12  bg-[url(images/bg-banner.png)] bg-no-repeat bg-cover mx-[15px] px-[10px]" data-aos="fade-down">
                 <div>
 
                     <p className="text-[#00B2FF]  sm:text-tt  xs:text-mt md:text-title lg:text-center text-left font-[600]  ">
@@ -32,17 +31,17 @@ const Subscription = () => {
                         Pricing &amp; Plans
                         for UI/UX Design&amp; Development
                     </p>
-                    <div className="flex align-middle justify-center mt-3 ">
-                        <p className="sm:text-mp xs:text-tp md:text-p text-center pt-2 inline mr-3 ">Bill Monthly</p>
+                    <div className="flex  justify-center  ">
+                        <p className="sm:text-mp xs:text-tp md:text-p text-center pt-2 inline  ">Bill Monthly</p>
 
-                        <label className="relative flex mt-3  align-middle items-center cursor-pointer  ">
+                        <label className="relative flex mt-2  align-middle items-center cursor-pointer px-[5px] ">
                             <input type="checkbox" defaultValue className="sr-only peer " onChange={price} />
-                            <div className="w-11 h-6  bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                            <div className="w-10 h-5  bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
                             </div>
-                            <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300" />
+                            <span className=" text-sm font-medium text-gray-900 dark:text-gray-300" />
                         </label>
 
-
+                        
                         <p className="sm:text-mp xs:text-tp md:text-p text-center pt-2 inline"> Bill
                             quarterly</p>
                     </div>
@@ -142,8 +141,7 @@ const Subscription = () => {
                                     times. </li>
                             </ul>
                             <div className="text-center">
-                                <button className=" bg-[#00B2FF] rounded rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff] xs:mt-1 md:mt-[60px] 
-                                hover:bg-[#00b3ffd8] transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 ...">Contact
+                                <button className=" bg-[#00B2FF] rounded rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff] xs:mt-1 md:mt-[60px] hover:bg-[#00b3ffd8] transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-[#00b3ffd8] duration-300 ...">Contact
                                     Us</button>
                             </div>
                             <div className="text-center text-[#AEAEAE] sm:text-mc xs:text-tc md:text-c">
@@ -154,7 +152,8 @@ const Subscription = () => {
                 </div>
                 {/*  */}
             </div>
-        
+
+        </>
     )
 }
 

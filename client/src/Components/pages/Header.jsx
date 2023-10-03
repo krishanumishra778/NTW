@@ -10,10 +10,10 @@ const Header = () => {
     loop: {},
   });
   return (
-    
-      <div data-aos="fade-down">
+
+    <div className='w-[98%]  mx-auto' data-aos="fade-down">
       <div className="py-[20px] hidden md:block ">
-        <div className='grid grid-cols-3 mx-4'>
+        <div className='grid grid-cols-3 px-4'>
 
           <div className=' rounded-full'><img className=' rounded-full' src="images/user.png" alt="" /></div>
           <div className=' mx-auto'>
@@ -23,7 +23,7 @@ const Header = () => {
         </div>
       </div>
 
-      <div className=" max-w-[1340px] px-[15px]  pt-9  mx-auto flex md:flex justify-between  xs:flex-col-reverse sm:flex-col-reverse lg:flex-row xl:flex-row 2xl:flex-row">
+      <div className="  px-[15px]  pt-9  mx-auto flex md:flex justify-between  xs:flex-col-reverse sm:flex-col-reverse lg:flex-row xl:flex-row 2xl:flex-row">
         <div className="lg:w-[60%]">
           <h1 className="font-[600]  sm:text-tt  xs:text-mt md:text-title text-[#494949] inline leading-10">
             Unlock Your Digital Potential with Our Comprehensive Digital Solutions:
@@ -35,7 +35,7 @@ const Header = () => {
             digital requirements We can assist you in growing your business digitally regardless of how big
             or
             small it is.</p>
-          <button className="bg-[#00B2FF] rounded rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  my-5 hover:bg-[#00b3ffd8] transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 ...">Express
+          <button className="bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  my-5 hover:bg-[#00b3ffd8] transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 ...">Express
             your needs</button>
         </div>
         <div className="my-6 lg:w-[50%] md:my-15  durat">

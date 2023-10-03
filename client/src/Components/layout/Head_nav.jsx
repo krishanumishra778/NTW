@@ -4,6 +4,8 @@ import  { useState } from 'react';
 
 import AOS from 'aos';
   import 'aos/dist/aos.css';
+  import { Link } from "react-router-dom";
+
 export const Head_nav = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -43,7 +45,7 @@ export const Head_nav = () => {
           </button>
         </div>
         <div className="max-w-[70%]">
-            <img src="logo/next tech waves logo.png" alt="" />
+            <img src="logo/next tech waves logo.png" alt="Next tech Waves" data-aos="fade-down" />
         </div>
         <div className='border-2 max-w-[10%] cursor-pointer'><img src="https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg" alt="" /></div>
        
@@ -51,38 +53,29 @@ export const Head_nav = () => {
       </div>
       {isMobileMenuOpen && (
         <div className="md:hidden">
+          <nav>
           <ul className="mt-2 space-y-2 ">
             <li>
-              <a href="#" className='text-p' onClick={toggleMobileMenu}>
-                Home
-              </a>
+            <Link to='/' > Home</Link>
+
             </li>
             <li>
-              <a href="#" onClick={toggleMobileMenu}>
-                About us 
-              </a>
+            <Link to='/about-us'> About-Us</Link>
             </li>
             <li>
-              <a href="#" onClick={toggleMobileMenu}>
-                Services
-              </a>
+            <Link to='/services' > Services</Link>
             </li>
             <li>
-              <a href="#" onClick={toggleMobileMenu}>
-              Recharge & Plans
-              </a>
+            <Link to='/subscription' > Recharge & Plans</Link>
             </li>
             <li>
-              <a href="#" onClick={toggleMobileMenu}>
-             Our Portfolio
-              </a>
+            <Link to='/portfolio' > Our Portfolio</Link>
             </li>
             <li>
-              <a href="#" onClick={toggleMobileMenu}>
-              Sign-up
-              </a>
+            <Link to='/sign-up'> Sign-Up</Link>
             </li>
           </ul>
+          </nav>
         </div>
       )}
     </nav>

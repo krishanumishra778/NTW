@@ -20,7 +20,7 @@ const Fotter = () => {
                 <div className=" sm:text-right  text-center">
                     <div className="  py-1  mt-5 flex  ml-auto">
                         <input type="email" className=" w-[70%] bg-[#F5F5F5] rounded-full pl-2  h-[35px]" placeholder="E-mail" />
-                        <button className=" bg-[#00B2FF] rounded rounded-3xl text-[#fff]   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p   transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-[#00b3ffd8] duration-300">Subscribe</button>
+                        <button className=" bg-[#00B2FF]  rounded-3xl text-[#fff]   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p   transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-[#00b3ffd8] duration-300">Subscribe</button>
                     </div>
                 </div>
             </div>
