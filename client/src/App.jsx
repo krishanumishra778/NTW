@@ -1,29 +1,32 @@
 /** @format */
 
 import "../src/App.css";
-import About from "./Components/About";
-import Services from "./Components/Services";
+import { User_login } from "./Components/auth/User_login";
 
-import Subscription from "./Components/Subscription";
-import Creativeshowcase from "./Components/Creativeshowcase";
+import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
 
-import Fotter from "./Components/Fotter";
-import { NavDemo } from "./Components/NavDemo";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home } from "./Components/Home";
-import { User_SIgnup } from "./Components/User_SIgnup";
-import { Getotp } from "./Components/Getotp";
 
-import { Head_nav } from "./Components/Head_nav";
 
+<<<<<<< Updated upstream
 import { User_login } from "./Components/User_login";
 import { store } from "./Components/redux/Store";
 import { Provider } from "react-redux";
 import { View } from "./Components/redux/View";
+=======
+import About from "./Components/pages/About";
+import { Home } from "./Components/layout/Home";
+import Services from "./Components/pages/Services";
+import Subscription from "./Components/pages/Subscription";
+import Creativeshowcase from "./Components/pages/Creativeshowcase";
+import { User_SIgnup } from "./Components/auth/User_SIgnup";
+import { Getotp } from "./Components/auth/Getotp";
+
+>>>>>>> Stashed changes
 
 export default function App() {
   return (
     <>
+<<<<<<< Updated upstream
       <Provider store={store}>
        
         <Router>
@@ -44,6 +47,24 @@ export default function App() {
           <Fotter />
         </Router>
       </Provider>
+=======
+      <Router>
+
+       
+
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/about-us' element={<About />} />
+          <Route path='/services' element={<Services />} />
+          <Route path='/subscription' element={<Subscription />} />
+          <Route path='/portfolio' element={<Creativeshowcase />} />
+          <Route path='/sign-up' element={<User_SIgnup />} />
+          <Route path='/get-otp' element={<Getotp />} />
+          <Route path='/log-in' element={< User_login/>} />
+        </Routes>
+      
+      </Router>
+>>>>>>> Stashed changes
     </>
   );
 }

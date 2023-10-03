@@ -1,10 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
+import { Layout } from '../layout/Layout'
 
 const About = () => {
   return (
-<>
-  <div className="max-w-[1340px] lg:p-9 grid lg:grid-cols-3 mx-auto px-[15px] " data-aos="fade-down" >
+<Layout>
+<div className="max-w-[1340px] lg:p-9 grid lg:grid-cols-3 mx-auto px-[15px] " data-aos="fade-down" >
     <div className=" flex gap-2  mx-auto">
       <div className>
         <img src="images/about-I.png" className="rounded lg:my-5 xs:my-2" />
@@ -33,7 +34,7 @@ const About = () => {
       </div>
     </div>
   </div>
-</>
+</Layout>
 
   )
 }

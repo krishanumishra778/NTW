@@ -2,12 +2,13 @@
 import React, { useState } from 'react'
 import CountUp from 'react-countup'
 import ScrollTrigger from 'react-scroll-trigger';
+import { Layout } from '../layout/Layout';
 ScrollTrigger
 const Rating = () => {
     const [counton , setCounton] = useState(false);
     return (
-        <>
-            <div className=" bg-[url(images/rating-bg.png)] bg-no-repeat bg-cover py-[40px] mx-auto ">
+       <Layout>
+         <div className=" bg-[url(images/rating-bg.png)] bg-no-repeat bg-cover py-[40px] mx-auto ">
                 <div className="grid lg:grid-cols-4 sm:grid-cols-2 xs:grid-cols-1  gap2 ">
                     <div className="text-center py-8  sm:text-tt  xs:text-mt md:text-title font-[600] transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-180  ">
                        
@@ -43,8 +44,7 @@ const Rating = () => {
                     </div>
                 </div>
             </div>
-
-        </>
+       </Layout>
     )
 }
 

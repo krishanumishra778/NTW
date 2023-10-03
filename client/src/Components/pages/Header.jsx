@@ -2,6 +2,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
 import { useTypewriter, Cursor } from 'react-simple-typewriter'
+import { Layout } from '../layout/Layout';
 
 const Header = () => {
   const [text] = useTypewriter({
@@ -9,7 +10,8 @@ const Header = () => {
     loop: {},
   });
   return (
-    <div data-aos="fade-down">
+    <Layout>
+      <div data-aos="fade-down">
       <div className="py-[20px] hidden md:block ">
         <div className='grid grid-cols-3 mx-4'>
 
@@ -41,6 +43,7 @@ const Header = () => {
         </div>
       </div>
     </div>
+    </Layout>
 
   )
 }

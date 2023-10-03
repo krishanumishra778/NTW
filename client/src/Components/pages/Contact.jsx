@@ -1,10 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
+import { Layout } from '../layout/Layout'
 
 const Contact = () => {
   return (
-    <>
-       <div className=" bg-[url(images/Contact.png)] bg-no-repeat bg-cover object-contain my-[40px]">
+   <Layout>
+        <div className=" bg-[url(images/Contact.png)] bg-no-repeat bg-cover object-contain my-[40px]">
   <div className="text-center">
     <p className="text-[#00B2FF] text-center sm:text-tt  xs:text-mt md:text-title font-[600]">Contact Us</p>
     <p className="sm:text-mp xs:text-tp md:text-p text-[#494949]">We would be more than happy to speak with you.
@@ -39,8 +40,7 @@ const Contact = () => {
     </form>
   </div>
 </div>
-
-    </>
+   </Layout>
   )
 }
 

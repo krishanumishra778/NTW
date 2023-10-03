@@ -1,10 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
+import { Layout } from '../layout/Layout'
 
 const Join = () => {
     return (
-        <>
-            <div className="max-w-[100%] border bg-[#00B2FF] xs:py-10 sm:py-20 sm:px-5 sm:flex justify-between flex-col-2">
+       <Layout>
+         <div className="max-w-[100%] border bg-[#00B2FF] xs:py-10 sm:py-20 sm:px-5 sm:flex justify-between flex-col-2">
                 <div className=" sm:max-w-[70%]">
                     <p className="text-[#FFF] sm:text-mp xs:text-tp md:text-p font-[600] xs:text-center sm:text-left ">Join Us
                         to Elevate UI Design with Next Tech Waves Through Our Subscription Service, Unleash Creativity and
@@ -15,8 +16,7 @@ const Join = () => {
                         Message</button>
                 </div>
             </div>
-
-        </>
+       </Layout>
     )
 }
 

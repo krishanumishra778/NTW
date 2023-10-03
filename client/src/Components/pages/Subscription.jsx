@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react'
+import { Layout } from '../layout/Layout';
 
 const Subscription = () => {
     const [changePrice, setChangePrice] = useState(true);
@@ -14,7 +15,7 @@ const Subscription = () => {
 
 
     return (
-        <>
+        <Layout>
             <div className="my-10 md:py-12  bg-[url(images/bg-banner.png)] bg-no-repeat bg-cover mx-[15px] px-[10px]">
                 <div>
 
@@ -41,7 +42,7 @@ const Subscription = () => {
                             <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300" />
                         </label>
 
-                        
+
                         <p className="sm:text-mp xs:text-tp md:text-p text-center pt-2 inline"> Bill
                             quarterly</p>
                     </div>
@@ -141,7 +142,8 @@ const Subscription = () => {
                                     times. </li>
                             </ul>
                             <div className="text-center">
-                                <button className=" bg-[#00B2FF] rounded rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff] xs:mt-1 md:mt-[60px] hover:bg-[#00b3ffd8] transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-[#00b3ffd8] duration-300 ...">Contact
+                                <button className=" bg-[#00B2FF] rounded rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff] xs:mt-1 md:mt-[60px] 
+                                hover:bg-[#00b3ffd8] transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 ...">Contact
                                     Us</button>
                             </div>
                             <div className="text-center text-[#AEAEAE] sm:text-mc xs:text-tc md:text-c">
@@ -152,8 +154,7 @@ const Subscription = () => {
                 </div>
                 {/*  */}
             </div>
-
-        </>
+        </Layout>
     )
 }
 

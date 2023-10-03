@@ -1,10 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
+import { Layout } from '../layout/Layout'
 
 const Founder = () => {
   return (
-    <>
-       <div className=" mt-8 my-6 md:px-[15px] px-4 mx-auto">
+    <Layout>
+        <div className=" mt-8 my-6 md:px-[15px] px-4 mx-auto">
   <p className="text-[#00B2FF]  sm:text-tt  xs:text-mt md:text-title md:text-center text-left font-[600]  ">
     Meet
     With Our Company founder &amp; CEO</p>
@@ -20,7 +21,7 @@ const Founder = () => {
   </div>
 </div>
 
-    </>
+    </Layout>
   )
 }
 

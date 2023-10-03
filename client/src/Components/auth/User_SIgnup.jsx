@@ -4,11 +4,12 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import { AiFillEyeInvisible } from "react-icons/ai";
-import sign_up_side_img from "../assets/img/sign_up_side_img.jpg";
+
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { Layout } from "../layout/Layout";
 
 export const User_SIgnup = () => {
   const navigate = useNavigate();
@@ -62,7 +63,8 @@ export const User_SIgnup = () => {
     }
   };
   return (
-    <div
+    <Layout>
+      <div
       className='max-w-[full] 
   '>
       <div className='grid md:grid-cols-2'>
@@ -174,9 +176,10 @@ export const User_SIgnup = () => {
         </div>
 
         <div className='hidden md:block p-8'>
-          <img src={sign_up_side_img} alt='' className='' />
+          <img src='./images/sign_up_side_img.jpg' alt='' className='' />
         </div>
       </div>
     </div>
+    </Layout>
   );
 };

@@ -9,67 +9,65 @@ require("dotenv").config();
 
 const userSignupController = async (req, res) => {
   try {
-    const { name, email, pwd, email_varified } = req.body;
+    const { name, email, password } = req.body;
     const isEmail = await user.findOne({ email: email });
     if (isEmail) {
-      res.send({ status: false, message: "Email Already Exists" });
+      res.status(409).send({ success: false, message: "User Already Exists" });
     } else {
-      const hashPassword = hash.hashSync(pwd, 10);
       const User = new user({
         name: name,
         email: email,
-        pwd: hashPassword,
-        email_varified: email_varified,
+        password: password,
       });
-      const data = await User.save();
-      if (data) {
-        const otp = Math.floor(Math.random() * 9999) + 1000;
-        res.json({
-          status: true,
-          message: "Signup success please varify your email",
-          otp: otp,
-          data: data,
-        });
 
-        const transporter = nodemailer.createTransport({
-          service: "gmail",
-          auth: {
-            user: process.env.EMAIL,
-            pass: process.env.MYPASSWORD,
-          },
-        });
+      const otp = Math.floor(Math.random() * 9999) + 1000;
 
-        var mailOptions = {
-          from: process.env.EMAIL,
-          to: email,
-          subject: "Next Tech Waves",
-          text: `Sign up success and variy your email with ${otp}`,
-        };
+      const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: process.env.EMAIL,
+          pass: process.env.MYPASSWORD,
+        },
+      });
 
-        transporter.sendMail(mailOptions, function (error, info) {
-          if (error) {
-            res.send({ error });
-          } else {
-            console.log("Email sent: " + info.response);
-          }
-        });
-      }
+      var mailOptions = {
+        from: process.env.EMAIL,
+        to: email,
+        subject: "Next Tech Waves",
+        text: `Sign up success and variy your email with ${otp}`,
+      };
+      transporter.sendMail(mailOptions, async function (error, info) {
+        if (error) {
+          res.send({ error });
+        } else {
+          const data = await User.save();
+
+          res.status(200).send({
+            data,
+            otp,
+            success: true,
+            message: "registration successfull",
+          });
+          console.log("Email sent: " + info.response);
+        }
+      });
     }
   } catch (error) {
     console.log(error);
-    res.send({ status: false, message: error });
+    res.send({ success: false, message: error.message });
   }
 };
 
 //user log in controller
 
 const userLogInController = async (req, res) => {
-  const { email, pwd } = req.body;
+  const { email, password } = req.body;
   const isEmail = await user.findOne({ email: email });
 
   if (isEmail) {
-    hash.compare(pwd, isEmail.pwd, function (err, result) {
+    hash.compare(password, isEmail.password, function (err, result) {
       if (err) {
+<<<<<<< Updated upstream
         res.send({ status: false, message: "Invalid Email or Password" });
       }
       if (result) {
@@ -86,6 +84,18 @@ const userLogInController = async (req, res) => {
     });
   } else {
     res.send({ status: false, message: "Invalid Email Or Password" });
+=======
+        res.send({ success: false, message: "Invalid user" });
+      }
+      if (result) {
+        res.send({ success: true, message: "login success" });
+      } else {
+        res.send({ success: false, message: "Invalid user" });
+      }
+    });
+  } else {
+    res.send({ success: false, message: "Invalid user" });
+>>>>>>> Stashed changes
   }
 };
 
@@ -99,10 +109,10 @@ const varifycontroller = async (req, res) => {
       { email_varified: true }
     );
     if (update) {
-      res.send({ status: true, message: "varification success" });
+      res.send({ success: true, message: "varification success" });
     }
   } else {
-    res.send({ status: false, message: "user not found!" });
+    res.send({ success: false, message: "user not found!" });
   }
 };
 
@@ -111,7 +121,7 @@ const wrongotpcontroller = async (req, res) => {
   const dltData = await user.findByIdAndDelete({ _id: req.body._id });
   if (dltData) {
     res.send({
-      status: true,
+      success: true,
       message: "you entered wrong otp please signup again",
     });
   }

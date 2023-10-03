@@ -1,11 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
+import { Layout } from '../layout/Layout'
 
 
 const Testimonials = () => {
   return (
-    <>
-         <div className="mx-[15px]  my-6 ">
+    <Layout>
+       <div className="mx-[15px]  my-6 ">
   <h1 className="text-center text-[#00B2FF]  sm:text-tt  xs:text-mt md:text-title font-[600] ">Client’s
     Testimonials</h1>
   <p className=" pt-4 sm:text-mp xs:text-tp md:text-p md:text-center text-[#494949] lg:max-w-[60%] mx-auto">We
@@ -44,9 +45,7 @@ const Testimonials = () => {
     </div>
   </div>
 </div>
-
-
-    </>
+    </Layout>
   )
 }
 
