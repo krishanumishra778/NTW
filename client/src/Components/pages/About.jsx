@@ -4,9 +4,9 @@ import React from 'react'
 const About = () => {
   return (
 <>
-  <div className=" w-[98%] mx-auto   lg:px-4 grid lg:grid-cols-3   " data-aos="fade-down" >
-    <div className=" flex gap-2  mx-auto ">
-      <div className>
+  <div className=" w-[98%] mx-auto   px-4 grid lg:grid-cols-3" data-aos="fade-down" >
+    <div className=" flex gap-1  mx-auto  ">
+      <div >
         <img src="images/about-I.png" alt='Next Tech Waves' className="rounded lg:my-5 xs:my-2" />
         <img src="images/about-II.png" alt='Next Tech Waves' className="rounded lg:my-5" />
       </div>
