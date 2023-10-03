@@ -5,9 +5,13 @@ import { FcGoogle } from "react-icons/fc";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import signin_side_img from "../assets/img/signin_side_img.jpg";
 import axios from "axios";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, json, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loginuser } from "./redux/Action";
+
 
 export const User_login = () => {
+  const dispatch=useDispatch()
   const navigate = useNavigate();
   const [userData, setUserData] = useState({
     email: "",
@@ -28,6 +32,9 @@ export const User_login = () => {
       .then(res => {
         if (res.data.status) {
           alert(res.data.message);
+          // dispatch(loginuser(res.data.user))
+          console.log(res.data.user)
+          localStorage.setItem("token", res.data.token);
           navigate("/");
         } else {
           alert(res.data.message);
@@ -97,16 +104,22 @@ export const User_login = () => {
               />
             </div>
 
-            <div className='relative z-0 w-full mb-6 group text-center'>
+            <div className='relative z-0 w-full mb-3 pt-3 group text-center'>
               Forgot password?
             </div>
+           
             <button
               type='submit'
               className='text-white bg-blue-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 '>
-              Submit
+              Log In
             </button>
+            <div className='relative z-0 w-full mb-3 group text-center pt-3'>
+            <span> Don't have an </span>
+             <span> <Link to='/sign-up' className="text-blue-400"> Sign Up?</Link></span>
+            </div>
+           
 
-            <div className='relative z-0 w-full mb-6 group text-center mt-2'>
+            {/* <div className='relative z-0 w-full mb-6 group text-center mt-2'>
               Log In with Google
             </div>
 
@@ -116,7 +129,7 @@ export const User_login = () => {
                 <FcGoogle className='inline text-2xl ' />
               </span>
               <span className='pl-3'>Google</span>
-            </button>
+            </button> */}
           </form>
         </div>
       </div>

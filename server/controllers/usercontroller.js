@@ -5,6 +5,8 @@ const user = require("../models/user_signup");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
+//user sign up controller
+
 const userSignupController = async (req, res) => {
   try {
     const { name, email, pwd, email_varified } = req.body;
@@ -59,6 +61,8 @@ const userSignupController = async (req, res) => {
   }
 };
 
+//user log in controller
+
 const userLogInController = async (req, res) => {
   const { email, pwd } = req.body;
   const isEmail = await user.findOne({ email: email });
@@ -66,18 +70,26 @@ const userLogInController = async (req, res) => {
   if (isEmail) {
     hash.compare(pwd, isEmail.pwd, function (err, result) {
       if (err) {
-        res.send({ status: false, message: "Invalid user" });
+        res.send({ status: false, message: "Invalid Email or Password" });
       }
       if (result) {
-        res.send({ status: true, message: "login success" });
+        const token = jwt.sign({ id: isEmail._id }, process.env.SECRET_KEY);
+        res.send({
+          status: true,
+          message: "login success",
+          token: token,
+          user: isEmail,
+        });
       } else {
-        res.send({ status: false, message: "Invalid user" });
+        res.send({ status: false, message: "Invalid Email Or Password" });
       }
     });
   } else {
-    res.send({ status: false, message: "Invalid user" });
+    res.send({ status: false, message: "Invalid Email Or Password" });
   }
 };
+
+// email varify conrtoller
 
 const varifycontroller = async (req, res) => {
   const id = await user.findOne({ _id: req.body.data._id });
@@ -94,6 +106,7 @@ const varifycontroller = async (req, res) => {
   }
 };
 
+// wrong otp controller
 const wrongotpcontroller = async (req, res) => {
   const dltData = await user.findByIdAndDelete({ _id: req.body._id });
   if (dltData) {

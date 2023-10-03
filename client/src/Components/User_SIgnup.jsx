@@ -147,11 +147,11 @@ export const User_SIgnup = () => {
                 Submit
               </button>
 
-              <div className='relative z-0 w-full mb-6 group text-center mt-2'>
-                <Link to='/login'> All ready have an account?</Link>
+              <div className='relative z-0 w-full mb-6 group text-center mt-2 text-blue-400'>
+                <Link to='/log-in'> All ready have an account?</Link>
               </div>
 
-              <div className='relative z-0 w-full mb-6 group text-center mt-2'>
+              {/* <div className='relative z-0 w-full mb-6 group text-center mt-2'>
                 Connect with Google
               </div>
 
@@ -168,7 +168,7 @@ export const User_SIgnup = () => {
                     console.log("Login Failed");
                   }}
                 />
-              </GoogleOAuthProvider>
+              </GoogleOAuthProvider> */}
             </form>
           </div>
         </div>
