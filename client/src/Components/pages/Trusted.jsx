@@ -4,7 +4,7 @@ import React from 'react'
 const Trusted = () => {
   return (
     <>
-         <div className=" my-[20px]" data-aos="fade-down">
+         <div className=" max-w-[1400px] mx-auto my-[20px]" data-aos="fade-down">
   <div className="text-[#00B2FF] text-center sm:text-tt  xs:text-mt md:text-title font-[600] mb-4">
     <p>Trusted By Brand’s</p>
   </div>
