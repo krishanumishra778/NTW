@@ -1,7 +1,7 @@
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Layout } from '../layout/Layout';
+
 
 const Menus = ['You dont have any plan ', 'Settings', 'log Out'];
 const Header = () => {
@@ -36,7 +36,7 @@ const Header = () => {
     };
   }, [open]);
   return (
-    <div data-aos="fade-down ">
+    <div className='max-w-[1300px] mx-auto'  data-aos="fade-up ">
       <div className="py-[20px] hidden md:block ">
         <div className='grid  mx-4 '>
 

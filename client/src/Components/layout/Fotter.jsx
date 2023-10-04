@@ -5,8 +5,8 @@ const Fotter = () => {
     return (
         
         <div>
-            <div className=" xs:max-w-[99%] md:max-w-[95%] mx-auto py-5 mt-6 md:mb-12 sm:grid grid-cols-2 gap-4 px-4">
-                <div className>
+            <div className=" xs:max-w-[1300px]  mx-auto py-5 mt-6 md:mb-12 sm:grid grid-cols-2 gap-4 px-4">
+                <div >
                     <div>
                         <img src="logo/next tech waves logo.png"  />
                     </div>
