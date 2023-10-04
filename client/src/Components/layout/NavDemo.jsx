@@ -19,10 +19,10 @@ export const NavDemo = () => {
   return (
     <>
       <div
-        className='max-w-[90%] w-[1340px] hidden md:block mx-auto fixed bottom-[15px] left-0 right-0     border border[black] bg-[#F5F5F5] rounded-full  z-[1]'
-        data-aos='fade-down'>
+        className='max-w-[90%] w-[1540px] hidden md:block mx-auto fixed bottom-[15px] left-0 right-0     border border[black] bg-[#F5F5F5] rounded-full  z-[1]'
+        data-aos='zoom-in'>
         <nav>
-          <ul className='flex justify-between px-2 py-2'>
+          <ul className='flex justify-between px-2 '>
             <li className=' rounded-full hover:text-[#FFF] px-4 py-1 lg:text-p md:text-tp sm:text-mp hover:bg-[#00B2FF] active:bg-[#00B2FF] '>
               <Link to='/'> Home</Link>
             </li>

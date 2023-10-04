@@ -20,7 +20,7 @@ export const Head_nav = () => {
   }, []);
   return (
     <>
-      <nav className="bg-gray-50 block md:hidden  my-2 px-4 " data-aos="fade-down">
+      <nav className=" block md:hidden  my-2 px-4 " data-aos="fade-down">
         <div className=" mx-auto flex justify-between items-center">
           <div className="md:hidden">
             {/* Mobile menu button */}
