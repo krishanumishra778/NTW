@@ -58,7 +58,7 @@ const Header = () => {
                 className='absolute ml-16 top-16 '
                 style={{ display: open ? 'block' : 'none' }}
               >
-                <div className='bg-white mt-4 p-5 w-[350px] shadow-sm  border-2 '>
+                <div className='bg-white mt-3 p-4 w-[350px] shadow-xl rounded-md  '>
                   <div className='flex justify-center'>
                     <img
                       src="./images/user.png"
@@ -71,15 +71,16 @@ const Header = () => {
                   </p>
                   <ul>
                     {Menus.map((menu, index) => (
-                      <li
-                        onClick={() => setOpen(false)}
-                        className={`p-2 text-[14px]  text-gray-500 cursor-pointer ${index === 2 ? 'border-t border-gray-400 mx-auto' : ''
-                          } ${index === 2 ? 'mb-2' : ''} hover:text-blue-500 transition duration-300 ${index === 0 ? 'mt-4' : ''
-                          }`}
-                        key={menu}
-                      >
-                        {index === 1 ? <Link to='/Setting'>{menu}</Link> : menu}
-                      </li>
+                     <li
+                     onClick={() => setOpen(false)}
+                     className={`p-2 text-[14px]  text-gray-500 cursor-pointer ${index === 2 ? 'border-t border-gray-400 mx-auto' : ''
+                       } ${index === 2 ? 'mb-2' : ''} hover:text-blue-500 transition duration-300 ${index === 0 ? 'mt-4' : ''
+                       } ${index === 1 ? 'settings-menu-item' : ''}`}
+                     key={menu}
+                   >
+                     {index === 1 ? <Link to='/Editprofile'>{menu}</Link> : menu}
+                   </li>
+                   
                     ))}
                   </ul>
                 </div>
@@ -117,14 +118,7 @@ const Header = () => {
         </div>
       </div>
 
-
-
-
-
-
     </div>
-
-
   )
 }
 

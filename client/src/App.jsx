@@ -14,7 +14,7 @@ import { NavDemo } from "./Components/layout/NavDemo";
 import { Head_nav } from "./Components/layout/Head_nav";
 import Fotter from "./Components/layout/Fotter";
 import { Settings } from "./Components/pages/Settings";
-
+import { Editprofile } from "./Components/pages/Editprofile";
 
 
 
@@ -39,8 +39,8 @@ export default function App() {
           <Route path='/sign-up' element={<User_SIgnup />} />
           <Route path='/get-otp' element={<Getotp />} />
           <Route path='/log-in' element={< User_login/>} />
-          <Route path="/settings" element={< Settings/>}/>
-        
+          <Route path="/Settings" element={< Settings/>}/>
+          <Route path="/Editprofile" element={ < Editprofile/>}/>
         </Routes>
       <Fotter/>
       </Router>
