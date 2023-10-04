@@ -61,5 +61,6 @@ export default {
     }
     },
   },
-  plugins: [],
+  plugins: [('@tailwindcss/animation')],
+ 
 }
