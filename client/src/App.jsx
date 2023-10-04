@@ -21,6 +21,8 @@ import { Getotp } from "./Components/auth/Getotp";
 import { NavDemo } from "./Components/layout/NavDemo";
 import { Head_nav } from "./Components/layout/Head_nav";
 import Fotter from "./Components/layout/Fotter";
+import Contact from "./Components/pages/Contact";
+import Join from "./Components/pages/Join";
 
 
 
@@ -48,6 +50,8 @@ export default function App() {
           <Route path='/get-otp' element={<Getotp />} />
           <Route path='/log-in' element={< User_login/>} />
         </Routes>
+        <Contact/>
+        <Join/>
       <Fotter/>
       </Router>
 

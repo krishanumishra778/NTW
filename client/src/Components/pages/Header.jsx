@@ -2,7 +2,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
 import { useTypewriter, Cursor } from 'react-simple-typewriter'
-import { Layout } from '../layout/Layout';
+// import { Layout } from '../layout/Layout';
 
 const Header = () => {
   const [text] = useTypewriter({
@@ -13,9 +13,9 @@ const Header = () => {
 
     <div className='w-[98%]  mx-auto' data-aos="fade-down">
       <div className="py-[20px] hidden md:block ">
-        <div className='grid grid-cols-3 px-4'>
+        <div className='grid grid-cols-3 px-4 '>
 
-          <div className=' rounded-full'><img className=' rounded-full' src="images/user.png" alt="" /></div>
+          <div className=' max-w-[12%]  rounded-full'><img className=' rounded-full w-[100%]' src="https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg" alt="" /></div>
           <div className=' mx-auto'>
             <img src="logo/next tech waves logo.png" alt='' className="" />
           </div>

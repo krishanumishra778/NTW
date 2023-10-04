@@ -71,7 +71,7 @@ const Subscription = () => {
                                 <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">Email support.</li>
                             </ul>
                             <div className="text-center">
-                                <button className=" bg-[#00B2FF] rounded rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  mt-8 mb-1 hover:bg-[#00b3ffd8] transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-[#00b3ffd8] duration-300 ... ">Contact
+                                <button className=" bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  mt-8 mb-1  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-[#00b3ffd8] duration-300 ... ">Contact
                                     Us</button>
                             </div>
                             <div className="text-center text-[#AEAEAE] sm:text-mc xs:text-tc md:text-c">
@@ -105,7 +105,7 @@ const Subscription = () => {
                                 <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">Priority email support.</li>
                             </ul>
                             <div className="text-center">
-                                <button className="bg-[#00B2FF] rounded rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  mt-1 mb-1 hover:bg-[#00b3ffd8] transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-[#00b3ffd8] duration-300 ... ">Contact
+                                <button className="bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  mt-1 mb-1  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-[#00b3ffd8] duration-300 ... ">Contact
                                     Us</button>
                             </div>
                             <div className="text-center text-[#AEAEAE] sm:text-mc xs:text-tc md:text-c">
@@ -141,7 +141,7 @@ const Subscription = () => {
                                     times. </li>
                             </ul>
                             <div className="text-center">
-                                <button className=" bg-[#00B2FF] rounded rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff] xs:mt-2 lg:mt-[60px] hover:bg-[#00b3ffd8] transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-[#00b3ffd8] duration-300 ...">Contact
+                                <button className=" bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff] xs:mt-2 lg:mt-[60px]  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-[#00b3ffd8] duration-300 ...">Contact
                                     Us</button>
                             </div>
                             <div className="text-center text-[#AEAEAE] sm:text-mc xs:text-tc md:text-c">

@@ -47,7 +47,7 @@ export const Head_nav = () => {
         <div className="max-w-[70%]">
             <img src="logo/next tech waves logo.png" alt="Next tech Waves" data-aos="fade-down" />
         </div>
-        <div className='border-2 max-w-[10%] cursor-pointer'><img src="https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg" alt="" /></div>
+        <div className=' max-w-[10%] cursor-pointer'><img src="https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg" alt="" /></div>
        
         
       </div>
