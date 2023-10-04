@@ -2,46 +2,82 @@
 import React from 'react'
 
 const Creativeshowcase = () => {
+    const Allproduct = () => {
+        document.getElementById("mobiledesign").style = "display:block";
+        document.getElementById("webbanner").style = "display:block";
+        document.getElementById("webdesign").style = "display:block";
+        document.getElementById("webdesign2").style = "display:block";
+
+
+    }
+    // Allproduct();
+
+    const mobileproduct = () => {
+        document.getElementById("mobiledesign").style = "display:block";
+        document.getElementById("webbanner").style = "display:none";
+        document.getElementById("webdesign").style = "display:none";
+        document.getElementById("webdesign2").style = "display:none";
+
+    }
+
+
+    const webdesign = () => {
+        document.getElementById("mobiledesign").style = "display:none";
+        document.getElementById("webbanner").style = "display:none";
+        document.getElementById("webdesign").style = "display:block";
+        document.getElementById("webdesign2").style = "display:block";
+    }
+
+
+    const webbanner = () => {
+        document.getElementById("mobiledesign").style = "display:none";
+        document.getElementById("webbanner").style = "display:block";
+        document.getElementById("webdesign").style = "display:none";
+        document.getElementById("webdesign2").style = "display:none";
+    }
+
     return (
         <>
-            <div className>
+            <div data-aos="fade-down"  className='max-w-[1300px]  mx-auto'>
                 <div className="my-5">
-                    <p className="text-center text-[#00B2FF]  sm:text-tt  xs:text-mt md:text-title font-[600] py-2">Explore Our
+                    <p className="md:text-center text-[#00B2FF]  sm:text-tt  xs:text-mt md:text-title font-[600] py-2 px-4">Explore Our
                         Creative Showcase</p>
-                    <p className="sm:text-mp xs:text-tp md:text-p sm:text-center text-[#494949]">Experience a Gallery of
+                    <p className="sm:text-mp xs:text-tp md:text-p md:text-center px-4 text-[#494949]">Experience a Gallery of
                         Remarkable
                         UI/UX Designs and Web Templates, Crafted for Excellence.</p>
                 </div>
                 <div className=" py-2">
-                    <div className="md:max-w-[80%] border-2 bg-[#F5F5F5] rounded-[20px] mx-auto py-2  text-center">
-                        <nav className="container mx-auto  items-center">
-                            <ul className="space-x-4 grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-4  ">
-                                <li className="my-2 md:my-0"><a href="#" className=" text-[#494949]  hover:text-[#fff] hover:bg-[#00B2FF] active:bg[#4E6BFF] px-6 py-2 rounded-full xs:border-2 sm:border-none">All
-                                    Product</a></li>
-                                <li className="my-2 md:my-0"><a href="#" className="text-[#494949]  hover:text-[#fff] hover:bg-[#00B2FF] px-4 py-2 rounded-full  xs:border-2 sm:border-none">Mobile
-                                    App design</a></li>
-                                <li className="my-2 md:my-0"><a href="#" className="text-[#494949]  hover:text-[#fff] hover:bg-[#00B2FF] px-6 py-2 rounded-full  xs:border-2 sm:border-none">Web
-                                    Design</a></li>
-                                <li className="my-2 md:my-0"><a href="#" className="text-[#494949] hover:text-[#fff] hover:bg-[#00B2FF] px-6 py-2 rounded-full  xs:border-2 sm:border-none">Web
-                                    Banner</a></li>
+                    <div className=" xs:max-w-[95%] sm:max-w-[80%]  bg-[#F5F5F5] rounded-[20px] mx-auto   text-center">
+                        <nav className="mx-auto  items-center">
+                            <ul className=" grid grid-cols-4 gap-1 ">
+                                <li className="  cursor-pointer  xs:text-[11px] sm:text-[14px] md:text-[16px]  hover:bg-[#00B2FF] active:bg-[#40a1cb] rounded-full xs:py-1 sm:py-2" onClick={Allproduct} >All
+                                    Product</li>
+                                <li className="  cursor-pointer  xs:text-[11px] sm:text-[14px] md:text-[16px] hover:bg-[#00B2FF]  active:bg-[#40a1cb] rounded-full xs:py-1 sm:py-2" onClick={mobileproduct} >
+                                    App design</li>
+                                <li className="  cursor-pointer  xs:text-[11px] sm:text-[14px] md:text-[16px] hover:bg-[#00B2FF]  active:bg-[#40a1cb] rounded-full xs:py-1 sm:py-2" onClick={webdesign}>Web
+                                    Design</li>
+                                <li className="  cursor-pointer  xs:text-[11px] sm:text-[14px] md:text-[16px] hover:bg-[#00B2FF]  active:bg-[#40a1cb] rounded-full xs:py-1 sm:py-2 " onClick={webbanner} >Web
+                                    Banner</li>
+
                             </ul>
                         </nav>
                     </div>
                     <div className=" my-6 px-[10px]">
-                        <div className="grid sm:grid-cols-2 md:grid-cols-3 xs:grid-cols-1 gap-1">
-                            <div className>
-                                <img src="images/creative1.png" alt='loading image' />
+                        <div className="grid sm:grid-cols-2 md:grid-cols-3 xs:grid-cols-1 gap-2">
+                            <div id='mobiledesign' >
+                                <img src="images/creative1.png" alt='Mobile design' className='hover:opacity-10 ' />
                             </div>
-                            <div className>
-                                <img src="images/creative2.png" alt='loading image' />
+                            <div id='webbanner' >
+                                <img src="images/creative2.png" alt='Web Banner' />
                             </div>
-                            <div className="border-2 mx-auto md:row-span-2">
-                                <img src="images/creative3.png" alt='loading image' />
+                            <div className="mx-auto md:row-span-2" id='webdesign' >
+                                <img src="images/creative3.png" alt='Website design' />
                             </div>
-                            <div className="md:col-span-2 ">
-                                <img src="images/creative4.png" alt='loading image' />
+                            <div className="md:col-span-2 " id='webdesign2' >
+                                <img src="images/creative4.png" alt='Website design' />
                             </div>
                         </div>
+                        <div id='allp'></div>
                     </div>
                 </div>
             </div>

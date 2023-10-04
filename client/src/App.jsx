@@ -2,15 +2,7 @@
 
 import "../src/App.css";
 import { User_login } from "./Components/auth/User_login";
-
 import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
-
-
-
-
-
-
-
 import About from "./Components/pages/About";
 import { Home } from "./Components/layout/Home";
 import Services from "./Components/pages/Services";
@@ -21,6 +13,12 @@ import { Getotp } from "./Components/auth/Getotp";
 import { NavDemo } from "./Components/layout/NavDemo";
 import { Head_nav } from "./Components/layout/Head_nav";
 import Fotter from "./Components/layout/Fotter";
+<<<<<<< HEAD
+import { Settings } from "./Components/pages/Settings";
+=======
+import Contact from "./Components/pages/Contact";
+import Join from "./Components/pages/Join";
+>>>>>>> bbc40852d29d931663a5425b2703d542614d712c
 
 
 
@@ -30,8 +28,6 @@ export default function App() {
 
     
        
-       
-      
 
       <Router>
 
@@ -47,7 +43,10 @@ export default function App() {
           <Route path='/sign-up' element={<User_SIgnup />} />
           <Route path='/get-otp' element={<Getotp />} />
           <Route path='/log-in' element={< User_login/>} />
+          <Route path="/Settings" element={< Settings/>}/>
         </Routes>
+        <Contact/>
+        <Join/>
       <Fotter/>
       </Router>
 

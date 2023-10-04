@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import AOS from "aos";
@@ -19,32 +19,23 @@ export const NavDemo = () => {
   return (
     <>
       <div
-        className='max-w-[90%] w-[1340px] hidden md:block mx-auto fixed bottom-[15px] left-0 right-0     border border[black] bg-[#F5F5F5] rounded-full  z-[1]'
-        data-aos='fade-down'>
-        <nav>
-          <ul className='flex justify-between px-2 py-2'>
-            <li className=' rounded-full hover:text-[#FFF] px-4 py-1 lg:text-p md:text-tp sm:text-mp hover:bg-[#00B2FF] active:bg-[#00B2FF] '>
-              <Link to='/'> Home</Link>
-            </li>
-            <li className='  rounded-full hover:text-[#FFF] px-2 py-1 lg:text-p md:text-tp sm:text-mp hover:bg-[#00B2FF] '>
-              <Link to='/about-us'> About Us</Link>
-            </li>
-            <li className='  rounded-full hover:text-[#FFF] px-4 py-1 lg:text-p md:text-tp sm:text-mp hover:bg-[#00B2FF] '>
-              <Link to='/services'> Services</Link>
-            </li>
-            <li className='  rounded-full hover:text-[#FFF] px-1 py-1 lg:text-p md:text-tp sm:text-mp hover:bg-[#00B2FF] '>
-              {" "}
-              <Link to='/subscription'> Recharge & Plans</Link>
-            </li>
+        className='max-w-[90%] hidden md:block mx-auto fixed bottom-[15px] left-0 right-0      bg-[#F5F5F5] rounded-full  z-[1]'
+        data-aos='zoom-in'>
+          <nav className="mx-auto  items-center">
+                            <ul className=" grid grid-cols-6  text-center">
+                                <li className="  cursor-pointer  xs:text-[11px] sm:text-[14px] md:text-[15px] xl:text-[20px]  hover:bg-[#00B2FF] active:bg-[#40a1cb] rounded-full xs:py-1 sm:py-2 2xl:py-3"  >
+                                <Link to='/' > Home</Link>
+                                  </li>
+                                <li className="  cursor-pointer  xs:text-[11px] sm:text-[14px] md:text-[15px] hover:bg-[#00B2FF]  active:bg-[#40a1cb] rounded-full xs:py-1 sm:py-2 xl:text-[20px] 2xl:py-3"  >
+                                <Link to='/about-us'> About-Us</Link> </li>
+                                <li className="  cursor-pointer  xs:text-[11px] sm:text-[14px] md:text-[15px] hover:bg-[#00B2FF]  active:bg-[#40a1cb] rounded-full xs:py-1 sm:py-2 xl:text-[20px] 2xl:py-3"> <Link to='/services' > Services</Link></li>
+                                <li className="  cursor-pointer  xs:text-[11px] sm:text-[14px] md:text-[14px] hover:bg-[#00B2FF]  active:bg-[#40a1cb] rounded-full xs:py-1 sm:py-2 xl:text-[20px] 2xl:py-3 "  > <Link to='/subscription' > Recharge & Plans</Link> </li>
+                                  <li className="  cursor-pointer  xs:text-[11px] sm:text-[14px] md:text-[15px] hover:bg-[#00B2FF]  active:bg-[#40a1cb] rounded-full xs:py-1 sm:py-2 xl:text-[20px] 2xl:py-3 "  > <Link to='/portfolio' > Our Portfolio</Link></li>
 
-            <li className='  rounded-full hover:text-[#FFF] px-2 py-1 lg:text-p md:text-tp sm:text-mp hover:bg-[#00B2FF] '>
-              <Link to='/portfolio'> Our Portfolio</Link>
-            </li>
-            <li className='  rounded-full hover:text-[#FFF] px-4 py-1 lg:text-p md:text-tp sm:text-mp hover:bg-[#00B2FF] '>
-              <Link to='/sign-up'>Sign-Up</Link>
-            </li>
-          </ul>
-        </nav>
+                                  <li className="  cursor-pointer  xs:text-[11px] sm:text-[14px] md:text-[15px] hover:bg-[#00B2FF]  active:bg-[#40a1cb] rounded-full xs:py-1 sm:py-2 xl:text-[20px] 2xl:py-3"  >    <Link to='/sign-up'> Sign-Up</Link></li>
+                                    
+                            </ul>
+                        </nav>
       </div>
     </>
   );
