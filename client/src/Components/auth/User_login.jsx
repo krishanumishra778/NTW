@@ -3,23 +3,16 @@
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillEyeInvisible } from "react-icons/ai";
-
 import axios from "axios";
-
 import { Link, json, useNavigate } from "react-router-dom";
-
-
-
-
-import { Layout } from "../layout/Layout";
-
+import toast from "react-hot-toast";
 
 export const User_login = () => {
 
   const navigate = useNavigate();
   const [userData, setUserData] = useState({
     email: "",
-    pwd: "",
+    password: "",
   });
 
   const inpHandler = event => {
@@ -32,20 +25,18 @@ export const User_login = () => {
   const formHandler = event => {
     event.preventDefault();
     axios
-      .post("http://localhost:4000/login", userData)
+      .post("http://localhost:4000/login", userData, { withCredentials: true })
       .then(res => {
-        if (res.data.status) {
-          alert(res.data.message);
-          // dispatch(loginuser(res.data.user))
-          console.log(res.data.user)
-          localStorage.setItem("token", res.data.token);
-          navigate("/");
+        console.log(res)
+        if (res.data.success) {
+          toast.success(res.data.message)
+
         } else {
-          alert(res.data.message);
+          toast.error(res.data.message)
         }
       })
       .catch(err => {
-        console.log(err);
+        toast.error(err);
       });
   };
 
@@ -58,8 +49,8 @@ export const User_login = () => {
     }
   };
   return (
-  
-     <div className='grid md:grid-cols-2'>
+
+    <div className='grid md:grid-cols-2'>
       <div className='  bg-white '>
         <h1 className='text-2xl text-center font-bold mt-10'>Log In</h1>
 
@@ -91,7 +82,7 @@ export const User_login = () => {
               </label>
               <input
                 type='password'
-                name='pwd'
+                name='password'
                 id='pwd'
                 className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
                 h-8'
@@ -99,8 +90,7 @@ export const User_login = () => {
                 required
                 onChange={inpHandler}
                 value={userData.pwd}
-                minLength={5}
-                maxLength={10}
+
               />
 
               <AiFillEyeInvisible
@@ -112,17 +102,17 @@ export const User_login = () => {
             <div className='relative z-0 w-full mb-3 pt-3 group text-center'>
               Forgot password?
             </div>
-           
+
             <button
               type='submit'
               className='text-white bg-blue-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 '>
               Log In
             </button>
             <div className='relative z-0 w-full mb-3 group text-center pt-3'>
-            <span> Don't have an </span>
-             <span> <Link to='/sign-up' className="text-blue-400"> Sign Up?</Link></span>
+              <span> Don't have an </span>
+              <span> <Link to='/sign-up' className="text-blue-400"> Sign Up?</Link></span>
             </div>
-           
+
 
             {/* <div className='relative z-0 w-full mb-6 group text-center mt-2'>
               Log In with Google
@@ -143,6 +133,6 @@ export const User_login = () => {
         <img src='./images/sign_up_side_img.jpg' alt='' className='' />
       </div>
     </div>
-  
+
   );
 };

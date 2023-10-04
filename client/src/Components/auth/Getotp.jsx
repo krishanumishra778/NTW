@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Layout } from "../layout/Layout";
-
+import toast from "react-hot-toast";
 export const Getotp = () => {
   const navigate = useNavigate();
   const [otp, setOtp] = useState({
@@ -35,17 +35,17 @@ export const Getotp = () => {
     if (otpFun.otp == otp.otp) {
       axios.post("http://localhost:4000/varify", otpFun).then(res => {
         if (res.data.status) {
-          alert(res.data.message);
+          toast.success(res.data.message);
           navigate("/log-in");
         } else {
-          alert(res.data.message);
+          toast.error(res.data.message);
         }
       });
     } else {
-      alert("wrong otp");
+      toast.error("wrong otp");
       axios.post("http://localhost:4000/wrong-otp", otpFun.data).then(res => {
         if (res.data.status) {
-          alert(res.data.message);
+          toast.success(res.data.message);
           navigate("/sign-up");
         }
       });

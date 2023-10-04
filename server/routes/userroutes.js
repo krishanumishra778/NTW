@@ -7,6 +7,7 @@ const {
   emailvarificationcontroller,
   varifycontroller,
   wrongotpcontroller,
+  logout
 } = require("../controllers/usercontroller");
 
 const router = require("express").Router();
@@ -16,5 +17,6 @@ router.post("/login", userLogInController);
 
 router.post("/varify", varifycontroller);
 router.post("/wrong-otp", wrongotpcontroller);
-
+// logout user
+router.route("/logout").get(logout);
 module.exports = router;
