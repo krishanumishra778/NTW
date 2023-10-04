@@ -11,10 +11,18 @@ const Fotter = () => {
                         <img src="logo/next tech waves logo.png"  />
                     </div>
                     <div className="grid grid-cols-4 xs:max-w-[40%] sm:max-w-[30%] gap-2 mt-2 ">
+                        <a href="">
                         <img src="icons/insta.png"  />
+                        </a>
+                        <a href="">
                         <img src="icons/be.png"  className="my-auto" />
+                        </a>
+                        <a href="">
                         <img src="icons/lin.png"  />
+                        </a>
+                        <a href="">
                         <img src="icons/x.png"  />
+                        </a>
                     </div>
                 </div>
                 <div className=" sm:text-right  text-center">

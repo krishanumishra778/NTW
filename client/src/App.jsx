@@ -13,12 +13,8 @@ import { Getotp } from "./Components/auth/Getotp";
 import { NavDemo } from "./Components/layout/NavDemo";
 import { Head_nav } from "./Components/layout/Head_nav";
 import Fotter from "./Components/layout/Fotter";
-<<<<<<< HEAD
 import { Settings } from "./Components/pages/Settings";
-=======
-import Contact from "./Components/pages/Contact";
-import Join from "./Components/pages/Join";
->>>>>>> bbc40852d29d931663a5425b2703d542614d712c
+
 
 
 
@@ -43,10 +39,9 @@ export default function App() {
           <Route path='/sign-up' element={<User_SIgnup />} />
           <Route path='/get-otp' element={<Getotp />} />
           <Route path='/log-in' element={< User_login/>} />
-          <Route path="/Settings" element={< Settings/>}/>
+          <Route path="/settings" element={< Settings/>}/>
+        
         </Routes>
-        <Contact/>
-        <Join/>
       <Fotter/>
       </Router>
 

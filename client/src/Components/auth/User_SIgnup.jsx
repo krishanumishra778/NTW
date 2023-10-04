@@ -10,13 +10,14 @@ import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Layout } from "../layout/Layout";
+import toast from "react-hot-toast";
 
 export const User_SIgnup = () => {
   const navigate = useNavigate();
   const [userData, setuserData] = useState({
     name: "",
     email: "",
-    pwd: "",
+    password: "",
     email_varified: "false",
   });
 
@@ -32,24 +33,17 @@ export const User_SIgnup = () => {
 
     axios
       .post("http://localhost:4000/register", userData)
-      .then(res => {
-        if (res.data.status) {
-          alert(res.data.message);
-          localStorage.setItem("otp", JSON.stringify(res.data));
-          setuserData({
-            name: "",
-            email: "",
-            pwd: "",
-            
-          });
-          navigate("/get-otp");
+      .then((res) => {
+        console.log(res)
+        if (res.data.success) {
+          toast.success(res.data.message);
         }
-        else{
-          alert(res.data.message)
+        else {
+          toast.error(res.data.message)
         }
       })
       .catch(err => {
-        console.log(err);
+        toast.error(err.response.data.message);
       });
   };
 
@@ -58,13 +52,13 @@ export const User_SIgnup = () => {
     if (pwdType === "password") {
       document.getElementById("pwd").type = "text";
     } else {
-    res.send({status:false,message:"user not found!"})
-    document.getElementById("pwd").type = "password";
+      res.send({ status: false, message: "user not found!" })
+      document.getElementById("pwd").type = "password";
     }
   };
   return (
- 
-      <div
+
+    <div
       className='max-w-[full] 
   '>
       <div className='grid md:grid-cols-2'>
@@ -117,7 +111,7 @@ export const User_SIgnup = () => {
                 </label>
                 <input
                   type='password'
-                  name='pwd'
+                  name='password'
                   id='pwd'
                   className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
                 h-8'
@@ -180,6 +174,6 @@ export const User_SIgnup = () => {
         </div>
       </div>
     </div>
-   
+
   );
 };

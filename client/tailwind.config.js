@@ -21,7 +21,6 @@ export default {
   screens: {
       'sm': '430px',
       // => @media (min-width: 640px) { ... }
-
       'md': '768px',
       // => @media (min-width: 768px) { ... }
 
@@ -37,6 +36,8 @@ export default {
     extend: {
       screens: {
         'xs': '280px',
+      
+
         // => @media (min-width: 640px) { ... }
     },
     transitionDuration: {
@@ -60,5 +61,6 @@ export default {
     }
     },
   },
-  plugins: [],
+  plugins: [('@tailwindcss/animation')],
+ 
 }
