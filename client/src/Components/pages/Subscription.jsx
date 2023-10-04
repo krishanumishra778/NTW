@@ -45,7 +45,7 @@ const Subscription = () => {
                         <p className="sm:text-mp xs:text-tp md:text-p text-center pt-2 inline"> Bill
                             quarterly</p>
                     </div>
-                    <div className="max-w-[1250px] mt-8 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1  gap-4">
+                    <div className="max-w-[1300px] mx-auto mt-8 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1  gap-4">
                         {/*  */}
                         <div className="  pt-2  border-2 rounded-xl  bg-[#FFF]">
                             <p className="sm:text-mp xs:text-tp md:text-p font-[700] text-center">Startup’s</p>
@@ -141,7 +141,7 @@ const Subscription = () => {
                                     times. </li>
                             </ul>
                             <div className="text-center">
-                                <button className=" bg-[#00B2FF] rounded rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff] xs:mt-1 md:mt-[60px] hover:bg-[#00b3ffd8] transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-[#00b3ffd8] duration-300 ...">Contact
+                                <button className=" bg-[#00B2FF] rounded rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff] xs:mt-2 lg:mt-[60px] hover:bg-[#00b3ffd8] transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-[#00b3ffd8] duration-300 ...">Contact
                                     Us</button>
                             </div>
                             <div className="text-center text-[#AEAEAE] sm:text-mc xs:text-tc md:text-c">
