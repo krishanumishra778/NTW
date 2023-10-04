@@ -3,6 +3,8 @@ const nodemailer = require("nodemailer");
 const hash = require("bcrypt");
 const user = require("../models/user_signup");
 const jwt = require("jsonwebtoken");
+const sendToken = require("../utils/jwtToken");
+
 require("dotenv").config();
 
 //user sign up controller
@@ -12,7 +14,7 @@ const userSignupController = async (req, res) => {
     const { name, email, password } = req.body;
     const isEmail = await user.findOne({ email: email });
     if (isEmail) {
-      res.status(409).send({ success: false, message: "User Already Exists" });
+      res.status(200).send({ success: false, message: "User Already Exists" });
     } else {
       const User = new user({
         name: name,
@@ -45,6 +47,7 @@ const userSignupController = async (req, res) => {
           res.status(200).send({
             data,
             otp,
+
             success: true,
             message: "registration successfull",
           });
@@ -61,41 +64,30 @@ const userSignupController = async (req, res) => {
 //user log in controller
 
 const userLogInController = async (req, res) => {
-  const { email, password } = req.body;
-  const isEmail = await user.findOne({ email: email });
+  try {
+    const { email, password } = req.body;
+    const foundUser = await user.findOne({ email: email }).select("+password");
 
-  if (isEmail) {
-    hash.compare(password, isEmail.password, function (err, result) {
-      if (err) {
-<<<<<<< Updated upstream
-        res.send({ status: false, message: "Invalid Email or Password" });
+    if (foundUser) {
+      const passwordMatch = await hash.compare(password, foundUser.password);
+
+      if (!passwordMatch) {
+        return res
+          .status(200)
+          .json({ success: false, message: "Invalid Email or Password" });
       }
-      if (result) {
-        const token = jwt.sign({ id: isEmail._id }, process.env.SECRET_KEY);
-        res.send({
-          status: true,
-          message: "login success",
-          token: token,
-          user: isEmail,
-        });
-      } else {
-        res.send({ status: false, message: "Invalid Email Or Password" });
-      }
-    });
-  } else {
-    res.send({ status: false, message: "Invalid Email Or Password" });
-=======
-        res.send({ success: false, message: "Invalid user" });
-      }
-      if (result) {
-        res.send({ success: true, message: "login success" });
-      } else {
-        res.send({ success: false, message: "Invalid user" });
-      }
-    });
-  } else {
-    res.send({ success: false, message: "Invalid user" });
->>>>>>> Stashed changes
+
+      // Assuming you have a function sendToken(User, statusCode, res)
+      // that sends a token in response. You should implement it accordingly.
+      sendToken(foundUser, 200, res);
+    } else {
+      return res
+        .status(200)
+        .json({ success: false, message: "User not found" });
+    }
+  } catch (error) {
+    console.error("Error in userLogInController:", error);
+    res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 };
 
@@ -127,9 +119,29 @@ const wrongotpcontroller = async (req, res) => {
   }
 };
 
+// logout user
+const logout = async (req, res) => {
+  try {
+    res.cookie("token", null, {
+      expires: new Date(Date.now()),
+      httpOnly: true,
+    });
+    res.status(200).send({
+      success: true,
+      message: "Logged Out",
+    });
+  } catch (error) {
+    res.status(401).send({
+      success: false,
+      message: ` error in LogOut user.. ${error.message} `,
+    });
+  }
+};
+
 module.exports = {
   userSignupController,
   userLogInController,
   varifycontroller,
   wrongotpcontroller,
+  logout,
 };

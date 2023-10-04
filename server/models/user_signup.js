@@ -13,7 +13,6 @@ const userSchema = mongoose.Schema(
     email: {
       type: String,
       required: [true, "please enter your email.."],
-      unique: true,
       validate: [validator.isEmail, "please enter valid email"],
     },
     password: {
@@ -36,6 +35,8 @@ const userSchema = mongoose.Schema(
   },
   { timestamps: true }
 );
+
+///// bcrypt password method /////
 userSchema.pre("save", async function (next) {
   let user = this;
   if (!user.isModified("password")) {
@@ -44,6 +45,13 @@ userSchema.pre("save", async function (next) {
 
   user.password = await bcrypt.hash(user.password, 10);
 });
+
+/////bcrypted compare  password   method   //////
+
+userSchema.methods.comparePassword = async function (enterdPassword) {
+  console.log(enterdPassword)
+  return await bcrypt.compare(enterdPassword, this.password);
+};
 
 const user = mongoose.model("user", userSchema);
 module.exports = user;
