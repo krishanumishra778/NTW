@@ -13,6 +13,7 @@ import Trusted from '../pages/Trusted'
 import Contact from '../pages/Contact'
 import Join from '../pages/Join'
 import Fotter from './Fotter'
+import { NavDemo } from './NavDemo'
 
 export const Home = () => {
   return (
