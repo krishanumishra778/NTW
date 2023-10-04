@@ -23,7 +23,7 @@ const Services = () => {
                 <div className="grid lg:grid-cols-3  xs:max-w-[95%] lg:max-w-[100%] pt-4 mx-auto">
                     <div className=" grid grid-cols-3  lg:p-0 transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-180">
                         <div className=" xs:px-2 ">
-                            <img src="images/service-ui.png" className=" xs:max-w-[90%] md:max-w-[80%]  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  hover:rotate-36  ..." />
+                            <img src="images/service-ui.png" className=" xs:max-w-[90%] sm:max-w-[70%] md:max-w-[80%]  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  hover:rotate-36  ..." />
                         </div>
                         <div className="col-span-2 sm:pt-4">
                             <p className="text-[#494949] font-[600]  sm:text-tp  xs:text-mp md:text-p">UI/UX Design</p>
@@ -32,7 +32,7 @@ const Services = () => {
                     </div>
                     <div className="grid grid-cols-3 xs:pt-6 lg:p-0  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-180">
                         <div className="xs:px-2">
-                            <img src="images/service-ui2.png" className="  xs:max-w-[90%] md:max-w-[80%]  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  hover:rotate-36  ..." />
+                            <img src="images/service-ui2.png" className="  xs:max-w-[90%]  sm:max-w-[70%] md:max-w-[80%]  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  hover:rotate-36  ..." />
                         </div>
                         <div className="col-span-2 sm:pt-4">
                             <p className="text-[#494949] font-[600]  sm:text-tp  xs:text-mp md:text-p">UI Development</p>
@@ -41,7 +41,7 @@ const Services = () => {
                     </div>
                     <div className="grid grid-cols-3 xs:pt-6 lg:p-0  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-180">
                         <div className="xs:px-2">
-                            <img src="images/Group 2193.png" className=" xs:max-w-[90%] md:max-w-[80%] transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  hover:rotate-36  ..." />
+                            <img src="images/Group 2193.png" className=" xs:max-w-[90%]    sm:max-w-[70%]  md:max-w-[80%] transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  hover:rotate-36  ..." />
                         </div>
                         <div className="col-span-2 sm:pt-4">
                             <p className="text-[#494949] font-[600]  sm:text-tp  xs:text-mp md:text-p">Webflow Development

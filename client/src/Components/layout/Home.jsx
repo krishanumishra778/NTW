@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Layout } from './Layout'
+
 import Header from '../pages/Header'
 import About from '../pages/About'
 import Services from '../pages/Services'
