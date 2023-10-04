@@ -15,6 +15,8 @@ import { Head_nav } from "./Components/layout/Head_nav";
 // import Fotter from "./Components/layout/Fotter";
 import { Settings } from "./Components/pages/Settings";
 import { Editprofile } from "./Components/pages/Editprofile";
+import { Changepassword } from "./Components/pages/Changepassword";
+
 
 
 
@@ -40,7 +42,9 @@ export default function App() {
           <Route path='/get-otp' element={<Getotp />} />
           <Route path='/log-in' element={< User_login/>} />
           <Route path="/Settings" element={< Settings/>}/>
-          <Route path="/Editprofile" element={ < Editprofile/>}/>
+          <Route path="/editprofile" element={ < Editprofile/>}/>
+          <Route path="/changepassword" element={ < Changepassword/>}/>
+
         </Routes>
     
       </Router>

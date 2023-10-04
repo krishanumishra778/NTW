@@ -79,7 +79,7 @@ const Header = () => {
                             } ${index === 1 ? 'settings-menu-item' : ''}`}
                           key={menu}
                         >
-                          {index === 1 ? <Link to='/Editprofile'>{menu}</Link> : menu}
+                          {index === 1 ? <Link to='/editprofile'>{menu}</Link> : menu}
                         </li>
 
                       ))}
