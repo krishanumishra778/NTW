@@ -11,7 +11,7 @@ const Header = () => {
   });
   return (
 
-    <div className='w-[98%]  mx-auto' data-aos="fade-down">
+    <div className='w-[98%] max-w-[1300px]  mx-auto' data-aos="fade-down">
       <div className="py-[20px] hidden md:block ">
         <div className='grid grid-cols-3 px-4 '>
 
