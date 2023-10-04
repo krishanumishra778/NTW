@@ -42,7 +42,7 @@ export default function App() {
           <Route path="/Settings" element={< Settings/>}/>
           <Route path="/Editprofile" element={ < Editprofile/>}/>
         </Routes>
-      <Fotter/>
+    
       </Router>
 
     </>

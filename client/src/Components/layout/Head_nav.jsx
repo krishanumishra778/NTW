@@ -2,8 +2,10 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
 export const Head_nav = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -53,37 +55,26 @@ export const Head_nav = () => {
           <div className="md:hidden">
             <ul className="mt-2 space-y-2 ">
               <li>
-                <a href="#" className='text-p' onClick={toggleMobileMenu}>
-                  Home
-                </a>
+              <Link to='/' onClick={toggleMobileMenu}> Home</Link>
               </li>
               <li>
-                <a href="#" onClick={toggleMobileMenu}>
-                  About us
-                </a>
+              <Link to='/about-us' onClick={toggleMobileMenu}> About Us</Link>
               </li>
               <li>
-                <a href="#" onClick={toggleMobileMenu}>
-                  Services
-                </a>
+              <Link to='/services'  onClick={toggleMobileMenu}> Services</Link>
               </li>
               <li>
-                <a href="#" onClick={toggleMobileMenu}>
-                  Recharge & Plans
-                </a>
+              <Link to='/subscription' onClick={toggleMobileMenu}> Recharge & Plans</Link>
               </li>
               <li>
-                <a href="#" onClick={toggleMobileMenu}>
-                  Our Portfolio
-                </a>
+              <Link to='/portfolio'  onClick={toggleMobileMenu}> Our Portfolio</Link>
               </li>
               <li>
-                <a href="#" onClick={toggleMobileMenu}>
-                  Sign-up
-                </a>
+              <Link to='/sign-up' onClick={toggleMobileMenu}>Sign-Up</Link>
               </li>
             </ul>
           </div>
+        
         )}
       </nav>
     </>
