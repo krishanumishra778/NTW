@@ -16,6 +16,7 @@ import { Head_nav } from "./Components/layout/Head_nav";
 import { Settings } from "./Components/pages/Settings";
 import { Editprofile } from "./Components/pages/Editprofile";
 import { Changepassword } from "./Components/pages/Changepassword";
+import { Pages } from "./Components/pages/Pages";
 
 
 
@@ -43,7 +44,10 @@ export default function App() {
           <Route path='/log-in' element={< User_login/>} />
           <Route path="/Settings" element={< Settings/>}/>
           <Route path="/editprofile" element={ < Editprofile/>}/>
-          <Route path="/changepassword" element={ < Changepassword/>}/>
+          {/* <Route path="/changepassword" element={ < Changepassword/>}/> */}
+          <Route path="/changepassword" element={ < Changepassword/>}/> 
+          <Route path="/pages" element={ < Pages/>}/>
+
 
         </Routes>
     

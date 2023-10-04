@@ -49,7 +49,7 @@ export const Editprofile = () => {
                     </div>
                     <div className=' max-w-[10%] cursor-pointer'><img className='rounded-full' src="./images/user.png" alt="" /></div>
 
-
+        	
                 </div>
                 {isMobileMenuOpen && (
                     <div className="md:hidden">
@@ -94,10 +94,10 @@ export const Editprofile = () => {
 
             <div className='grid grid-cols-2 '>
                 <div>
-                    <h1 className='text-[#00B2FF] pt-6'>Edit Profile</h1>
-                   
-                    <h1  className='pt-4'><Link to="/changepassword" >changepassword</Link></h1>
-                    <h1 className='pt-4'>Help</h1>
+                    <h1 className='text-[#00B2FF] pt-6'><Link to='/editprofile'> Edit Profile</Link></h1>
+
+                    <h1 className='pt-4'><Link to="/changepassword" >changepassword</Link></h1>
+                    <h1 className='pt-4'><Link to='/pages'>Help</Link></h1>
                     <h1 className='pt-4'>Log Out</h1>
                 </div>
                 <div className='pt-6'>
