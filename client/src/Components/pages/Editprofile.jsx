@@ -120,8 +120,8 @@ export const Editprofile = () => {
                     <h1 className='pb-4'>Your company Name</h1>
                     <input className='border-4 pt-4 w-10/12 rounded-lg' type="text" />
                 </div>
-                <div className='  flex justify-end w-10/12 pt-10 '>
-                    <button className='text-white text-center bg-blue-500 rounded-lg w-32  p-2 '>Save Changes</button>
+                <div className='  flex justify-end w-10/12 pt-6  '>
+                    <button className='text-white text-center   p-2 bg-[#00B2FF]  rounded-3xl px-[20px] py-[6px] sm:text-mp xs:text-tp md:text-p  my-5 hover:bg-[#00b3ffd8] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 '>Save Changes</button>
                 </div>
             </div>
 
