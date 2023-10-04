@@ -34,7 +34,7 @@ const About = () => {
       </div>
     </div>
   </div>
-  <Mainfooter/>
+ 
 </>
 
   )

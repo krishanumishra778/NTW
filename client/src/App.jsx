@@ -12,7 +12,7 @@ import { User_SIgnup } from "./Components/auth/User_SIgnup";
 import { Getotp } from "./Components/auth/Getotp";
 import { NavDemo } from "./Components/layout/NavDemo";
 import { Head_nav } from "./Components/layout/Head_nav";
-import Fotter from "./Components/layout/Fotter";
+// import Fotter from "./Components/layout/Fotter";
 import { Settings } from "./Components/pages/Settings";
 import { Editprofile } from "./Components/pages/Editprofile";
 
