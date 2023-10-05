@@ -2,7 +2,7 @@
 
 import "../src/App.css";
 import { User_login } from "./Components/auth/User_login";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
 import About from "./Components/pages/About";
 import { Home } from "./Components/layout/Home";
 import Services from "./Components/pages/Services";
@@ -37,12 +37,12 @@ export default function App() {
   return (
     <>
 
-
-
+    
+       
 
       <Router>
-
-       <NavDemo/>
+        {navurl !== "/sign-up" && <NavDemo setNavurl={setNavurl}/> }
+       
        <Head_nav/>
 
         <Routes>
@@ -53,15 +53,18 @@ export default function App() {
           <Route path='/portfolio' element={<Creativeshowcase />} />
           <Route path='/sign-up' element={<User_SIgnup />} />
           <Route path='/get-otp' element={<Getotp />} />
-          <Route path='/log-in' element={< User_login />} />
-          <Route path="/Settings" element={< Settings />} />
-          <Route path="/editprofile" element={< Editprofile />} />
-          <Route path="/changepassword" element={< Changepassword />} />
-          <Route path="/pages" element={< Pages />} />
+          <Route path='/log-in' element={< User_login/>} />
+          <Route path="/Settings" element={< Settings/>}/>
+          <Route path="/editprofile" element={ < Editprofile/>}/>
+          {/* <Route path="/changepassword" element={ < Changepassword/>}/> */}
+          <Route path="/changepassword" element={ < Changepassword/>}/> 
+          <Route path="/pages" element={ < Pages/>}/>
 
 
         </Routes>
-    
+    <Contact/>
+    <Join/>
+    <Fotter/>
       </Router>
 
     </>
