@@ -5,15 +5,16 @@ import axios from "axios";
 
 import { AiFillEyeInvisible } from "react-icons/ai";
 
-import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-import jwt_decode from "jwt-decode";
-import { useNavigate } from "react-router-dom";
+// import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+// import jwt_decode from "jwt-decode";
+// import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Layout } from "../layout/Layout";
+// import { Layout } from "../layout/Layout";
 import toast from "react-hot-toast";
 
 export const User_SIgnup = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+
   const [userData, setuserData] = useState({
     name: "",
     email: "",

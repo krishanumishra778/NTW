@@ -17,11 +17,23 @@ import { Settings } from "./Components/pages/Settings";
 import { Editprofile } from "./Components/pages/Editprofile";
 import { Changepassword } from "./Components/pages/Changepassword";
 import { Pages } from "./Components/pages/Pages";
+import { useState } from "react";
+import Contact from "./Components/pages/Contact";
+import Join from "./Components/pages/Join";
+import Fotter from "./Components/layout/Fotter";
+
 
 
 
 
 export default function App() {
+
+  // const location = useLocation();
+  
+  const [navurl , setNavurl] = useState()
+  // console.log(navurl);
+
+  
   return (
     <>
 
@@ -29,8 +41,8 @@ export default function App() {
        
 
       <Router>
-
-       <NavDemo/>
+        {navurl !== "/sign-up" && <NavDemo setNavurl={setNavurl}/> }
+       
        <Head_nav/>
 
         <Routes>
@@ -50,7 +62,9 @@ export default function App() {
 
 
         </Routes>
-    
+    <Contact/>
+    <Join/>
+    <Fotter/>
       </Router>
 
     </>
