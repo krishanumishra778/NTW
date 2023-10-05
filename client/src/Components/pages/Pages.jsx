@@ -101,11 +101,15 @@
         </div>
         {/* .... icon  */}
         <div >
-                    <div className='pt-6 absolute'>
+                    <div className='pt-6 absolute  '>
                         <img className='rounded-full' src="./images/user.png" alt="" />
+                    </div >
+                    <div className=' pl-12 pt-7 relative    ' >
+                        <img className='absolute  pt-1.5 pl-1.5 z-[1] ' src='./images/Vector7.png' alt="" />
+                        <div className=''><img src="./images/Ellipse54.png" alt="" />
+
+                        </div>
                     </div>
-                    <div className=''><img src="./Ellipse/54.png" alt="" /></div>
-                    <div className='relative pl-12 pt-7 ' ><img src='./images/Vector7.png' alt="" /></div>
                 </div>
         {/* .... */}
 
