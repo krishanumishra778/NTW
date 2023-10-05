@@ -22,7 +22,7 @@ export const Changepassword = () => {
 
   return (
     <div className='m-6'>
-      <nav className="bg-gray-50 hidden   md:block my-2 px-4 " data-aos="fade-down">
+      <nav className=" hidden   md:block my-2 px-4 " data-aos="fade-down">
         <div className=" mx-auto flex justify-between items-center">
           <div className="md:hidden">
             {/* Mobile menu button */}
@@ -100,9 +100,14 @@ export const Changepassword = () => {
           <h1 className='pt-4'><Link to='/pages'>Help</Link></h1>
           <h1 className='pt-4'>Log Out</h1>
         </div>
-        <div className='pt-6'>
-          <img className='rounded-full' src="./images/user.png" alt="" />
-        </div>
+        {/* ......  icon */}
+        <div>
+                <div className='pt-6'>
+                    <img className='rounded-full' src="./images/user.png" alt="" />
+                </div>
+                <div className=''><img src='./images/Vector7.png' alt="" /></div>
+                </div>
+        {/* ..... */}
 
       </div>
       {/* ><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}

@@ -22,7 +22,7 @@ export const Editprofile = () => {
 
     return (
         <div className='m-6'>
-            <nav className="bg-gray-50 hidden   md:block my-2 px-4 " data-aos="fade-down">
+            <nav className=" hidden   md:block my-2 px-4 " data-aos="fade-down">
                 <div className=" mx-auto flex justify-between items-center">
                     <div className="md:hidden">
                         {/* Mobile menu button */}
@@ -49,7 +49,7 @@ export const Editprofile = () => {
                     </div>
                     <div className=' max-w-[10%] cursor-pointer'><img className='rounded-full' src="./images/user.png" alt="" /></div>
 
-        	
+
                 </div>
                 {isMobileMenuOpen && (
                     <div className="md:hidden">
@@ -100,9 +100,52 @@ export const Editprofile = () => {
                     <h1 className='pt-4'><Link to='/pages'>Help</Link></h1>
                     <h1 className='pt-4'>Log Out</h1>
                 </div>
-                <div className='pt-6'>
-                    <img className='rounded-full' src="./images/user.png" alt="" />
+
+                {/* ><<<<<<<<<<<    icon*/}
+                <div>
+                    <div className='pt-6'>
+                        <img className='rounded-full' src="./images/user.png" alt="" />
+                    </div>
+                    <div className=''><img src='./images/Vector7.png' alt="" /></div>
                 </div>
+                {/* ................ */}
+
+                {/* modal.... */}
+
+                {/* 
+<div id="myModal" class="modal rounded-full">
+                    <div class="modal-content">
+                        <p>Select Delivery preferences</p>
+                        <div class="hr"></div>
+                        <p class="font-bold">Change profile Picture</p> <input type="radio" name="" id="radio">
+                        <div class="hr"></div>
+                        <p>Upload New Profile Picture</p> <input type="radio" name="" id="radio">
+                        <div class="hr"></div>
+                        <p>Remove Current Profile Picture</p> <input type="radio" name="" id="radio">
+                        <div class="hr"></div>
+
+                        <div class="footer-modal">
+
+                            <div class="close-button">
+                                <p class="close">
+                                    Cancel</p>
+                            </div>
+                            <a href="">
+                                <div class="savechange">
+                                    <p id="sv-p">Save changes</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div> */}
+
+
+
+                {/* modal..... */}
+
+
+
+
 
             </div>
             {/* ><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
@@ -132,3 +175,24 @@ export const Editprofile = () => {
         </div>
     )
 }
+
+
+// <script src="script.js"></script>
+
+// const openModalBtn = document.getElementById('openModalBtn');
+// const modal = document.getElementById('myModal');
+// const closeBtn = document.getElementsByClassName('close')[0];
+
+// openModalBtn.addEventListener('click', () => {
+//   modal.style.display = 'block';
+// });
+
+// closeBtn.addEventListener('click', () => {
+//   modal.style.display = 'none';
+// });
+
+// window.addEventListener('click', (event) => {
+//   if (event.target === modal) {
+//     modal.style.display = 'none';
+//   }
+// });
