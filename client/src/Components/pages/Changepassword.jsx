@@ -101,11 +101,12 @@ export const Changepassword = () => {
           <h1 className='pt-4'>Log Out</h1>
         </div>
         {/* ......  icon */}
-        <div>
-                <div className='pt-6'>
-                    <img className='rounded-full' src="./images/user.png" alt="" />
-                </div>
-                <div className=''><img src='./images/Vector7.png' alt="" /></div>
+        <div >
+                    <div className='pt-6 absolute'>
+                        <img className='rounded-full' src="./images/user.png" alt="" />
+                    </div>
+                    <div className=''><img src="./Ellipse/54.png" alt="" /></div>
+                    <div className='relative pl-12 pt-7 ' ><img src='./images/Vector7.png' alt="" /></div>
                 </div>
         {/* ..... */}
 
@@ -117,7 +118,7 @@ export const Changepassword = () => {
           <h1 className='pb-4'>New Password</h1>
           <div className='relative'>
             <input className='border-4 pt-4 w-10/12 rounded-lg pr-10' type='text' />
-            <img src='./images/Vector.png' alt='' className='absolute right-2 top-1/2 transform -translate-y-1/2 w-5 h-5 pointer-events-none' />
+            <img src='./images/Vector.png' alt='' className='absolute right-64 top-1/2 transform -translate-y-1/2 w-5 h-5 pointer-events-none' />
           </div>
         </div>
         
@@ -127,7 +128,7 @@ export const Changepassword = () => {
           <h1 className='pb-4'>Confirm Password</h1>
           <div className='relative'>
             <input className='border-4 pt-4 w-10/12 rounded-lg pr-10' type='text' />
-            <img src='./images/Vector.png' alt='' className='absolute right-2 top-1/2 transform -translate-y-1/2 w-5 h-5 pointer-events-none' />
+            <img src='./images/Vector.png' alt='' className='absolute right-64 top-1/2 transform -translate-y-1/2 w-5 h-5 pointer-events-none' />
           </div>
         </div>
 

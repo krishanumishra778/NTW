@@ -102,11 +102,12 @@ export const Editprofile = () => {
                 </div>
 
                 {/* ><<<<<<<<<<<    icon*/}
-                <div>
-                    <div className='pt-6'>
+                <div >
+                    <div className='pt-6 absolute'>
                         <img className='rounded-full' src="./images/user.png" alt="" />
                     </div>
-                    <div className=''><img src='./images/Vector7.png' alt="" /></div>
+                    <div className=''><img src="./Ellipse/54.png" alt="" /></div>
+                    <div className='relative pl-12 pt-7 ' ><img src='./images/Vector7.png' alt="" /></div>
                 </div>
                 {/* ................ */}
 
