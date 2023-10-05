@@ -3,9 +3,19 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import {
+    Button,
+    Dialog,
+    DialogHeader,
+    DialogBody,
+    DialogFooter,
+} from "@material-tailwind/react";
 
 import { Link } from 'react-router-dom';
 export const Editprofile = () => {
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpen = () => setOpen(!open);
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -31,7 +41,8 @@ export const Editprofile = () => {
     }, []);
 
     return (
-        <div className='m-6'>
+
+        <div className='m-6 '>
             <nav className=" hidden   md:block my-2 px-4 " data-aos="fade-down">
                 <div className=" mx-auto flex justify-between items-center">
                     <div className="md:hidden">
@@ -118,18 +129,43 @@ export const Editprofile = () => {
                     </div >
                     <div className=' pl-12 pt-7 relative    ' >
 
-                        <img className='absolute  pt-1.5 pl-1.5 z-[1] ' src='./images/Vector7.png' alt="" />
+                        <img className='absolute pt-1.5 pl-1.5 z-[1] ' onClick={handleOpen} variant="gradient" src='./images/Vector7.png' alt="" />
+
                         <div className=''><img src="./images/Ellipse54.png" alt="" />
 
                         </div>
                     </div>
+
+                    {/* model */}
+                    <Dialog className='mx-auto ' open={open} handler={handleOpen}> 
+                        <DialogHeader>Its a simple dialog.</DialogHeader>
+                        <DialogBody divider>
+                            The key to more success is to have a lot of pillows. Put it this way,
+                            it took me twenty five years to get these plants, twenty five years of
+                            blood sweat and tears, and I&apos;m never giving up, I&apos;m just
+                            getting started. I&apos;m up to something. Fan luv.
+                        </DialogBody>
+                        <DialogFooter className='text-white'>
+                            <Button
+                                variant="text"
+                                color="white"
+                                onClick={handleOpen}
+                                className="bg-black"
+                            >
+                                <span>Cancel</span>
+                            </Button>
+                            <Button className='bg-blue-600' variant="gradient" color="green" onClick={handleOpen}>
+                                <span>Confirm</span>
+                            </Button>
+                        </DialogFooter>
+                    </Dialog>
                 </div>
 
 
 
             </div>
             {/* ><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
-            <div className='pl-48'>
+            <div className='md:pl-48 mt-10'>
                 <div className=''>
                     <h1 className='pb-4'>Change User Name</h1>
                     <input className='border-2 pt-4 w-10/12 rounded-lg border-[#D9D9D9]' type="text" />

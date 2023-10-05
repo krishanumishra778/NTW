@@ -5,6 +5,13 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import { AiFillEyeInvisible } from "react-icons/ai";
+import {
+  Button,
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  DialogFooter,
+} from "@material-tailwind/react";
 
 export const Changepassword = () => {
 
@@ -20,6 +27,11 @@ export const Changepassword = () => {
       once: true,
     });
   }, []);
+
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => setOpen(!open);
 
 
 
@@ -110,7 +122,7 @@ export const Changepassword = () => {
 
       <div className='grid grid-cols-2 '>
         <div>
-          <h1 className='text-[#00B2FF] pt-6'><Link to='/editprofile'></Link> Edit Profile</h1>
+          <h1 className='text-[#00B2FF] pt-6'><Link to='/editprofile'> Edit Profile</Link></h1>
 
           <h1 className='pt-4'><Link to="/changepassword" >changepassword</Link></h1>
           <h1 className='pt-4'><Link to='/pages'>Help</Link></h1>
@@ -122,17 +134,41 @@ export const Changepassword = () => {
             <img className='rounded-full' src="./images/user.png" alt="" />
           </div >
           <div className=' pl-12 pt-7 relative    ' >
-            <img className='absolute  pt-1.5 pl-1.5 z-[1] ' src='./images/Vector7.png' alt="" />
+            <img className='absolute  pt-1.5 pl-1.5 z-[1] ' onClick={handleOpen} variant="gradient" src='./images/Vector7.png' alt="" />
             <div className=''><img src="./images/Ellipse54.png" alt="" />
 
             </div>
+
+            {/* ................model.................. */}
+            <Dialog open={open} handler={handleOpen}>
+              <DialogHeader>Its a simple dialog.</DialogHeader>
+              <DialogBody divider>
+                The key to more success is to have a lot of pillows. Put it this way,
+                it took me twenty five years to get these plants, twenty five years of
+                blood sweat and tears, and I&apos;m never giving up, I&apos;m just
+                getting started. I&apos;m up to something. Fan luv.
+              </DialogBody>
+              <DialogFooter>
+                <Button
+                  variant="text"
+                  color="red"
+                  onClick={handleOpen}
+                  className="mr-1"
+                >
+                  <span>Cancel</span>
+                </Button>
+                <Button variant="gradient" color="green" onClick={handleOpen}>
+                  <span>Confirm</span>
+                </Button>
+              </DialogFooter>
+            </Dialog>
           </div>
         </div>
         {/* ..... */}
 
       </div>
       {/* ><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
-      <div className='pl-48'>
+      <div className='md:pl-48 mt-10'>
 
         <div className='relative z-0 w-10/12 mb-6 group'>
           <label
@@ -152,7 +188,7 @@ export const Changepassword = () => {
           />
           <AiFillEyeInvisible
             onClick={showpwd}
-            className='relative left-[95%] top-2'
+            className='relative md:left-[95%] xs:left-[90%] top-2'
           />
         </div>
 
@@ -176,7 +212,7 @@ export const Changepassword = () => {
           />
           <AiFillEyeInvisible
             onClick={showpwd}
-            className='relative left-[95%] top-2'
+            className='relative md:left-[95%]  xs:left-[90%] top-2'
           />
         </div>
 
