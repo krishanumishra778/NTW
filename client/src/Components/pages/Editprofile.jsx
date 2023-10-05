@@ -3,13 +3,24 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+
 import { Link } from 'react-router-dom';
 export const Editprofile = () => {
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
+
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+
+
     useEffect(() => {
         AOS.init({
             offset: 100,
@@ -18,7 +29,6 @@ export const Editprofile = () => {
             once: true,
         });
     }, []);
-
 
     return (
         <div className='m-6'>
@@ -107,48 +117,13 @@ export const Editprofile = () => {
                         <img className='rounded-full' src="./images/user.png" alt="" />
                     </div >
                     <div className=' pl-12 pt-7 relative    ' >
+
                         <img className='absolute  pt-1.5 pl-1.5 z-[1] ' src='./images/Vector7.png' alt="" />
                         <div className=''><img src="./images/Ellipse54.png" alt="" />
 
                         </div>
                     </div>
                 </div>
-                {/* ................ */}
-
-                {/* modal.... */}
-
-                {/* 
-<div id="myModal" class="modal rounded-full">
-                    <div class="modal-content">
-                        <p>Select Delivery preferences</p>
-                        <div class="hr"></div>
-                        <p class="font-bold">Change profile Picture</p> <input type="radio" name="" id="radio">
-                        <div class="hr"></div>
-                        <p>Upload New Profile Picture</p> <input type="radio" name="" id="radio">
-                        <div class="hr"></div>
-                        <p>Remove Current Profile Picture</p> <input type="radio" name="" id="radio">
-                        <div class="hr"></div>
-
-                        <div class="footer-modal">
-
-                            <div class="close-button">
-                                <p class="close">
-                                    Cancel</p>
-                            </div>
-                            <a href="">
-                                <div class="savechange">
-                                    <p id="sv-p">Save changes</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div> */}
-
-
-
-                {/* modal..... */}
-
-
 
 
 
@@ -157,47 +132,24 @@ export const Editprofile = () => {
             <div className='pl-48'>
                 <div className=''>
                     <h1 className='pb-4'>Change User Name</h1>
-                    <input className='border-4 pt-4 w-10/12 rounded-lg' type="text" />
+                    <input className='border-2 pt-4 w-10/12 rounded-lg border-[#D9D9D9]' type="text" />
                 </div>
 
                 {/* ><><</> */}
                 <div className='pt-5'>
                     <h1 className='pb-4'>Change E-Mail</h1>
-                    <input className='border-4 pt-4 w-10/12 rounded-lg' type="text" />
+                    <input className='border-2 pt-4 w-10/12 rounded-lg border-[#D9D9D9]' type="text" />
                 </div>
                 {/* ><><></></> */}
                 <div className='pt-5'>
                     <h1 className='pb-4'>Your company Name</h1>
-                    <input className='border-4 pt-4 w-10/12 rounded-lg' type="text" />
+                    <input className='border-2 pt-4 w-10/12 rounded-lg border-[#D9D9D9]' type="text" />
                 </div>
                 <div className='  flex justify-end w-10/12 pt-6  '>
                     <button className='text-white text-center   p-2 bg-[#00B2FF]  rounded-3xl px-[20px] py-[6px] sm:text-mp xs:text-tp md:text-p  my-5 hover:bg-[#00b3ffd8] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 '>Save Changes</button>
                 </div>
             </div>
-
-
-
         </div>
     )
 }
 
-
-// <script src="script.js"></script>
-
-// const openModalBtn = document.getElementById('openModalBtn');
-// const modal = document.getElementById('myModal');
-// const closeBtn = document.getElementsByClassName('close')[0];
-
-// openModalBtn.addEventListener('click', () => {
-//   modal.style.display = 'block';
-// });
-
-// closeBtn.addEventListener('click', () => {
-//   modal.style.display = 'none';
-// });
-
-// window.addEventListener('click', (event) => {
-//   if (event.target === modal) {
-//     modal.style.display = 'none';
-//   }
-// });
