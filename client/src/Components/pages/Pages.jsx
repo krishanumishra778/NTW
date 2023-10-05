@@ -100,11 +100,16 @@
           <h1 className='pt-4'>Log Out</h1>
         </div>
         {/* .... icon  */}
-        <div>
-                <div className='pt-6'>
-                    <img className='rounded-full' src="./images/user.png" alt="" />
-                </div>
-                <div className=''><img src='./images/Vector7.png' alt="" /></div>
+        <div >
+                    <div className='pt-6 absolute  '>
+                        <img className='rounded-full' src="./images/user.png" alt="" />
+                    </div >
+                    <div className=' pl-12 pt-7 relative    ' >
+                        <img className='absolute  pt-1.5 pl-1.5 z-[1] ' src='./images/Vector7.png' alt="" />
+                        <div className=''><img src="./images/Ellipse54.png" alt="" />
+
+                        </div>
+                    </div>
                 </div>
         {/* .... */}
 
@@ -115,7 +120,7 @@
         <div className=''>
           <h1 className='pb-4'>How May We Assist You Today?</h1>
           <div className='relative'>
-            <input className='border-4 pt-4 pb-48 w-10/12 rounded-lg pr-10' type='text' />
+            <input className='border-2 pt-4 pb-48 w-10/12 rounded-lg pr-10 border-[#D9D9D9]' type='text' />
             {/* <img src='./images/Vector.png' alt='' className='absolute right-2 top-1/2 transform -translate-y-1/2 w-5 h-5 pointer-events-none' /> */}
           </div>
         </div>

@@ -53,7 +53,7 @@ export const User_SIgnup = () => {
     if (pwdType === "password") {
       document.getElementById("pwd").type = "text";
     } else {
-      res.send({ status: false, message: "user not found!" })
+
       document.getElementById("pwd").type = "password";
     }
   };
@@ -104,6 +104,8 @@ export const User_SIgnup = () => {
                   value={userData.email}
                 />
               </div>
+
+              {/* ><<><><</></> */}
               <div className='relative z-0 w-full mb-6 group'>
                 <label
                   htmlFor='password'
@@ -129,7 +131,7 @@ export const User_SIgnup = () => {
                   className='relative left-[90%] top-2'
                 />
               </div>
-
+              {/* ................. */}
               <input
                 type='text'
                 name='email_varified'
@@ -148,24 +150,7 @@ export const User_SIgnup = () => {
                 <Link to='/log-in'> All ready have an account?</Link>
               </div>
 
-              {/* <div className='relative z-0 w-full mb-6 group text-center mt-2'>
-                Connect with Google
-              </div>
 
-              <GoogleOAuthProvider
-                clientId='693453829328-ovitjd596gvg88lnvovoeqs5eeud7kc7.apps.googleusercontent.com'
-                className='w-full'>
-                <GoogleLogin
-                  onSuccess={credentialResponse => {
-                    console.log(credentialResponse);
-                    const userData = jwt_decode(credentialResponse.credential);
-                    console.log(userData);
-                  }}
-                  onError={() => {
-                    console.log("Login Failed");
-                  }}
-                />
-              </GoogleOAuthProvider> */}
             </form>
           </div>
         </div>
