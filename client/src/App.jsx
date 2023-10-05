@@ -2,7 +2,7 @@
 
 import "../src/App.css";
 import { User_login } from "./Components/auth/User_login";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
 import About from "./Components/pages/About";
 import { Home } from "./Components/layout/Home";
 import Services from "./Components/pages/Services";
@@ -17,21 +17,33 @@ import { Settings } from "./Components/pages/Settings";
 import { Editprofile } from "./Components/pages/Editprofile";
 import { Changepassword } from "./Components/pages/Changepassword";
 import { Pages } from "./Components/pages/Pages";
+import { useState } from "react";
+import Contact from "./Components/pages/Contact";
+import Join from "./Components/pages/Join";
+import Fotter from "./Components/layout/Fotter";
+
 
 
 
 
 export default function App() {
+
+  // const location = useLocation();
+  
+  const [navurl , setNavurl] = useState()
+  // console.log(navurl);
+
+  
   return (
     <>
 
-
-
+    
+       
 
       <Router>
-
-        <NavDemo />
-        <Head_nav />
+        {navurl !== "/sign-up" && <NavDemo setNavurl={setNavurl}/> }
+       
+       <Head_nav/>
 
         <Routes>
           <Route path='/' element={<Home />} />
@@ -41,15 +53,18 @@ export default function App() {
           <Route path='/portfolio' element={<Creativeshowcase />} />
           <Route path='/sign-up' element={<User_SIgnup />} />
           <Route path='/get-otp' element={<Getotp />} />
-          <Route path='/log-in' element={< User_login />} />
-          <Route path="/Settings" element={< Settings />} />
-          <Route path="/editprofile" element={< Editprofile />} />
-          <Route path="/changepassword" element={< Changepassword />} />
-          <Route path="/pages" element={< Pages />} />
+          <Route path='/log-in' element={< User_login/>} />
+          <Route path="/Settings" element={< Settings/>}/>
+          <Route path="/editprofile" element={ < Editprofile/>}/>
+          {/* <Route path="/changepassword" element={ < Changepassword/>}/> */}
+          <Route path="/changepassword" element={ < Changepassword/>}/> 
+          <Route path="/pages" element={ < Pages/>}/>
 
 
         </Routes>
-
+    <Contact/>
+    <Join/>
+    <Fotter/>
       </Router>
 
     </>

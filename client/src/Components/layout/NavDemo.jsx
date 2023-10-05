@@ -1,12 +1,15 @@
 /** @format */
-
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-export const NavDemo = () => {
+
+export const NavDemo = ( {setNavurl}) => {
+  
+
+
   useEffect(() => {
     AOS.init({
       offset: 100,
@@ -24,24 +27,24 @@ export const NavDemo = () => {
         <nav>
           <ul className='flex justify-between px-2 '>
             <li className=' rounded-full hover:text-[#FFF] px-4 py-1 lg:text-p md:text-tp sm:text-mp hover:bg-[#00B2FF] active:bg-[#00B2FF] '>
-              <Link to='/'> Home</Link>
+              <Link to='/' onClick={ ()=>{setNavurl("/")}} > Home</Link>
             </li>
             <li className='  rounded-full hover:text-[#FFF] px-2 py-1 lg:text-p md:text-tp sm:text-mp hover:bg-[#00B2FF] '>
-              <Link to='/about-us'> About Us</Link>
+              <Link to='/about-us' onClick={ ()=>{setNavurl("/about-us")}} > About Us</Link>
             </li>
             <li className='  rounded-full hover:text-[#FFF] px-4 py-1 lg:text-p md:text-tp sm:text-mp hover:bg-[#00B2FF] '>
-              <Link to='/services'> Services</Link>
+              <Link to='/services' onClick={ ()=>{setNavurl("/services")}} > Services</Link>
             </li>
             <li className='  rounded-full hover:text-[#FFF] px-1 py-1 lg:text-p md:text-tp sm:text-mp hover:bg-[#00B2FF] '>
               {" "}
-              <Link to='/subscription'> Recharge & Plans</Link>
+              <Link to='/subscription' onClick={ ()=>{setNavurl("/subscription")}} > Recharge & Plans</Link>
             </li>
 
             <li className='  rounded-full hover:text-[#FFF] px-2 py-1 lg:text-p md:text-tp sm:text-mp hover:bg-[#00B2FF] '>
-              <Link to='/portfolio'> Our Portfolio</Link>
+              <Link to='/portfolio' onClick={ ()=>{setNavurl("/portfolio")}} > Our Portfolio</Link>
             </li>
             <li className='  rounded-full hover:text-[#FFF] px-4 py-1 lg:text-p md:text-tp sm:text-mp hover:bg-[#00B2FF] '>
-              <Link to='/sign-up'>Sign-Up</Link>
+              <Link to='/sign-up' onClick={ ()=>{setNavurl("/sign-up")}} >Sign-Up</Link>
             </li>
           </ul>
         </nav>
