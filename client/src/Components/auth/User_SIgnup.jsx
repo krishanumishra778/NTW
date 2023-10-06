@@ -4,9 +4,8 @@ import  { useState } from "react";
 import axios from "axios";
 import { AiFillEyeInvisible } from "react-icons/ai";
 
-// import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-// import jwt_decode from "jwt-decode";
-// import { useNavigate } from "react-router-dom";
+import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+import jwt_decode from "jwt-decode";
 import { Link, useNavigate } from "react-router-dom";
 // import { Layout } from "../layout/Layout";
 import toast from "react-hot-toast";
@@ -14,7 +13,7 @@ import toast from "react-hot-toast";
 
 
 export const User_SIgnup = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [userData, setuserData] = useState({
     name: "",
@@ -30,25 +29,25 @@ export const User_SIgnup = () => {
       ...userData,
       [event.target.name]: event.target.value,
     });
-    // console.log(userData);
+   
   };
 
   const formHandler = (event) => {
     event.preventDefault();
-    console.log(userData);
+
 
     axios
       .post("http://localhost:4000/register", userData)
       .then((res) => {
         if (res.data.success) {
           toast.success(res.data.message);
-          // Dispatching loginuser action should be like this:
-          // dispatch(loginuser(res.data)); // Assuming res.data contains user information
           navigate("/getotp");
+        }else{
+          toast.error(res.data.message)
         }
       })
       .catch((err) => {
-        toast.error(err?.response?.data?.message);
+       console.log(err)
       });
   };
 
@@ -187,9 +186,24 @@ export const User_SIgnup = () => {
               >
                 Submit
               </button>
-              {/* <button className="bg-gray-50 hover:bg-[#f5f1f1] border border-gray-300  xs:text-tc md:text-c rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 text-[#494949]">
-              < FcGoogle className="inline xs:text-tt md:text-t"/> Continue with google
-              </button > */}
+               <div className='relative z-0 w-full mb-6 group text-center mt-2'>
+                Connect with Google
+              </div>
+
+              <GoogleOAuthProvider
+                clientId='693453829328-ovitjd596gvg88lnvovoeqs5eeud7kc7.apps.googleusercontent.com'
+                className='w-full'>
+                <GoogleLogin
+                  onSuccess={credentialResponse => {
+                    console.log(credentialResponse);
+                    const userData = jwt_decode(credentialResponse.credential);
+                    console.log(userData);
+                  }}
+                  onError={() => {
+                    console.log("Login Failed");
+                  }}
+                />
+              </GoogleOAuthProvider>
 
               <div className="relative z-0 w-full mb-6 group text-center mt-2 text-blue-400">
                 <Link to="/login">Already have an account?</Link>

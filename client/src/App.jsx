@@ -52,8 +52,8 @@ export default function App() {
           <Route path='/subscription' element={<Subscription />} />
           <Route path='/portfolio' element={<Creativeshowcase />} />
           <Route path='/sign-up' element={<User_SIgnup />} />
-          <Route path='/get-otp' element={<Getotp />} />
-          <Route path='/log-in' element={< User_login />} />
+          <Route path='/getotp' element={<Getotp />} />
+          <Route path='/login' element={< User_login />} />
           <Route path="/Settings" element={< Settings />} />
           <Route path="/editprofile" element={< Editprofile />} />
           {/* <Route path="/changepassword" element={ < Changepassword/>}/> */}
