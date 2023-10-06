@@ -2,11 +2,10 @@
 
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loginuserdata } from "./Reducer";
-import { loginuser } from "./Action";
+import { varifyData } from "./Reducer";
 
 export const View = () => {
-  const selecter = useSelector(state => state.loginuserdata);
+  const selecter = useSelector(state => state.varifyData);
 
   console.log(selecter)
   return (

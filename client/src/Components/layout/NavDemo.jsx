@@ -41,7 +41,7 @@ export const NavDemo = () => {
               <Link to='/portfolio'> Our Portfolio</Link>
             </li>
             <li className='  rounded-full hover:text-[#FFF] px-4 py-1 lg:text-p md:text-tp sm:text-mp hover:bg-[#00B2FF] '>
-              <Link to='/sign-up'>Sign-Up</Link>
+              <Link to='/signup'>Sign-Up</Link>
             </li>
           </ul>
         </nav>
