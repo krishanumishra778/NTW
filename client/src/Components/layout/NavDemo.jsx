@@ -1,12 +1,15 @@
 /** @format */
-
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-export const NavDemo = () => {
+
+export const NavDemo = ( {setNavurl}) => {
+  
+
+
   useEffect(() => {
     AOS.init({
       offset: 100,
@@ -19,29 +22,33 @@ export const NavDemo = () => {
   return (
     <>
       <div
-        className='max-w-[90%] w-[1340px] hidden md:block mx-auto fixed bottom-[15px] left-0 right-0     border border[black] bg-[#F5F5F5] rounded-full  z-[1]'
-        data-aos='fade-down'>
+        className='max-w-[90%] w-[1540px] hidden md:block mx-auto fixed bottom-[15px] left-0 right-0     border border[black] bg-[#F5F5F5] rounded-full  z-[1]'
+        data-aos='zoom-in'>
         <nav>
-          <ul className='flex justify-between px-2 py-2'>
+          <ul className='flex justify-between px-2 '>
             <li className=' rounded-full hover:text-[#FFF] px-4 py-1 lg:text-p md:text-tp sm:text-mp hover:bg-[#00B2FF] active:bg-[#00B2FF] '>
-              <Link to='/'> Home</Link>
+              <Link to='/' onClick={ ()=>{setNavurl("/")}} > Home</Link>
             </li>
             <li className='  rounded-full hover:text-[#FFF] px-2 py-1 lg:text-p md:text-tp sm:text-mp hover:bg-[#00B2FF] '>
-              <Link to='/about-us'> About Us</Link>
+              <Link to='/about-us' onClick={ ()=>{setNavurl("/about-us")}} > About Us</Link>
             </li>
             <li className='  rounded-full hover:text-[#FFF] px-4 py-1 lg:text-p md:text-tp sm:text-mp hover:bg-[#00B2FF] '>
-              <Link to='/services'> Services</Link>
+              <Link to='/services' onClick={ ()=>{setNavurl("/services")}} > Services</Link>
             </li>
             <li className='  rounded-full hover:text-[#FFF] px-1 py-1 lg:text-p md:text-tp sm:text-mp hover:bg-[#00B2FF] '>
               {" "}
-              <Link to='/subscription'> Recharge & Plans</Link>
+              <Link to='/subscription' onClick={ ()=>{setNavurl("/subscription")}} > Recharge & Plans</Link>
             </li>
 
             <li className='  rounded-full hover:text-[#FFF] px-2 py-1 lg:text-p md:text-tp sm:text-mp hover:bg-[#00B2FF] '>
-              <Link to='/portfolio'> Our Portfolio</Link>
+              <Link to='/portfolio' onClick={ ()=>{setNavurl("/portfolio")}} > Our Portfolio</Link>
             </li>
             <li className='  rounded-full hover:text-[#FFF] px-4 py-1 lg:text-p md:text-tp sm:text-mp hover:bg-[#00B2FF] '>
+<<<<<<< HEAD
               <Link to='/signup'>Sign-Up</Link>
+=======
+              <Link to='/sign-up' onClick={ ()=>{setNavurl("/sign-up")}} >Sign-Up</Link>
+>>>>>>> 2e1ba08ada91bf4390464fcdee7b8ad02cbe6403
             </li>
           </ul>
         </nav>

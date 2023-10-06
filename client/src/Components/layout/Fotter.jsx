@@ -1,11 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
 
-const Fotter = () => {
+const Fotter = (setFooterurl) => {
     return (
         
         <div>
-            <div className=" xs:max-w-[1300px]  mx-auto py-5 mt-6 md:mb-12 sm:grid grid-cols-2 gap-4 px-4">
+            <div className=" xs:max-w-[1300px]  mx-auto py-5 mt-6 md:mb-12 sm:grid grid-cols-2 gap-4 px-4" data-aos="fade-down">
                 <div >
                     <div>
                         <img src="logo/next tech waves logo.png"  />

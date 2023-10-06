@@ -4,7 +4,7 @@ import React from 'react'
 const Contact = () => {
   return (
     <>
-      <div className='bg-[url(images/Contact.png)] bg-no-repeat bg-cover object-contain ' data-aos="fade-down">
+      <div className='bg-[url(images/Contact.png)] bg-no-repeat bg-cover object-contain '  data-aos="fade-down">
         <div className="max-w-[1300px] mx-auto my-[40px]" >
           <div className="text-center">
             <p className="text-[#00B2FF] text-center sm:text-tt  xs:text-mt md:text-title font-[600]">Contact Us</p>

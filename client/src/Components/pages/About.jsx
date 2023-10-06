@@ -1,11 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
+import { Mainfooter } from '../layout/Mainfooter'
 
 const About = () => {
   return (
 <>
-  <div className=" w-[98%] max-w-[1300px] mx-auto   px-4 grid lg:grid-cols-3" data-aos="fade-down" >
-    <div className=" flex gap-1  mx-auto  xs:max-w-[60%] md:max-w-[100%] border-2">
+  <div className=" w-[98%] max-w-[1300px] mx-auto   px-4 grid lg:grid-cols-3"  data-aos="fade-down" >
+    <div className=" flex gap-1  mx-auto  xs:max-w-[60%] md:max-w-[100%] ">
       <div >
         <img src="images/about-I.png" alt='Next Tech Waves' className="rounded lg:my-5 xs:my-2" />
         <img src="images/about-II.png" alt='Next Tech Waves' className="rounded lg:my-5" />
@@ -33,6 +34,7 @@ const About = () => {
       </div>
     </div>
   </div>
+ 
 </>
 
   )
