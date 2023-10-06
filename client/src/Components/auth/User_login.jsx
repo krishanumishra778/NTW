@@ -27,10 +27,9 @@ export const User_login = () => {
     axios
       .post("http://localhost:4000/login", userData, { withCredentials: true })
       .then(res => {
-        console.log(res)
         if (res.data.success) {
           toast.success(res.data.message)
-
+          navigate('/')
         } else {
           toast.error(res.data.message)
         }
@@ -110,7 +109,7 @@ export const User_login = () => {
             </button>
             <div className='relative z-0 w-full mb-3 group text-center pt-3'>
               <span> Don't have an </span>
-              <span> <Link to='/sign-up' className="text-blue-400"> Sign Up?</Link></span>
+              <span> <Link to='/signup' className="text-blue-400"> Sign Up?</Link></span>
             </div>
             
           </form>

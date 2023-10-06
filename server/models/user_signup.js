@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcrypt");
+const crypto = require("crypto"); //built in module
 
 const userSchema = mongoose.Schema(
   {
@@ -17,7 +18,6 @@ const userSchema = mongoose.Schema(
     },
     password: {
       type: String,
-      required: [true, "please enter your password.."],
       minLenght: [8, "Name should have more then 8 charecter"],
       select: false,
     },
@@ -26,7 +26,7 @@ const userSchema = mongoose.Schema(
       type: String,
       default: "user",
     },
-    is_email_varified: {
+    email_verified: {
       type: String,
       default: false,
     },
@@ -49,8 +49,26 @@ userSchema.pre("save", async function (next) {
 /////bcrypted compare  password   method   //////
 
 userSchema.methods.comparePassword = async function (enterdPassword) {
-  console.log(enterdPassword)
+  console.log(enterdPassword);
   return await bcrypt.compare(enterdPassword, this.password);
+};
+
+// generating password rest token
+
+userSchema.methods.getRestPasswordToken = function () {
+  // generating token
+  const restToken = crypto.randomBytes(20).toString("hex");
+
+  // hashing and adding restPasswordToken to userSchema
+
+  this.resetPasswordToken = crypto
+    .createHash("sha256")
+    .update(restToken)
+    .digest("hex");
+
+  this.resetPasswordExpire = Date.now() + 15 * 60 * 1000;
+
+  return restToken;
 };
 
 const user = mongoose.model("user", userSchema);

@@ -1,7 +1,7 @@
 /** @format */
 
 const initialState = []
-export const loginuserdata = (state = initialState, action) => {
+export const varifyData = (state = initialState, action) => {
   switch (action.type) {
     case "data":
       return {
