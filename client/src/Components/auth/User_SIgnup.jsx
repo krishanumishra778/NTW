@@ -1,17 +1,17 @@
 /** @format */
 
-import React, { useState } from "react";
+import  { useState } from "react";
 import axios from "axios";
 import { AiFillEyeInvisible } from "react-icons/ai";
 
 // import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 // import jwt_decode from "jwt-decode";
 // import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { Layout } from "../layout/Layout";
 import toast from "react-hot-toast";
-import { useDispatch } from "react-redux";
-import { loginuser } from "../redux/Action";
+
+
 
 export const User_SIgnup = () => {
   // const navigate = useNavigate();
@@ -19,6 +19,8 @@ export const User_SIgnup = () => {
   const [userData, setuserData] = useState({
     name: "",
     email: "",
+    company: "",
+    country : "",
     password: "",
     email_verified: false, // Changed "false" to a boolean value
   });
@@ -28,10 +30,12 @@ export const User_SIgnup = () => {
       ...userData,
       [event.target.name]: event.target.value,
     });
+    // console.log(userData);
   };
 
   const formHandler = (event) => {
     event.preventDefault();
+    console.log(userData);
 
     axios
       .post("http://localhost:4000/register", userData)
@@ -101,6 +105,49 @@ export const User_SIgnup = () => {
                   value={userData.email}
                 />
               </div>
+              {/* Company + country name */}
+              <div className='relative z-0 w-full mb-6 group'>
+                <label
+                  htmlFor='name'
+                  className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
+                Company Name
+                </label>
+                <input
+                  type='text'
+                  name='company'
+                  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+                 h-8'
+                  placeholder='enter company name'
+                  required
+                  onChange={inpHandler}
+                  value={userData.company}
+                  minLength={3}
+                />
+              </div>
+
+
+              {/*  */}
+
+              <div className='relative z-0 w-full mb-6 group'>
+                <label
+                  htmlFor='name'
+                  className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
+                Country Name
+                </label>
+                <input
+                  type='text'
+                  name='country'
+                  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+                 h-8'
+                  placeholder='enter country name'
+                  required
+                  onChange={inpHandler}
+                  value={userData.country}
+                  minLength={3}
+                />
+              </div>
+
+             
 
               {/* ><<><><</></> */}
               <div className='relative z-0 w-full mb-6 group'>
@@ -140,6 +187,9 @@ export const User_SIgnup = () => {
               >
                 Submit
               </button>
+              {/* <button className="bg-gray-50 hover:bg-[#f5f1f1] border border-gray-300  xs:text-tc md:text-c rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 text-[#494949]">
+              < FcGoogle className="inline xs:text-tt md:text-t"/> Continue with google
+              </button > */}
 
               <div className="relative z-0 w-full mb-6 group text-center mt-2 text-blue-400">
                 <Link to="/login">Already have an account?</Link>

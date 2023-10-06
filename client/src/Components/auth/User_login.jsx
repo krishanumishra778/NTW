@@ -111,19 +111,7 @@ export const User_login = () => {
               <span> Don't have an </span>
               <span> <Link to='/signup' className="text-blue-400"> Sign Up?</Link></span>
             </div>
-
-
-            {/* <div className='relative z-0 w-full mb-6 group text-center mt-2'>
-              Log In with Google
-            </div>
-
-            <button className='text-black border-2 border-gray hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>
-              <span>
-                {" "}
-                <FcGoogle className='inline text-2xl ' />
-              </span>
-              <span className='pl-3'>Google</span>
-            </button> */}
+            
           </form>
         </div>
       </div>

@@ -15,7 +15,6 @@ import { Head_nav } from "./Components/layout/Head_nav";
 // import Fotter from "./Components/layout/Fotter";
 import { Settings } from "./Components/pages/Settings";
 import { Editprofile } from "./Components/pages/Editprofile";
-
 import { Changepassword } from "./Components/pages/Changepassword";
 import { Pages } from "./Components/pages/Pages";
 import { useState } from "react";
