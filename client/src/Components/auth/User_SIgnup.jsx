@@ -3,34 +3,20 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { AiFillEyeInvisible } from "react-icons/ai";
-<<<<<<< HEAD
-import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-import jwt_decode from "jwt-decode";
-import { useNavigate, Link } from "react-router-dom";
-import { Layout } from "../layout/Layout";
-=======
 
 // import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 // import jwt_decode from "jwt-decode";
 // import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 // import { Layout } from "../layout/Layout";
->>>>>>> 2e1ba08ada91bf4390464fcdee7b8ad02cbe6403
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { loginuser } from "../redux/Action";
 
 export const User_SIgnup = () => {
-<<<<<<< HEAD
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const [userGoogleData, setUserGoogleData] = useState()
-  const [userData, setUserData] = useState({
-=======
   // const navigate = useNavigate();
 
   const [userData, setuserData] = useState({
->>>>>>> 2e1ba08ada91bf4390464fcdee7b8ad02cbe6403
     name: "",
     email: "",
     password: "",
@@ -62,16 +48,6 @@ export const User_SIgnup = () => {
       });
   };
 
-<<<<<<< HEAD
-
-  const sendUserGoogleData=()=>{
-    console.log(userGoogleData)
-  }
-  const showPwd = () => {
-    const pwdInput = document.getElementById("pwd");
-    if (pwdInput) {
-      pwdInput.type = pwdInput.type === "password" ? "text" : "password";
-=======
   const showpwd = () => {
     const pwdType = document.getElementById("pwd").type;
     if (pwdType === "password") {
@@ -79,7 +55,6 @@ export const User_SIgnup = () => {
     } else {
 
       document.getElementById("pwd").type = "password";
->>>>>>> 2e1ba08ada91bf4390464fcdee7b8ad02cbe6403
     }
   };
 
@@ -127,12 +102,8 @@ export const User_SIgnup = () => {
                 />
               </div>
 
-<<<<<<< HEAD
-              <div className="relative z-0 w-full mb-6 group">
-=======
               {/* ><<><><</></> */}
               <div className='relative z-0 w-full mb-6 group'>
->>>>>>> 2e1ba08ada91bf4390464fcdee7b8ad02cbe6403
                 <label
                   htmlFor="password"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -174,39 +145,6 @@ export const User_SIgnup = () => {
                 <Link to="/login">Already have an account?</Link>
               </div>
 
-<<<<<<< HEAD
-              <div className="relative z-0 w-full mb-6 group text-center mt-2">
-                Connect with Google
-              </div>
-
-              <GoogleOAuthProvider
-                clientId="693453829328-ovitjd596gvg88lnvovoeqs5eeud7kc7.apps.googleusercontent.com"
-                className="w-full"
-              >
-                <GoogleLogin
-                  onSuccess={(credentialResponse) => {
-                    console.log(credentialResponse);
-                    const decodedUserData = jwt_decode(
-                      credentialResponse.credential
-                    );
-                    console.log(decodedUserData);
-                    axios.post("http://localhost:4000/google_login",decodedUserData).then((res)=>{
-                      console.log(res)
-                    }).catch(err=>{
-                      console.log(err)
-                    })
-                    
-                  }}
-                  onError={() => {
-                    console.log("Login Failed");
-                  }}
-
-                  onClick={sendUserGoogleData}
-                />
-              </GoogleOAuthProvider>
-=======
-
->>>>>>> 2e1ba08ada91bf4390464fcdee7b8ad02cbe6403
             </form>
           </div>
         </div>

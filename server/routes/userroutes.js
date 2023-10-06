@@ -11,7 +11,9 @@ const {
   googleLogin,
   forgotPassword,
   resetPassword,
+  changePassword,
 } = require("../controllers/usercontroller");
+const  isAuthenticateduser = require("../middleware/isAuthenticate");
 
 const router = require("express").Router();
 
@@ -27,5 +29,7 @@ router.route("/logout").get(logout);
 router.route("/forgot/password").post(forgotPassword);
 // reset password
 router.route("/password/reset/:token").put(resetPassword);
+// change password
+router.route("/change/password").put(isAuthenticateduser, changePassword);
 
 module.exports = router;
