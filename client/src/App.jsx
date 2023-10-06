@@ -25,7 +25,6 @@ import Fotter from "./Components/layout/Fotter";
 
 
 
-
 export default function App() {
 
   // const location = useLocation();
@@ -36,14 +35,12 @@ export default function App() {
 
   return (
     <>
-
-
-
-
-      <NavDemo />
-      <Head_nav />
-
       <Router>
+
+        <NavDemo />
+        <Head_nav />
+
+
         {navurl !== "/sign-up" && <NavDemo setNavurl={setNavurl} />}
 
         <Head_nav />
@@ -69,7 +66,6 @@ export default function App() {
         <Join />
         <Fotter />
       </Router>
-
 
     </>
   );

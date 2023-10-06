@@ -234,7 +234,7 @@ const resetPassword = async (req, res) => {
     });
     console.log(User);
     if (!user) {
-      res.status(401).send({ success: false, message: "user not found..." });
+      res.status(401).send({ success: false, message: "link expired" });
     } else {
       User.password = password;
       User.resetPasswordToken = undefined;
@@ -250,6 +250,11 @@ const resetPassword = async (req, res) => {
       .send({ success: false, message: "can not reset password this time..." });
   }
 };
+
+const changePassword = (req, res) => {
+  console.log("this is working");
+};
+
 module.exports = {
   userSignupController,
   userLogInController,
@@ -259,4 +264,5 @@ module.exports = {
   googleLogin,
   forgotPassword,
   resetPassword,
+  changePassword,
 };

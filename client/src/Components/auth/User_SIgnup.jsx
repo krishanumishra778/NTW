@@ -14,9 +14,9 @@ import toast from "react-hot-toast";
 
 
 export const User_SIgnup = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const [userData, setUserData] = useState({
+  const [userData, setuserData] = useState({
     name: "",
     email: "",
     company: "",
@@ -151,7 +151,6 @@ export const User_SIgnup = () => {
 
               {/* ><<><><</></> */}
               <div className='relative z-0 w-full mb-6 group'>
-
                 <label
                   htmlFor="password"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
