@@ -123,7 +123,7 @@ export const User_SIgnup = () => {
                   maxLength={10}
                 />
                 <AiFillEyeInvisible
-                  onClick={showPwd}
+                  onClick={showpwd}
                   className="relative left-[90%] top-2 cursor-pointer"
                 />
               </div>
