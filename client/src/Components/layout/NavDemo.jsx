@@ -44,7 +44,11 @@ export const NavDemo = ( {setNavurl}) => {
               <Link to='/portfolio' onClick={ ()=>{setNavurl("/portfolio")}} > Our Portfolio</Link>
             </li>
             <li className='  rounded-full hover:text-[#FFF] px-4 py-1 lg:text-p md:text-tp sm:text-mp hover:bg-[#00B2FF] '>
+<<<<<<< HEAD
+              <Link to='/signup'>Sign-Up</Link>
+=======
               <Link to='/sign-up' onClick={ ()=>{setNavurl("/sign-up")}} >Sign-Up</Link>
+>>>>>>> 2e1ba08ada91bf4390464fcdee7b8ad02cbe6403
             </li>
           </ul>
         </nav>
