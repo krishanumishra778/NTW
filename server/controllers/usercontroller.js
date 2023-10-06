@@ -4,62 +4,9 @@ const hash = require("bcrypt");
 const user = require("../models/user_signup");
 const jwt = require("jsonwebtoken");
 const sendToken = require("../utils/jwtToken");
-
+const sendEmail = require("../utils/sendEmail");
+const crypto = require("crypto");
 require("dotenv").config();
-
-//user sign up controller
-
-const userSignupController = async (req, res) => {
-  try {
-    const { name, email, password } = req.body;
-    const isEmail = await user.findOne({ email: email });
-    if (isEmail) {
-      res.status(200).send({ success: false, message: "User Already Exists" });
-    } else {
-      const User = new user({
-        name: name,
-        email: email,
-        password: password,
-      });
-
-      const otp = Math.floor(Math.random() * 9999) + 1000;
-
-      const transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: process.env.EMAIL,
-          pass: process.env.MYPASSWORD,
-        },
-      });
-
-      var mailOptions = {
-        from: process.env.EMAIL,
-        to: email,
-        subject: "Next Tech Waves",
-        text: `Sign up success and variy your email with ${otp}`,
-      };
-      transporter.sendMail(mailOptions, async function (error, info) {
-        if (error) {
-          res.send({ error });
-        } else {
-          const data = await User.save();
-
-          res.status(200).send({
-            data,
-            otp,
-
-            success: true,
-            message: "registration successfull",
-          });
-          console.log("Email sent: " + info.response);
-        }
-      });
-    }
-  } catch (error) {
-    console.log(error);
-    res.send({ success: false, message: error.message });
-  }
-};
 
 //user log in controller
 
@@ -91,20 +38,93 @@ const userLogInController = async (req, res) => {
   }
 };
 
+//user sign up controller
+let varifyUserData = {};
+const userSignupController = async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
+    const isEmail = await user.findOne({ email: email });
+    if (isEmail) {
+      res.status(400).send({ success: false, message: "User Already Exists" });
+    } else {
+      const User = new user({
+        name: name,
+        email: email,
+        password: password,
+      });
+
+      const otp = Math.floor(Math.random() * 9999) + 1000;
+
+      const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: process.env.EMAIL,
+          pass: process.env.MYPASSWORD,
+        },
+      });
+
+      var mailOptions = {
+        from: process.env.EMAIL,
+        to: email,
+        subject: "Next Tech Waves",
+        text: `Sign up success and variy your email with ${otp}`,
+      };
+      transporter.sendMail(mailOptions, async function (error, info) {
+        if (error) {
+          res.send({ error });
+        } else {
+          const data = await User.save();
+          res.status(200).send({
+            success: true,
+            message: `otp send to your email ${email}`,
+            otp,
+            email,
+          });
+
+          varifyUserData.otp = otp;
+          varifyUserData.userEmail = data.email;
+
+          console.log("Email sent: " + info.response);
+          console.log(varifyUserData);
+        }
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    res.send({ success: false, message: error.message });
+  }
+};
 // email varify conrtoller
 
 const varifycontroller = async (req, res) => {
-  const id = await user.findOne({ _id: req.body.data._id });
-  if (id) {
-    const update = await user.findByIdAndUpdate(
-      { _id: id._id },
-      { email_varified: true }
-    );
-    if (update) {
-      res.send({ success: true, message: "varification success" });
+  const { otp } = req.body;
+
+  try {
+    const userToVerify = await user.findOne({
+      email: varifyUserData.userEmail,
+    });
+
+    if (!userToVerify) {
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
     }
-  } else {
-    res.send({ success: false, message: "user not found!" });
+
+    if (varifyUserData.otp === Number(otp)) {
+      await user.findByIdAndUpdate(userToVerify._id, {
+        email_verified: true,
+      });
+      res.status(200).json({ success: true, message: "Verification success" });
+    } else {
+      res.status(400).json({ success: false, message: "Wrong OTP" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+      error: error.message,
+    });
   }
 };
 
@@ -138,10 +158,105 @@ const logout = async (req, res) => {
   }
 };
 
+const googleLogin = async (req, res) => {
+  try {
+    const { name, email, email_verified } = req.body;
+    const isEmail = await user.findOne({ email });
+    if (isEmail) {
+      res.status(404).send({ success: false, message: "user already exists" });
+    } else {
+      const data = await new user({
+        name,
+        email,
+        email_verified,
+      }).save();
+      res.status(200).send({ success: true, message: "sign in successfull" });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const forgotPassword = async (req, res) => {
+  try {
+    const { email } = req.body;
+    let User = await user.findOne({ email });
+    if (!User) {
+      res
+        .status(401)
+        .send({ success: false, message: "user does not exist.." });
+    } else {
+      let restToken = User.getRestPasswordToken();
+      await User.save();
+      const resetPasswordUrl = `${req.protocol}://localhost:5173/password/reset/${restToken}`;
+      const message = `Your password reset token is :- \n\n ${resetPasswordUrl} \n\n if you have not requested this email
+      then, please ignore it  `;
+
+      try {
+        sendEmail({
+          email: User.email,
+          message,
+        });
+        res.status(200).send({
+          success: true,
+          message: "Reset link send to your account...",
+        });
+      } catch (error) {
+        User.resetPasswordToken = undefined;
+        User.resetPasswordExpire = undefined;
+        await User.save();
+        res
+          .status(401)
+          .send({ success: false, message: "error in sending mail" });
+      }
+    }
+    // console.log(User)
+  } catch (error) {
+    res
+      .status(401)
+      .send({ success: false, message: "can not reset password this time..." });
+  }
+};
+
+const resetPassword = async (req, res) => {
+  try {
+    const { token } = req.params;
+    const { password, confirmpassword } = req.body;
+
+    const resetPasswordToken = crypto
+      .createHash("sha256")
+      .update(token)
+      .digest("hex");
+
+    const User = await user.findOne({
+      resetPasswordToken,
+      resetPasswordExpire: { $gt: Date.now() },
+    });
+    console.log(User);
+    if (!user) {
+      res.status(401).send({ success: false, message: "user not found..." });
+    } else {
+      User.password = password;
+      User.resetPasswordToken = undefined;
+      User.resetPasswordExpire = undefined;
+      await User.save();
+      res
+        .status(201)
+        .send({ success: true, message: "password change Successfully" });
+    }
+  } catch (error) {
+    res
+      .status(401)
+      .send({ success: false, message: "can not reset password this time..." });
+  }
+};
 module.exports = {
   userSignupController,
   userLogInController,
   varifycontroller,
   wrongotpcontroller,
   logout,
+  googleLogin,
+  forgotPassword,
+  resetPassword,
 };

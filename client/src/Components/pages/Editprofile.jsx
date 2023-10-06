@@ -25,9 +25,7 @@ export const Editprofile = () => {
     };
 
 
-    const openModal = () => {
-        setIsModalOpen(true);
-    };
+    
 
 
 
@@ -129,7 +127,7 @@ export const Editprofile = () => {
                     </div >
                     <div className=' pl-12 pt-7 relative    ' >
 
-                        <img className='absolute pt-1.5 pl-1.5 z-[1] ' onClick={handleOpen} variant="gradient" src='./images/Vector7.png' alt="" />
+                        <img className='absolute pt-1.5 pl-1.5 z-[1] ' onClick={handleOpen}  src='./images/Vector7.png' alt="" />
 
                         <div className=''><img src="./images/Ellipse54.png" alt="" />
 
