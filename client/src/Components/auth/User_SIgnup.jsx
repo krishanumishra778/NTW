@@ -72,14 +72,14 @@ export const User_SIgnup = () => {
               <div className="relative z-0 w-full mb-6 group">
                 <label
                   htmlFor="name"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white"
                 >
                   Your name
                 </label>
                 <input
                   type="text"
                   name="name"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-8"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-8 "
                   placeholder="nexttechwaves"
                   required
                   onChange={inpHandler}
@@ -91,7 +91,7 @@ export const User_SIgnup = () => {
               <div className="relative z-0 w-full mb-6 group">
                 <label
                   htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white"
                 >
                   Your email
                 </label>
@@ -109,7 +109,7 @@ export const User_SIgnup = () => {
               <div className='relative z-0 w-full mb-6 group'>
                 <label
                   htmlFor='name'
-                  className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
+                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>
                 Company Name
                 </label>
                 <input
@@ -131,7 +131,7 @@ export const User_SIgnup = () => {
               <div className='relative z-0 w-full mb-6 group'>
                 <label
                   htmlFor='name'
-                  className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
+                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>
                 Country Name
                 </label>
                 <input
@@ -153,7 +153,7 @@ export const User_SIgnup = () => {
               <div className='relative z-0 w-full mb-6 group'>
                 <label
                   htmlFor="password"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white"
                 >
                   Your password
                 </label>
@@ -183,7 +183,7 @@ export const User_SIgnup = () => {
 
               <button
                 type="submit"
-                className="text-white bg-blue-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5 mb-5"
+                className="text-white bg-[#00B2FF] hover:bg-[#00b3ffd3] xs:text-mp sm:text-tp md:text-p w-full px-5 py-2.5 text-center  mt-5 mb-5"
               >
                 Submit
               </button>

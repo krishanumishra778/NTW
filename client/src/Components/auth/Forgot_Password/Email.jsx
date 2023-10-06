@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 
 export const Email = () => {
 
@@ -15,7 +17,7 @@ export const Email = () => {
                     <div className='relative z-0 w-full mb-6 group'>
                             <label
                                 htmlFor='password'
-                                className='block mb-4 xs:text-tp md:text-[p]  font-medium text-gray-900 dark:text-white'>
+                                className='block mb-4 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>
                              Registered Email id
                             </label>
                             <input
@@ -39,8 +41,8 @@ export const Email = () => {
                        
                         <button
                             type='submit'
-                            className='text-white bg-blue-800 rounded-lg text-sm w-full  mt-12 px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 '>
-                           Forgot Password
+                            className='text-white bg-[#00B2FF] hover:bg-[#00b3ffd3] xs:text-mp sm:text-tp md:text-p rounded-lg  w-full  mt-12 px-5 py-2.5 text-center  '>
+                         <Link to='/forgot-password'>  Forgot Password </Link>
                         </button>
                         
 
