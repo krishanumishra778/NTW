@@ -14,7 +14,7 @@ import toast from "react-hot-toast";
 
 
 export const User_SIgnup = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [userData, setuserData] = useState({
     name: "",
@@ -66,7 +66,7 @@ export const User_SIgnup = () => {
     <div className="max-w-full">
       <div className="grid md:grid-cols-2">
         <div className="bg-white">
-          <h1 className="text-2xl text-center font-bold mt-10">Sign up</h1>
+          <h1 className="text-2xl text-center font-bold mt-4">Sign up</h1>
           <div className="p-8 max-w-[400px] mx-auto">
             <form className="form" onSubmit={formHandler}>
               <div className="relative z-0 w-full mb-6 group">
@@ -191,8 +191,8 @@ export const User_SIgnup = () => {
               < FcGoogle className="inline xs:text-tt md:text-t"/> Continue with google
               </button > */}
 
-              <div className="relative z-0 w-full mb-6 group text-center mt-2 text-blue-400">
-                <Link to="/login">Already have an account?</Link>
+              <div className="relative z-0 w-full mb-6 group text-center mt-2 text-[#494949]">
+              Already have an account? <Link to="/login" className="text-[#00B2FF]"> Sign-in</Link>
               </div>
 
             </form>

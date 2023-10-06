@@ -21,6 +21,8 @@ import { useState } from "react";
 import Contact from "./Components/pages/Contact";
 import Join from "./Components/pages/Join";
 import Fotter from "./Components/layout/Fotter";
+import { Forgot_password } from "./Components/auth/Forgot_password/Forgot_password";
+import { Email } from "./Components/auth/Forgot_Password/Email";
 
 
 
@@ -37,8 +39,7 @@ export default function App() {
     <>
       <Router>
 
-        <NavDemo />
-        <Head_nav />
+        
 
 
         {navurl !== "/sign-up" && <NavDemo setNavurl={setNavurl} />}
@@ -53,13 +54,14 @@ export default function App() {
           <Route path='/portfolio' element={<Creativeshowcase />} />
           <Route path='/sign-up' element={<User_SIgnup />} />
           <Route path='/get-otp' element={<Getotp />} />
-          <Route path='/log-in' element={< User_login />} />
+          <Route path='/login' element={< User_login />} />
           <Route path="/Settings" element={< Settings />} />
           <Route path="/editprofile" element={< Editprofile />} />
           {/* <Route path="/changepassword" element={ < Changepassword/>}/> */}
           <Route path="/changepassword" element={< Changepassword />} />
           <Route path="/pages" element={< Pages />} />
-
+          <Route path="/email" element={<Email/>} />
+          <Route path="/forgot-password" element={<Forgot_password/>}></Route>
 
         </Routes>
         <Contact />
