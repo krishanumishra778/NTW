@@ -26,7 +26,7 @@ export const User_SIgnup = () => {
   });
 
   const inpHandler = (event) => {
-    setUserData({
+    setuserData({
       ...userData,
       [event.target.name]: event.target.value,
     });
