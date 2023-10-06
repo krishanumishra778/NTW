@@ -58,7 +58,7 @@ export const User_login = () => {
             <div className='relative z-0 w-full mb-6 group'>
               <label
                 htmlFor='email'
-                className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
+                className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>
                 Your email
               </label>
               <input
@@ -76,7 +76,7 @@ export const User_login = () => {
             <div className='relative z-0 w-full mb-6 group'>
               <label
                 htmlFor='password'
-                className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
+                className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>
                 Your password
               </label>
               <input
@@ -98,18 +98,18 @@ export const User_login = () => {
               />
             </div>
 
-            <div className='relative z-0 w-full mb-3 pt-3 group text-center'>
-              Forgot password?
+            <div className='relative z-0 w-full mb-3 pt-3 group text-center corsor-pointer'>
+             <Link to="/email"> Forgot password? </Link>
             </div>
 
             <button
               type='submit'
-              className='text-white bg-blue-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 '>
+              className='text-white bg-[#00B2FF] hover:bg-[#00b3ffd3] xs:text-mp sm:text-tp md:text-p rounded-lg  w-full  px-5 py-2.5 text-center '>
               Log In
             </button>
             <div className='relative z-0 w-full mb-3 group text-center pt-3'>
               <span> Don't have an </span>
-              <span> <Link to='/signup' className="text-blue-400"> Sign Up?</Link></span>
+              <span> <Link to='/sign-up' className="text-blue-400"> Sign Up?</Link></span>
             </div>
             
           </form>

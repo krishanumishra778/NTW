@@ -4,9 +4,8 @@ import  { useState } from "react";
 import axios from "axios";
 import { AiFillEyeInvisible } from "react-icons/ai";
 
-// import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-// import jwt_decode from "jwt-decode";
-// import { useNavigate } from "react-router-dom";
+import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+import jwt_decode from "jwt-decode";
 import { Link, useNavigate } from "react-router-dom";
 // import { Layout } from "../layout/Layout";
 import toast from "react-hot-toast";
@@ -14,7 +13,7 @@ import toast from "react-hot-toast";
 
 
 export const User_SIgnup = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [userData, setuserData] = useState({
     name: "",
@@ -30,25 +29,25 @@ export const User_SIgnup = () => {
       ...userData,
       [event.target.name]: event.target.value,
     });
-    // console.log(userData);
+   
   };
 
   const formHandler = (event) => {
     event.preventDefault();
-    console.log(userData);
+
 
     axios
       .post("http://localhost:4000/register", userData)
       .then((res) => {
         if (res.data.success) {
           toast.success(res.data.message);
-          // Dispatching loginuser action should be like this:
-          // dispatch(loginuser(res.data)); // Assuming res.data contains user information
           navigate("/getotp");
+        }else{
+          toast.error(res.data.message)
         }
       })
       .catch((err) => {
-        toast.error(err?.response?.data?.message);
+       console.log(err)
       });
   };
 
@@ -66,20 +65,20 @@ export const User_SIgnup = () => {
     <div className="max-w-full">
       <div className="grid md:grid-cols-2">
         <div className="bg-white">
-          <h1 className="text-2xl text-center font-bold mt-10">Sign up</h1>
+          <h1 className="text-2xl text-center font-bold mt-4">Sign up</h1>
           <div className="p-8 max-w-[400px] mx-auto">
             <form className="form" onSubmit={formHandler}>
               <div className="relative z-0 w-full mb-6 group">
                 <label
                   htmlFor="name"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white"
                 >
                   Your name
                 </label>
                 <input
                   type="text"
                   name="name"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-8"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-8 "
                   placeholder="nexttechwaves"
                   required
                   onChange={inpHandler}
@@ -91,7 +90,7 @@ export const User_SIgnup = () => {
               <div className="relative z-0 w-full mb-6 group">
                 <label
                   htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white"
                 >
                   Your email
                 </label>
@@ -109,7 +108,7 @@ export const User_SIgnup = () => {
               <div className='relative z-0 w-full mb-6 group'>
                 <label
                   htmlFor='name'
-                  className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
+                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>
                 Company Name
                 </label>
                 <input
@@ -131,7 +130,7 @@ export const User_SIgnup = () => {
               <div className='relative z-0 w-full mb-6 group'>
                 <label
                   htmlFor='name'
-                  className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
+                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>
                 Country Name
                 </label>
                 <input
@@ -153,7 +152,7 @@ export const User_SIgnup = () => {
               <div className='relative z-0 w-full mb-6 group'>
                 <label
                   htmlFor="password"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white"
                 >
                   Your password
                 </label>
@@ -183,16 +182,31 @@ export const User_SIgnup = () => {
 
               <button
                 type="submit"
-                className="text-white bg-blue-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5 mb-5"
+                className="text-white bg-[#00B2FF] hover:bg-[#00b3ffd3] xs:text-mp sm:text-tp md:text-p w-full px-5 py-2.5 text-center  mt-5 mb-5"
               >
                 Submit
               </button>
-              {/* <button className="bg-gray-50 hover:bg-[#f5f1f1] border border-gray-300  xs:text-tc md:text-c rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 text-[#494949]">
-              < FcGoogle className="inline xs:text-tt md:text-t"/> Continue with google
-              </button > */}
+               <div className='relative z-0 w-full mb-6 group text-center mt-2'>
+                Connect with Google
+              </div>
 
-              <div className="relative z-0 w-full mb-6 group text-center mt-2 text-blue-400">
-                <Link to="/login">Already have an account?</Link>
+              <GoogleOAuthProvider
+                clientId='693453829328-ovitjd596gvg88lnvovoeqs5eeud7kc7.apps.googleusercontent.com'
+                className='w-full'>
+                <GoogleLogin
+                  onSuccess={credentialResponse => {
+                    console.log(credentialResponse);
+                    const userData = jwt_decode(credentialResponse.credential);
+                    console.log(userData);
+                  }}
+                  onError={() => {
+                    console.log("Login Failed");
+                  }}
+                />
+              </GoogleOAuthProvider>
+
+              <div className="relative z-0 w-full mb-6 group text-center mt-2 text-[#494949]">
+              Already have an account? <Link to="/login" className="text-[#00B2FF]"> Sign-in</Link>
               </div>
 
             </form>
