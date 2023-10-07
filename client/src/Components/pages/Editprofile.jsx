@@ -105,8 +105,8 @@ export const Editprofile = () => {
         )}
       </nav>
 
-      <div className='grid grid-cols-2  '>
-        <div>
+      <div className='grid grid-cols-2  m-7 '>
+        <div className='  '>
           <h1 className='text-[#00B2FF] pt-6' onClick={windowWidth <= 780 ? toggleAccordion : undefined} style={{ cursor: windowWidth <= 728 ? 'pointer' : 'default' }}> Edit Profile</h1>
           {windowWidth > 780 ? (
             <div>
@@ -123,6 +123,7 @@ export const Editprofile = () => {
           )}
         </div>
 
+
         <div className='bg-opacity-1'>
           <div className='pt-6 absolute '>
             <img className='rounded-full' src="./images/user.png" alt="" />
@@ -136,7 +137,10 @@ export const Editprofile = () => {
         </div>
       </div>
 
-{/* ><<<<<<<<< */}
+
+
+
+      {/* ><<<<  MODEL  START  <<<<< */}
       {showModal ? (
         <>
           <div className="fixed inset-0 mt-[10%] z-50 sm:w-[40%] xs:w-[80%]  mx-auto">
@@ -174,10 +178,26 @@ export const Editprofile = () => {
           <div className="fixed inset-0 bg-black opacity-25 z-40"></div>
         </>
       ) : null}
-      {/* ><<<<<<<<<<<< */}
+      {/* ><<<<   MODEL  END    <<<<<<<< */}
 
 
       <div className='md:pl-48 mt-10'>
+        {/* ><<<<<<<<   new   drop down start .,,,,,,,,,,, */}
+        <div className='w-10/12 my-16 '>
+          <select name="" id="" className='border-2 py-3 border-[#D9D9D9] rounded-lg w-full '>
+            <option value="" className='border'>
+              <h1 className='text-[#00B2FF] pt-6' onClick={windowWidth <= 780 ? toggleAccordion : undefined} style={{ cursor: windowWidth <= 728 ? 'pointer' : 'default' }}>  Edit Profile</h1>
+            </option>
+            <option value="" className='border' style={{ hight: '2%' }}>
+              <h1 className='pt-4  '><Link to="/changepassword">Change Password</Link></h1>
+            </option>
+            <option value="" className='border '>
+              <Link to='/pages' >Help</Link></option>
+          </select>
+        </div>
+        {/* ><<<<<<<<   new   drop down   end  .,,,,,,,,,,, */}
+
+
         <div>
           <h1 className='pb-4'>Change User Name</h1>
           <input className='border-2 pt-4 w-10/12 rounded-lg border-[#D9D9D9]' type="text" />
