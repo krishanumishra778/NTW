@@ -41,54 +41,39 @@ export const Editprofile = () => {
     <div className=' max-w-[1300px] xs:w-[90%] sm:w-[80%] md:w-[70%] mx-auto'>
 
 
-      <div className='grid grid-cols-2  p-7 '>
-        <div className='  '>
-          <h1 className='text-[#00B2FF] pt-40 ' onClick={windowWidth <= 1536 ? toggleAccordion : undefined} style={{ cursor: windowWidth <= 728 ? 'pointer' : 'default' }}> Edit Profile</h1>
-          {windowWidth > 1536 ? (
-            <div>
-              <h1 className='pt-4'><Link to="/changepassword">Change Password</Link></h1>
-              <h1 className='pt-4'><Link to='/pages'>Help</Link></h1>
-              <h1 className='pt-4'>Log Out</h1>
-            </div>
-          ) : isAccordionOpen && (
-            <div>
-              <h1 className='pt-4'><Link to="/changepassword">Change Password</Link></h1>
-              <h1 className='pt-4'><Link to='/pages'>Help</Link></h1>
-              <h1 className='pt-4'>Log Out</h1>
-            </div>
-          )}
+
+
+
+
+      <div className='bg-opacity-1 flex justify-center '>
+        <div className='pt-6 absolute '>
+          <img className='rounded-full' src="./images/user.png" alt="" />
         </div>
-
-
-        <div className='bg-opacity-1'>
-          <div className='pt-6 absolute '>
-            <img className='rounded-full' src="./images/user.png" alt="" />
-          </div>
-          <div className='pl-12 pt-7 relative'>
-            <img className='absolute pt-1.5 pl-1.5 z-[1]' onClick={() => setShowModal(true)} src='./images/Vector7.png' alt="" />
-            <div>
-              <img src="./images/Ellipse54.png" alt="" />
-            </div>
+        <div className='pl-12 pt-7 relative'>
+          <img className='absolute pt-1.5 pl-1.5 z-[1]' onClick={() => setShowModal(true)} src='./images/Vector7.png' alt="" />
+          <div>
+            <img src="./images/Ellipse54.png" alt="" />
           </div>
         </div>
       </div>
-      
 
 
-      <div className=''>
 
-        <h1 className='text-[#00B2FF] mt-40  border-2 rounded-md py-4 w-full' onClick={windowWidth <= 1536 ? toggleAccordion : undefined} style={{ cursor: windowWidth <= 728 ? 'pointer' : 'default' }}> Edit Profile</h1>
+
+      <div className='mt-2 mb-6'>
+
+        <h1 className='text-[#00B2FF] mt-[15%]  border-[2px] pl-2 rounded-md py-4 w-full' onClick={windowWidth <= 1536 ? toggleAccordion : undefined} style={{ cursor: windowWidth <= 728 ? 'pointer' : 'default' }}> Edit Profile</h1>
         {windowWidth > 1536 ? (
-          <div>
-            <h1 className='pt-4  '><Link className='' to="/changepassword">Change Password</Link></h1>
+          <div className=' '>
+            <h1 className='pt-5   '><Link className='' to="/changepassword">Change Password</Link></h1>
             <h1 className='pt-4'><Link to='/pages'>Help</Link></h1>
             <h1 className='pt-4'>Log Out</h1>
           </div>
         ) : isAccordionOpen && (
-          <div>
-            <h1 className='pt-4'><Link to="/changepassword">Change Password</Link></h1>
-            <h1 className='pt-4'><Link to='/pages'>Help</Link></h1>
-            <h1 className='pt-4'>Log Out</h1>
+          <div className=' border-2'>
+            <h1 className='pt-4  border pl-2'><Link to="/changepassword">Change Password</Link></h1>
+            <h1 className='pt-4  border pl-2'><Link to='/pages'>Help</Link></h1>
+            <h1 className='pt-4  border pl-2'>Log Out</h1>
           </div>
         )}
       </div>
@@ -107,24 +92,24 @@ export const Editprofile = () => {
             <div className="relative  mx-auto ">
               <div className="flex flex-col  ">
 
-                <div className='bg-white  text-center rounded-md shadow-lg outline-none font-bold'>
+                <div className='bg-white  text-center rounded-md shadow-lg outline-none font-[500]'>
 
-                  <p className='my-4 text-[#000]'>Change profile Picture</p>
+                  <p className='my-4 text-[#000] xs:text-mp sm:text-tp md:text-p'>Change profile Picture</p>
                   <hr className='py-[0.5px] bg-[#AEAEAE]' />
-                  <p className='my-4 text-[red]'>Upload New Profile Picture</p>
+                  <p className='my-4 text-[red] xs:text-mp sm:text-tp md:text-p'>Upload New Profile Picture</p>
                   <hr className='py-[0.5px] bg-[#AEAEAE]' />
-                  <p className='my-4 text-[#00B2FF]'>Remove Current Profile Picture</p>
+                  <p className='my-4 text-[#00B2FF] xs:text-mp sm:text-tp md:text-p'>Remove Current Profile Picture</p>
                   <hr className='py-[0.5px] bg-[#AEAEAE]' />
-                  <div className="flex justify-center gap-2 py-2 border-t border-blueGray-200 rounded-b">
+                  <div className="flex justify-center gap-2   border-blueGray-200   py-3">
                     <button
-                      className="text-[#fff] bg-[black] rounded-md uppercase font-bold px-4  sm:text-sm mr-1 mb-1 transition-all duration-150 ease-linear outline-none focus:outline-none background-transparent"
+                      className="text-[#fff] bg-[black] rounded-md uppercase px-2  py-1 xs:text-mc sm:text-tc md:text-c mr-1 mb-1 transition-all duration-150 ease-linear outline-none focus:outline-none background-transparent"
                       type="button"
                       onClick={() => setShowModal(false)}
                     >
                       Cancle
                     </button>
                     <button
-                      className="bg-[#00B2FF] text-white uppercase font-bold px-4 py-2 rounded-md  shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 transition-all duration-150 ease-linear text-xs sm:text-sm"
+                      className="bg-[#00B2FF] text-white uppercase  px-2  rounded-md  shadow hover:shadow-lg outline-none focus:outline-none  mb-1 transition-all duration-150 ease-linear xs:text-mc sm:text-tc md:text-c"
                       type="button"
                       onClick={() => setShowModal(false)}
                     >
@@ -154,7 +139,7 @@ export const Editprofile = () => {
           </div>
 
           <div className='pt-5'>
-            
+
             <label htmlFor="">Your company Name</label>
             <input className='border-2 pt-4 w-full rounded-lg border-[#D9D9D9]' type="text" />
           </div>
