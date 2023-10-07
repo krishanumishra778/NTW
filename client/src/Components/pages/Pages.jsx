@@ -62,9 +62,9 @@ export const Pages = () => {
 
 
 
-      <div className='mt-2 mb-6'>
+      <div className='mt-8 mb-6 xs:text-mp sm:text-tp md:text-p'>
 
-        <h1 className='text-[#00B2FF] mt-[15%]  border-[2px] pl-2 rounded-md py-4 w-full' onClick={windowWidth <= 1536 ? toggleAccordion : undefined} style={{ cursor: windowWidth <= 728 ? 'pointer' : 'default' }}> Edit Profile</h1>
+        <h1 className='text-[#00B2FF] mt-[10%] pl-2  border-[2px]  rounded-md py-4 w-full' onClick={windowWidth <= 1536 ? toggleAccordion : undefined} style={{ cursor: windowWidth <= 728 ? 'pointer' : 'default' }}> Edit Profile</h1>
         {windowWidth > 1536 ? (
           <div className=' '>
             <h1 className='pt-5   '><Link className='' to="/changepassword">Change Password</Link></h1>
@@ -129,8 +129,8 @@ export const Pages = () => {
 
 
       <div className=''>
-        <form action="" className=''>
-          <div className='pt-2'>
+        <form action="" className='xs:text-mp sm:text-tp md:text-p'>
+          <div className='pt-2 '>
             <label className='' htmlFor=""> How May We Assist You Today?</label>
             <input className='pt-4 h-60 w-full rounded-lg border-2 border-[#D9D9D9]' type="text" />
           </div>
