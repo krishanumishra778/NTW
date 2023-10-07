@@ -10,9 +10,6 @@ export const Editprofile = () => {
 
   // const handleOpen = () => setOpen(!open);
 
-
-
-
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
   const toggleAccordion = () => setIsAccordionOpen(!isAccordionOpen);
 
@@ -64,9 +61,10 @@ export const Editprofile = () => {
 
         <h1 className='text-[#00B2FF] mt-[15%]  border-[2px] pl-2 rounded-md py-4 w-full' onClick={windowWidth <= 1536 ? toggleAccordion : undefined} style={{ cursor: windowWidth <= 728 ? 'pointer' : 'default' }}> Edit Profile</h1>
         {windowWidth > 1536 ? (
-          <div className=' '>
-            <h1 className='pt-5   '><Link className='w-full' to="/changepassword">Change Password</Link></h1>
-            <h1 className='pt-4'><Link to='/pages' className='w-full'>Help</Link></h1>
+          <div className=''>
+
+            <h1 className='pt-5'><Link className='' to="/changepassword">Change Password</Link></h1>
+            <h1 className='pt-4'><Link to='/pages'>Help</Link></h1>
             <h1 className='pt-4'>Log Out</h1>
           </div>
         ) : isAccordionOpen && (
