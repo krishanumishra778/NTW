@@ -133,41 +133,34 @@ export const Editprofile = () => {
               <img src="./images/Ellipse54.png" alt="" />
             </div>
           </div>
-
-          {/* model   .,,,,,,,,,,,,,,,.><<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
-
-
         </div>
       </div>
 
+{/* ><<<<<<<<< */}
       {showModal ? (
         <>
-          <div className="fixed inset-0 mt-[10%] z-50 w-[30%] mx-auto">
+          <div className="fixed inset-0 mt-[10%] z-50 sm:w-[40%] xs:w-[80%]  mx-auto">
             <div className="relative  mx-auto ">
-              {/* Content */}
               <div className="flex flex-col  ">
-                {/* Header */}
 
-                {/* Body */}
-                <div className='bg-white text-center rounded-lg shadow-lg outline-none font-bold'>
+                <div className='bg-white  text-center rounded-md shadow-lg outline-none font-bold'>
 
                   <p className='my-4 text-[#000]'>Change profile Picture</p>
-                  <hr className='py-[0.5px] bg-[grey]' />
+                  <hr className='py-[0.5px] bg-[#AEAEAE]' />
                   <p className='my-4 text-[red]'>Upload New Profile Picture</p>
-                  <hr className='py-[0.5px] bg-[grey]' />
-             <p className='my-4 text-[#00B2FF]'>Remove Current Profile Picture</p>
-      <hr className='py-[0.5px] bg-[grey]' />
-                  {/* Footer */}
-                  <div className="flex justify-center gap-2 py-4 border-t border-blueGray-200 rounded-b">
+                  <hr className='py-[0.5px] bg-[#AEAEAE]' />
+                  <p className='my-4 text-[#00B2FF]'>Remove Current Profile Picture</p>
+                  <hr className='py-[0.5px] bg-[#AEAEAE]' />
+                  <div className="flex justify-center gap-2 py-2 border-t border-blueGray-200 rounded-b">
                     <button
-                      className="text-[#fff] bg-[black] rounded-md uppercase font-bold px-6  text-sm mr-1 mb-1 transition-all duration-150 ease-linear outline-none focus:outline-none background-transparent"
+                      className="text-[#fff] bg-[black] rounded-md uppercase font-bold px-4  sm:text-sm mr-1 mb-1 transition-all duration-150 ease-linear outline-none focus:outline-none background-transparent"
                       type="button"
                       onClick={() => setShowModal(false)}
-                    >   
+                    >
                       Cancle
                     </button>
                     <button
-                      className="bg-[#00B2FF] text-white uppercase font-bold px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 transition-all duration-150 ease-linear text-sm"
+                      className="bg-[#00B2FF] text-white uppercase font-bold px-4 py-2 rounded-md  shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 transition-all duration-150 ease-linear text-xs sm:text-sm"
                       type="button"
                       onClick={() => setShowModal(false)}
                     >
@@ -181,6 +174,7 @@ export const Editprofile = () => {
           <div className="fixed inset-0 bg-black opacity-25 z-40"></div>
         </>
       ) : null}
+      {/* ><<<<<<<<<<<< */}
 
 
       <div className='md:pl-48 mt-10'>
