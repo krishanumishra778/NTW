@@ -13,8 +13,8 @@ export const Preloader = () => {
                         <div className="xs:text-mt sm:text-tt md:text-t"  data-aos="fade-down" data-aos-duration="2000" >
                             <p> <span className="">Welcome</span> to</p>
                         </div>
-                        <div className="xs:text-mt sm:text-tt md:text-t " data-aos="fade-left" data-aos-duration="2000">
-                            <p className="text-blue-400">Next Tech Waves</p>
+                        <div className="xs:text-[20px] sm:text-[30px] md:text-[40px] " data-aos="fade-left" data-aos-duration="2000">
+                            <p className="text-blue-400 font-[500]">Next Tech Waves</p>
                         </div>
                     </div></div>
 
