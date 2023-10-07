@@ -18,6 +18,10 @@ const isAuthenticateduser = require("../middleware/isAuthenticate");
 const {
   emailSubscribeController,
 } = require("../controllers/emailSubscribeController");
+const isAuthenticateduser = require("../middleware/isAuthenticate");
+const {
+  emailSubscribeController,
+} = require("../controllers/emailSubscribeController");
 
 const router = require("express").Router();
 
