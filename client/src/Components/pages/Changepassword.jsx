@@ -5,13 +5,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import { AiFillEyeInvisible } from "react-icons/ai";
-import {
-  Button,
-  Dialog,
-  DialogHeader,
-  DialogBody,
-  DialogFooter,
-} from "@material-tailwind/react";
+
 
 export const Changepassword = () => {
 
@@ -237,7 +231,7 @@ export const Changepassword = () => {
 
         {/* ><><></></> */}
         <div className='  flex justify-end w-10/12 pt-6  '>
-          <button className='text-white text-center   p-2 bg-[#00B2FF]  rounded-3xl px-[20px] py-[6px] sm:text-mp xs:text-tp md:text-p  my-5 hover:bg-[#00b3ffd8] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 '>Save Changes</button>
+          <button className='text-white text-center   p-2 bg-[#00B2FF]  rounded-3xl px-2 py-[6px] sm:text-mp xs:text-tp md:text-p  my-5 hover:bg-[#00b3ffd8] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 '>Save Changes</button>
         </div>
       </div>
 
