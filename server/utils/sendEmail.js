@@ -13,11 +13,17 @@ const sendEmail = (options) => {
   var mailOptions = {
     from: process.env.EMAIL,
     to: options.email,
-    subject: "Next Tech Waves Password Recovery",
+    subject: options.subject,
     text: options.message,
   };
   transporter.sendMail(mailOptions, async function (error, info) {
-    console.log(info);
+    if(error){
+      console.log(error)
+      return false
+    }
+    else{
+      return true
+    }
   });
 };
 

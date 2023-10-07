@@ -3,25 +3,25 @@ import React from 'react'
 
 const Fotter = (setFooterurl) => {
     return (
-        
+        // ><<<<<<<<<<   FOOTER  start  ><<<<<<<<<<<<<<<<< 
         <div>
             <div className=" xs:max-w-[1300px]  mx-auto py-5 mt-6 md:mb-12 sm:grid grid-cols-2 gap-4 px-4" data-aos="fade-down">
                 <div >
                     <div>
-                        <img src="logo/next tech waves logo.png"  />
+                        <img src="logo/next tech waves logo.png" />
                     </div>
                     <div className="grid grid-cols-4 xs:max-w-[40%] sm:max-w-[30%] gap-2 mt-2 ">
                         <a href="">
-                        <img src="icons/insta.png"  />
+                            <img src="icons/insta.png" />
                         </a>
                         <a href="">
-                        <img src="icons/be.png"  className="my-auto" />
+                            <img src="icons/be.png" className="my-auto" />
                         </a>
                         <a href="">
-                        <img src="icons/lin.png"  />
+                            <img src="icons/lin.png" />
                         </a>
                         <a href="">
-                        <img src="icons/x.png"  />
+                            <img src="icons/x.png" />
                         </a>
                     </div>
                 </div>
@@ -33,6 +33,7 @@ const Fotter = (setFooterurl) => {
                 </div>
             </div>
         </div>
+        // ><<<<<<<<<<   FOOTER  end  ><<<<<<<<<<<<<<<<< 
 
     )
 }
