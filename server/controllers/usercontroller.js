@@ -24,8 +24,6 @@ const userLogInController = async (req, res) => {
           .json({ success: false, message: "Invalid Email or Password" });
       }
 
-      // Assuming you have a function sendToken(User, statusCode, res)
-      // that sends a token in response. You should implement it accordingly.
       sendToken(foundUser, 200, res);
     } else {
       return res
@@ -42,7 +40,7 @@ const userLogInController = async (req, res) => {
 let varifyUserData = {};
 const userSignupController = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, company, country } = req.body;
     const isEmail = await user.findOne({ email: email });
     if (isEmail) {
       res.status(400).send({ success: false, message: "User Already Exists" });
@@ -51,6 +49,8 @@ const userSignupController = async (req, res) => {
         name: name,
         email: email,
         password: password,
+        company: company,
+        country: country,
       });
 
       const otp = Math.floor(Math.random() * 9999) + 1000;
@@ -76,7 +76,7 @@ const userSignupController = async (req, res) => {
           const data = await User.save();
           res.status(200).send({
             success: true,
-            message: `otp send to your email ${email}`,
+            message: `otp send to your email ${email} for verification`,
             otp,
             email,
           });
@@ -85,7 +85,6 @@ const userSignupController = async (req, res) => {
           varifyUserData.userEmail = data.email;
 
           console.log("Email sent: " + info.response);
-          console.log(varifyUserData);
         }
       });
     }

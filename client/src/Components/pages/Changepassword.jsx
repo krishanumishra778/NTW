@@ -15,6 +15,9 @@ import {
 
 export const Changepassword = () => {
 
+  const [showModal, setShowModal] = React.useState(false);
+
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -53,7 +56,6 @@ export const Changepassword = () => {
       <nav className=" hidden   md:block my-2 px-4 " data-aos="fade-down">
         <div className=" mx-auto flex justify-between items-center">
           <div className="md:hidden">
-            {/* Mobile menu button */}
             <button className="text-[black]" onClick={toggleMobileMenu}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -75,9 +77,8 @@ export const Changepassword = () => {
           <div className="max-w-[70%] mx-auto">
             <img src="logo/next tech waves logo.png" alt="" />
           </div>
-          <div className=' max-w-[10%] cursor-pointer'><img className='rounded-full' src="./images/user.png" alt="" /></div>
-
-
+          <div className=' max-w-[10%] cursor-pointer'><img className='rounded-full' src="./images/user.png" alt="" />
+          </div>
         </div>
         {isMobileMenuOpen && (
           <div className="md:hidden">
@@ -117,7 +118,6 @@ export const Changepassword = () => {
         )}
       </nav>
 
-
       {/* // ><<<<<<<<<<<<<<<<<<<<<<<<<<< */}
 
       <div className='grid grid-cols-2 '>
@@ -134,38 +134,55 @@ export const Changepassword = () => {
             <img className='rounded-full' src="./images/user.png" alt="" />
           </div >
           <div className=' pl-12 pt-7 relative    ' >
-            <img className='absolute  pt-1.5 pl-1.5 z-[1] ' onClick={handleOpen} variant="gradient" src='./images/Vector7.png' alt="" />
+            <img className='absolute  pt-1.5 pl-1.5 z-[1] ' onClick={() => setShowModal(true)} variant="gradient" src='./images/Vector7.png' alt="" />
             <div className=''><img src="./images/Ellipse54.png" alt="" />
 
             </div>
 
             {/* ................model.................. */}
-            <Dialog open={open} handler={handleOpen}>
-              <DialogHeader>Its a simple dialog.</DialogHeader>
-              <DialogBody divider>
-                The key to more success is to have a lot of pillows. Put it this way,
-                it took me twenty five years to get these plants, twenty five years of
-                blood sweat and tears, and I&apos;m never giving up, I&apos;m just
-                getting started. I&apos;m up to something. Fan luv.
-              </DialogBody>
-              <DialogFooter>
-                <Button
-                  variant="text"
-                  color="red"
-                  onClick={handleOpen}
-                  className="mr-1"
-                >
-                  <span>Cancel</span>
-                </Button>
-                <Button variant="gradient" color="green" onClick={handleOpen}>
-                  <span>Confirm</span>
-                </Button>
-              </DialogFooter>
-            </Dialog>
+
+            {showModal ? (
+              <>
+              <div className="fixed inset-0 mt-[10%] z-50 sm:w-[40%] xs:w-[80%]  mx-auto">
+                <div className="relative  mx-auto ">
+                  <div className="flex flex-col  ">
+    
+                    <div className='bg-white  text-center rounded-md shadow-lg outline-none font-bold'>
+    
+                      <p className='my-4 text-[#000]'>Change profile Picture</p>
+                      <hr className='py-[0.5px] bg-[#AEAEAE]' />
+                      <p className='my-4 text-[red]'>Upload New Profile Picture</p>
+                      <hr className='py-[0.5px] bg-[#AEAEAE]' />
+                      <p className='my-4 text-[#00B2FF]'>Remove Current Profile Picture</p>
+                      <hr className='py-[0.5px] bg-[#AEAEAE]' />
+                      <div className="flex justify-center gap-2 py-2 border-t border-blueGray-200 rounded-b">
+                        <button
+                          className="text-[#fff] bg-[black] rounded-md uppercase font-bold px-4  sm:text-sm mr-1 mb-1 transition-all duration-150 ease-linear outline-none focus:outline-none background-transparent"
+                          type="button"
+                          onClick={() => setShowModal(false)}
+                        >
+                          Cancle
+                        </button>
+                        <button
+                          className="bg-[#00B2FF] text-white uppercase font-bold px-4 py-2 rounded-md  shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 transition-all duration-150 ease-linear text-xs sm:text-sm"
+                          type="button"
+                          onClick={() => setShowModal(false)}
+                        >
+                          Save Changes
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="fixed inset-0 bg-black opacity-25 z-40"></div>
+            </> 
+                       ) : null}
+
           </div>
         </div>
         {/* ..... */}
-
+        
       </div>
       {/* ><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
       <div className='md:pl-48 mt-10'>
