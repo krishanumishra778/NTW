@@ -6,6 +6,10 @@ export const Email = () => {
     const inpHandler = () =>{
 
     }
+
+    const formHandler = (event) =>{
+        event.preventDefault();
+    }
   return (
     <div>
          <div> <div className='grid md:grid-cols-2'>
@@ -13,7 +17,7 @@ export const Email = () => {
                 <h1 className='text-2xl text-center font-bold mt-12'>Email</h1>
 
                 <div className='p-8 max-w-[400px] mx-auto'>
-                    <form className='' >
+                    <form className='' onSubmit={formHandler} >
                     <div className='relative z-0 w-full mb-6 group'>
                             <label
                                 htmlFor='password'
@@ -27,7 +31,7 @@ export const Email = () => {
                                 className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
               h-8'
                                 placeholder='Enter Valid Email'
-                                required
+                                // required
                                 onChange={inpHandler}
 
 

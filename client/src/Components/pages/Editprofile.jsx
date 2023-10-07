@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import {
-  Button,
-  Dialog,
-  DialogHeader,
-  DialogBody,
-  DialogFooter,
-} from "@material-tailwind/react";
+
 import { Link } from 'react-router-dom';
 
 export const Editprofile = () => {
-  const [open, setOpen] = useState(false);
+
+  const [showModal, setShowModal] = React.useState(false);
+
   const handleOpen = () => setOpen(!open);
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -109,7 +105,7 @@ export const Editprofile = () => {
         )}
       </nav>
 
-      <div className='grid grid-cols-2 '>
+      <div className='grid grid-cols-2  '>
         <div>
           <h1 className='text-[#00B2FF] pt-6' onClick={windowWidth <= 780 ? toggleAccordion : undefined} style={{ cursor: windowWidth <= 728 ? 'pointer' : 'default' }}> Edit Profile</h1>
           {windowWidth > 780 ? (
@@ -127,44 +123,59 @@ export const Editprofile = () => {
           )}
         </div>
 
-        <div>
-          <div className='pt-6 absolute'>
+        <div className='bg-opacity-1'>
+          <div className='pt-6 absolute '>
             <img className='rounded-full' src="./images/user.png" alt="" />
           </div>
           <div className='pl-12 pt-7 relative'>
-            <img className='absolute pt-1.5 pl-1.5 z-[1]' onClick={handleOpen} variant="gradient" src='./images/Vector7.png' alt="" />
+            <img className='absolute pt-1.5 pl-1.5 z-[1]' onClick={() => setShowModal(true)} variant="gradient" src='./images/Vector7.png' alt="" />
             <div>
               <img src="./images/Ellipse54.png" alt="" />
             </div>
           </div>
-          <Dialog className='mx-auto text-center' open={open} handler={handleOpen}>
-            <DialogHeader>Change profile Picture</DialogHeader>
-            <hr />
-            <DialogHeader className='text-[#00B2FF] font-bold text-center'>Upload New Profile Picture</DialogHeader>
-            <hr />
-            <DialogHeader className='text-[#F00]'>Remove Current Profile Picture</DialogHeader>
-            <DialogBody divider>
-              The key to more success is to have a lot of pillows. Put it this way,
-              it took me twenty-five years to get these plants, twenty-five years of
-              blood sweat and tears, and I&apos;m never giving up, I&apos;m just
-              getting started. I&apos;m up to something. Fan luv.
-            </DialogBody>
-            <DialogFooter className='text-white'>
-              <Button
-                variant="text"
-                color="white"
-                onClick={handleOpen}
-                className="bg-black"
-              >
-                <span>Cancel</span>
-              </Button>
-              <Button className='bg-blue-600' onClick={handleOpen}>
-                <span>Save Changes</span>
-              </Button>
-            </DialogFooter>
-          </Dialog>
         </div>
       </div>
+
+{/* ><<<<<<<<< */}
+      {showModal ? (
+        <>
+          <div className="fixed inset-0 mt-[10%] z-50 sm:w-[40%] xs:w-[80%]  mx-auto">
+            <div className="relative  mx-auto ">
+              <div className="flex flex-col  ">
+
+                <div className='bg-white  text-center rounded-md shadow-lg outline-none font-bold'>
+
+                  <p className='my-4 text-[#000]'>Change profile Picture</p>
+                  <hr className='py-[0.5px] bg-[#AEAEAE]' />
+                  <p className='my-4 text-[red]'>Upload New Profile Picture</p>
+                  <hr className='py-[0.5px] bg-[#AEAEAE]' />
+                  <p className='my-4 text-[#00B2FF]'>Remove Current Profile Picture</p>
+                  <hr className='py-[0.5px] bg-[#AEAEAE]' />
+                  <div className="flex justify-center gap-2 py-2 border-t border-blueGray-200 rounded-b">
+                    <button
+                      className="text-[#fff] bg-[black] rounded-md uppercase font-bold px-4  sm:text-sm mr-1 mb-1 transition-all duration-150 ease-linear outline-none focus:outline-none background-transparent"
+                      type="button"
+                      onClick={() => setShowModal(false)}
+                    >
+                      Cancle
+                    </button>
+                    <button
+                      className="bg-[#00B2FF] text-white uppercase font-bold px-4 py-2 rounded-md  shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 transition-all duration-150 ease-linear text-xs sm:text-sm"
+                      type="button"
+                      onClick={() => setShowModal(false)}
+                    >
+                      Save Changes
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="fixed inset-0 bg-black opacity-25 z-40"></div>
+        </>
+      ) : null}
+      {/* ><<<<<<<<<<<< */}
+
 
       <div className='md:pl-48 mt-10'>
         <div>
