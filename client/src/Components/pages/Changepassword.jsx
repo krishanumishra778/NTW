@@ -120,7 +120,7 @@ export const Changepassword = () => {
 
       {/* // ><<<<<<<<<<<<<<<<<<<<<<<<<<< */}
 
-      <div className='grid grid-cols-2 '>
+      <div className='grid grid-cols-2 m-7 '>
         <div>
           <h1 className='text-[#00B2FF] pt-6'><Link to='/editprofile'> Edit Profile</Link></h1>
 

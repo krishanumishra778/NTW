@@ -12,7 +12,7 @@ import toast from "react-hot-toast";
 
 
 
-export const User_SIgnup = () => {
+export const User_Signup = () => {
   const navigate = useNavigate();
 
   const [userData, setuserData] = useState({
