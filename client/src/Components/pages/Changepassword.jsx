@@ -138,46 +138,46 @@ export const Changepassword = () => {
             {showModal ? (
               <>
                 <div className="fixed inset-0 mt-[10%] z-50 xs:w-[90%] sm:w-[65%] md:w-[40%] mx-auto">
-            <div className="relative  mx-auto ">
-              <div className="flex flex-col  ">
+                  <div className="relative  mx-auto ">
+                    <div className="flex flex-col  ">
 
-                <div className='bg-white  text-center rounded-md shadow-lg outline-none font-bold'>
+                      <div className='bg-white  text-center rounded-md shadow-lg outline-none font-bold'>
 
-                  <p className='my-4 text-[#000] xs:text-mp sm:text-tp md:text-p'>Change profile Picture</p>
-                  <hr className='py-[0.5px] bg-[#AEAEAE]' />
-                  <p className='my-4 text-[red] xs:text-mp sm:text-tp md:text-p'>Upload New Profile Picture</p>
+                        <p className='my-4 text-[#000] xs:text-mp sm:text-tp md:text-p'>Change profile Picture</p>
+                        <hr className='py-[0.5px] bg-[#AEAEAE]' />
+                        <p className='my-4 text-[red] xs:text-mp sm:text-tp md:text-p'>Upload New Profile Picture</p>
 
-                  <hr className='py-[0.5px] bg-[#AEAEAE]' />
-                  <p className='my-4 text-[#00B2FF] xs:text-mp sm:text-tp md:text-p'>Remove Current Profile Picture</p>
-                  <hr className='py-[0.5px] bg-[#AEAEAE]' />
-                  <div className="flex justify-center gap-2 py-2 border-t border-blueGray-200 rounded-b">
-                    <button
-                      className="text-[#fff] bg-black hover:bg-[rgb(54,48,48)] rounded-md uppercase  px-4  xs:text-mc sm:text-tc md:text-c mr-1 mb-1 transition-all duration-150 ease-linear outline-none focus:outline-none background-transparent"
-                      type="button"
-                      onClick={() => setShowModal(false)}
-                    >
-                      Cancle
-                    </button>
-                    <button
-                      className="bg-[#00B2FF] hover:bg-[#00b3ffb9] text-white uppercase  px-4 py-2 rounded-md  shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 transition-all duration-150 ease-linearxs:text-mc sm:text-tc md:text-c "
-                      type="button"
-                      onClick={() => setShowModal(false)}
-                    >
-                      Save Changes
-                    </button>
+                        <hr className='py-[0.5px] bg-[#AEAEAE]' />
+                        <p className='my-4 text-[#00B2FF] xs:text-mp sm:text-tp md:text-p'>Remove Current Profile Picture</p>
+                        <hr className='py-[0.5px] bg-[#AEAEAE]' />
+                        <div className="flex justify-center gap-2 py-2 border-t border-blueGray-200 rounded-b">
+                          <button
+                            className="text-[#fff] bg-black hover:bg-[rgb(54,48,48)] rounded-md uppercase  px-4  xs:text-mc sm:text-tc md:text-c mr-1 mb-1 transition-all duration-150 ease-linear outline-none focus:outline-none background-transparent"
+                            type="button"
+                            onClick={() => setShowModal(false)}
+                          >
+                            Cancle
+                          </button>
+                          <button
+                            className="bg-[#00B2FF] hover:bg-[#00b3ffb9] text-white uppercase  px-4 py-2 rounded-md  shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 transition-all duration-150 ease-linearxs:text-mc sm:text-tc md:text-c "
+                            type="button"
+                            onClick={() => setShowModal(false)}
+                          >
+                            Save Changes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-             
-            </> 
-                       ) : null}
+
+              </>
+            ) : null}
 
           </div>
         </div>
         {/* ..... */}
-        
+
       </div>
       {/* ><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
       <div className='md:pl-48 mt-10'>
@@ -192,8 +192,8 @@ export const Changepassword = () => {
             type='password'
             name='password'
             id='pwd'
-            className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
-                h-8'
+            className='bg-gray-50 border-2 pt-4 border-[#D9D9D9] text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
+                h-10'
             placeholder='******'
             required
 
@@ -206,18 +206,18 @@ export const Changepassword = () => {
 
         {/* ><><</> */}
 
-        <div className='relative z-0 w-10/12 mb-6 group pt-7'>
+        <div className='relative z-0 w-10/12 mb-6 group pt-7 '>
           <label
             htmlFor='password'
-            className='block mb-2 rounded-lg text-sm font-medium  text-gray-900 dark:text-white'>
-            New password
+            className='block mb-2 rounded-lg  text-sm font-medium  text-gray-900 dark:text-white'>
+            Change password
           </label>
           <input
             type='password'
             name='password'
             id='pwd'
-            className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
-                h-8'
+            className='bg-gray-50 border-2 pt-4 border-[#D9D9D9] text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
+                h-10'
             placeholder='******'
             required
 

@@ -23,7 +23,6 @@ const userLogInController = async (req, res) => {
           .status(200)
           .json({ success: false, message: "Invalid Email or Password" });
       }
-
       sendToken(foundUser, 200, res);
     } else {
       return res
@@ -31,8 +30,9 @@ const userLogInController = async (req, res) => {
         .json({ success: false, message: "User not found" });
     }
   } catch (error) {
-    console.error("Error in userLogInController:", error);
-    res.status(500).json({ success: false, message: "Internal Server Error" });
+    res
+      .status(401)
+      .json({ success: false, message: `Error in login ${error.message}` });
   }
 };
 
@@ -51,6 +51,7 @@ const userSignupController = async (req, res) => {
         password: password,
         company: company,
         country: country,
+        email_verified,
       });
 
       const otp = Math.floor(Math.random() * 9999) + 1000;
@@ -89,7 +90,6 @@ const userSignupController = async (req, res) => {
       });
     }
   } catch (error) {
-    console.log(error);
     res.send({ success: false, message: error.message });
   }
 };
@@ -118,7 +118,6 @@ const varifycontroller = async (req, res) => {
       res.status(400).json({ success: false, message: "Wrong OTP" });
     }
   } catch (error) {
-    console.error(error);
     res.status(500).json({
       success: false,
       message: "Internal server error",
@@ -157,25 +156,7 @@ const logout = async (req, res) => {
   }
 };
 
-const googleLogin = async (req, res) => {
-  try {
-    const { name, email, email_verified } = req.body;
-    const isEmail = await user.findOne({ email });
-    if (isEmail) {
-      res.status(404).send({ success: false, message: "user already exists" });
-    } else {
-      const data = await new user({
-        name,
-        email,
-        email_verified,
-      }).save();
-      res.status(200).send({ success: true, message: "sign in successfull" });
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
-
+///forgot password
 const forgotPassword = async (req, res) => {
   try {
     const { email } = req.body;
@@ -195,6 +176,7 @@ const forgotPassword = async (req, res) => {
         sendEmail({
           email: User.email,
           message,
+          subject: "Next Tech Waves Password Recovery",
         });
         res.status(200).send({
           success: true,
@@ -209,7 +191,6 @@ const forgotPassword = async (req, res) => {
           .send({ success: false, message: "error in sending mail" });
       }
     }
-    // console.log(User)
   } catch (error) {
     res
       .status(401)
@@ -217,6 +198,7 @@ const forgotPassword = async (req, res) => {
   }
 };
 
+///reset password
 const resetPassword = async (req, res) => {
   try {
     const { token } = req.params;
@@ -231,7 +213,7 @@ const resetPassword = async (req, res) => {
       resetPasswordToken,
       resetPasswordExpire: { $gt: Date.now() },
     });
-    console.log(User);
+
     if (!user) {
       res.status(401).send({ success: false, message: "link expired" });
     } else {
@@ -250,8 +232,36 @@ const resetPassword = async (req, res) => {
   }
 };
 
-const changePassword = (req, res) => {
-  console.log("this is working");
+///  change password
+const changePassword = async (req, res) => {
+  try {
+    const { oldpassword, newpassword, conformpassword } = req.body;
+    if (newpassword == conformpassword) {
+      const foundData = await user
+        .findById({ _id: req.user.id })
+        .select("+password");
+
+      const comparePassword = await foundData.comparePassword(oldpassword);
+
+      if (comparePassword) {
+        foundData.password = newpassword;
+        await foundData.save();
+        res.send({ success: true, message: "password changed" });
+      } else {
+        res.send({ success: false, message: "your old password is incorrect" });
+      }
+    } else {
+      res.send({
+        success: false,
+        message: "new password and conform password is not matching",
+      });
+    }
+  } catch (error) {
+    res.status(401).send({
+      success: false,
+      message: `error in change password ${error.message}`,
+    });
+  }
 };
 
 module.exports = {
@@ -260,7 +270,7 @@ module.exports = {
   varifycontroller,
   wrongotpcontroller,
   logout,
-  googleLogin,
+
   forgotPassword,
   resetPassword,
   changePassword,

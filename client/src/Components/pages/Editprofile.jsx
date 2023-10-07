@@ -43,8 +43,8 @@ export const Editprofile = () => {
 
       <div className='grid grid-cols-2  p-7 '>
         <div className='  '>
-          <h1 className='text-[#00B2FF] pt-6' onClick={windowWidth <= 780 ? toggleAccordion : undefined} style={{ cursor: windowWidth <= 728 ? 'pointer' : 'default' }}> Edit Profile</h1>
-          {windowWidth > 780 ? (
+          <h1 className='text-[#00B2FF] pt-40 ' onClick={windowWidth <= 1536 ? toggleAccordion : undefined} style={{ cursor: windowWidth <= 728 ? 'pointer' : 'default' }}> Edit Profile</h1>
+          {windowWidth > 1536 ? (
             <div>
               <h1 className='pt-4'><Link to="/changepassword">Change Password</Link></h1>
               <h1 className='pt-4'><Link to='/pages'>Help</Link></h1>
@@ -79,29 +79,28 @@ export const Editprofile = () => {
       {/* ><<<<  MODEL  START  <<<<< */}
       {showModal ? (
         <>
-          <div className="fixed inset-0 mt-[10%] z-50 xs:w-[90%] sm:w-[65%] md:w-[40%] mx-auto">
+          <div className="fixed inset-0 mt-[10%] z-50 sm:w-[40%] xs:w-[80%]  mx-auto">
             <div className="relative  mx-auto ">
               <div className="flex flex-col  ">
 
                 <div className='bg-white  text-center rounded-md shadow-lg outline-none font-bold'>
 
-                  <p className='my-4 text-[#000] xs:text-mp sm:text-tp md:text-p'>Change profile Picture</p>
+                  <p className='my-4 text-[#000]'>Change profile Picture</p>
                   <hr className='py-[0.5px] bg-[#AEAEAE]' />
-                  <p className='my-4 text-[red] xs:text-mp sm:text-tp md:text-p'>Upload New Profile Picture</p>
-
+                  <p className='my-4 text-[red]'>Upload New Profile Picture</p>
                   <hr className='py-[0.5px] bg-[#AEAEAE]' />
-                  <p className='my-4 text-[#00B2FF] xs:text-mp sm:text-tp md:text-p'>Remove Current Profile Picture</p>
+                  <p className='my-4 text-[#00B2FF]'>Remove Current Profile Picture</p>
                   <hr className='py-[0.5px] bg-[#AEAEAE]' />
                   <div className="flex justify-center gap-2 py-2 border-t border-blueGray-200 rounded-b">
                     <button
-                      className="text-[#fff] bg-black hover:bg-[rgb(54,48,48)] rounded-md uppercase  px-4  xs:text-mc sm:text-tc md:text-c mr-1 mb-1 transition-all duration-150 ease-linear outline-none focus:outline-none background-transparent"
+                      className="text-[#fff] bg-[black] rounded-md uppercase font-bold px-4  sm:text-sm mr-1 mb-1 transition-all duration-150 ease-linear outline-none focus:outline-none background-transparent"
                       type="button"
                       onClick={() => setShowModal(false)}
                     >
                       Cancle
                     </button>
                     <button
-                      className="bg-[#00B2FF] hover:bg-[#00b3ffb9] text-white uppercase  px-4 py-2 rounded-md  shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 transition-all duration-150 ease-linearxs:text-mc sm:text-tc md:text-c "
+                      className="bg-[#00B2FF] text-white uppercase font-bold px-4 py-2 rounded-md  shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 transition-all duration-150 ease-linear text-xs sm:text-sm"
                       type="button"
                       onClick={() => setShowModal(false)}
                     >
@@ -112,34 +111,38 @@ export const Editprofile = () => {
               </div>
             </div>
           </div>
-
+          <div className="fixed inset-0 bg-black opacity-25 z-40"></div>
         </>
       ) : null}
       {/* ><<<<   MODEL  END    <<<<<<<< */}
 
 
-        <form action="">
+      <div className=' mt-10'>
+        {/* ><<<<<<<<   new   drop down start .,,,,,,,,,,, */}
 
-      <div className='md:pl-48 mt-10'>
+        {/* ><<<<<<<<   new   drop down   end  .,,,,,,,,,,, */}
+
+
         <div>
-          <h1 className='my-2'>Change User Name</h1>
-          <input className='border-2 pt-2 w-10/12 rounded-lg border-[#D9D9D9]' type="text" />
-        </div>
-        <div className=''>
-          <h1 className='my-2'>Change E-Mail</h1>
-          <input className='border-2 pt-2 w-10/12 rounded-lg border-[#D9D9D9]' type="text" />
+          <h1 className='pb-4'>Change User Name</h1>
+          <input className='border-2 pt-4 w-full rounded-lg border-[#D9D9D9]' type="text" />
         </div>
 
-        <div className=''>
-          <h1 className='my-2'>Your company Name</h1>
-          <input className='border-2 pt-2 w-10/12 rounded-lg border-[#D9D9D9]' type="text" />
+        <div className='pt-5'>
+          <h1 className='pb-4'>Change E-Mail</h1>
+          <input className='border-2 pt-4 w-full rounded-lg border-[#D9D9D9]' type="text" />
+        </div>
+
+        <div className='pt-5'>
+          <h1 className='pb-4'>Your company Name</h1>
+          <input className='border-2 pt-4 w-full rounded-lg border-[#D9D9D9]' type="text" />
         </div>
 
         <div className='flex justify-end w-10/12 pt-6'>
           <button className='text-white text-center p-2 bg-[#00B2FF] rounded-3xl px-[20px] py-[6px] sm:text-mp xs:text-tp md:text-p my-5 hover:bg-[#00b3ffd8] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 '>Save Changes</button>
         </div>
       </div>
-        </form>
+        {/* </form> */}
     </div>
   );
 }
