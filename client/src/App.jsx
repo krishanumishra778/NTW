@@ -23,6 +23,9 @@ import Join from "./Components/pages/Join";
 import Fotter from "./Components/layout/Fotter";
 import { Forgot_password } from "./Components/auth/Forgot_password/Forgot_password";
 import { Email } from "./Components/auth/Forgot_Password/Email";
+// 
+import {  useEffect } from 'react';
+import { Preloader } from "./Components/pages/Preloader";
 
 
 
@@ -35,8 +38,21 @@ export default function App() {
   // console.log(navurl);
 
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate content loading with a setTimeout
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 4000); // Change this to the actual loading time or condition
+
+    // Add other side effects or data fetching here
+  }, []);
+
+
   return (
     <>
+     {isLoading ? <Preloader /> : <null />}
       <Router>
 
         
