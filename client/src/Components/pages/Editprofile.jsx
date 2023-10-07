@@ -38,7 +38,7 @@ export const Editprofile = () => {
   }, []);
 
   return (
-    <div className=' max-w-[1300px] mx-auto'>
+    <div className=' max-w-[1300px] xs:w-[90%] sm:w-[80%] md:w-[70%] mx-auto'>
 
 
       <div className='grid grid-cols-2  p-7 '>
@@ -117,32 +117,30 @@ export const Editprofile = () => {
       {/* ><<<<   MODEL  END    <<<<<<<< */}
 
 
-      <div className=' mt-10'>
-        {/* ><<<<<<<<   new   drop down start .,,,,,,,,,,, */}
+      <div className=''>
+        <form action="" className=''>
+          <div>
+            <label htmlFor=""> Change User Name</label>
+            <input className='pt-4 w-full rounded-lg border-2 border-[#D9D9D9]' type="text" />
+          </div>
 
-        {/* ><<<<<<<<   new   drop down   end  .,,,,,,,,,,, */}
+          <div className='pt-5'>
+            <label htmlFor="">Change E-Mail</label>
+            <input className='border-2 pt-4 w-full rounded-lg border-[#D9D9D9]' type="text" />
+          </div>
 
+          <div className='pt-5'>
+            
+            <label htmlFor="">Your company Name</label>
+            <input className='border-2 pt-4 w-full rounded-lg border-[#D9D9D9]' type="text" />
+          </div>
 
-        <div>
-          <h1 className='pb-4'>Change User Name</h1>
-          <input className='border-2 pt-4 w-full rounded-lg border-[#D9D9D9]' type="text" />
-        </div>
-
-        <div className='pt-5'>
-          <h1 className='pb-4'>Change E-Mail</h1>
-          <input className='border-2 pt-4 w-full rounded-lg border-[#D9D9D9]' type="text" />
-        </div>
-
-        <div className='pt-5'>
-          <h1 className='pb-4'>Your company Name</h1>
-          <input className='border-2 pt-4 w-full rounded-lg border-[#D9D9D9]' type="text" />
-        </div>
-
-        <div className='flex justify-end w-10/12 pt-6'>
-          <button className='text-white text-center p-2 bg-[#00B2FF] rounded-3xl px-[20px] py-[6px] sm:text-mp xs:text-tp md:text-p my-5 hover:bg-[#00b3ffd8] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 '>Save Changes</button>
-        </div>
+          <div className='flex justify-end  '>
+            <button type='submit' className='text-white text-center p-2 bg-[#00B2FF] rounded-3xl px-[20px] py-[6px] sm:text-mp xs:text-tp md:text-p my-5 hover:bg-[#00b3ffd8] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 '>Save Changes</button>
+          </div>
+        </form>
       </div>
-        {/* </form> */}
+
     </div>
   );
 }
