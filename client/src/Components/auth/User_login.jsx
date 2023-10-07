@@ -1,14 +1,17 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import axios from "axios";
 import { Link, json, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { clearErrors, login } from "../../actions/userAction";
 
 export const User_login = () => {
-
+  const dispatch = useDispatch()
+  const { error, isAuthenticated, user, loading } = useSelector((state) => state.user)
   const navigate = useNavigate();
   const [userData, setUserData] = useState({
     email: "",
@@ -24,19 +27,21 @@ export const User_login = () => {
 
   const formHandler = event => {
     event.preventDefault();
-    axios
-      .post("http://localhost:4000/login", userData, { withCredentials: true })
-      .then(res => {
-        if (res.data.success) {
-          toast.success(res.data.message)
-          navigate('/')
-        } else {
-          toast.error(res.data.message)
-        }
-      })
-      .catch(err => {
-        toast.error(err);
-      });
+    dispatch(login(userData.email, userData.password))
+    // axios
+    //   .post("http://localhost:4000/login", userData, { withCredentials: true })
+    //   .then(res => {
+    //     if (res.data.success) {
+    //       toast.success(res.data.message)
+    //       navigate('/')
+    //     } else {
+    //       toast.error(res.data.message)
+    //     }
+    //   })
+    //   .catch(err => {
+    //     toast.error(err);
+    //   });
+
   };
 
   const showpwd = () => {
@@ -47,6 +52,17 @@ export const User_login = () => {
       document.getElementById("pwd").type = "password";
     }
   };
+  useEffect(() => {
+    if (error) {
+      console.log(error);
+      toast.error(error);
+      dispatch(clearErrors());
+    }
+    // if user login so redirect in account page
+    if (isAuthenticated) {
+      navigate("/");
+    }
+  }, [error, clearErrors, isAuthenticated]);
   return (
 
     <div className='grid md:grid-cols-2'>
@@ -99,7 +115,7 @@ export const User_login = () => {
             </div>
 
             <div className='relative z-0 w-full mb-3 pt-3 group text-center corsor-pointer'>
-             <Link to="/email"> Forgot password? </Link>
+              <Link to="/email"> Forgot password? </Link>
             </div>
 
             <button
@@ -111,7 +127,7 @@ export const User_login = () => {
               <span> Don't have an </span>
               <span> <Link to='/sign-up' className="text-blue-400"> Sign Up?</Link></span>
             </div>
-            
+
           </form>
         </div>
       </div>
