@@ -38,7 +38,7 @@ export const Editprofile = () => {
   }, []);
 
   return (
-    <div className='m-6 '>
+    <div className='m-6'>
       <nav className="hidden md:block my-2 px-4" data-aos="fade-down">
         <div className="mx-auto flex justify-between items-center">
           <div className="md:hidden">
@@ -104,38 +104,42 @@ export const Editprofile = () => {
           </div>
         )}
       </nav>
-
-      <div className='grid grid-cols-2  m-7 '>
-        <div className='  '>
-          <h1 className='text-[#00B2FF] pt-40 ' onClick={windowWidth <= 1536 ? toggleAccordion : undefined} style={{ cursor: windowWidth <= 728 ? 'pointer' : 'default' }}> Edit Profile</h1>
-          {windowWidth > 1536 ? (
-            <div>
-              <h1 className='pt-4'><Link to="/changepassword">Change Password</Link></h1>
-              <h1 className='pt-4'><Link to='/pages'>Help</Link></h1>
-              <h1 className='pt-4'>Log Out</h1>
-            </div>
-          ) : isAccordionOpen && (
-            <div>
-              <h1 className='pt-4'><Link to="/changepassword">Change Password</Link></h1>
-              <h1 className='pt-4'><Link to='/pages'>Help</Link></h1>
-              <h1 className='pt-4'>Log Out</h1>
-            </div>
-          )}
+<div className='border-2  '>
+      <div className='bg-opacity-1 '>
+        <div className='pt-6 absolute '>
+          <img className='rounded-full ' src="./images/user.png" alt="" />
         </div>
-
-
-        <div className='bg-opacity-1'>
-          <div className='pt-6 absolute '>
-            <img className='rounded-full' src="./images/user.png" alt="" />
-          </div>
-          <div className='pl-12 pt-7 relative'>
-            <img className='absolute pt-1.5 pl-1.5 z-[1]' onClick={() => setShowModal(true)} variant="gradient" src='./images/Vector7.png' alt="" />
-            <div>
-              <img src="./images/Ellipse54.png" alt="" />
-            </div>
+        <div className='max-auto pl-12 pt-7 relative'>
+          <img className='absolute pt-1.5 pl-1.5 z-[1]' onClick={() => setShowModal(true)} variant="gradient" src='./images/Vector7.png' alt="" />
+          <div>
+            <img src="./images/Ellipse54.png" alt="" />
           </div>
         </div>
       </div>
+      </div>
+
+
+      <div className=''>
+
+        <h1 className='text-[#00B2FF] mt-40  border-2 rounded-md py-4 w-full' onClick={windowWidth <= 1536 ? toggleAccordion : undefined} style={{ cursor: windowWidth <= 728 ? 'pointer' : 'default' }}> Edit Profile</h1>
+        {windowWidth > 1536 ? (
+          <div>
+            <h1 className='pt-4  '><Link className='' to="/changepassword">Change Password</Link></h1>
+            <h1 className='pt-4'><Link to='/pages'>Help</Link></h1>
+            <h1 className='pt-4'>Log Out</h1>
+          </div>
+        ) : isAccordionOpen && (
+          <div>
+            <h1 className='pt-4'><Link to="/changepassword">Change Password</Link></h1>
+            <h1 className='pt-4'><Link to='/pages'>Help</Link></h1>
+            <h1 className='pt-4'>Log Out</h1>
+          </div>
+        )}
+      </div>
+
+
+
+
 
 
 
