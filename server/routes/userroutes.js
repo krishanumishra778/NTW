@@ -19,7 +19,7 @@ const router = require("express").Router();
 
 router.post("/register", userSignupController);
 router.post("/login", userLogInController);
-router.post("/google_login", googleLogin);
+
 
 router.post("/varify", varifycontroller);
 router.post("/wrong-otp", wrongotpcontroller);

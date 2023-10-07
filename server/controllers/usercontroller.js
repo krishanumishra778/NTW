@@ -51,6 +51,7 @@ const userSignupController = async (req, res) => {
         password: password,
         company: company,
         country: country,
+        email_verified,
       });
 
       const otp = Math.floor(Math.random() * 9999) + 1000;
@@ -157,25 +158,7 @@ const logout = async (req, res) => {
   }
 };
 
-const googleLogin = async (req, res) => {
-  try {
-    const { name, email, email_verified } = req.body;
-    const isEmail = await user.findOne({ email });
-    if (isEmail) {
-      res.status(404).send({ success: false, message: "user already exists" });
-    } else {
-      const data = await new user({
-        name,
-        email,
-        email_verified,
-      }).save();
-      res.status(200).send({ success: true, message: "sign in successfull" });
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
-
+///forgot password
 const forgotPassword = async (req, res) => {
   try {
     const { email } = req.body;
@@ -217,6 +200,7 @@ const forgotPassword = async (req, res) => {
   }
 };
 
+///reset password
 const resetPassword = async (req, res) => {
   try {
     const { token } = req.params;
@@ -250,8 +234,37 @@ const resetPassword = async (req, res) => {
   }
 };
 
-const changePassword = (req, res) => {
-  console.log("this is working");
+///  change password
+const changePassword = async (req, res) => {
+  console.log("hello");
+
+  try {
+    const { oldpassword, newpassword, conformpassword } = req.body;
+    if (newpassword == conformpassword) {
+      const foundData = await user
+        .findById({ _id: req.user.id })
+        .select("+password");
+      console.log(foundData);
+      console.log(oldpassword);
+      const comparePassword = await foundData.comparePassword(oldpassword);
+      console.log(comparePassword);
+      if (comparePassword) {
+        // foundData.password = newpassword;
+      //  await foundData.save();
+        res.send({ success: true, message: "password changed" });
+      } else {
+        res.send({ success: false, message: "your old password is incorrect" });
+      }
+    } else {
+      res.send({
+        
+        success: false,
+        message: "new password and conform password is not matching",
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 module.exports = {
@@ -260,7 +273,7 @@ module.exports = {
   varifycontroller,
   wrongotpcontroller,
   logout,
-  googleLogin,
+
   forgotPassword,
   resetPassword,
   changePassword,
