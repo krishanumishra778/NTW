@@ -60,7 +60,7 @@ export const Editprofile = () => {
 
 
 
-      <div className='mt-2 mb-6'>
+      <div className='mt-2 mb-6 xs:text-mp sm:text-tp md:text-p'>
 
         <h1 className='text-[#00B2FF] mt-[15%]  border-[2px] pl-2 rounded-md py-4 w-full' onClick={windowWidth <= 1536 ? toggleAccordion : undefined} style={{ cursor: windowWidth <= 728 ? 'pointer' : 'default' }}> Edit Profile</h1>
         {windowWidth > 1536 ? (
@@ -88,7 +88,7 @@ export const Editprofile = () => {
       {/* ><<<<  MODEL  START  <<<<< */}
       {showModal ? (
         <>
-          <div className="fixed inset-0 mt-[10%] z-50 sm:w-[40%] xs:w-[80%]  mx-auto">
+          <div className="fixed inset-0 mt-[10%] z-50 sm:w-[40%] xs:w-[80%]  mx-auto ">
             <div className="relative  mx-auto ">
               <div className="flex flex-col  ">
 
@@ -127,7 +127,7 @@ export const Editprofile = () => {
 
 
       <div className=''>
-        <form action="" className=''>
+        <form action="" className='xs:text-mp sm:text-tp md:text-p' >
           <div>
             <label htmlFor=""> Change User Name</label>
             <input className='pt-4 w-full rounded-lg border-2 border-[#D9D9D9]' type="text" />
