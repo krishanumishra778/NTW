@@ -130,9 +130,10 @@ export const Pages = () => {
 
       <div className=''>
         <form action="" className=''>
-          <div className='pt-2'>
+          <div className='pt-4'>
             <label className='' htmlFor=""> How May We Assist You Today?</label>
-            <input className='pt-4 h-60 w-full rounded-lg border-2 border-[#D9D9D9]' type="text" />
+            <textarea name="" id=""  className=' pl-2 mt-2 w-full rounded-lg border-2 border-[#D9D9D9]'></textarea>
+            {/* <input className='pt-4 h-60 w-full rounded-lg border-2 border-[#D9D9D9]' type="text" /> */}
           </div>
           <div className='flex justify-end  '>
             <button type='submit' className='text-white text-center p-2 bg-[#00B2FF] rounded-3xl px-[20px] py-[6px] sm:text-mp xs:text-tp md:text-p my-5 hover:bg-[#00b3ffd8] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 '>Save Changes</button>
