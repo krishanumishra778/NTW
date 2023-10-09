@@ -10,7 +10,6 @@ const sendToken = async (user, statusCode, res) => {
     ),
     httpOnly: true,
   };
-
   res.cookie("token", token, options);
   res.status(statusCode).json({
     success: true,
