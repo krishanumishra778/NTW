@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import AOS from 'aos';
@@ -141,6 +140,4 @@ export const Pages = () => {
     </div>
   )
 }
-
-
 
