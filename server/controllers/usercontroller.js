@@ -41,12 +41,7 @@ const userLogInController = async (req, res) => {
 
 const userSignupController = async (req, res) => {
   try {
-<<<<<<< Updated upstream
-    const { name, email, password, company, country, email_verified } =
-      req.body;
-=======
     const { name, email, password, company, country,email_verified } = req.body;
->>>>>>> Stashed changes
     const isEmail = await user.findOne({ email: email });
     if (isEmail) {
       res.send({ success: false, message: "User Already Exists" });
