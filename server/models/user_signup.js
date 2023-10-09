@@ -35,7 +35,7 @@ const userSchema = mongoose.Schema(
       default: "user",
     },
     email_verified: {
-      type: String,
+      type: Boolean,
       default: false,
     },
     resetPasswordToken: String,
