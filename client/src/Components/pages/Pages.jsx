@@ -132,7 +132,7 @@ export const Pages = () => {
         <form action="" className=''>
           <div className='pt-4'>
             <label className='' htmlFor=""> How May We Assist You Today?</label>
-            <textarea name="" id=""  className=' pl-2 mt-2 w-full rounded-lg border-2 border-[#D9D9D9]'></textarea>
+            <textarea name="" id=""  className=' pl-2 mt-2  w-full rounded-lg border-2 border-[#D9D9D9]'></textarea>
             {/* <input className='pt-4 h-60 w-full rounded-lg border-2 border-[#D9D9D9]' type="text" /> */}
           </div>
           <div className='flex justify-end  '>
