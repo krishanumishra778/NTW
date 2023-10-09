@@ -30,7 +30,8 @@ export const Editprofile = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
+   
+   
   const handleEditProfileClick = () => {
     setIsOpen((prev) => !prev);
   };

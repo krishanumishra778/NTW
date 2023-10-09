@@ -154,7 +154,7 @@ const navigate = useNavigate();
             />
             <AiFillEyeInvisible
               onClick={showpwd}
-              className='relative md:left-[95%] xs:left-[90%] top-2'
+              className='relative md:left-[95%] xs:left-[90%] top-3'
             />
           </div>
 
@@ -178,7 +178,7 @@ const navigate = useNavigate();
             />
             <AiFillEyeInvisible
               onClick={showpwd2}
-              className='relative md:left-[95%]  xs:left-[90%] top-2'
+              className='relative md:left-[95%]  xs:left-[90%] top-3'
             />
           </div>
 
