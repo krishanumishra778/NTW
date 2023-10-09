@@ -115,7 +115,7 @@ export const Editprofile = () => {
               <div className="flex flex-col  ">
                 <div className='bg-white  text-center rounded-md shadow-lg outline-none font-[500]'>
                  <div>
-                 <p className='my-4 text-[#000] xs:text-mp sm:text-tp md:text-p'>Change profile Picture</p>
+                 <p className='my-4 text-[#000] xs:text-mp sm:text-tp md:text-p font-bold'>Change profile Picture</p>
                  </div>
                   <hr className='py-[0.5px] bg-[#AEAEAE]' />
                   
@@ -148,7 +148,7 @@ export const Editprofile = () => {
               </div>
             </div>
           </div>
-          <div className="fixed inset-0 bg-black opacity-25 z-40"></div>
+         
         </>
       )}
 
