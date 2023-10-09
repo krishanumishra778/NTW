@@ -244,8 +244,11 @@ const changePassword = async (req, res) => {
       const comparePassword = await foundData.comparePassword(oldpassword);
 
       if (comparePassword) {
+
+
         foundData.password = newpassword;
         await foundData.save();
+
         res.send({ success: true, message: "password changed" });
       } else {
         res.send({ success: false, message: "your old password is incorrect" });
@@ -264,14 +267,32 @@ const changePassword = async (req, res) => {
   }
 };
 
+////send message on mail
+const sendMessage = (req, res) => {
+  try {
+    const { name, email, contactnumber, message } = req.body;
+    const senderMessage = `Name:-${name},Email:-${email},Contact-Number;-${contactnumber},Message:-${message}`;
+    sendEmail({
+      email: process.env.EMAIL,
+      message: senderMessage,
+      subject: "thanks for contact next tech waves",
+    });
+
+    res.status(200).send({ success: true, message: "email send success" });
+  } catch (error) {
+    console.log(error);
+    res.send({ success: false, message: "can not send message right now" });
+  }
+};
+
 module.exports = {
   userSignupController,
   userLogInController,
   varifycontroller,
   wrongotpcontroller,
   logout,
-
   forgotPassword,
   resetPassword,
   changePassword,
+  sendMessage,
 };
