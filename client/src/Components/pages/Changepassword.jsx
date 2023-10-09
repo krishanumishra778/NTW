@@ -1,15 +1,16 @@
 
-import { useState , useEffect} from 'react';
+
+import { useEffect, useState } from 'react';
 import 'aos/dist/aos.css';
 import {  useNavigate } from 'react-router-dom';
 import { MdNavbar } from '../layout/MdNavbar';
 import { AiFillEyeInvisible } from "react-icons/ai";
-import Aos from "aos";
+import Aos from 'aos';
  
 export const Changepassword = () => {
 const navigate = useNavigate();
 
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] =   useState(false);
 
   useEffect(() => {
     Aos.init({
