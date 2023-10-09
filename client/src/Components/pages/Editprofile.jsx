@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const Editprofile = () => {
-
+  const navigate = useNavigate()
   const [showModal, setShowModal] = React.useState(false);
 
   // const handleOpen = () => setOpen(!open);
@@ -15,25 +16,24 @@ export const Editprofile = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-
+    AOS.init({
+      offset: 100,
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
+    });
 
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
 
-    
+    window.addEventListener('resize', handleResize);
+
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  
-  const Edituser = (event) =>{
-    event.preventDefault();
-   const username  = document.getElementById("nm").value
-   const useremail  = document.getElementById("email").value
-   const usercompany  = document.getElementById("company").value
-    // console.log(username  , useremail , usercompany)
-  }
+
   return (
     <div className=' max-w-[1300px] xs:w-[90%] sm:w-[80%] md:w-[70%] mx-auto'>
 
@@ -63,15 +63,15 @@ export const Editprofile = () => {
         {windowWidth > 1536 ? (
           <div className=''>
 
-            <h1 className='pt-5'><Link className='' to="/changepassword">Change Password</Link></h1>
-            <h1 className='pt-4'><Link to='/pages'>Help</Link></h1>
-            <h1 className='pt-4'>Log Out</h1>
+            <h1 className='pt-5 cursor-pointer' onClick={() => { navigate("/changepassword") }} >Change Password</h1>
+            <h1 className='pt-4 cursor-pointer' onClick={() => { navigate('/pages') }}  >Help</h1>
+            <h1 className='pt-4 cursor-pointer'>Log Out</h1>
           </div>
         ) : isAccordionOpen && (
           <div className=' border-2'>
-            <h1 className='pt-4  border pl-2'><Link to="/changepassword">Change Password</Link></h1>
-            <h1 className='pt-4  border pl-2'><Link to='/pages'>Help</Link></h1>
-            <h1 className='pt-4  border pl-2'>Log Out</h1>
+            <h1 className='pt-4  border pl-2 cursor-pointer ' onClick={() => { navigate("/changepassword") }} >Change Password</h1>
+            <h1 className='pt-4  border pl-2 cursor-pointer ' onClick={() => { navigate('/pages') }} >Help</h1>
+            <h1 className='pt-4  border pl-2 cursor-pointer'>Log Out</h1>
           </div>
         )}
       </div>
@@ -96,7 +96,6 @@ export const Editprofile = () => {
                   <hr className='py-[0.5px] bg-[#AEAEAE]' />
                   <p className='my-4 text-[red] xs:text-mp sm:text-tp md:text-p'>Upload New Profile Picture</p>
                   <hr className='py-[0.5px] bg-[#AEAEAE]' />
-                  <input type="file" name='kkk'/>
                   <p className='my-4 text-[#00B2FF] xs:text-mp sm:text-tp md:text-p'>Remove Current Profile Picture</p>
                   <hr className='py-[0.5px] bg-[#AEAEAE]' />
                   <div className="flex justify-center gap-2   border-blueGray-200   py-3">
@@ -126,21 +125,21 @@ export const Editprofile = () => {
 
 
       <div className=''>
-        <form action="" className='xs:text-mp sm:text-tp md:text-p' onSubmit={Edituser} >
+        <form action="" className='xs:text-mp sm:text-tp md:text-p' >
           <div>
             <label htmlFor=""> Change User Name</label>
-            <input id='nm' className='pt-4 w-full rounded-lg border-2 border-[#D9D9D9]' type="text" />
+            <input className='pt-4 w-full rounded-lg border-2 border-[#D9D9D9]' type="text" />
           </div>
 
           <div className='pt-5'>
             <label htmlFor="">Change E-Mail</label>
-            <input id='email' className='border-2 pt-4 w-full rounded-lg border-[#D9D9D9]' type="text" />
+            <input className='border-2 pt-4 w-full rounded-lg border-[#D9D9D9]' type="text" />
           </div>
 
           <div className='pt-5'>
 
             <label htmlFor="">Your company Name</label>
-            <input id='company' className='border-2 pt-4 w-full rounded-lg border-[#D9D9D9]' type="text" />
+            <input className='border-2 pt-4 w-full rounded-lg border-[#D9D9D9]' type="text" />
           </div>
 
           <div className='flex justify-end  '>
