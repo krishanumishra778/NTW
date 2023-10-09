@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { AiOutlineCaretUp, AiOutlineCaretDown } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { MdNavbar } from '../layout/MdNavbar';
 
 export const Editprofile = () => {
+  const navigate = useNavigate()
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
@@ -34,7 +36,10 @@ export const Editprofile = () => {
   };
 
   return (
+    <>
+  
     <div className='max-w-[1300px] xs:w-[90%] sm:w-[80%] md:w-[70%] mx-auto'>
+    <MdNavbar/>
       <div className='bg-opacity-1 flex justify-center '>
         <div className='pt-6 absolute '>
           <img className='rounded-full' src="./images/user.png" alt="" />
@@ -73,7 +78,7 @@ export const Editprofile = () => {
               className='absolute md:w-[70%] sm:w-[80%] xs:w-[90%] bg-white border border-gray-300 rounded-lg transition-all duration-300'
               style={{ transform: isOpen ? 'translateY(0)' : 'translateY(-100%)' }}
             >
-              {/* Dropdown content */}
+              {/* Dropdown    content */}
               <div className='pt-5'>
                 <Link className='px-2 text-blue-500 font-bold' to='/editprofile'>
                   Edit Profile
@@ -81,20 +86,20 @@ export const Editprofile = () => {
               </div>
               <div className='pt-2'>
                 <hr className='border-2' />
-                <h1 className='pt-5 px-2'>
-                  <Link to="/changepassword">Change Password</Link>
+                <h1 className='pt-5 px-2 cursor-pointer ' onClick={() => { navigate("/changepassword") }} >
+                  Change Password
                 </h1>
               </div>
               <div className='py-3'>
                 <hr className='border-2' />
-                <h1 className='pt-4 px-2'>
-                  <Link to='/pages'>Help</Link>
+                <h1 className='pt-4 px-2 cursor-pointer' onClick={() => { navigate("/pages") }}  >
+                  Help
                 </h1>
               </div>
               <div className='py-3'>
                 <hr className='border-2' />
-                <h1 className='pt-4 px-2'>
-                  <Link to='/logout'>Logout</Link>
+                <h1 className='pt-4 px-2 cursor-pointer' onClick={() => { navigate("/logout") }}  >
+                  LogOut
                 </h1>
               </div>
             </div>
@@ -102,7 +107,7 @@ export const Editprofile = () => {
         </div>
       </div>
 
-      {/* Modal */}
+      {/* Modal    start  */}
       {showModal && (
         <>
           <div className="fixed inset-0 mt-[10%] z-50 sm:w-[40%] xs:w-[80%]  mx-auto ">
@@ -139,7 +144,11 @@ export const Editprofile = () => {
         </>
       )}
 
+
+
+
       {/* Change User Name section */}
+
       <div className={`pt-7 ${isOpen ? 'pt-72' : ''}`}>
         <form action="" className='xs:text-mp sm:text-tp md:text-p' >
           <div>
@@ -160,5 +169,6 @@ export const Editprofile = () => {
         </form>
       </div>
     </div>
+    </>
   );
 };

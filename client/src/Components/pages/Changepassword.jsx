@@ -1,17 +1,18 @@
 
-
-import { useState } from 'react';
+import { useState , useEffect} from 'react';
 import 'aos/dist/aos.css';
 import {  useNavigate } from 'react-router-dom';
+import { MdNavbar } from '../layout/MdNavbar';
 import { AiFillEyeInvisible } from "react-icons/ai";
+import Aos from "aos";
  
 export const Changepassword = () => {
 const navigate = useNavigate();
 
-  const [showModal, setShowModal] = React.useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    AOS.init({
+    Aos.init({
       offset: 100,
       duration: 1000,
       easing: 'ease-in-out',
@@ -58,8 +59,8 @@ const navigate = useNavigate();
 
 
   return (
-    <div className='max-w-[1300px] xs:w-[90%] sm:w-[80%] md:w-[70%] mx-auto mt-[5%]'>
-
+    <div className='max-w-[1300px] xs:w-[90%] sm:w-[80%] md:w-[70%] mx-auto '>
+ <MdNavbar/>
       <div className='bg-opacity-1 flex justify-center '>
         <div className='pt-6 absolute '>
           <img className='rounded-full' src="./images/user.png" alt="" />

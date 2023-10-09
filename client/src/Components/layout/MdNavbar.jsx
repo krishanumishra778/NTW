@@ -5,7 +5,7 @@ import { useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
-export const Head_nav = () => {
+export const MdNavbar = () => {
 
   // javascript start    ///////////////////////////
 
@@ -50,9 +50,9 @@ export const Head_nav = () => {
     <>
       {/* <<<<<<<<<<<<<<<<   Navbar     start   >>>>>>>>>>>>>>>>>>>>>>> */}
 
-      <nav className=" block md:hidden  my-2 px-4 relative main-container" data-aos="fade-down">
+      <nav className=" block   my-2 px-4 relative main-container" data-aos="fade-down">
         <div className=" mx-auto flex justify-between items-center ">
-          <div className="md:hidden">
+          <div className="">
             {/* Mobile menu button */}
             <button className="text-[black]" onClick={toggleMobileMenu}>
               <svg
@@ -115,7 +115,7 @@ export const Head_nav = () => {
 
 
         {isMobileMenuOpen && (
-          <div className="md:hidden">
+          <div className="">
             <ul className="mt-2 space-y-2 ">
               <li>
                 <Link to='/' onClick={toggleMobileMenu}> Home</Link>

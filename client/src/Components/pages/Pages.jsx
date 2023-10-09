@@ -4,6 +4,8 @@ import { useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
+import { MdNavbar } from '../layout/MdNavbar';
+
 
 
 export const Pages = () => {
@@ -41,12 +43,7 @@ export const Pages = () => {
 
   return (
     <div className=' max-w-[1300px] xs:w-[90%] sm:w-[80%] md:w-[70%] mx-auto'>
-
-
-
-
-
-
+    <MdNavbar/>
       <div className='bg-opacity-1 flex justify-center '>
         <div className='pt-6 absolute '>
           <img className='rounded-full' src="./images/user.png" alt="" />
