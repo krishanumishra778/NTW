@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const Editprofile = () => {
-  const navigate = useNavigate()
+
   const [showModal, setShowModal] = React.useState(false);
 
   // const handleOpen = () => setOpen(!open);
@@ -63,15 +63,15 @@ export const Editprofile = () => {
         {windowWidth > 1536 ? (
           <div className=''>
 
-            <h1 className='pt-5 cursor-pointer' onClick={() => { navigate("/changepassword") }} >Change Password</h1>
-            <h1 className='pt-4 cursor-pointer' onClick={() => { navigate('/pages') }}  >Help</h1>
-            <h1 className='pt-4 cursor-pointer'>Log Out</h1>
+            <h1 className='pt-5'><Link className='' to="/changepassword">Change Password</Link></h1>
+            <h1 className='pt-4'><Link to='/pages'>Help</Link></h1>
+            <h1 className='pt-4'>Log Out</h1>
           </div>
         ) : isAccordionOpen && (
           <div className=' border-2'>
-            <h1 className='pt-4  border pl-2 cursor-pointer ' onClick={() => { navigate("/changepassword") }} >Change Password</h1>
-            <h1 className='pt-4  border pl-2 cursor-pointer ' onClick={() => { navigate('/pages') }} >Help</h1>
-            <h1 className='pt-4  border pl-2 cursor-pointer'>Log Out</h1>
+            <h1 className='pt-4  border pl-2'><Link to="/changepassword">Change Password</Link></h1>
+            <h1 className='pt-4  border pl-2'><Link to='/pages'>Help</Link></h1>
+            <h1 className='pt-4  border pl-2'>Log Out</h1>
           </div>
         )}
       </div>

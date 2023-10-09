@@ -1,17 +1,18 @@
 
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import 'aos/dist/aos.css';
 import {  useNavigate } from 'react-router-dom';
 import { AiFillEyeInvisible } from "react-icons/ai";
+import Aos from 'aos';
  
 export const Changepassword = () => {
 const navigate = useNavigate();
 
-  const [showModal, setShowModal] = React.useState(false);
+  const [showModal, setShowModal] =   useState(false);
 
   useEffect(() => {
-    AOS.init({
+    Aos.init({
       offset: 100,
       duration: 1000,
       easing: 'ease-in-out',
