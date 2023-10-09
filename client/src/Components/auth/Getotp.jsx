@@ -22,21 +22,21 @@ export const Getotp = () => {
   const formHandler = event => {
     event.preventDefault();
 
-
-    axios.post("http://localhost:4000/varify", otp).then(res => {
-      if (res?.data?.success) {
-        toast.success(res?.data?.message);
-        navigate("/login");
-      } else {
-        navigate('/getotp')
-      }
-    }).catch((err) => {
-      toast.error(err?.response?.data?.message);
-    });
-
+    axios
+      .post("http://localhost:4000/varify", otp)
+      .then(res => {
+        if (res?.data?.success) {
+          toast.success(res?.data?.message);
+          navigate("/login");
+        } else {
+          navigate("/getotp");
+        }
+      })
+      .catch(err => {
+        toast.error(err?.response?.data?.message);
+      });
   };
   return (
-
     <div className='grid md:grid-cols-2'>
       <div className='  bg-white '>
         {/* <h1 className='text-2xl text-center font-bold mt-10'>Log In</h1> */}
@@ -74,6 +74,5 @@ export const Getotp = () => {
         <img src='./images/sign_up_side_img.jpg' alt='' className='' />
       </div>
     </div>
-
   );
 };

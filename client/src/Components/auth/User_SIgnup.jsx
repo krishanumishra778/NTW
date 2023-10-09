@@ -9,11 +9,13 @@ import jwt_decode from "jwt-decode";
 import { Link, useNavigate } from "react-router-dom";
 // import { Layout } from "../layout/Layout";
 import toast from "react-hot-toast";
-
-
+import { useDispatch, useSelector } from "react-redux";
+import { signUpThunk } from "../redux/signUpSlice";
 
 export const User_Signup = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const signupStatus = useSelector(state => state.signup.status); // Use useSelector to get signup status
 
   const [userData, setuserData] = useState({
     name: "",
@@ -31,22 +33,33 @@ export const User_Signup = () => {
     });
   };
 
-  const formHandler = event => {
-    event.preventDefault();
-
-    axios
-      .post("http://localhost:4000/register", userData)
-      .then(res => {
-        if (res.data.success) {
-          toast.success(res.data.message);
-          navigate("/getotp");
+  const formHandler = async event => {
+    try {
+      event.preventDefault();
+      const resultAction = await dispatch(signUpThunk(userData));
+      console.log(resultAction)
+      const { data, status } = resultAction.payload;
+      console.log(status)
+      if (status === "loading") {
+        console.log(status);
+      }
+      if (status === "idle") {
+        if (data.succes) {
+          toast.success(data.succes);
         } else {
-          toast.error(res.data.message);
+          toast.error(status);
         }
-      })
-      .catch(err => {
-        console.log(err);
-      });
+
+        if (status === "error") {
+          console.log("error")
+          toast.error("internel server error");
+          console.log("error")
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
   };
 
   const showpwd = () => {

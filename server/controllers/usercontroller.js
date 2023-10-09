@@ -41,11 +41,15 @@ const userLogInController = async (req, res) => {
 
 const userSignupController = async (req, res) => {
   try {
+<<<<<<< Updated upstream
     const { name, email, password, company, country, email_verified } =
       req.body;
+=======
+    const { name, email, password, company, country,email_verified } = req.body;
+>>>>>>> Stashed changes
     const isEmail = await user.findOne({ email: email });
     if (isEmail) {
-      res.status(400).send({ success: false, message: "User Already Exists" });
+      res.send({ success: false, message: "User Already Exists" });
     } else {
       const User = new user({
         name: name,
@@ -53,7 +57,7 @@ const userSignupController = async (req, res) => {
         password: password,
         company: company,
         country: country,
-        email_verified,
+        email_verified:email_verified
       });
 
       const otp = Math.floor(Math.random() * 9999) + 1000;

@@ -23,20 +23,17 @@ import Join from "./Components/pages/Join";
 import Fotter from "./Components/layout/Fotter";
 import { Forgot_password } from "./Components/auth/Forgot_password/Forgot_password";
 import { Email } from "./Components/auth/Forgot_Password/Email";
-// 
-import {  useEffect } from 'react';
+//
+import { useEffect } from "react";
 import { Preloader } from "./Components/pages/Preloader";
-
-
-
+import { Provider } from "react-redux";
+import { store } from "./Components/redux/store";
 
 export default function App() {
-
   // const location = useLocation();
 
-  const [navurl, setNavurl] = useState()
+  const [navurl, setNavurl] = useState();
   // console.log(navurl);
-
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -49,42 +46,39 @@ export default function App() {
     // Add other side effects or data fetching here
   }, []);
 
-
   return (
     <>
-     {isLoading ? <Preloader /> : <null />}
-      <Router>
+      {isLoading ? <Preloader /> : <null />}
+      <Provider store={store}>
+        <Router>
+          {navurl !== "/sign-up" && <NavDemo setNavurl={setNavurl} />}
 
-        
+          <Head_nav />
 
-
-        {navurl !== "/sign-up" && <NavDemo setNavurl={setNavurl} />}
-
-        <Head_nav />
-
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/about-us' element={<About />} />
-          <Route path='/services' element={<Services />} />
-          <Route path='/subscription' element={<Subscription />} />
-          <Route path='/portfolio' element={<Creativeshowcase />} />
-          <Route path='/sign-up' element={<User_Signup />} />
-          <Route path='/getotp' element={<Getotp />} />
-          <Route path='/login' element={< User_login />} />
-          <Route path="/Settings" element={< Settings />} />
-          <Route path="/editprofile" element={< Editprofile />} />
-          {/* <Route path="/changepassword" element={ < Changepassword/>}/> */}
-          <Route path="/changepassword" element={< Changepassword />} />
-          <Route path="/pages" element={< Pages />} />
-          <Route path="/email" element={<Email/>} />
-          <Route path="/forgot-password" element={<Forgot_password/>}></Route>
-
-        </Routes>
-        <Contact />
-        <Join />
-        <Fotter />
-      </Router>
-
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/about-us' element={<About />} />
+            <Route path='/services' element={<Services />} />
+            <Route path='/subscription' element={<Subscription />} />
+            <Route path='/portfolio' element={<Creativeshowcase />} />
+            <Route path='/sign-up' element={<User_Signup />} />
+            <Route path='/getotp' element={<Getotp />} />
+            <Route path='/login' element={<User_login />} />
+            <Route path='/Settings' element={<Settings />} />
+            <Route path='/editprofile' element={<Editprofile />} />
+            {/* <Route path="/changepassword" element={ < Changepassword/>}/> */}
+            <Route path='/changepassword' element={<Changepassword />} />
+            <Route path='/pages' element={<Pages />} />
+            <Route path='/email' element={<Email />} />
+            <Route
+              path='/forgot-password'
+              element={<Forgot_password />}></Route>
+          </Routes>
+          <Contact />
+          <Join />
+          <Fotter />
+        </Router>
+      </Provider>
     </>
   );
 }
