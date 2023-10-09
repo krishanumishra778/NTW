@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+
 
 import { Link } from 'react-router-dom';
 
@@ -16,24 +15,25 @@ export const Editprofile = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    AOS.init({
-      offset: 100,
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true,
-    });
+
 
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
 
-    window.addEventListener('resize', handleResize);
-
+    
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
+  
+  const Edituser = (event) =>{
+    event.preventDefault();
+   const username  = document.getElementById("nm").value
+   const useremail  = document.getElementById("email").value
+   const usercompany  = document.getElementById("company").value
+    // console.log(username  , useremail , usercompany)
+  }
   return (
     <div className=' max-w-[1300px] xs:w-[90%] sm:w-[80%] md:w-[70%] mx-auto'>
 
@@ -96,6 +96,7 @@ export const Editprofile = () => {
                   <hr className='py-[0.5px] bg-[#AEAEAE]' />
                   <p className='my-4 text-[red] xs:text-mp sm:text-tp md:text-p'>Upload New Profile Picture</p>
                   <hr className='py-[0.5px] bg-[#AEAEAE]' />
+                  <input type="file" name='kkk'/>
                   <p className='my-4 text-[#00B2FF] xs:text-mp sm:text-tp md:text-p'>Remove Current Profile Picture</p>
                   <hr className='py-[0.5px] bg-[#AEAEAE]' />
                   <div className="flex justify-center gap-2   border-blueGray-200   py-3">
@@ -125,21 +126,21 @@ export const Editprofile = () => {
 
 
       <div className=''>
-        <form action="" className='xs:text-mp sm:text-tp md:text-p' >
+        <form action="" className='xs:text-mp sm:text-tp md:text-p' onSubmit={Edituser} >
           <div>
             <label htmlFor=""> Change User Name</label>
-            <input className='pt-4 w-full rounded-lg border-2 border-[#D9D9D9]' type="text" />
+            <input id='nm' className='pt-4 w-full rounded-lg border-2 border-[#D9D9D9]' type="text" />
           </div>
 
           <div className='pt-5'>
             <label htmlFor="">Change E-Mail</label>
-            <input className='border-2 pt-4 w-full rounded-lg border-[#D9D9D9]' type="text" />
+            <input id='email' className='border-2 pt-4 w-full rounded-lg border-[#D9D9D9]' type="text" />
           </div>
 
           <div className='pt-5'>
 
             <label htmlFor="">Your company Name</label>
-            <input className='border-2 pt-4 w-full rounded-lg border-[#D9D9D9]' type="text" />
+            <input id='company' className='border-2 pt-4 w-full rounded-lg border-[#D9D9D9]' type="text" />
           </div>
 
           <div className='flex justify-end  '>

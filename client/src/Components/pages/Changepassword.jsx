@@ -1,35 +1,19 @@
 
-import React, { useEffect } from 'react'
+
 import { useState } from 'react';
-import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { Link } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import { AiFillEyeInvisible } from "react-icons/ai";
-
-
+ 
 export const Changepassword = () => {
+const navigate = useNavigate();
 
-  const [showModal, setShowModal] = React.useState(false);
-
-
-
-
-  useEffect(() => {
-    AOS.init({
-      offset: 100,
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true,
-    });
-  }, []);
+  const [showModal, setShowModal] = useState(false);
 
 
 
 
-
-
-
-
+ 
 
 
 
@@ -42,6 +26,32 @@ export const Changepassword = () => {
     }
     
   };
+
+  const showpwd2 = () => {
+    console.log("click")
+    const pwdType = document.getElementById("pwd").type;
+    if (pwdType === "password") {
+      document.getElementById("pwd2").type = "text";
+    } else {
+      document.getElementById("pwd2").type = "password";
+    }
+    
+  };
+
+  const confirmpwd = (e) =>{
+    e.preventDefault();
+  
+    let pwd = document.getElementById("pwd").value;
+    let pwd2 = document.getElementById("pwd2").value;
+    // console.log(pwd ,pwd2)
+     if(pwd === pwd2 ){
+      alert("Password Change ");
+      navigate("/editprofile")
+     } else{
+      alert("Confirmatoin faild");
+      form.reset()
+     }
+   }
 
 
   return (
@@ -114,7 +124,7 @@ export const Changepassword = () => {
       {/* ><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
       <div className='w-[100%] mt-[10%] mx-auto xs:text-mp sm:text-tp md:text-p'>
 
-        <form action="" className=''>
+        <form name='form' action="" className='' onSubmit={confirmpwd}>
           <div className='relative z-0 mb-6 group'>
 
             <label
@@ -128,7 +138,7 @@ export const Changepassword = () => {
               id='pwd'
               className='bg-gray-50 border-2 pt-4 border-[#D9D9D9] text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
                 h-10'
-              placeholder='******'
+              placeholder='Set New Password'
               required
 
             />
@@ -149,15 +159,15 @@ export const Changepassword = () => {
             <input
               type='password'
               name='password'
-              id='pwd'
+              id='pwd2'
               className='bg-gray-50 border-2 pt-4 border-[#D9D9D9] text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
             h-10'
-              placeholder='******'
+              placeholder='Confirm New password'
               required
 
             />
             <AiFillEyeInvisible
-              onClick={showpwd}
+              onClick={showpwd2}
               className='relative md:left-[95%]  xs:left-[90%] top-2'
             />
           </div>
@@ -165,7 +175,7 @@ export const Changepassword = () => {
 
           {/* ><><></></> */}
           <div className='  flex justify-end  mt-6'>
-            <button className='text-white text-center   p-2 bg-[#00B2FF]  rounded-3xl px-2 py-[6px] sm:text-mp xs:text-tp md:text-p  my-5 hover:bg-[#00b3ffd8] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 '>Save Changes</button>
+            <button type='submit' className='text-white text-center   p-2 bg-[#00B2FF]  rounded-3xl px-2 py-[6px] sm:text-mp xs:text-tp md:text-p  my-5 hover:bg-[#00b3ffd8]  '>Save Changes</button>
           </div>
         </form>
       </div>
