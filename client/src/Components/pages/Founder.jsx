@@ -12,7 +12,7 @@ const Founder = () => {
     and
     have experience in creating user-friendly, engaging, and aesthetically pleasing websites and
     applications.</p>
-  <div className="sm:max-w-[30%] 2xl:max-w-[15%] border-2 rounded-2xl mx-auto m-4 xs:text-center">
+  <div className="sm:max-w-[30%] md:max-w-[20%] 2xl:max-w-[10%] border-2 rounded-2xl mx-auto m-4 xs:text-center">
     <img src="images/krishanu-mishra.jpg" alt='Next Tech Waves' className="rounded-t-lg text-center mx-auto border-b-4" />
     <p className="mt-2 text-center font-[600] sm:text-tt  xs:text-mt md:text-title">Krishanu Mishra</p>
     <p className="text-center  font-[400] sm:text-mp xs:text-tp md:text-p text-[#494949] ">FOUNDER &amp; CEO
