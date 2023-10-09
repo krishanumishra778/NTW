@@ -65,7 +65,8 @@ export const Changepassword = () => {
           <img className='rounded-full' src="./images/user.png" alt="" />
         </div>
         <div className='pl-12 pt-7 relative'>
-          <img className='absolute pt-1.5 pl-1.5 z-[1]' onClick={() => setShowModal(true)} src='./images/Vector7.png' alt="" />
+          <img className='absolute pt-1.5 pl-1.5 z-[1]'
+            onClick={() => setShowModal(true)} src='./images/Vector7.png' alt="" />
           <div>
             <img src="./images/Ellipse54.png" alt="" />
           </div>
@@ -74,16 +75,18 @@ export const Changepassword = () => {
 
       {/* // ><<<<<<<<<<<<<<<<<<<<<<<<<<< */}
 
-      <div className='     ' >
 
-        {/* ................model.................. */}
+      {/* ................model.................. */}
+      <div className='' >
 
         {showModal && (
           <>
-            <div className="fixed inset-0 mt-[10%] z-50 sm:w-[55%] xs:w-[80%] md:w-[40%] xl:w-[30%] 2xl:w-[20%] mx-auto ">
+            <div className="fixed inset-0 z-40 bg-black opacity-50" onClick={() => setShowModal(false)}></div>
+
+            <div className="fixed inset-0 mt-[10%] z-50 sm:w-[55%] xs:w-[80%] md:w-[40%] xl:w-[30%] 2xl:w-[30%] mx-auto ">
               <div className="relative  mx-auto ">
                 <div className="flex flex-col  ">
-                  <div className='bg-white  text-center rounded-md shadow-lg outline-none font-[500]'>
+                  <div className='bg-white  text-center rounded-md shadow-lg outline-none font-[500] py-5'>
                     <div>
                       <p className='my-4 text-[#000] xs:text-mp sm:text-tp md:text-p font-bold'>Change profile Picture</p>
                     </div>

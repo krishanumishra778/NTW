@@ -5,16 +5,11 @@ import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import { MdNavbar } from '../layout/MdNavbar';
 
-
-
 export const Pages = () => {
 
   const [showModal, setShowModal] = React.useState(false);
 
   // const handleOpen = () => setOpen(!open);
-
-
-
 
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
   const toggleAccordion = () => setIsAccordionOpen(!isAccordionOpen);
@@ -56,40 +51,15 @@ export const Pages = () => {
       </div>
 
 
-
-
-      {/* <div className='mt-8 mb-6 xs:text-mp sm:text-tp md:text-p'>
-
-        <h1 className='text-[#00B2FF] mt-[10%] pl-2  border-[2px]  rounded-md py-4 w-full' onClick={windowWidth <= 1536 ? toggleAccordion : undefined} style={{ cursor: windowWidth <= 728 ? 'pointer' : 'default' }}> Edit Profile</h1>
-        {windowWidth > 1536 ? (
-          <div className=' '>
-            <h1 className='pt-5   '><Link className='' to="/changepassword">Change Password</Link></h1>
-            <h1 className='pt-4'><Link to='/pages'>Help</Link></h1>
-            <h1 className='pt-4'>Log Out</h1>
-          </div>
-        ) : isAccordionOpen && (
-          <div className=' border-2'>
-            <h1 className='pt-4  border pl-2'><Link to="/changepassword">Change Password</Link></h1>
-            <h1 className='pt-4  border pl-2'><Link to='/pages'>Help</Link></h1>
-            <h1 className='pt-4  border pl-2'>Log Out</h1>
-          </div>
-        )}
-      </div> */}
-
-
-
-
-
-
-
-
       {/* ><<<<  MODEL  START  <<<<< */}
       {showModal && (
         <>
-          <div className="fixed inset-0 mt-[10%] z-50 sm:w-[55%] xs:w-[80%] md:w-[40%] xl:w-[30%] 2xl:w-[20%] mx-auto ">
+                    <div className="fixed inset-0 z-40 bg-black opacity-50" onClick={() => setShowModal(false)}></div>
+
+          <div className="fixed inset-0 mt-[10%] z-50 sm:w-[55%] xs:w-[80%] md:w-[40%] xl:w-[30%] 2xl:w-[30%] mx-auto ">
             <div className="relative  mx-auto ">
               <div className="flex flex-col  ">
-                <div className='bg-white  text-center rounded-md shadow-lg outline-none font-[500]'>
+                <div className='bg-white  text-center rounded-md shadow-lg outline-none font-[500] py-5'>
                  <div>
                  <p className='my-4 text-[#000] xs:text-mp sm:text-tp md:text-p font-bold'>Change profile Picture</p>
                  </div>

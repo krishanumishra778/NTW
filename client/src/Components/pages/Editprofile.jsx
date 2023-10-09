@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { MdNavbar } from '../layout/MdNavbar';
 
 export const Editprofile = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
@@ -30,15 +30,13 @@ export const Editprofile = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-   
-   
+
   const handleEditProfileClick = () => {
     setIsOpen((prev) => !prev);
   };
 
   return (
     <>
-
       <div className='max-w-[1300px] xs:w-[90%] sm:w-[80%] md:w-[70%] mx-auto'>
         <MdNavbar />
         <div className='bg-opacity-1 flex justify-center '>
@@ -47,7 +45,7 @@ export const Editprofile = () => {
           </div>
           <div className='pl-12 pt-7 relative'>
             <img
-              className='absolute pt-1.5 pl-1.5 z-[1]'
+              className='absolute pt-1.5 pl-1.5 z-[1]  '
               onClick={() => setShowModal(true)}
               src='./images/Vector7.png'
               alt=""
@@ -79,7 +77,7 @@ export const Editprofile = () => {
                 className='absolute md:w-[70%] sm:w-[80%] xs:w-[90%] bg-white border border-gray-300 rounded-lg transition-all duration-300'
                 style={{ transform: isOpen ? 'translateY(0)' : 'translateY(-100%)' }}
               >
-                {/* Dropdown    content */}
+                {/* Dropdown content */}
                 <div className='pt-5'>
                   <Link className='px-2 text-blue-500 font-bold' to='/editprofile'>
                     Edit Profile
@@ -87,7 +85,7 @@ export const Editprofile = () => {
                 </div>
                 <div className='pt-2'>
                   <hr className='border-2' />
-                  <h1 className='pt-5 px-2 cursor-pointer ' onClick={() => { navigate("/changepassword") }} >
+                  <h1 className='pt-5 px-2 cursor-pointer' onClick={() => { navigate("/changepassword") }} >
                     Change Password
                   </h1>
                 </div>
@@ -99,7 +97,7 @@ export const Editprofile = () => {
                 </div>
                 <div className='py-3'>
                   <hr className='border-2' />
-                  <h1 className='pt-4 px-2 cursor-pointer' onClick={() => { navigate("/logout") }}  >
+                  <h1 className='pt-4 px-2 cursor-pointer' onClick={() => { navigate("/") }}  >
                     LogOut
                   </h1>
                 </div>
@@ -108,13 +106,16 @@ export const Editprofile = () => {
           </div>
         </div>
 
-        {/* Modal    start  */}
+        {/* Modal start */}
         {showModal && (
           <>
-            <div className="fixed inset-0 mt-[10%] z-50 sm:w-[55%] xs:w-[80%] md:w-[40%] xl:w-[30%] 2xl:w-[20%] mx-auto ">
+            {/* Background overlay */}
+            <div className="fixed inset-0 z-40 bg-black opacity-50" onClick={() => setShowModal(false)}></div>
+            
+            <div className="fixed inset-0 mt-[10%] z-50 sm:w-[55%] xs:w-[80%] md:w-[40%] xl:w-[30%] 2xl:w-[30%] mx-auto ">
               <div className="relative  mx-auto ">
                 <div className="flex flex-col  ">
-                  <div className='bg-white  text-center rounded-md shadow-lg outline-none font-[500]'>
+                  <div className='bg-white  text-center rounded-md shadow-lg outline-none font-[500] py-5'>
                     <div>
                       <p className='my-4 text-[#000] xs:text-mp sm:text-tp md:text-p font-bold'>Change profile Picture</p>
                     </div>
@@ -149,12 +150,10 @@ export const Editprofile = () => {
                 </div>
               </div>
             </div>
-
           </>
         )}
 
         {/* Change User Name section */}
-
         <div className={`pt-7 ${isOpen ? 'pt-72' : ''}`}>
           <form action="" className='xs:text-mp sm:text-tp md:text-p' >
             <div>
