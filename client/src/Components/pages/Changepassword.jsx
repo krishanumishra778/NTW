@@ -1,15 +1,14 @@
-
-
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import 'aos/dist/aos.css';
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { MdNavbar } from '../layout/MdNavbar';
 import { AiFillEyeInvisible } from "react-icons/ai";
-import Aos from 'aos';
- 
-export const Changepassword = () => {
-const navigate = useNavigate();
+import Aos from "aos";
 
-  const [showModal, setShowModal] =   useState(false);
+export const Changepassword = () => {
+  const navigate = useNavigate();
+
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     Aos.init({
@@ -28,7 +27,7 @@ const navigate = useNavigate();
     } else {
       document.getElementById("pwd").type = "password";
     }
-    
+
   };
 
   const showpwd2 = () => {
@@ -39,28 +38,28 @@ const navigate = useNavigate();
     } else {
       document.getElementById("pwd2").type = "password";
     }
-    
+
   };
 
-  const confirmpwd = (e) =>{
+  const confirmpwd = (e) => {
     e.preventDefault();
-  
+
     let pwd = document.getElementById("pwd").value;
     let pwd2 = document.getElementById("pwd2").value;
     // console.log(pwd ,pwd2)
-     if(pwd === pwd2 ){
+    if (pwd === pwd2) {
       alert("Password Change ");
       navigate("/editprofile")
-     } else{
-      alert("Confirmatoin faild");
+    } else {
+      alert("Confirmatoin failed");
       form.reset()
-     }
-   }
+    }
+  }
 
 
   return (
-    <div className='max-w-[1300px] xs:w-[90%] sm:w-[80%] md:w-[70%] mx-auto mt-[5%]'>
-
+    <div className='max-w-[1300px] xs:w-[90%] sm:w-[80%] md:w-[70%] mx-auto '>
+      <MdNavbar />
       <div className='bg-opacity-1 flex justify-center '>
         <div className='pt-6 absolute '>
           <img className='rounded-full' src="./images/user.png" alt="" />
@@ -75,38 +74,40 @@ const navigate = useNavigate();
 
       {/* // ><<<<<<<<<<<<<<<<<<<<<<<<<<< */}
 
-
-
       <div className='     ' >
-
-
 
         {/* ................model.................. */}
 
-        {showModal ? (
+        {showModal && (
           <>
-            <div className="fixed inset-0 mt-[10%] z-50 sm:w-[40%] xs:w-[80%]  mx-auto">
+            <div className="fixed inset-0 mt-[10%] z-50 sm:w-[55%] xs:w-[80%] md:w-[40%] xl:w-[30%] 2xl:w-[20%] mx-auto ">
               <div className="relative  mx-auto ">
                 <div className="flex flex-col  ">
-
                   <div className='bg-white  text-center rounded-md shadow-lg outline-none font-[500]'>
+                    <div>
+                      <p className='my-4 text-[#000] xs:text-mp sm:text-tp md:text-p font-bold'>Change profile Picture</p>
+                    </div>
+                    <hr className='py-[0.5px] bg-[#AEAEAE]' />
 
-                    <p className='my-4 text-[#000] xs:text-mp sm:text-tp md:text-p'>Change profile Picture</p>
+                    <div className='relative'>
+                      <p className='my-4 text-[red] xs:text-mp sm:text-tp md:text-p'>Upload New Profile Picture</p>
+                      <input type="file" className='absolute top-[-5px] xs:left-[8%]   cursor-pointer opacity-0 ' />
+                    </div>
                     <hr className='py-[0.5px] bg-[#AEAEAE]' />
-                    <p className='my-4 text-[red] xs:text-mp sm:text-tp md:text-p'>Upload New Profile Picture</p>
+                    <div>
+                      <p className='my-4 text-[#00B2FF] xs:text-mp sm:text-tp md:text-p cursor-pointer  '>Remove Current Profile Picture</p>
+                    </div>
                     <hr className='py-[0.5px] bg-[#AEAEAE]' />
-                    <p className='my-4 text-[#00B2FF] xs:text-mp sm:text-tp md:text-p'>Remove Current Profile Picture</p>
-                    <hr className='py-[0.5px] bg-[#AEAEAE]' />
-                    <div className="flex justify-center gap-2   border-blueGray-200   py-3">
+                    <div className="flex justify-center gap-2 border-blueGray-200 py-3">
                       <button
-                        className="text-[#fff] bg-[black] rounded-md uppercase px-2  py-1 xs:text-mc sm:text-tc md:text-c mr-1 mb-1 transition-all duration-150 ease-linear outline-none focus:outline-none background-transparent"
+                        className="text-[#fff] bg-[black] rounded-md uppercase px-2 py-1 xs:text-mc sm:text-tc md:text-c mr-1 mb-1 transition-all duration-150 ease-linear outline-none focus:outline-none background-transparent"
                         type="button"
                         onClick={() => setShowModal(false)}
                       >
-                        Cancle
+                        Cancel
                       </button>
                       <button
-                        className="bg-[#00B2FF] text-white uppercase  px-2  rounded-md  shadow hover:shadow-lg outline-none focus:outline-none  mb-1 transition-all duration-150 ease-linear xs:text-mc sm:text-tc md:text-c"
+                        className="bg-[#00B2FF] text-white uppercase px-2 rounded-md shadow hover:shadow-lg outline-none focus:outline-none mb-1 transition-all duration-150 ease-linear xs:text-mc sm:text-tc md:text-c"
                         type="button"
                         onClick={() => setShowModal(false)}
                       >
@@ -117,12 +118,11 @@ const navigate = useNavigate();
                 </div>
               </div>
             </div>
-            <div className="fixed inset-0 bg-black opacity-25 z-40"></div>
-          </>
-        ) : null}
-      </div>
 
-      {/* ..... */}
+          </>
+        )}
+
+      </div>
 
 
       {/* ><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
@@ -148,7 +148,7 @@ const navigate = useNavigate();
             />
             <AiFillEyeInvisible
               onClick={showpwd}
-              className='relative md:left-[95%] xs:left-[90%] top-2'
+              className='relative md:left-[95%] xs:left-[90%] top-3'
             />
           </div>
 
@@ -172,10 +172,9 @@ const navigate = useNavigate();
             />
             <AiFillEyeInvisible
               onClick={showpwd2}
-              className='relative md:left-[95%]  xs:left-[90%] top-2'
+              className='relative md:left-[95%]  xs:left-[90%] top-3'
             />
           </div>
-
 
           {/* ><><></></> */}
           <div className='  flex justify-end  mt-6'>
@@ -183,11 +182,6 @@ const navigate = useNavigate();
           </div>
         </form>
       </div>
-
-
-
     </div>
   )
 }
-
-
