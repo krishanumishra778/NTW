@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 const sendToken = require("../utils/jwtToken");
 const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
+const tempdata = require("../models/Tempdata");
 require("dotenv").config();
 
 //user log in controller
@@ -37,10 +38,11 @@ const userLogInController = async (req, res) => {
 };
 
 //user sign up controller
-let varifyUserData = {};
+
 const userSignupController = async (req, res) => {
   try {
-    const { name, email, password, company, country } = req.body;
+    const { name, email, password, company, country, email_verified } =
+      req.body;
     const isEmail = await user.findOne({ email: email });
     if (isEmail) {
       res.status(400).send({ success: false, message: "User Already Exists" });
@@ -75,15 +77,17 @@ const userSignupController = async (req, res) => {
           res.send({ error });
         } else {
           const data = await User.save();
+          const temporaryData = new tempdata({
+            userEmail: email,
+            otp: otp,
+          });
+          await temporaryData.save();
           res.status(200).send({
             success: true,
             message: `otp send to your email ${email} for verification`,
             otp,
             email,
           });
-
-          varifyUserData.otp = otp;
-          varifyUserData.userEmail = data.email;
 
           console.log("Email sent: " + info.response);
         }
@@ -99,23 +103,37 @@ const varifycontroller = async (req, res) => {
   const { otp } = req.body;
 
   try {
-    const userToVerify = await user.findOne({
-      email: varifyUserData.userEmail,
-    });
-
-    if (!userToVerify) {
+    const temporaryData = await tempdata.findOne({ otp: otp });
+    if (!temporaryData) {
       return res
         .status(404)
         .json({ success: false, message: "User not found" });
-    }
-
-    if (varifyUserData.otp === Number(otp)) {
-      await user.findByIdAndUpdate(userToVerify._id, {
-        email_verified: true,
-      });
-      res.status(200).json({ success: true, message: "Verification success" });
     } else {
-      res.status(400).json({ success: false, message: "Wrong OTP" });
+      if (temporaryData.otp === Number(otp)) {
+       
+        const userToVerify = await user.findOne({
+          email: temporaryData.userEmail,
+        });
+        if (!userToVerify) {
+          return res
+            .status(404)
+            .json({ success: false, message: "User not found" });
+        } else {
+          await user.findByIdAndUpdate(userToVerify._id, {
+            email_verified: true,
+          });
+          await tempdata.findOneAndDelete({
+            userEmail: temporaryData.userEmail,
+          });
+
+        
+          res
+            .status(200)
+            .json({ success: true, message: "Verification success" });
+        }
+      } else {
+        res.status(400).json({ success: false, message: "Wrong OTP" });
+      }
     }
   } catch (error) {
     res.status(500).json({
@@ -244,8 +262,6 @@ const changePassword = async (req, res) => {
       const comparePassword = await foundData.comparePassword(oldpassword);
 
       if (comparePassword) {
-
-
         foundData.password = newpassword;
         await foundData.save();
 
