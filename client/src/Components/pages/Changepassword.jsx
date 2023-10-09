@@ -11,9 +11,6 @@ export const Changepassword = () => {
 
   const [showModal, setShowModal] = React.useState(false);
 
-
-
-
   useEffect(() => {
     AOS.init({
       offset: 100,
@@ -22,15 +19,6 @@ export const Changepassword = () => {
       once: true,
     });
   }, []);
-
-
-
-
-
-
-
-
-
 
 
   const showpwd = () => {

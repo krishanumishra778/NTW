@@ -12,6 +12,7 @@ const {
   forgotPassword,
   resetPassword,
   changePassword,
+  sendMessage,
 } = require("../controllers/usercontroller");
 const isAuthenticateduser = require("../middleware/isAuthenticate");
 const {
@@ -34,6 +35,7 @@ router.route("/password/reset/:token").put(resetPassword);
 // change password
 router.route("/change/password").put(isAuthenticateduser, changePassword);
 
-router.route("/contactus").get(emailSubscribeController);
+/////send message on email ////
+router.route("/send/message").post(sendMessage);
 
 module.exports = router;

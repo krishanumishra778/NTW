@@ -17,7 +17,13 @@ const sendEmail = (options) => {
     text: options.message,
   };
   transporter.sendMail(mailOptions, async function (error, info) {
-    console.log(info);
+    if(error){
+      console.log(error)
+      return false
+    }
+    else{
+      return true
+    }
   });
 };
 
