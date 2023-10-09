@@ -50,7 +50,7 @@ export const MdNavbar = () => {
     <>
       {/* <<<<<<<<<<<<<<<<   Navbar     start   >>>>>>>>>>>>>>>>>>>>>>> */}
 
-      <nav className=" block   my-2 px-4 relative main-container" data-aos="fade-down">
+      <nav className="hidden  md:block   my-2 px-4 relative main-container" data-aos="fade-down">
         <div className=" mx-auto flex justify-between items-center ">
           <div className="">
             {/* Mobile menu button */}

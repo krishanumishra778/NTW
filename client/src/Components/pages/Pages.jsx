@@ -41,7 +41,7 @@ export const Pages = () => {
   }, []);
 
   return (
-    <div className=' max-w-[1300px] xs:w-[90%] sm:w-[80%] md:w-[70%] mx-auto'>
+    <div className=' max-w-[1300px] xs:w-[90%] sm:w-[80%] md:w-[70%] mx-auto ' >
     <MdNavbar/>
       <div className='bg-opacity-1 flex justify-center '>
         <div className='pt-6 absolute '>
@@ -58,7 +58,7 @@ export const Pages = () => {
 
 
 
-      <div className='mt-8 mb-6 xs:text-mp sm:text-tp md:text-p'>
+      {/* <div className='mt-8 mb-6 xs:text-mp sm:text-tp md:text-p'>
 
         <h1 className='text-[#00B2FF] mt-[10%] pl-2  border-[2px]  rounded-md py-4 w-full' onClick={windowWidth <= 1536 ? toggleAccordion : undefined} style={{ cursor: windowWidth <= 728 ? 'pointer' : 'default' }}> Edit Profile</h1>
         {windowWidth > 1536 ? (
@@ -74,7 +74,7 @@ export const Pages = () => {
             <h1 className='pt-4  border pl-2'>Log Out</h1>
           </div>
         )}
-      </div>
+      </div> */}
 
 
 
@@ -132,7 +132,7 @@ export const Pages = () => {
 
       <div className=''>
         <form action="" className=''>
-          <div className='pt-4'>
+          <div className='pt-24'>
             <label className='' htmlFor=""> How May We Assist You Today?</label>
             <textarea name="" id=""  className=' pl-2 mt-2  w-full rounded-lg border-2 border-[#D9D9D9]'></textarea>
             {/* <input className='pt-4 h-60 w-full rounded-lg border-2 border-[#D9D9D9]' type="text" /> */}
