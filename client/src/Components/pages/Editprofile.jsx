@@ -9,8 +9,8 @@ export const Editprofile = () => {
   const navigate = useNavigate()
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [isAccordionOpen, setIsAccordionOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  // const [isAccordionOpen, setIsAccordionOpen] = useState(false);
+  // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     AOS.init({
