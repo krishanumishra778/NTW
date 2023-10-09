@@ -9,8 +9,8 @@ export const Editprofile = () => {
   const navigate = useNavigate()
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  // const [isAccordionOpen, setIsAccordionOpen] = useState(false);
-  // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isAccordionOpen, setIsAccordionOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     AOS.init({
@@ -110,15 +110,23 @@ export const Editprofile = () => {
       {/* Modal    start  */}
       {showModal && (
         <>
-          <div className="fixed inset-0 mt-[10%] z-50 sm:w-[40%] xs:w-[80%]  mx-auto ">
+          <div className="fixed inset-0 mt-[10%] z-50 sm:w-[55%] xs:w-[80%] md:w-[40%] xl:w-[30%] 2xl:w-[20%] mx-auto ">
             <div className="relative  mx-auto ">
               <div className="flex flex-col  ">
                 <div className='bg-white  text-center rounded-md shadow-lg outline-none font-[500]'>
-                  <p className='my-4 text-[#000] xs:text-mp sm:text-tp md:text-p'>Change profile Picture</p>
+                 <div>
+                 <p className='my-4 text-[#000] xs:text-mp sm:text-tp md:text-p'>Change profile Picture</p>
+                 </div>
                   <hr className='py-[0.5px] bg-[#AEAEAE]' />
-                  <p className='my-4 text-[red] xs:text-mp sm:text-tp md:text-p'>Upload New Profile Picture</p>
+                  
+                  <div className='relative'>
+                    <p className='my-4 text-[red] xs:text-mp sm:text-tp md:text-p'>Upload New Profile Picture</p>
+                    <input type="file" className='absolute top-[-5px] xs:left-[5%] sm:left-[12%] md:left-[18%] lg:left-[25%] xl:left-[30%] cursor-pointer opacity-0' />
+                  </div>
                   <hr className='py-[0.5px] bg-[#AEAEAE]' />
-                  <p className='my-4 text-[#00B2FF] xs:text-mp sm:text-tp md:text-p'>Remove Current Profile Picture</p>
+                <div>
+                <p className='my-4 text-[#00B2FF] xs:text-mp sm:text-tp md:text-p cursor-pointer  '>Remove Current Profile Picture</p>
+                </div>
                   <hr className='py-[0.5px] bg-[#AEAEAE]' />
                   <div className="flex justify-center gap-2 border-blueGray-200 py-3">
                     <button
