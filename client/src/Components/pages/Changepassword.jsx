@@ -8,13 +8,16 @@ import { AiFillEyeInvisible } from "react-icons/ai";
 export const Changepassword = () => {
 const navigate = useNavigate();
 
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = React.useState(false);
 
-
-
-
- 
-
+  useEffect(() => {
+    AOS.init({
+      offset: 100,
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
+    });
+  }, []);
 
 
   const showpwd = () => {
