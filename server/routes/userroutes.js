@@ -18,10 +18,6 @@ const isAuthenticateduser = require("../middleware/isAuthenticate");
 const {
   emailSubscribeController,
 } = require("../controllers/emailSubscribeController");
-const isAuthenticateduser = require("../middleware/isAuthenticate");
-const {
-  emailSubscribeController,
-} = require("../controllers/emailSubscribeController");
 
 const router = require("express").Router();
 
@@ -40,6 +36,6 @@ router.route("/password/reset/:token").put(resetPassword);
 router.route("/change/password").put(isAuthenticateduser, changePassword);
 
 /////send message on email ////
-router.route('/send/message').post(sendMessage)
+router.route("/send/message").post(sendMessage);
 
 module.exports = router;

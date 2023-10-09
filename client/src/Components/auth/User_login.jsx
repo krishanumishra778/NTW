@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 
 
 export const User_login = () => {
-    const navigate  = useNavigate()
+  const navigate = useNavigate()
   const [userData, setUserData] = useState({
     email: "",
     password: "",
@@ -30,7 +30,8 @@ export const User_login = () => {
       .then(res => {
         if (res.data.success) {
           toast.success(res.data.message)
-          navigate('/')
+          // navigate('/')
+          console.log(res)
         } else {
           toast.error(res.data.message)
         }
