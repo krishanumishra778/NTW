@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 
-const Menus = ['You dont have any plan ', 'Settings', 'log Out'];
+
 const Header = () => {
   const [text] = useTypewriter({
     words: ["UI/UX Design and Development", "Web Development", "No Code Web Development", "Web Design"],
@@ -59,7 +59,7 @@ const Header = () => {
                   className='absolute ml-16 top-16 '
                   style={{ display: open ? 'block' : 'none' }}
                 >
-                  <div className='bg-white mt-3 p-4 w-[350px] shadow-xl rounded-md  '>
+                  <div className='bg-white mt-3  w-[350px] shadow-xl rounded-md  '>
                     <div className='flex justify-center'>
                       <img
                         src="./images/user.png"
@@ -67,23 +67,21 @@ const Header = () => {
                         className='h-12 w-12 object-cover rounded-full'
                       />
                     </div>
-                    <p className='text-center mt-2 text-lg font-bold overflow-hidden whitespace-nowrap'>
+                    <p className='text-center mt-2  text-lg font-bold overflow-hidden whitespace-nowrap'>
                       Krishanu Kaundilya
                     </p>
                     <ul>
-                      {Menus.map((menu, index) => (
-                        <li
-                          onClick={() => setOpen(false)}
-                          className={`p-2 text-[14px]  text-gray-500 cursor-pointer ${index === 2 ? 'border-t border-gray-400 mx-auto' : ''
-                            } ${index === 2 ? 'mb-2' : ''} hover:text-blue-500 transition duration-300 ${index === 0 ? 'mt-4' : ''
-                            } ${index === 1 ? 'settings-menu-item' : ''}`}
-                          key={menu}
-                        >
-                          {index === 1 ? <Link to='/editprofile'>{menu}</Link> : menu}
-                        </li>
+                      <div className='grid grid-cols-3 mt-2 px-3 text-[#656565]'>
+                        <p className='col-span-2'>You dont have any plan</p>
+                        <p>__Day's left</p>
 
-                      ))}
+                      </div>
+
+                      <li className='my-3 px-3 text-[#656565] hover:text-[#00B2FF]'><Link to="/editprofile">Settings</Link></li>
                     </ul>
+                    <hr />
+                    < Link className='text-[#656565] inline-block px-3 py-4 hover:text-[#00B2FF]'>log in</Link> 
+                     < Link className='text-[#656565] inline-block px-3 py-4 hover:text-[#00B2FF]'>log Out</Link>
                   </div>
                 </div>
               </div>
