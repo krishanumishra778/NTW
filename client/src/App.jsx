@@ -26,15 +26,15 @@ import { Email } from "./Components/auth/Forgot_Password/Email";
 //
 import { useEffect } from "react";
 import { Preloader } from "./Components/pages/Preloader";
-// import { LoadUser } from "./actions/userAction";
-// import { useSelector } from "react-redux";
-// import store from "./store";
+import { LoadUser } from "./actions/userAction";
+import { useSelector } from "react-redux";
+import store from "./store";
 
 export default function App() {
-  // const { isAuthenticated, user } = useSelector((state) => state.user);
-  // useEffect(() => {
-  //   store.dispatch(LoadUser());
-  // }, []);
+  const { isAuthenticated, user } = useSelector((state) => state.user);
+  useEffect(() => {
+    store.dispatch(LoadUser());
+  }, []);
   // const location = useLocation();
 
   const [navurl, setNavurl] = useState();
