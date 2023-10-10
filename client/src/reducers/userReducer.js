@@ -30,7 +30,7 @@ export const userReducer = (state = { user: {} }, action) => {
         ...state,
         loading: false,
         isAuthenticated: action.payload.success,
-        user: action.payload.user,
+        user: action.payload,
         
       };
 

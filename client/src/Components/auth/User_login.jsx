@@ -13,7 +13,7 @@ import { clearErrors, login } from "../../actions/userAction";
 export const User_login = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch();
-  const { error, loading, user,isAuthenticated } = useSelector(
+  const { error, loading, user, isAuthenticated } = useSelector(
     (state) => state.user
   );
   const [userData, setUserData] = useState({
@@ -31,7 +31,7 @@ export const User_login = () => {
   const formHandler = event => {
     event.preventDefault();
     dispatch(login(userData.email, userData.password));
-    
+    // console.log(user.message)
     // axios
     //   .post("http://localhost:4000/login", userData, { withCredentials: true })
     //   .then(res => {
@@ -60,17 +60,27 @@ export const User_login = () => {
   };
 
   useEffect(() => {
-  
+
+
     if (error) {
-      console.log(error);
-      toast.error(error);
+
+      toast.error(error?.message);
       dispatch(clearErrors());
     }
     // if user login so redirect in account page
     if (isAuthenticated) {
+      console.log(user)
+      toast.success(user?.message)
       navigate("/");
     }
-  }, [error, clearErrors, isAuthenticated]);
+  }, [error, isAuthenticated]);
+  const [messageShown, setMessageShown] = useState(false);
+  useEffect(() => {
+    if (typeof user?.message === "string" && !messageShown) {
+      toast.success(user?.message);
+      setMessageShown(true); // Set the state to indicate the message has been shown
+    }
+  }, [user?.message, messageShown]);
 
   return (
 

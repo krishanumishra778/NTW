@@ -9,7 +9,8 @@ export const Changepassword = () => {
   const navigate = useNavigate();
 
   const [showModal, setShowModal] = useState(false);
-
+  const [password, setpassword] = useState("")
+  const [confirmpassword, setconfirmpassword] = useState("")
   useEffect(() => {
     Aos.init({
       offset: 100,

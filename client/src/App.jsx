@@ -26,9 +26,15 @@ import { Email } from "./Components/auth/Forgot_Password/Email";
 //
 import { useEffect } from "react";
 import { Preloader } from "./Components/pages/Preloader";
-
+// import { LoadUser } from "./actions/userAction";
+// import { useSelector } from "react-redux";
+// import store from "./store";
 
 export default function App() {
+  // const { isAuthenticated, user } = useSelector((state) => state.user);
+  // useEffect(() => {
+  //   store.dispatch(LoadUser());
+  // }, []);
   // const location = useLocation();
 
   const [navurl, setNavurl] = useState();
@@ -48,35 +54,35 @@ export default function App() {
   return (
     <>
       {isLoading ? <Preloader /> : <null />}
-        <Router>
-          {navurl !== "/sign-up" && <NavDemo setNavurl={setNavurl} />}
+      <Router>
+        {navurl !== "/sign-up" && <NavDemo setNavurl={setNavurl} />}
 
-          <Head_nav />
+        <Head_nav />
 
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/about-us' element={<About />} />
-            <Route path='/services' element={<Services />} />
-            <Route path='/subscription' element={<Subscription />} />
-            <Route path='/portfolio' element={<Creativeshowcase />} />
-            <Route path='/sign-up' element={<User_Signup />} />
-            <Route path='/getotp' element={<Getotp />} />
-            <Route path='/login' element={<User_login />} />
-            <Route path='/Settings' element={<Settings />} />
-            <Route path='/editprofile' element={<Editprofile />} />
-            {/* <Route path="/changepassword" element={ < Changepassword/>}/> */}
-            <Route path='/changepassword' element={<Changepassword />} />
-            <Route path='/pages' element={<Pages />} />
-            <Route path='/email' element={<Email />} />
-            <Route
-              path='/forgot-password'
-              element={<Forgot_password />}></Route>
-          </Routes>
-          <Contact />
-          <Join />
-          <Fotter />
-        </Router>
-      
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/about-us' element={<About />} />
+          <Route path='/services' element={<Services />} />
+          <Route path='/subscription' element={<Subscription />} />
+          <Route path='/portfolio' element={<Creativeshowcase />} />
+          <Route path='/sign-up' element={<User_Signup />} />
+          <Route path='/getotp' element={<Getotp />} />
+          <Route path='/login' element={<User_login />} />
+          <Route path='/settings' element={<Settings />} />
+          <Route path='/editprofile' element={<Editprofile />} />
+          {/* <Route path="/changepassword" element={ < Changepassword/>}/> */}
+          <Route path='/changepassword' element={<Changepassword />} />
+          <Route path='/pages' element={<Pages />} />
+          <Route path='/email' element={<Email />} />
+          <Route
+            path='/forgot-password'
+            element={<Forgot_password />}></Route>
+        </Routes>
+        <Contact />
+        <Join />
+        <Fotter />
+      </Router>
+
     </>
   );
 }
