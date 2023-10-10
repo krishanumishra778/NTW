@@ -28,9 +28,10 @@ export const User_login = () => {
     axios
       .post("http://localhost:4000/login", userData, { withCredentials: true })
       .then(res => {
+        console.log(res.cookie)
         if (res.data.success) {
           toast.success(res.data.message)
-          // navigate('/')
+          navigate('/')
           console.log(res)
         } else {
           toast.error(res.data.message)

@@ -41,8 +41,9 @@ const userLogInController = async (req, res) => {
 
 const userSignupController = async (req, res) => {
   try {
-    const { name, email, password, company, country,email_verified } = req.body;
+    const { name, email, password, company, country, email_verified } = req.body;
     const isEmail = await user.findOne({ email: email });
+
     if (isEmail) {
       res.send({ success: false, message: "User Already Exists" });
     } else {
@@ -52,7 +53,7 @@ const userSignupController = async (req, res) => {
         password: password,
         company: company,
         country: country,
-        email_verified:email_verified
+        email_verified: email_verified
       });
 
       const otp = Math.floor(Math.random() * 9999) + 1000;
@@ -74,6 +75,7 @@ const userSignupController = async (req, res) => {
       transporter.sendMail(mailOptions, async function (error, info) {
         if (error) {
           res.send({ error });
+          console.log(error)
         } else {
           const data = await User.save();
           const temporaryData = new tempdata({
@@ -109,7 +111,7 @@ const varifycontroller = async (req, res) => {
         .json({ success: false, message: "User not found" });
     } else {
       if (temporaryData.otp === Number(otp)) {
-       
+
         const userToVerify = await user.findOne({
           email: temporaryData.userEmail,
         });
@@ -125,7 +127,7 @@ const varifycontroller = async (req, res) => {
             userEmail: temporaryData.userEmail,
           });
 
-        
+
           res
             .status(200)
             .json({ success: true, message: "Verification success" });

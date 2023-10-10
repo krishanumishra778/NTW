@@ -26,8 +26,7 @@ import { Email } from "./Components/auth/Forgot_Password/Email";
 //
 import { useEffect } from "react";
 import { Preloader } from "./Components/pages/Preloader";
-import { Provider } from "react-redux";
-import { store } from "./Components/redux/store";
+
 
 export default function App() {
   // const location = useLocation();
@@ -49,7 +48,6 @@ export default function App() {
   return (
     <>
       {isLoading ? <Preloader /> : <null />}
-      <Provider store={store}>
         <Router>
           {navurl !== "/sign-up" && <NavDemo setNavurl={setNavurl} />}
 
@@ -78,7 +76,7 @@ export default function App() {
           <Join />
           <Fotter />
         </Router>
-      </Provider>
+      
     </>
   );
 }
