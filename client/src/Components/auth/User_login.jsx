@@ -6,10 +6,16 @@ import { AiFillEyeInvisible } from "react-icons/ai";
 import axios from "axios";
 import { Link, json, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { clearErrors, login } from "../../actions/userAction";
 
 
 export const User_login = () => {
   const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const { error, loading, user,isAuthenticated } = useSelector(
+    (state) => state.user
+  );
   const [userData, setUserData] = useState({
     email: "",
     password: "",
@@ -24,22 +30,23 @@ export const User_login = () => {
 
   const formHandler = event => {
     event.preventDefault();
-
-    axios
-      .post("http://localhost:4000/login", userData, { withCredentials: true })
-      .then(res => {
-        console.log(res.cookie)
-        if (res.data.success) {
-          toast.success(res.data.message)
-          navigate('/')
-          console.log(res)
-        } else {
-          toast.error(res.data.message)
-        }
-      })
-      .catch(err => {
-        toast.error(err);
-      });
+    dispatch(login(userData.email, userData.password));
+    
+    // axios
+    //   .post("http://localhost:4000/login", userData, { withCredentials: true })
+    //   .then(res => {
+    //     console.log(res.cookie)
+    //     if (res.data.success) {
+    //       toast.success(res.data.message)
+    //       navigate('/')
+    //       console.log(res)
+    //     } else {
+    //       toast.error(res.data.message)
+    //     }
+    //   })
+    //   .catch(err => {
+    //     toast.error(err);
+    //   });
 
   };
 
@@ -51,6 +58,19 @@ export const User_login = () => {
       document.getElementById("pwd").type = "password";
     }
   };
+
+  useEffect(() => {
+  
+    if (error) {
+      console.log(error);
+      toast.error(error);
+      dispatch(clearErrors());
+    }
+    // if user login so redirect in account page
+    if (isAuthenticated) {
+      navigate("/");
+    }
+  }, [error, clearErrors, isAuthenticated]);
 
   return (
 
