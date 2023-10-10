@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 
-
 const Header = () => {
   const [text] = useTypewriter({
     words: ["UI/UX Design and Development", "Web Development", "No Code Web Development", "Web Design"],
@@ -92,8 +91,6 @@ const Header = () => {
             <div></div>
           </div>
 
-
-
         </div>
 
         <div className="max-w-[1340px] px-[15px] pt-9 mx-auto flex md:flex justify-between xs:flex-col-reverse sm:flex-col-reverse lg:flex-row xl:flex-row 2xl:flex-row">
@@ -113,7 +110,7 @@ const Header = () => {
               your needs</button>
           </div>
           <div className="my-6  lg:w-[50%] md:my-15 durat">
-            <img src="images/home img.png" alt='' className="sm:mx-auto home_img -z-10 " />
+            <img src="images/home img.png" alt='' className="sm:mx-auto home_img -z-10 .-1" />
           </div>
         </div>
 
