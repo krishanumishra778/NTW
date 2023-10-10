@@ -35,7 +35,7 @@ export const login = (email, password) => async (dispatch) => {
       withCredentials: true,
       headers: { "Content-Type": "application/json" },
     };
-    const {data} = await axios.post(
+    const { data } = await axios.post(
       `http://localhost:4000/login`,
       {
         email,
@@ -43,7 +43,7 @@ export const login = (email, password) => async (dispatch) => {
       },
       config
     );
-    console.log(data);
+    // console.log(data);
     dispatch({ type: LOGIN_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: LOGIN_FAIL, payload: error?.response?.data?.error });
@@ -75,7 +75,7 @@ export const register = (userData) => async (dispatch) => {
 export const LoadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
-    const { data } = await axios.get(`http://localhost:4000/api/v1/me`, {
+    const { data } = await axios.get(`http://localhost:4000/me`, {
       withCredentials: true,
     });
     console.log(data);
@@ -188,7 +188,7 @@ export const resetPassword =
 export const logout = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
-    await axios.get(`http://localhost:4000/api/v1/logout`, {
+    await axios.get(`http://localhost:4000/logout`, {
       withCredentials: true,
     });
 
