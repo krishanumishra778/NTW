@@ -111,7 +111,7 @@ export const Editprofile = () => {
           <>
             {/* Background overlay */}
             <div className="fixed inset-0 z-40 bg-black opacity-50" onClick={() => setShowModal(false)}></div>
-            
+
             <div className="fixed inset-0 mt-[10%] z-50 sm:w-[55%] xs:w-[80%] md:w-[40%] xl:w-[30%] 2xl:w-[30%] mx-auto ">
               <div className="relative  mx-auto ">
                 <div className="flex flex-col  ">
@@ -123,23 +123,30 @@ export const Editprofile = () => {
 
                     <div className='relative'>
                       <p className='my-4 text-[red] xs:text-mp sm:text-tp md:text-p'>Upload New Profile Picture</p>
-                      <input type="file" className='absolute top-[-5px] xs:left-[5%] sm:left-[12%] md:left-[18%] lg:left-[25%] xl:left-[30%] cursor-pointer opacity-0' />
+                      <input type="file" className='absolute top-[-5px] xs:left-[5%] sm:left-[12%] md:left-[18%] lg:left-[25%] 
+                      xl:left-[30%] cursor-pointer opacity-0' />
                     </div>
                     <hr className='py-[0.5px] bg-[#AEAEAE]' />
-                    <div>
+                    <div className='relative'>
                       <p className='my-4 text-[#00B2FF] xs:text-mp sm:text-tp md:text-p cursor-pointer  '>Remove Current Profile Picture</p>
+                      <input type="file" className='absolute top-[-5px] xs:left-[5%] sm:left-[12%] md:left-[18%] lg:left-[25%] 
+                      xl:left-[30%] cursor-pointer opacity-0' />
                     </div>
                     <hr className='py-[0.5px] bg-[#AEAEAE]' />
                     <div className="flex justify-center gap-2 border-blueGray-200 py-3">
                       <button
-                        className="text-[#fff] bg-[black] rounded-md uppercase px-2 py-1 xs:text-mc sm:text-tc md:text-c mr-1 mb-1 transition-all duration-150 ease-linear outline-none focus:outline-none background-transparent"
+                        className="text-[#fff] bg-[black] rounded-md uppercase px-2 py-1 xs:text-mc 
+                        sm:text-tc md:text-c mr-1 mb-1 transition-all duration-150 
+                        ease-linear outline-none focus:outline-none background-transparent"
                         type="button"
                         onClick={() => setShowModal(false)}
                       >
                         Cancel
                       </button>
                       <button
-                        className="bg-[#00B2FF] text-white uppercase px-2 rounded-md shadow hover:shadow-lg outline-none focus:outline-none mb-1 transition-all duration-150 ease-linear xs:text-mc sm:text-tc md:text-c"
+                        className="bg-[#00B2FF] text-white uppercase px-2 rounded-md shadow hover:shadow-lg 
+                        outline-none focus:outline-none mb-1 transition-all duration-150 
+                        ease-linear xs:text-mc sm:text-tc md:text-c"
                         type="button"
                         onClick={() => setShowModal(false)}
                       >

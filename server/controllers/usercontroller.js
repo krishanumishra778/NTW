@@ -41,7 +41,7 @@ const userLogInController = async (req, res) => {
 
 const userSignupController = async (req, res) => {
   try {
-    const { name, email, password, company, country,email_verified } = req.body;
+    const { name, email, password, company, country, email_verified } = req.body;
     const isEmail = await user.findOne({ email: email });
     if (isEmail) {
       res.send({ success: false, message: "User Already Exists" });
@@ -52,7 +52,7 @@ const userSignupController = async (req, res) => {
         password: password,
         company: company,
         country: country,
-        email_verified:email_verified
+        email_verified: email_verified
       });
 
       const otp = Math.floor(Math.random() * 9999) + 1000;
@@ -109,7 +109,7 @@ const varifycontroller = async (req, res) => {
         .json({ success: false, message: "User not found" });
     } else {
       if (temporaryData.otp === Number(otp)) {
-       
+
         const userToVerify = await user.findOne({
           email: temporaryData.userEmail,
         });
@@ -125,7 +125,7 @@ const varifycontroller = async (req, res) => {
             userEmail: temporaryData.userEmail,
           });
 
-        
+
           res
             .status(200)
             .json({ success: true, message: "Verification success" });
