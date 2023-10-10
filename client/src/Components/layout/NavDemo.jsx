@@ -25,18 +25,18 @@ export const NavDemo = ( {setNavurl}) => {
         <nav>
           <ul className='grid grid-cols-6 text-center  '>
            
-              <Link className=' rounded-full hover:text-[#FFF]  py-1 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF] active:bg-[#00B2FF] ' to='/' onClick={ ()=>{setNavurl("/")}} > Home</Link>
+              <Link className=' rounded-full hover:text-[#FFF]  py-2 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF] active:bg-[#00B2FF] ' to='/' onClick={ ()=>{setNavurl("/")}} > Home</Link>
            
-              <Link className='  rounded-full hover:text-[#FFF]  py-1 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF] ' to='/about-us' onClick={ ()=>{setNavurl("/about-us")}} > About Us</Link>
+              <Link className='  rounded-full hover:text-[#FFF]  py-2 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF] ' to='/about-us' onClick={ ()=>{setNavurl("/about-us")}} > About Us</Link>
            
-              <Link className='  rounded-full hover:text-[#FFF]  py-1  lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF] ' to='/services' onClick={ ()=>{setNavurl("/services")}} > Services</Link>
+              <Link className='  rounded-full hover:text-[#FFF]  py-2 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF] ' to='/services' onClick={ ()=>{setNavurl("/services")}} > Services</Link>
            
              
-              <Link className='  rounded-full hover:text-[#FFF]  py-1 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF] ' to='/subscription' onClick={ ()=>{setNavurl("/subscription")}} > Recharge & Plans</Link>
+              <Link className='  rounded-full hover:text-[#FFF]  py-2 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF] ' to='/subscription' onClick={ ()=>{setNavurl("/subscription")}} > Recharge & Plans</Link>
            
-              <Link   className='  rounded-full hover:text-[#FFF] py-1 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF] ' to='/portfolio' onClick={ ()=>{setNavurl("/portfolio")}} > Our Portfolio</Link>
+              <Link   className='  rounded-full hover:text-[#FFF] py-2 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF] ' to='/portfolio' onClick={ ()=>{setNavurl("/portfolio")}} > Our Portfolio</Link>
           
-              <Link className='  rounded-full hover:text-[#FFF]  py-1 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF] ' to='/sign-up' onClick={ ()=>{setNavurl("/sign-up")}} >Sign-Up</Link>
+              <Link className='  rounded-full hover:text-[#FFF]  py-2 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF] ' to='/sign-up' onClick={ ()=>{setNavurl("/sign-up")}} >Sign-Up</Link>
           
           </ul>
         </nav>
