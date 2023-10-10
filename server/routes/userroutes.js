@@ -38,4 +38,8 @@ router.route("/change/password").put(isAuthenticateduser, changePassword);
 /////send message on email ////
 router.route("/send/message").post(sendMessage);
 
+
+/////  subscription  /////
+router.route('/email/subscription').post(emailSubscribeController)
+
 module.exports = router;
