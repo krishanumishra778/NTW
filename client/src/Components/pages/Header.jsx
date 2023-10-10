@@ -45,13 +45,13 @@ const Header = () => {
               <div className='relative menu-container'>
                 <div
                   // ><>></>
-                  className='h-14 w-14 object-cover  border-gray-400 rounded-full cursor-pointer'
+                  className='h-12 w-12 object-cover  border-gray-400 rounded-full cursor-pointer'
                   style={{ backgroundColor: 'white' }}
                   onMouseEnter={handleMouseEnter}
                 >
                   <img
                     src="./images/user.png"
-                    alt=''
+                    alt='User Profile'
                     className='h-full w-full object-cover rounded-full'
                   />
                 </div>
@@ -64,7 +64,7 @@ const Header = () => {
                       <img
                         src="./images/user.png"
                         alt=''
-                        className='h-16 w-16 object-cover rounded-full'
+                        className='h-12 w-12 object-cover rounded-full'
                       />
                     </div>
                     <p className='text-center mt-2 text-lg font-bold overflow-hidden whitespace-nowrap'>

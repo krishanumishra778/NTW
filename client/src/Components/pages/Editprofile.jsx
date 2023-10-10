@@ -41,7 +41,7 @@ export const Editprofile = () => {
         <MdNavbar />
         <div className='bg-opacity-1 flex justify-center '>
           <div className='pt-6 absolute '>
-            <img className='rounded-full' src="./images/user.png" alt="" />
+            <img className='rounded-full ' src="./images/user.png" alt="" />
           </div>
           <div className='pl-12 pt-7 relative'>
             <img
