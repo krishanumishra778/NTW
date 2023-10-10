@@ -42,4 +42,7 @@ router.route("/send/message").post(sendMessage);
 // get user data
 router.route("/me").get(isAuthenticateduser, getUserDetails);
 
+/////  subscription  /////
+router.route('/email/subscription').post(emailSubscribeController)
+
 module.exports = router;
