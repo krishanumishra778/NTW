@@ -13,7 +13,7 @@ import { Getotp } from "./Components/auth/Getotp";
 import { NavDemo } from "./Components/layout/NavDemo";
 import { Head_nav } from "./Components/layout/Head_nav";
 // import Fotter from "./Components/layout/Fotter";
-import { Settings } from "./Components/pages/Settings";
+
 import { Editprofile } from "./Components/pages/Editprofile";
 import { Changepassword } from "./Components/pages/Changepassword";
 import { Pages } from "./Components/pages/Pages";
@@ -68,7 +68,7 @@ export default function App() {
           <Route path='/sign-up' element={<User_Signup />} />
           <Route path='/getotp' element={<Getotp />} />
           <Route path='/login' element={<User_login />} />
-          <Route path='/settings' element={<Settings />} />
+          {/* <Route path='/settings' element={<Settings />} /> */}
           <Route path='/editprofile' element={<Editprofile />} />
           {/* <Route path="/changepassword" element={ < Changepassword/>}/> */}
           <Route path='/changepassword' element={<Changepassword />} />

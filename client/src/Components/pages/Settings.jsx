@@ -36,5 +36,16 @@ export const Settings = () => {
                 </div>
             </div>
         </div>
-    );
-}
+
+        {showSettings && (
+          <div className='pt-3'>
+            <h1 className='pt-1 text-[#656565]'>Settings</h1>
+            <div className='pt-3'>
+              <h1 className='text-[#656565] pt-3'>Logout</h1>
+            </div>
+          </div>
+        )}
+      // </div>
+    // </div>
+  // );
+};

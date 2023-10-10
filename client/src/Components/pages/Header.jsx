@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 
-const Menus = ['You dont have any plan ', 'Settings', 'log Out'];
+const Menus = ['you dont have any plan', 'Settings', 'Log Out',];
 const Header = () => {
   const [text] = useTypewriter({
     words: ["UI/UX Design and Development", "Web Development", "No Code Web Development", "Web Design"],
@@ -74,7 +74,7 @@ const Header = () => {
                       {Menus.map((menu, index) => (
                         <li
                           onClick={() => setOpen(false)}
-                          className={`p-2 text-[14px]  text-gray-500 cursor-pointer ${index === 2 ? 'border-t border-gray-400 mx-auto' : ''
+                          className={`p-2 text-[14px] text-gray-500 cursor-pointer ${index === 2 ? 'border-t border-gray-400 mx-auto' : ''
                             } ${index === 2 ? 'mb-2' : ''} hover:text-blue-500 transition duration-300 ${index === 0 ? 'mt-4' : ''
                             } ${index === 1 ? 'settings-menu-item' : ''}`}
                           key={menu}
@@ -93,8 +93,6 @@ const Header = () => {
             </div>
             <div></div>
           </div>
-
-
 
         </div>
 
@@ -115,7 +113,7 @@ const Header = () => {
               your needs</button>
           </div>
           <div className="my-6  lg:w-[50%] md:my-15 durat">
-            <img src="images/home img.png" alt='' className="sm:mx-auto home_img -z-10 " />
+            <img src="images/home img.png" alt='' className="sm:mx-auto home_img -z-10 .-1" />
           </div>
         </div>
 

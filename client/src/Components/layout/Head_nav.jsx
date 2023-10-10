@@ -7,11 +7,12 @@ import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 export const Head_nav = () => {
 
-  // javascript start    ///////////////////////////
+  // javascript///////////////////////////
 
-  const Menus = ['You dont have any plan ', 'Settings', 'log Out'];
+  const Menus = ['you dont have any plan ', 'Settings', 'log Out'];
 
   const [open, setOpen] = useState(false);
+
 
   const handleMouseEnter = () => {
     setOpen(true);
@@ -51,7 +52,7 @@ export const Head_nav = () => {
       {/* <<<<<<<<<<<<<<<<   Navbar     start   >>>>>>>>>>>>>>>>>>>>>>> */}
 
       <nav className=" block md:hidden  my-2 px-4 relative main-container" data-aos="fade-down">
-        <div className=" mx-auto flex justify-between items-center ">
+        <div className=" mx-auto flex justify-between items-center  relative z-10 ">
           <div className="md:hidden">
             {/* Mobile menu button */}
             <button className="text-[black]" onClick={toggleMobileMenu}>
@@ -81,12 +82,13 @@ export const Head_nav = () => {
 
 
           <div
-            className='absolute ml-72 top-16 z-10 '
+            className='absolute  top-16 z-20 right-0  w-full'
             style={{ display: open ? 'block' : 'none' }}
           >
-            <div className='bg-white mt-3 p-4 w-[350px] shadow-xl rounded-md  '>
+            <div className='bg-white mt-3 h-72 bg-opacity-100 md:w-[350px] w-full shadow-xl rounded-md  '>
+                < hr className='w-full mb-2  bg-[gray]' />
               <div className='flex justify-center'>
-                <img
+                <img 
                   src="./images/user.png"
                   alt=''
                   className='h-16 w-16 object-cover rounded-full'
@@ -99,7 +101,7 @@ export const Head_nav = () => {
                 {Menus.map((menu, index) => (
                   <li
                     onClick={() => setOpen(false)}
-                    className={`p-2 text-[14px]  text-gray-500 cursor-pointer ${index === 2 ? 'border-t border-gray-400 mx-auto' : ''
+                    className={`p-2 text-[14px]  text-gray-500 cursor-pointer ${index === 2 ? 'border-t  border-gray-400  mx-auto' : ''
                       } ${index === 2 ? 'mb-2' : ''} hover:text-blue-500 transition duration-300 ${index === 0 ? 'mt-4' : ''
                       } ${index === 1 ? 'settings-menu-item' : ''}`}
                     key={menu}

@@ -65,8 +65,8 @@ export const Changepassword = () => {
         <div className='pt-6 absolute '>
           <img className='rounded-full' src="./images/user.png" alt="" />
         </div>
-        <div className='pl-12 pt-7 relative'>
-          <img className='absolute pt-1.5 pl-1.5 z-[1]'
+        <div className='pl-12 pt-7 relative '>
+          <img className='absolute pt-1.5 pl-1.5 z-[1] cursor-pointer'
             onClick={() => setShowModal(true)} src='./images/Vector7.png' alt="" />
           <div>
             <img src="./images/Ellipse54.png" alt="" />
