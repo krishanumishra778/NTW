@@ -41,8 +41,14 @@ const userLogInController = async (req, res) => {
 
 const userSignupController = async (req, res) => {
   try {
+<<<<<<< HEAD
     const { name, email, password, company, country, email_verified } = req.body;
+=======
+    const { name, email, password, company, country, email_verified } =
+      req.body;
+>>>>>>> ba3a370acdebcfbe965b1121bfceffe93ed04826
     const isEmail = await user.findOne({ email: email });
+
     if (isEmail) {
       res.send({ success: false, message: "User Already Exists" });
     } else {
@@ -52,7 +58,11 @@ const userSignupController = async (req, res) => {
         password: password,
         company: company,
         country: country,
+<<<<<<< HEAD
         email_verified: email_verified
+=======
+        email_verified: email_verified,
+>>>>>>> ba3a370acdebcfbe965b1121bfceffe93ed04826
       });
 
       const otp = Math.floor(Math.random() * 9999) + 1000;
@@ -74,6 +84,7 @@ const userSignupController = async (req, res) => {
       transporter.sendMail(mailOptions, async function (error, info) {
         if (error) {
           res.send({ error });
+          console.log(error);
         } else {
           const data = await User.save();
           const temporaryData = new tempdata({
@@ -109,7 +120,10 @@ const varifycontroller = async (req, res) => {
         .json({ success: false, message: "User not found" });
     } else {
       if (temporaryData.otp === Number(otp)) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> ba3a370acdebcfbe965b1121bfceffe93ed04826
         const userToVerify = await user.findOne({
           email: temporaryData.userEmail,
         });
@@ -125,7 +139,10 @@ const varifycontroller = async (req, res) => {
             userEmail: temporaryData.userEmail,
           });
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ba3a370acdebcfbe965b1121bfceffe93ed04826
           res
             .status(200)
             .json({ success: true, message: "Verification success" });
@@ -299,6 +316,16 @@ const sendMessage = (req, res) => {
     res.send({ success: false, message: "can not send message right now" });
   }
 };
+// get data
+
+const getUserDetails = async (req, res) => {
+  const User = await user.findById(req.user.id);
+
+  res.status(200).json({
+    success: true,
+    User,
+  });
+};
 
 module.exports = {
   userSignupController,
@@ -310,4 +337,5 @@ module.exports = {
   resetPassword,
   changePassword,
   sendMessage,
+  getUserDetails,
 };

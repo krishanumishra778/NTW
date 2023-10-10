@@ -76,7 +76,7 @@ export const Head_nav = () => {
           <div className="max-w-[70%]">
             <img src="logo/next tech waves logo.png" alt="" />
           </div>
-          <div className='  max-w-[10%] cursor-pointer ' onMouseEnter={handleMouseEnter} onMouseDown={handleMouseLeave}>
+          <div className='  xs:max-w-[10%] sm:max-w-[6%] cursor-pointer ' onMouseEnter={handleMouseEnter} onMouseDown={handleMouseLeave}>
             <img className='rounded-full ' src="./images/user.png" alt="" />
           </div>
 

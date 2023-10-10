@@ -1,7 +1,39 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
+import toast from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
+
+
 
 const Fotter = (setFooterurl) => {
+    const navigate = useNavigate()
+    const [email, setEmail] = useState({
+        email: ""
+    })
+
+    const inpHandler = (e) => {
+        setEmail({
+            ...email, [e.target.name]: e.target.value
+        })
+    }
+
+    const formHandler = async (e) => {
+        e.preventDefault()
+        const res = await axios.post('http://localhost:4000/email/subscription', email)
+        if (res.data.success) {
+            toast.success(res.data.message)
+            setEmail({
+                email: ""
+            })
+            navigate('/')
+        } else {
+            toast.error(res.data.message)
+            setEmail({
+                email: ""
+            })
+        }
+    }
     return (
         // ><<<<<<<<<<   FOOTER  start  ><<<<<<<<<<<<<<<<< 
         <div>
@@ -27,8 +59,12 @@ const Fotter = (setFooterurl) => {
                 </div>
                 <div className=" sm:text-right  text-center">
                     <div className="  py-1  mt-5 flex  ml-auto">
-                        <input type="email" className=" w-[70%] bg-[#F5F5F5] rounded-full pl-2  h-[35px]" placeholder="E-mail" />
-                        <button className=" bg-[#00B2FF]  rounded-3xl text-[#fff]   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p   transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-[#00b3ffd8] duration-300">Subscribe</button>
+                        <form onSubmit={formHandler}>
+                            <input type="email" className=" w-[70%] bg-[#F5F5F5] rounded-full pl-2  h-[35px] ml-1" placeholder="E-mail" onChange={inpHandler} name='email' value={email.email}
+                                required />
+
+                            <button type='submit' className=" bg-[#00B2FF]  rounded-3xl text-[#fff]   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  hover:bg-[#00b3ffd8] " >Subscribe</button>
+                        </form>
                     </div>
                 </div>
             </div>

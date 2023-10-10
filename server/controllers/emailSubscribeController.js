@@ -3,10 +3,11 @@ const emailsubscribe = require("../models/emailsubscribe");
 exports.emailSubscribeController = async (req, res) => {
   try {
     const { email } = req.body;
-    const userexist = await emailsubscribe.find({ email });
-    if (!userexist) {
+    const userexist = await emailsubscribe.find({ email: email });
+    
+    if (userexist.length > 0) {
       res.status(201).send({
-        success: true,
+        success: false,
         message: "you are already subscribe",
       });
     } else {
