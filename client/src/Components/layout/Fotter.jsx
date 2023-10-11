@@ -63,7 +63,7 @@ const Fotter = () => {
                             <input type="email" className=" w-[70%] bg-[#F5F5F5] rounded-full pl-2  h-[35px] ml-1" placeholder="E-mail" onChange={inpHandler} name='email' value={email.email}
                                 required />
 
-                            <button type='submit' className=" bg-[#00B2FF]  rounded-3xl text-[#fff]   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  hover:bg-[#00b3ffd8] " >Subscribe</button>
+                            <button type='submit' className=" bg-[#00B2FF]  rounded-3xl text-[#fff]  ml-1 px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  hover:bg-[#00b3ffd8] " >Subscribe</button>
                     </div>
                         </form>
                 </div>

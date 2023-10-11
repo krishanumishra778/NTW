@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
-import { Mainfooter } from '../layout/Mainfooter'
+
 
 const About = () => {
   return (
@@ -17,7 +17,7 @@ const About = () => {
     </div>
     <div className="  items-center lg:col-span-2 flex flex-col justify-center lg:px-4  ">
       <div className="flex flex-col justify-center">
-        <h1 className="text-[#00B2FF] font-[600]  sm:text-tt  xs:text-mt md:text-title xs:text-center md:text-left  xs:mt-5 ">
+        <h1 className="text-[#00B2FF] font-[600]  sm:text-tt  xs:text-mt md:text-title xs:text-center md:text-left   mt-8 mb-4 sm:mb-1 ">
           About Us
         </h1>
         <p className="text-[#494949] font-[600]  sm:text-tt  xs:text-mt md:text-title">We are committed to

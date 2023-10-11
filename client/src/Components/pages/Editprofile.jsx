@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { AiOutlineCaretUp, AiOutlineCaretDown } from 'react-icons/ai';
@@ -165,18 +165,18 @@ export const Editprofile = () => {
           <form action="" className='xs:text-mp sm:text-tp md:text-p' >
             <div>
               <label htmlFor="">Change User Name</label>
-              <input className='pt-4 w-full rounded-lg border-2 border-[#D9D9D9]' type="text" />
+              <input className='pt-4 w-full rounded-lg border-2  border-[#D9D9D9]' type="text" />
             </div>
             <div className='pt-5'>
               <label htmlFor="">Change E-Mail</label>
-              <input className='border-2 pt-4 w-full rounded-lg border-[#D9D9D9]' type="text" />
+              <input className='border-2 pt-4 w-full rounded-lg border-[#D9D9D9] ' type="text" />
             </div>
             <div className='pt-5'>
               <label htmlFor="">Your company Name</label>
               <input className='border-2 pt-4 w-full rounded-lg border-[#D9D9D9]' type="text" />
             </div>
             <div className='flex justify-end'>
-              <button type='submit' className='text-white text-center p-2 bg-[#00B2FF] rounded-3xl px-[20px] py-[6px] sm:text-mp xs:text-tp md:text-p my-5 hover:bg-[#00b3ffd8] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 '>Save Changes</button>
+              <button type='submit' className='text-white text-center p-2 bg-[#00B2FF] rounded-3xl px-[20px] py-[6px] sm:text-mp xs:text-tp md:text-p my-5 hover:bg-[#00b3ffd8]  '>Save Changes</button>
             </div>
           </form>
         </div>

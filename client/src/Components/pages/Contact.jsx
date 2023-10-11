@@ -46,8 +46,8 @@ const Contact = () => {
                   <input type="text" id="help" onChange={(e)=>{setinputdata({...inputdata,message:e.target.value})}} className="w-full  border-[#AEAEAE] rounded-full border focus:border-[#00B2FF] outline-none px-2 py-1" />
                 </div>
               </div>
-              <div className="text-center my-8 ">
-                <button type='submit' className=" bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-[#00b3ffd8] duration-300 ...">Send
+              <div className="text-center my-5 ">
+                <button type='submit' className=" bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  ease-in-out hover:bg-[#00b3ffd8]">Send
                   Message</button>
               </div>
             </form>
