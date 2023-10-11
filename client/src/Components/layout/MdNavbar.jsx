@@ -50,15 +50,15 @@ export const MdNavbar = () => {
     <>
       {/* <<<<<<<<<<<<<<<<   Navbar     start   >>>>>>>>>>>>>>>>>>>>>>> */}
 
-      <nav className="hidden  md:block   my-2 px-4 relative main-container" data-aos="fade-down">
-        <div className=" mx-auto flex justify-between items-center ">
+      <nav className="   my-2 px-4 relative main-container" data-aos="fade-down">
+        <div className="  flex justify-between items-center ">
           <div className="">
             {/* Mobile menu button */}
             <button className="text-[black]" onClick={toggleMobileMenu}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
-                height="24"
+                height="22"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -72,10 +72,10 @@ export const MdNavbar = () => {
               </svg>
             </button>
           </div>
-          <div className="max-w-[70%]">
+          <div className="max-w-[65%]">
             <img src="logo/next tech waves logo.png" alt="" />
           </div>
-          <div className='  max-w-[6%] cursor-pointer ' onMouseEnter={handleMouseEnter} onMouseDown={handleMouseLeave}>
+          <div className='  xs:max-w-[12%] sm:max-w-[12%] md:max-w-[6%] cursor-pointer ' onMouseEnter={handleMouseEnter} onMouseDown={handleMouseLeave}>
             <img className='rounded-full ' src="./images/user.png" alt="" />
           </div>
 

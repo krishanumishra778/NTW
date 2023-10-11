@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { MdNavbar } from '../layout/MdNavbar';
 import toast from 'react-hot-toast';
 
 export const Pages = () => {
+ const navigate =  useNavigate()
+
   const [showModal, setShowModal] = React.useState(false);
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
   const toggleAccordion = () => setIsAccordionOpen(!isAccordionOpen);
@@ -33,6 +35,7 @@ export const Pages = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     toast.success("Message Send Successfully")
+    navigate("/editprofile")
   };
 
   return (

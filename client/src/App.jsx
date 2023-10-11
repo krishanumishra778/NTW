@@ -11,7 +11,7 @@ import Creativeshowcase from "./Components/pages/Creativeshowcase";
 import { User_Signup } from "./Components/auth/User_Signup";
 import { Getotp } from "./Components/auth/Getotp";
 
-import { Head_nav } from "./Components/layout/Head_nav";
+// import { Head_nav } from "./Components/layout/Head_nav";
 // import Fotter from "./Components/layout/Fotter";
 
 import { Editprofile } from "./Components/pages/Editprofile";
@@ -54,11 +54,11 @@ export default function App() {
       <Router>
        
 
-        <Head_nav />
+        {/* <Head_nav /> */}
 
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/about-us' element={<About />} />
+          <Route path='/about' element={<About />} />
           <Route path='/services' element={<Services />} />
           <Route path='/subscription' element={<Subscription />} />
           <Route path='/portfolio' element={<Creativeshowcase />} />
