@@ -11,7 +11,20 @@ const Subscription = () => {
             setChangePrice(true)
         }
     }
+    const [isShowMore1, setIsShowMore1] = useState(false);
+    const [isShowMore2, setIsShowMore2] = useState(false);
+    const [isShowMore3, setIsShowMore3] = useState(false);
 
+
+    const toggleReadMoreLess = (cardNumber) => {
+        if (cardNumber === 1) {
+            setIsShowMore1(!isShowMore1);
+        } else if (cardNumber === 2) {
+            setIsShowMore2(!isShowMore2);
+        } else if (cardNumber === 3) {
+            setIsShowMore3(!isShowMore3);
+        }
+    };
 
     return (
         <>
@@ -41,11 +54,13 @@ const Subscription = () => {
                             <span className=" text-sm font-medium text-gray-900 dark:text-gray-300" />
                         </label>
 
-                        
+
                         <p className="sm:text-mp xs:text-tp md:text-p text-center pt-2 inline"> Bill
                             quarterly</p>
                     </div>
-                    <div className="max-w-[1300px] mx-auto mt-8 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1  gap-4">
+                    {/* big screen card start */}
+                    <div className='xs:hidden sm:block'>
+                    <div className="max-w-[1300px]   mx-auto mt-8 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1  gap-4">
                         {/*  */}
                         <div className="  pt-2  border-2 rounded-xl  bg-[#FFF]">
                             <p className="sm:text-mp xs:text-tp md:text-p font-[700] text-center">Startup’s</p>
@@ -71,11 +86,11 @@ const Subscription = () => {
                                 <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">Email support.</li>
                             </ul>
                             <div className="text-center">
-                                <button className=" bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  mt-8 mb-1  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-[#00b3ffd8] duration-300 ... ">Contact
+                                <button className=" bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  mt-8 mb-1  hover:bg-[#00b3ffd8]  ">Contact
                                     Us</button>
                             </div>
                             <div className="text-center text-[#AEAEAE] sm:text-mc xs:text-tc md:text-c">
-                                <button className=" underline">Customize</button>
+                                <button className=" underline hover:text-[#00b3ffd8]">Customize</button>
                                 <p>Term’s &amp; Condition</p>
                             </div>
                         </div>
@@ -105,11 +120,11 @@ const Subscription = () => {
                                 <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">Priority email support.</li>
                             </ul>
                             <div className="text-center">
-                                <button className="bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  mt-1 mb-1  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-[#00b3ffd8] duration-300 ... ">Contact
+                                <button className="bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  mt-1 mb-1   hover:bg-[#00b3ffd8]  ">Contact
                                     Us</button>
                             </div>
                             <div className="text-center text-[#AEAEAE] sm:text-mc xs:text-tc md:text-c">
-                                <button className=" underline">Customize</button>
+                                <button className=" underline hover:text-[#00b3ffd8]">Customize</button>
                                 <p>Term’s &amp; Condition</p>
                             </div>
                         </div>
@@ -141,7 +156,7 @@ const Subscription = () => {
                                     times. </li>
                             </ul>
                             <div className="text-center">
-                                <button className=" bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff] xs:mt-2 lg:mt-[60px]  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-[#00b3ffd8] duration-300 ...">Contact
+                                <button className=" bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff] xs:mt-2 lg:mt-[60px]   hover:bg-[#00b3ffd8] ">Contact
                                     Us</button>
                             </div>
                             <div className="text-center text-[#AEAEAE] sm:text-mc xs:text-tc md:text-c">
@@ -149,8 +164,147 @@ const Subscription = () => {
                             </div>
                         </div>
                     </div>
+                    </div>
+                  
+                    {/* big screen card end */}
+
+                    {/* <<<<<<<<<</>>>>>>>>>>>>>> */}
+
+                    {/* Mobile read more card start */}
+                    <div className="max-w-[1300px]  xs:block sm:hidden mx-auto mt-8 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1  ">
+                        {/*  */}
+                        <div className="  pt-2 mt-2 border-2 rounded-xl  bg-[#FFF]">
+                            <p className="sm:text-mp xs:text-tp md:text-p font-[700] text-center">Startup’s</p>
+                            <p className="sm:text-mc xs:text-tc md:text-c text-center">Subscription plan for startup’s</p>
+
+                            <p className="sm:text-mc xs:text-tc md:text-c font-[600] text-center">{changePrice ? "₹14,999/- Per Month" : "₹40,000/- Per three Month"}</p>
+                            <ul className="pt-6 px-6">
+                                <li className="list-disc sm:text-mc xs:text-tc md:text-c ">Includes 5 UI Design Projects in a
+                                    month
+                                </li>
+                                <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">
+                                    one project at a time </li>
+                                <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">
+                                    1 revision for each design. </li>
+                                <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">
+                                    Unlimited stock photos Included iStock. </li>
+                                {isShowMore1 && (
+                                    <p >
+                                        <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">Basic prototyping included </li>
+                                        <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">1 Web Flow Development. </li>
+                                        <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">1 HTML, CSS, Bootstrap, Tailwind,
+                                            React.js . </li>
+                                        <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">
+                                            Additional pages can be added at Rs.400/page. </li>
+                                        <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">Email support.</li>
+                                    </p>
+                                )}
+
+                                <button onClick={() => toggleReadMoreLess(1)} className='font-bold text-[#00B2FF] my-1'>
+                                    {isShowMore1 ? "Read Less" : "Read More..."}
+                                </button>
+
+                            </ul>
+                            <div className="text-center">
+                                <button className=" bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  my-1   hover:bg-[#00b3ffd8] ">Contact
+                                    Us</button>
+                            </div>
+                            <div className="text-center text-[#AEAEAE] sm:text-mc xs:text-tc md:text-c">
+                                <button className=" underline hover:text-[#00B2FF]">Customize</button>
+                                <p>Term’s &amp; Condition</p>
+                            </div>
+                        </div>
+                        {/*  */}
+                        {/*  */}
+                        <div className=" pt-2 mt-2 border-2 rounded-xl bg-[#FFF]">
+                            <p className="sm:text-mp xs:text-tp md:text-p font-[700] text-center">Large Business</p>
+                            <p className="sm:text-mc xs:text-tc md:text-c text-center">Subscription plan for Large Business</p>
+                            <p className="sm:text-mc xs:text-tc md:text-c font-[600] text-center">₹34,999/- Per page </p>
+                            <ul className="pt-6 px-6">
+                                <li className="list-disc sm:text-mc xs:text-tc md:text-c ">Includes 10 UI Design Projects per
+                                    month.
+                                </li>
+                                <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">
+                                    one project at a time </li>
+                                <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">
+                                    Unlimited stock photos Included iStock. </li>
+                                <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">
+                                    2 revision for each design. </li>
+                                {isShowMore2 && (
+                                    <p >
+                                        <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">Basic prototyping included </li>
+                                        <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">Wireframing included. </li>
+                                        <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">2 Web Flow Development. </li>
+                                        <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">1 HTML, CSS, Bootstrap, Tailwind,
+                                            React.js . </li>
+                                        <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">
+                                            Additional pages can be added at Rs.400/page. </li>
+                                        <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">Priority email support.</li>
+                                    </p>
+                                )}
+
+                                <button onClick={() => toggleReadMoreLess(2)} className='font-bold text-[#00B2FF] my-1'>
+                                    {isShowMore2 ? "Read Less" : "Read More..."}
+                                </button>
+
+                            </ul>
+                            <div className="text-center">
+                                <button className=" bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  my-1   hover:bg-[#00b3ffd8] ">Contact
+                                    Us</button>
+                            </div>
+                            <div className="text-center text-[#AEAEAE] sm:text-mc xs:text-tc md:text-c">
+                                <button className=" underline hover:text-[#00B2FF]">Customize</button>
+                                <p>Term’s &amp; Condition</p>
+                            </div>
+                        </div>
+                        {/*  */}
+                        {/*  */}
+                        <div className="  pt-2 mt-2 border-2 rounded-xl   bg-[#FFF]">
+                            <p className="sm:text-mp xs:text-tp md:text-p font-[700] text-center">Custom package</p>
+                            <p className="sm:text-mc xs:text-tc md:text-c text-center">Subscription plan for Individual or local
+                                business.</p>
+                            {/* <p class="sm:text-mc xs:text-tc md:text-c font-[600]">₹34,999/- Per page</p> */}
+                            <ul className="pt-6 px-6">
+                                <li className="list-disc sm:text-mc xs:text-tc md:text-c ">Price: Customized based on
+                                    requirements.
+                                </li>
+                                <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">
+                                    Perfect for Local venders with unique needs.</li>
+                                <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">
+                                    Unlimited UI Design Projects </li>
+                                <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">
+                                    Unlimited stock photos Included iStock. </li>
+                                {isShowMore3 && (
+                                    <p >
+                                        <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">prototyping and wireframing. (if
+                                            needed) </li>
+                                        <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">Custom web development projects.
+                                        </li>
+                                        <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">HTML, CSS, Bootstrap, Tailwind,
+                                            React.js, or in Webflow as per Budget.. </li>
+                                        <li className="list-disc sm:text-mc xs:text-tc md:text-c pt-2">Priority support with quick
+                                            response
+                                            times. </li>
+                                    </p>
+                                )}
+
+                                <button onClick={() => toggleReadMoreLess(3)} className='font-bold text-[#00B2FF] my-1'>
+                                    {isShowMore3 ? "Read Less" : "Read More..."}
+                                </button>
+
+                            </ul>
+                            <div className="text-center">
+                                <button className=" bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  my-1   hover:bg-[#00b3ffd8] ">Contact
+                                    Us</button>
+                            </div>
+                            <div className="text-center text-[#AEAEAE] sm:text-mc xs:text-tc md:text-c">
+                                <p>Term’s &amp; Condition</p>
+                            </div>
+                        </div>
+                    </div>
+                    {/* Mobile read more card end */}
+
                 </div>
-                {/*  */}
             </div>
 
         </>

@@ -12,7 +12,7 @@ const Join = () => {
                         Beauty</p>
                 </div>
                 <div className="  xs:text-center xs:mt-5 sm:mt-0">
-                    <button className=" bg-[#FFF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  hover:font-bold   hover:text-[#00b3ffd8] ">Send
+                    <button className=" bg-[#FFF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p     hover:text-[#00b3ffd8] ">Send
                         Message</button>
                 </div>
             </div>

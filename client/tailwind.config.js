@@ -44,7 +44,7 @@ export default {
         '2000': '2000ms',
     },
     fontSize: {
-        'title': "26px",
+        't': "26px",
         'p': '18px',
         'c': '14px',
 
