@@ -1,12 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import axios from 'axios'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 
 
 
-const Fotter = (setFooterurl) => {
+const Fotter = () => {
     const navigate = useNavigate()
     const [email, setEmail] = useState({
         email: ""

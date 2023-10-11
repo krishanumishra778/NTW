@@ -37,8 +37,7 @@ export default function App() {
   }, []);
   // const location = useLocation();
 
-  const [navurl, setNavurl] = useState();
-  // console.log(navurl);
+  
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -55,7 +54,7 @@ export default function App() {
     <>
       {isLoading ? <Preloader /> : <null />}
       <Router>
-        {navurl !== "/sign-up" && <NavDemo setNavurl={setNavurl} />}
+       <NavDemo/>
 
         <Head_nav />
 
