@@ -175,13 +175,13 @@ export const User_Signup = () => {
 
               <button
                 type='submit'
-                className='text-white bg-[#00B2FF] hover:bg-[#00b3ffd3] xs:text-mp sm:text-tp md:text-p w-full px-5 py-2.5 text-center  mt-5 mb-5'>
+                className='text-white bg-[#00B2FF] hover:bg-[#00b3ffd3] hover:font-bold xs:text-mp sm:text-tp md:text-p w-full px-5 py-2.5 text-center  my-4 rounded-lg'>
                 Submit
               </button>
-              <div className='relative z-0 w-full mb-6 group text-center mt-2'>
-                Connect with Google
-              </div>
+             
 
+              <div className=" flex justify-center">
+                
               <GoogleOAuthProvider
                 clientId='693453829328-ovitjd596gvg88lnvovoeqs5eeud7kc7.apps.googleusercontent.com'
                 className='w-full'>
@@ -201,8 +201,9 @@ export const User_Signup = () => {
                   }}
                 />
               </GoogleOAuthProvider>
+              </div>
 
-              <div className='relative z-0 w-full mb-6 group text-center mt-2 text-[#494949]'>
+              <div className='relative z-0 w-full  group text-center mt-2 text-[#494949]'>
                 Already have an account?{" "}
                 <Link to='/login' className='text-[#00B2FF]'>
                   {" "}

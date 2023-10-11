@@ -42,8 +42,8 @@ const Fotter = (setFooterurl) => {
                     <div>
                         <img src="logo/next tech waves logo.png" />
                     </div>
-                    <div className="grid grid-cols-4 xs:max-w-[40%] sm:max-w-[30%] gap-2 mt-2 ">
-                        <a href="">
+                    <div className="flex justify-between items-center w-[50%] md:w-[40%] lg:w-[30%]  mt-2 pl-2 mx-auto sm:mx-0 sm:gap-2  ">
+                        <a className='' href="">
                             <img src="icons/insta.png" />
                         </a>
                         <a href="">
@@ -58,14 +58,14 @@ const Fotter = (setFooterurl) => {
                     </div>
                 </div>
                 <div className=" sm:text-right  text-center">
-                    <div className="  py-1  mt-5 flex  ml-auto">
                         <form onSubmit={formHandler}>
+                    <div className="  py-1  mt-5 flex  ml-auto">
                             <input type="email" className=" w-[70%] bg-[#F5F5F5] rounded-full pl-2  h-[35px] ml-1" placeholder="E-mail" onChange={inpHandler} name='email' value={email.email}
                                 required />
 
                             <button type='submit' className=" bg-[#00B2FF]  rounded-3xl text-[#fff]   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  hover:bg-[#00b3ffd8] " >Subscribe</button>
-                        </form>
                     </div>
+                        </form>
                 </div>
             </div>
         </div>
