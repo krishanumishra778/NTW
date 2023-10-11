@@ -62,12 +62,12 @@ export const User_Signup = () => {
 
   return (
     <div className='max-w-full'>
-      <div className='grid md:grid-cols-2'>
-        <div className='bg-white'>
+      <div className='grid md:grid-cols-2 '>
+        <div className='bg-white '>
           <h1 className='text-2xl text-center font-bold mt-4'>Sign up</h1>
           <div className='p-8 max-w-[400px] mx-auto'>
             <form className='form' onSubmit={formHandler}>
-              <div className='relative z-0 w-full mb-6 group'>
+              <div className='relative z-0 w-full group'>
                 <label
                   htmlFor='name'
                   className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>

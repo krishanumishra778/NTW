@@ -10,7 +10,7 @@ import Subscription from "./Components/pages/Subscription";
 import Creativeshowcase from "./Components/pages/Creativeshowcase";
 import { User_Signup } from "./Components/auth/User_Signup";
 import { Getotp } from "./Components/auth/Getotp";
-import { NavDemo } from "./Components/layout/NavDemo";
+
 import { Head_nav } from "./Components/layout/Head_nav";
 // import Fotter from "./Components/layout/Fotter";
 
@@ -18,9 +18,7 @@ import { Editprofile } from "./Components/pages/Editprofile";
 import { Changepassword } from "./Components/pages/Changepassword";
 import { Pages } from "./Components/pages/Pages";
 import { useState } from "react";
-import Contact from "./Components/pages/Contact";
-import Join from "./Components/pages/Join";
-import Fotter from "./Components/layout/Fotter";
+
 import { Forgot_password } from "./Components/auth/Forgot_password/Forgot_password";
 import { Email } from "./Components/auth/Forgot_Password/Email";
 //
@@ -54,7 +52,7 @@ export default function App() {
     <>
       {isLoading ? <Preloader /> : <null />}
       <Router>
-       <NavDemo/>
+       
 
         <Head_nav />
 
@@ -77,9 +75,7 @@ export default function App() {
             path='/forgot-password'
             element={<Forgot_password />}></Route>
         </Routes>
-        <Contact />
-        <Join />
-        <Fotter />
+        
       </Router>
 
     </>

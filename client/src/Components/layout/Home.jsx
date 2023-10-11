@@ -10,15 +10,16 @@ import Creativeshowcase from '../pages/Creativeshowcase'
 import Testimonials from '../pages/Testimonials'
 import Rating from '../pages/Rating'
 import Trusted from '../pages/Trusted'
-// import Contact from '../pages/Contact'
-// import Join from '../pages/Join'
-// import Fotter from './Fotter'
-// import { NavDemo } from './NavDemo'
+
+import Contact from '../pages/Contact'
+import Join from '../pages/Join'
+import Fotter from './Fotter'
+import { NavDemo } from './NavDemo'
 
 export const Home = () => {
   return (
     <div>
-     
+        <NavDemo/>
         <Header />
         <About />
         <Services />
@@ -28,9 +29,9 @@ export const Home = () => {
         <Testimonials />
         <Rating />
         <Trusted />
-        {/* <Contact />
+        <Contact />
         <Join />
-        <Fotter/> */}
+        <Fotter/>
       
 
     </div>
