@@ -57,13 +57,13 @@ const Creativeshowcase = () => {
                         <nav className="mx-auto  items-center">
                             <ul className=" grid grid-cols-4 gap-1 ">
                             
-                                <li className="  cursor-pointer  xs:text-[11px] sm:text-[14px] md:text-[16px]  hover:bg-[#00B2FF] rounded-full xs:py-1 sm:py-2 test"  onClick={Allproduct} >All
+                                <li className="  cursor-pointer  xs:text-[11px] sm:text-[14px] md:text-[16px]  hover:bg-[#00B2FF] rounded-full xs:py-1 sm:py-3 test"  onClick={Allproduct} >All
                                     Product</li>
-                                <li className="  cursor-pointer  xs:text-[11px] sm:text-[14px] md:text-[16px] hover:bg-[#00B2FF]  active:bg-[#40a1cb] rounded-full xs:py-1 sm:py-2" onClick={mobileproduct} >
+                                <li className="  cursor-pointer  xs:text-[11px] sm:text-[14px] md:text-[16px] hover:bg-[#00B2FF]  active:bg-[#40a1cb] rounded-full xs:py-1 sm:py-3" onClick={mobileproduct} >
                                     App design</li>
-                                <li className="  cursor-pointer  xs:text-[11px] sm:text-[14px] md:text-[16px]  hover:bg-[#00B2FF]  active:bg-[#40a1cb] rounded-full xs:py-1 sm:py-2" onClick={webdesign}>Web
+                                <li className="  cursor-pointer  xs:text-[11px] sm:text-[14px] md:text-[16px]  hover:bg-[#00B2FF]  active:bg-[#40a1cb] rounded-full xs:py-1 sm:py-3" onClick={webdesign}>Web
                                     Design</li>
-                                <li className="  cursor-pointer  xs:text-[11px] sm:text-[14px] md:text-[16px] hover:bg-[#00B2FF]  active:bg-[#40a1cb] rounded-full xs:py-1 sm:py-2 " onClick={webbanner} >Web
+                                <li className="  cursor-pointer  xs:text-[11px] sm:text-[14px] md:text-[16px] hover:bg-[#00B2FF]  active:bg-[#40a1cb] rounded-full xs:py-1 sm:py-3 " onClick={webbanner} >Web
                                     Banner</li>
 
                             </ul>

@@ -13,7 +13,6 @@ export const Head_nav = () => {
 
   const [open, setOpen] = useState(false);
 
-
   const handleMouseEnter = () => {
     setOpen(true);
   };
@@ -49,9 +48,16 @@ export const Head_nav = () => {
   }, []);
   return (
     <>
+
+      {/* Logo Section */}
+      <div className="mx-auto w-16 absolute">
+        <img src="/images/comment.png" alt="icon " />
+      </div>
+
       {/* <<<<<<<<<<<<<<<<   Navbar     start   >>>>>>>>>>>>>>>>>>>>>>> */}
 
       <nav className=" block md:hidden  my-2 px-4 relative main-container" data-aos="fade-down">
+
         <div className=" mx-auto flex justify-between items-center  relative z-10 ">
           <div className="md:hidden">
             {/* Mobile menu button */}
@@ -80,15 +86,14 @@ export const Head_nav = () => {
             <img className='rounded-full ' src="./images/user.png" alt="" />
           </div>
 
-
           <div
             className='absolute  top-16 z-20 right-0  w-full'
             style={{ display: open ? 'block' : 'none' }}
           >
             <div className='bg-white mt-3 h-72 bg-opacity-100 md:w-[350px] w-full shadow-xl rounded-md  '>
-                < hr className='w-full mb-2  bg-[gray]' />
+              < hr className='w-full mb-2  bg-[gray]' />
               <div className='flex justify-center'>
-                <img 
+                <img
                   src="./images/user.png"
                   alt=''
                   className='h-16 w-16 object-cover rounded-full'
@@ -110,12 +115,11 @@ export const Head_nav = () => {
                   </li>
 
                 ))}
+
               </ul>
             </div>
           </div>
         </div>
-
-
         {isMobileMenuOpen && (
           <div className="md:hidden">
             <ul className="mt-2 space-y-2 ">
@@ -139,11 +143,9 @@ export const Head_nav = () => {
               </li>
             </ul>
           </div>
-
         )}
       </nav>
       {/* <<<<<<<<<<<<<<<<   Navbar    End    >>>>>>>>>>>>>>>>>>>>>>> */}
-
     </>
   )
 }

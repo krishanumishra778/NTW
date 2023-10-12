@@ -20,7 +20,7 @@ export const NavDemo = () => {
   return (
     <>
       <div
-        className='max-w-[90%] w-[1540px] hidden md:block mx-auto fixed bottom-[15px] left-0 right-0     border border[black] bg-[#494949] rounded-full  z-[1]'
+        className='max-w-[90%] w-[1540px] hidden md:block mx-auto fixed bottom-[15px] left-0 right-0    bg-[#494949] rounded-full  z-[1]'
       >
         <nav>
           <ul className='grid grid-cols-6 text-center  '>
