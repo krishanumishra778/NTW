@@ -50,8 +50,8 @@ export const Head_nav = () => {
     <>
 
       {/* Logo Section */}
-      <div className="mx-auto w-16 absolute">
-        <img src="/images/comment.png" alt="icon " />
+      <div className="fixed  right-2 md:pt-5 pt-[90vh]  w-10 z-50">
+        <img src="images/Group 2306.png" alt="icon" />
       </div>
 
       {/* <<<<<<<<<<<<<<<<   Navbar     start   >>>>>>>>>>>>>>>>>>>>>>> */}

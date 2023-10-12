@@ -13,7 +13,7 @@ const Trusted = () => {
             <img src="images/trusted1.png" alt='' />
           </div>
           <div className="mx-auto ">
-            <img className='lg:pt-4 py-14' src="images/technomize-black-text-logo.png" alt='' />
+          <img className='lg:pt-4 py-14' src="images/technomize-black-text-logo.png" alt='' />
           </div>
           <div className="mx-auto">
             <img className='lg:pt-0 pt-5' src="images/trusted2.png" alt='' />
