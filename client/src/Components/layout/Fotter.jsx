@@ -42,7 +42,7 @@ const Fotter = () => {
                     <div>
                         <img className='' src="logo/next tech waves logo.png" />
                     </div>
-                    <div className="flex justify-between mb-3 items-center w-[50%] md:w-[40%] lg:w-[30%]  mt-2 pl-2 mx-auto sm:mx-0 sm:gap-2  ">
+                    <div className="flex justify-between mb-5 items-center w-[50%] md:w-[40%] lg:w-[30%]  mt-2 pl-2 mx-auto sm:mx-0 sm:gap-2  ">
                         <a className='' href="">
                             <img src="icons/insta.png" />
                         </a>
