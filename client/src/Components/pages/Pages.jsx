@@ -6,7 +6,7 @@ import { MdNavbar } from '../layout/MdNavbar';
 import toast from 'react-hot-toast';
 
 export const Pages = () => {
- const navigate =  useNavigate()
+  const navigate = useNavigate()
 
   const [showModal, setShowModal] = React.useState(false);
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
@@ -59,7 +59,7 @@ export const Pages = () => {
         <form action="" className='' onSubmit={handleSubmit}>
           <div className='pt-24'>
             <label className='' htmlFor="">How May We Assist You Today?</label>
-            <textarea name="" id="" className='pl-2 mt-2 w-full rounded-lg border-2 border-[#D9D9D9]'></textarea>
+            <textarea name="" id="" required className='pl-2 mt-2 w-full rounded-lg border-2 border-[#D9D9D9] pt-2'></textarea>
           </div>
           <div className='flex justify-end '>
             <button
@@ -72,6 +72,8 @@ export const Pages = () => {
           </div>
         </form>
       </div>
+
+
     </div>
   );
 };

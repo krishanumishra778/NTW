@@ -1,12 +1,12 @@
 /** @format */
-import  { useEffect } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-export const NavDemo = ( ) => {
-  
+export const NavDemo = () => {
+
 
   useEffect(() => {
     AOS.init({
@@ -20,24 +20,24 @@ export const NavDemo = ( ) => {
   return (
     <>
       <div
-        className='max-w-[90%] w-[1540px] hidden md:block mx-auto fixed bottom-[15px] left-0 right-0     border border[black] bg-[#F5F5F5] rounded-full  z-[1]'
-        >
+        className='max-w-[90%] w-[1540px] hidden md:block mx-auto fixed bottom-[15px] left-0 right-0     border border[black] bg-[#494949] rounded-full  z-[1]'
+      >
         <nav>
           <ul className='grid grid-cols-6 text-center  '>
-           
-              <Link className=' rounded-full hover:text-[#FFF]  py-2 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF] active:bg-[#00B2FF] ' to='/' > Home</Link>
-           
-              <Link className='  rounded-full hover:text-[#FFF]  py-2 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF] ' to='/about'  > About Us</Link>
-           
-              <Link className='  rounded-full hover:text-[#FFF]  py-2 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF] ' to='/services'  > Services</Link>
-           
-             
-              <Link className='  rounded-full hover:text-[#FFF]  py-2 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF] ' to='/subscription'  > Recharge & Plans</Link>
-           
-              <Link   className='  rounded-full hover:text-[#FFF] py-2 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF] ' to='/portfolio'  > Our Portfolio</Link>
-          
-              <Link className='  rounded-full hover:text-[#FFF]  py-2 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF] ' to='/sign-up'  >Sign-Up</Link>
-          
+
+            <Link className=' rounded-full hover:text-[#FFF]  py-4 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF] active:bg-[#00B2FF]   text-white' to='/' > Home</Link>
+
+            <Link className='  rounded-full hover:text-[#FFF]  py-4 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF]  text-white' to='/about'  > About Us</Link>
+
+            <Link className='  rounded-full hover:text-[#FFF]  py-4 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF]  text-white' to='/services'  > Services</Link>
+
+
+            <Link className='  rounded-full hover:text-[#FFF]  py-4 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF]  text-white' to='/subscription'  > Recharge & Plans</Link>
+
+            <Link className='  rounded-full hover:text-[#FFF] py-4 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF] text-white ' to='/portfolio'  > Our Portfolio</Link>
+
+            <Link className='  rounded-full hover:text-[#FFF]  py-4 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF]  text-white' to='/sign-up'  >Sign-Up</Link>
+
           </ul>
         </nav>
       </div>

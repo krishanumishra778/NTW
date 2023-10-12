@@ -35,7 +35,7 @@ export default function App() {
   }, []);
   // const location = useLocation();
 
-  
+
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -52,7 +52,7 @@ export default function App() {
     <>
       {isLoading ? <Preloader /> : <null />}
       <Router>
-       
+
 
         {/* <Head_nav /> */}
 
@@ -65,9 +65,8 @@ export default function App() {
           <Route path='/sign-up' element={<User_Signup />} />
           <Route path='/getotp' element={<Getotp />} />
           <Route path='/login' element={<User_login />} />
-      
+
           <Route path='/editprofile' element={<Editprofile />} />
-          {/* <Route path="/changepassword" element={ < Changepassword/>}/> */}
           <Route path='/changepassword' element={<Changepassword />} />
           <Route path='/pages' element={<Pages />} />
           <Route path='/email' element={<Email />} />
@@ -75,7 +74,7 @@ export default function App() {
             path='/forgot-password'
             element={<Forgot_password />}></Route>
         </Routes>
-        
+
       </Router>
 
     </>
