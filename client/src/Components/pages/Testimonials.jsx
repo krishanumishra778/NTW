@@ -15,7 +15,7 @@ const Testimonials = () => {
           family must work by heart</p>
         <div className=" lg:flex">
           <div className="  mx-auto">
-            <div className=" ">
+            <div className="">
               <img className="pt-10 sm:mx-auto lg:ml-auto sm:max-w-[40%] lg:max-w-[70%]" src="images/krish-2.jpg" alt='' />
             </div>
           </div>

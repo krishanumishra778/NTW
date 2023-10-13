@@ -15,25 +15,28 @@ import Join from '../pages/Join'
 import Fotter from './Fotter'
 import { NavDemo } from './NavDemo'
 import { Head_nav } from './Head_nav'
+// import { Icon } from '../pages/Icon'
 
 export const Home = () => {
   return (
     <div>
-        <NavDemo/>
-        <Head_nav/>
-        <Header />
-        <About />
-        <Services />
-        <Founder />
-        <Subscription />
-        <Creativeshowcase />
-        <Testimonials />
-        <Rating />
-        <Trusted />
-        <Contact />
-        <Join />
-        <Fotter/>
       
+      <NavDemo />
+      {/* <Icon/> */}
+      <Head_nav />
+      <Header />
+      <About />
+      <Services />
+      <Founder />
+      <Subscription />
+      <Creativeshowcase />
+      <Testimonials />
+      <Rating />
+      <Trusted />
+      <Contact />
+      <Join />
+      <Fotter />
+
 
     </div>
   )

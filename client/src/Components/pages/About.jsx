@@ -1,10 +1,13 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
+// import { Icon } from './Icon'
 
 
 const About = () => {
   return (
 <>
+{/* <Icon/> */}
+
   <div className=" w-[98%] max-w-[1300px] mx-auto   px-4 grid lg:grid-cols-3"  data-aos="fade-down" >
     <div className=" flex gap-1  mx-auto  xs:max-w-[60%] md:max-w-[100%] ">
       <div >

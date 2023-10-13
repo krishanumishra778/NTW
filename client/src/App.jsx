@@ -27,6 +27,7 @@ import { Preloader } from "./Components/pages/Preloader";
 import { LoadUser } from "./actions/userAction";
 import { useSelector } from "react-redux";
 import store from "./store";
+import { Icon } from "./Components/pages/Icon";
 
 export default function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -34,8 +35,6 @@ export default function App() {
     store.dispatch(LoadUser());
   }, []);
   // const location = useLocation();
-
-
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -50,7 +49,7 @@ export default function App() {
 
   return (
     <>
-      {isLoading ? <Preloader /> : <null />}
+      {isLoading ? <Preloader /> : isAuthenticated ? <Icon /> : null}
       <Router>
 
 

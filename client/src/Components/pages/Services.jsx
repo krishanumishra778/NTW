@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+// import { Icon } from './Icon';
 const Services = () => {
       useEffect(() => {
         AOS.init({
@@ -14,6 +15,7 @@ const Services = () => {
     }, []);
     return (
         <>
+{/* <Icon/> */}
         <div className='bg-[url(images/bg-sub.png)] bg-no-repeat bg-cover'  data-aos="fade-down">
             < div className=" max-w-[1300px] mx-auto xs:mt-5 lg:mt-10  py-8 md:px-[25px]" >
                 <div className=" xs:text-center md:text-left">

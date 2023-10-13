@@ -49,10 +49,6 @@ export const Head_nav = () => {
   return (
     <>
 
-      {/* Logo Section */}
-      <div className="fixed  right-2 md:pt-5 pt-[90vh]  w-10 z-50">
-        <img src="images/Group 2306.png" alt="icon" />
-      </div>
 
       {/* <<<<<<<<<<<<<<<<   Navbar     start   >>>>>>>>>>>>>>>>>>>>>>> */}
 
