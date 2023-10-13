@@ -131,7 +131,7 @@ export const Head_nav = () => {
                 <Link to='/' onClick={toggleMobileMenu}> Home</Link>
               </li>
               <li>
-                <Link to='/about-us' onClick={toggleMobileMenu}> About Us</Link>
+                <Link to='/about' onClick={toggleMobileMenu}> About Us</Link>
               </li>
               <li>
                 <Link to='/services' onClick={toggleMobileMenu}> Services</Link>

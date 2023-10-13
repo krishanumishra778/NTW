@@ -32,6 +32,7 @@ import { Mainabout } from "./Components/layout/Mainabout/Mainabout";
 import { Mainservice } from "./Components/layout/Mainservice.jsx/Mainservice";
 import { Mainplans } from "./Components/layout/Mainplans/Mainplans";
 import { Ourportfolio } from "./Components/layout/Ourportfolio/Ourportfolio";
+import Contact from "./Components/pages/Contact";
 
 export default function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -77,6 +78,7 @@ export default function App() {
           <Route
             path='/forgot-password'
             element={<Forgot_password />}></Route>
+            <Route path="/contact" element={<Contact/>}></Route>
         </Routes>
 
       </Router>

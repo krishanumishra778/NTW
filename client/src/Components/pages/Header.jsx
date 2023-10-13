@@ -2,11 +2,12 @@ import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { LOGOUT_SUCCESS } from '../../constants/userConstants';
-
+ import {useSelector} from "react-redux"
  
 
 
 const Header = () => {
+  const {isAuthenticated , user} = useSelector ((state) =>state.user);
   const [text] = useTypewriter({
     words: ["UI/UX Design and Development", "Web Development", "No Code Web Development", "Web Design"],
     loop: {},
@@ -50,8 +51,9 @@ const Header = () => {
                   onMouseEnter={handleMouseEnter}
                 >
                   <img
-                    src="./images/user.png"
-                    alt='User Profile'
+                        src={isAuthenticated ?  "./images/user.png": "./images/userp.png" }                       alt=''
+                        
+                    // alt='User Profile'
                     className='h-full w-full object-cover rounded-full'
                   />
                 </div>

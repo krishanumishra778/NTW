@@ -29,21 +29,21 @@ const Contact = () => {
               <div className="grid xs:grid-cols-1 sm:grid-cols-2 gap-4  s">
                 <div className>
                   <label className="block m:text-mp xs:text-tp md:text-p text-[#000] font-[600]" htmlFor="nm">Name</label>
-                  <input type="text" id="nm" onChange={(e)=>{setinputdata({...inputdata,name:e.target.value})}} className="  w-full border-[#AEAEAE] rounded-full border focus:border-[#00B2FF] outline-none px-2 py-1" />
+                  <input type="text" id="nm" required onChange={(e)=>{setinputdata({...inputdata,name:e.target.value})}} className="  w-full border-[#AEAEAE] rounded-full border focus:border-[#00B2FF] outline-none px-2 py-1" />
                 </div>
                 <div className>
                   <label className="block m:text-mp xs:text-tp md:text-p text-[#000] font-[600]" htmlFor="cn">Contact
                     No.</label>
-                  <input type="number" id="cn" onChange={(e)=>{setinputdata({...inputdata,contactnumber:e.target.value})}} className="w-full  border-[#AEAEAE] rounded-full border focus:border-[#00B2FF] outline-none px-2 py-1" />
+                  <input type="number" id="cn" required onChange={(e)=>{setinputdata({...inputdata,contactnumber:e.target.value})}} className="w-full  border-[#AEAEAE] rounded-full border focus:border-[#00B2FF] outline-none px-2 py-1" />
                 </div>
                 <div className>
                   <label className="block m:text-mp xs:text-tp md:text-p text-[#000] font-[600]" htmlFor="eid">E-mail</label>
-                  <input type="email" id="eid" onChange={(e)=>{setinputdata({...inputdata,email:e.target.value})}} className="w-full  border-[#AEAEAE] rounded-full border focus:border-[#00B2FF] outline-none px-2 py-1" />
+                  <input type="email" id="eid" required onChange={(e)=>{setinputdata({...inputdata,email:e.target.value})}} className="w-full  border-[#AEAEAE] rounded-full border focus:border-[#00B2FF] outline-none px-2 py-1" />
                 </div>
                 <div className>
                   <label className="block m:text-mp xs:text-tp md:text-p text-[#000] font-[600]" htmlFor="help">How we
                     can help you</label>
-                  <input type="text" id="help" onChange={(e)=>{setinputdata({...inputdata,message:e.target.value})}} className="w-full  border-[#AEAEAE] rounded-full border focus:border-[#00B2FF] outline-none px-2 py-1" />
+                  <input type="text" id="help" required onChange={(e)=>{setinputdata({...inputdata,message:e.target.value})}} className="w-full  border-[#AEAEAE] rounded-full border focus:border-[#00B2FF] outline-none px-2 py-1" />
                 </div>
               </div>
               <div className="text-center my-5 ">
