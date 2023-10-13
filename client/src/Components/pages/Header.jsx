@@ -9,8 +9,6 @@ const Header = () => {
     loop: {},
   });
 
-
-
   const [open, setOpen] = useState(false);
 
 
@@ -80,7 +78,7 @@ const Header = () => {
                     </ul>
                     <hr />
                     < Link className='text-[#656565] inline-block px-3 py-4 hover:text-[#00B2FF]'>log in</Link> 
-                     < Link className='text-[#656565] inline-block px-3 py-4 hover:text-[#00B2FF]'>log Out</Link>
+                     < Link className='text-[red] font-bold inline-block px-3 py-4 hover:text-[#00B2FF]'>log Out</Link>
                   </div>
                 </div>
               </div>
