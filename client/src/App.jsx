@@ -34,6 +34,7 @@ export default function App() {
   useEffect(() => {
     store.dispatch(LoadUser());
   }, []);
+
   // const location = useLocation();
 
   const [isLoading, setIsLoading] = useState(true);
@@ -49,7 +50,7 @@ export default function App() {
 
   return (
     <>
-      {isLoading ? <Preloader /> : isAuthenticated ? <Icon /> : null}
+      {isLoading ? <Preloader /> : isAuthenticated ? <Icon /> :  null}
       <Router>
 
 
