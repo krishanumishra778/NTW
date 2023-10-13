@@ -3,11 +3,11 @@
 import "../src/App.css";
 import { User_login } from "./Components/auth/User_login";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import About from "./Components/pages/About";
+
 import { Home } from "./Components/layout/Home";
-import Services from "./Components/pages/Services";
-import Subscription from "./Components/pages/Subscription";
-import Creativeshowcase from "./Components/pages/Creativeshowcase";
+
+
+
 import { User_Signup } from "./Components/auth/User_Signup";
 import { Getotp } from "./Components/auth/Getotp";
 
@@ -28,6 +28,10 @@ import { LoadUser } from "./actions/userAction";
 import { useSelector } from "react-redux";
 import store from "./store";
 import { Icon } from "./Components/pages/Icon";
+import { Mainabout } from "./Components/layout/Mainabout/Mainabout";
+import { Mainservice } from "./Components/layout/Mainservice.jsx/Mainservice";
+import { Mainplans } from "./Components/layout/Mainplans/Mainplans";
+import { Ourportfolio } from "./Components/layout/Ourportfolio/Ourportfolio";
 
 export default function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -57,10 +61,10 @@ export default function App() {
 
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/services' element={<Services />} />
-          <Route path='/subscription' element={<Subscription />} />
-          <Route path='/portfolio' element={<Creativeshowcase />} />
+          <Route path='/about' element={<Mainabout />} />
+          <Route path='/services' element={<Mainservice />} />
+          <Route path='/subscription' element={<Mainplans />} />
+          <Route path='/portfolio' element={<Ourportfolio />} />
           <Route path='/sign-up' element={<User_Signup />} />
           <Route path='/getotp' element={<Getotp />} />
           <Route path='/login' element={<User_login />} />

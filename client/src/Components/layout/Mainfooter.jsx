@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Contact from '../pages/Contact'
 import Join from '../pages/Join'
 import Fotter from './Fotter'

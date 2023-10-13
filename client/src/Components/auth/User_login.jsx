@@ -69,7 +69,7 @@ export const User_login = () => {
     }
     // if user login so redirect in account page
     if (isAuthenticated) {
-      console.log(user)
+      // console.log(user)
       toast.success(user?.message)
       navigate("/");
     }
