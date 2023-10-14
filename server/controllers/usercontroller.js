@@ -303,7 +303,8 @@ const sendMessage = (req, res) => {
 // get data
 
 const getUserDetails = async (req, res) => {
-  const User = await user.findById(req.user.id);
+  console.log(req.user)
+  const User = await user.findById(req.user._id);
 
   res.status(200).json({
     success: true,

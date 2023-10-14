@@ -2,11 +2,13 @@ import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { LOGOUT_SUCCESS } from '../../constants/userConstants';
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { logout } from '../../actions/userAction';
 
 
 
 const Header = () => {
+  const dispatch = useDispatch();
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const [text] = useTypewriter({
     words: ["UI/UX Design and Development", "Web Development", "No Code Web Development", "Web Design"],
@@ -23,6 +25,11 @@ const Header = () => {
   //   setOpen(false);
   // };
 
+
+   const logoutHandler = ()=>{
+    console.log("thisdfsvfvfdsfd")
+    dispatch(logout())
+   }
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (open && !e.target.closest('.menu-container')) {
@@ -84,7 +91,7 @@ const Header = () => {
                     </ul>
                     <hr />
                     < Link className='text-[#656565] inline-block px-3 py-4 hover:text-[#00B2FF]'>log in</Link>
-                    < Link className='text-[red] font-bold inline-block px-3 py-4 ' onClick={LOGOUT_SUCCESS}>log Out</Link>
+                    < Link className='text-[red] font-bold inline-block px-3 py-4 'onClick={()=>{logoutHandler()}}>log Out</Link>
                   </div>
                 </div>
               </div>
