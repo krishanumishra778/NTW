@@ -1,11 +1,14 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect } from 'react'
 import { useState } from 'react';
+import { useSelector } from "react-redux"
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 export const Head_nav = () => {
+  const { isAuthenticated, user } = useSelector((state) => state.user);
+
 
   // javascript///////////////////////////
 
@@ -82,7 +85,9 @@ export const Head_nav = () => {
             <img src="logo/next tech waves logo.png" alt="" />
           </div>
           <div className='  xs:max-w-[10%] sm:max-w-[6%] cursor-pointer ' onMouseEnter={handleMouseEnter} onMouseDown={handleMouseLeave}>
-            <img className='rounded-full ' src="./images/user.png" alt="" />
+            { <img className='rounded-full '
+           src={isAuthenticated ? "./images/user.png" : "./images/userp.png"} alt=''
+           />}
           </div>
 
           <div
