@@ -76,6 +76,7 @@ export const Head_nav = () => {
                 <line x1="3" y1="18" x2="21" y2="18"></line>
               </svg>
             </button>
+
           </div>
           <div className="max-w-[70%]">
             <img src="logo/next tech waves logo.png" alt="" />
@@ -91,11 +92,7 @@ export const Head_nav = () => {
             <div className='bg-white mt-3 h-72 bg-opacity-100 md:w-[350px] w-full shadow-xl rounded-md  '>
               < hr className='w-full mb-2  bg-[gray]' />
               <div className='flex justify-center'>
-                <img
-                  src="./images/user.png"
-                  alt=''
-                  className='h-16 w-16 object-cover rounded-full'
-                />
+             s
               </div>
               <p className='text-center mt-2 text-lg font-bold overflow-hidden whitespace-nowrap'>
                 Krishanu Kaundilya

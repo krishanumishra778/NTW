@@ -4,8 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { MdNavbar } from '../layout/MdNavbar';
 import { AiFillEyeInvisible } from "react-icons/ai";
 import Aos from "aos";
+import { useSelector } from "react-redux"
 
 export const Changepassword = () => {
+  const { isAuthenticated, user } = useSelector((state) => state.user);
+
+
+
   const navigate = useNavigate();
 
   const [showModal, setShowModal] = useState(false);
@@ -63,7 +68,9 @@ export const Changepassword = () => {
       <MdNavbar />
       <div className='bg-opacity-1 flex justify-center '>
         <div className='pt-6 absolute '>
-          <img className='rounded-full' src="./images/user.png" alt="" />
+          <img className='rounded-full' 
+              src={isAuthenticated ? "./images/user.png" : "./images/userp.png"}
+              alt="" />
         </div>
         <div className='pl-12 pt-7 relative '>
           <img className='absolute pt-1.5 pl-1.5 z-[1] cursor-pointer'
