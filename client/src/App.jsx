@@ -3,11 +3,7 @@
 import "../src/App.css";
 import { User_login } from "./Components/auth/User_login";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import { Home } from "./Components/layout/Home";
-
-
-
 import { User_Signup } from "./Components/auth/User_Signup";
 import { Getotp } from "./Components/auth/Getotp";
 
@@ -35,10 +31,12 @@ import { Ourportfolio } from "./Components/layout/Ourportfolio/Ourportfolio";
 import Contact from "./Components/pages/Contact";
 
 export default function App() {
+  // ><<<<<<><
   const { isAuthenticated, user } = useSelector((state) => state.user);
   useEffect(() => {
     store.dispatch(LoadUser());
   }, []);
+  // ><><><><</></>
 
   // const location = useLocation();
 
@@ -52,12 +50,11 @@ export default function App() {
 
     // Add other side effects or data fetching here
   }, []);
-
+                          
   return (
     <>
-      {isLoading ? <Preloader /> : isAuthenticated ? <Icon /> :  null}
+      {isLoading ? <Preloader /> : isAuthenticated ? <Icon /> : null}
       <Router>
-
 
         {/* <Head_nav /> */}
 
@@ -78,7 +75,7 @@ export default function App() {
           <Route
             path='/forgot-password'
             element={<Forgot_password />}></Route>
-            <Route path="/contact" element={<Contact/>}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
         </Routes>
 
       </Router>

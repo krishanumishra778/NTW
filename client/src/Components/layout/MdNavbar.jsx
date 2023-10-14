@@ -76,7 +76,9 @@ export const MdNavbar = () => {
             <img src="logo/next tech waves logo.png" alt="" />
           </div>
           <div className='  xs:max-w-[12%] sm:max-w-[12%] md:max-w-[6%] cursor-pointer ' onMouseEnter={handleMouseEnter} onMouseDown={handleMouseLeave}>
-            <img className='rounded-full ' src="./images/user.png" alt="" />
+            <img 
+            className='rounded-full ' 
+            src="./images/user.png" alt="" />
           </div>
 
 

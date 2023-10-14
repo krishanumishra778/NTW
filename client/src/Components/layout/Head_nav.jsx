@@ -5,13 +5,7 @@ import { useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
-import { Template } from '../Template';
 export const Head_nav = () => {
-
-
-
-  
-
 
   // javascript///////////////////////////
 

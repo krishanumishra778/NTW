@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Template } from "../Template";
 
 export const NavDemo = () => {
   const { isAuthenticated, user } = useSelector((state) => state.user);

@@ -2,12 +2,12 @@ import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { LOGOUT_SUCCESS } from '../../constants/userConstants';
- import {useSelector} from "react-redux"
- 
+import { useSelector } from "react-redux"
+
 
 
 const Header = () => {
-  const {isAuthenticated , user} = useSelector ((state) =>state.user);
+  const { isAuthenticated, user } = useSelector((state) => state.user);
   const [text] = useTypewriter({
     words: ["UI/UX Design and Development", "Web Development", "No Code Web Development", "Web Design"],
     loop: {},
@@ -51,8 +51,8 @@ const Header = () => {
                   onMouseEnter={handleMouseEnter}
                 >
                   <img
-                        src={isAuthenticated ?  "./images/user.png": "./images/userp.png" }                       alt=''
-                        
+                    src={isAuthenticated ? "./images/user.png" : "./images/userp.png"} alt=''
+
                     // alt='User Profile'
                     className='h-full w-full object-cover rounded-full'
                   />
@@ -63,8 +63,9 @@ const Header = () => {
                 >
                   <div className='bg-white mt-3  w-[350px] shadow-xl rounded-md  '>
                     <div className='flex justify-center'>
+                      {/* ><><><><><></></> */}
                       <img
-                        src="./images/user.png"
+                        src={isAuthenticated ? "./images/user.png" : "./images/userp.png"}
                         alt=''
                         className='h-12 w-12 object-cover rounded-full'
                       />
@@ -82,8 +83,8 @@ const Header = () => {
                       <li className='my-3 px-3 text-[#656565] hover:text-[#00B2FF]'><Link to="/editprofile">Settings</Link></li>
                     </ul>
                     <hr />
-                    < Link className='text-[#656565] inline-block px-3 py-4 hover:text-[#00B2FF]'>log in</Link> 
-                     < Link className='text-[red] font-bold inline-block px-3 py-4 ' onClick={LOGOUT_SUCCESS}>log Out</Link>
+                    < Link className='text-[#656565] inline-block px-3 py-4 hover:text-[#00B2FF]'>log in</Link>
+                    < Link className='text-[red] font-bold inline-block px-3 py-4 ' onClick={LOGOUT_SUCCESS}>log Out</Link>
                   </div>
                 </div>
               </div>
@@ -109,10 +110,10 @@ const Header = () => {
               needs handled in one location. All your digital requirements. We can assist you in growing your business digitally regardless of how big
               or
               small it is.</p>
-              <Link to="/contact">
-            <button className="bg-[#00B2FF]  rounded-3xl px-[20px] py-[5px] sm:text-mp xs:text-tp md:text-p text-[#fff] my-5 hover:bg-[#00b3ffd8]  ...">Express
-              your needs</button>
-              </Link>
+            <Link to="/contact">
+              <button className="bg-[#00B2FF]  rounded-3xl px-[20px] py-[5px] sm:text-mp xs:text-tp md:text-p text-[#fff] my-5 hover:bg-[#00b3ffd8]  ...">Express
+                your needs</button>
+            </Link>
           </div>
           <div className="my-6  lg:w-[50%] md:my-15 durat">
             <img src="images/home img.png" alt='' className="sm:mx-auto home_img -z-10 .-1" />
