@@ -2,13 +2,12 @@ import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { LOGOUT_SUCCESS } from '../../constants/userConstants';
-import { useDispatch, useSelector } from "react-redux"
-import { logout } from '../../actions/userAction';
+import { useSelector } from "react-redux"
+import { Logout } from './Logout';
 
 
 
 const Header = () => {
-  const dispatch = useDispatch();
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const [text] = useTypewriter({
     words: ["UI/UX Design and Development", "Web Development", "No Code Web Development", "Web Design"],
@@ -25,11 +24,6 @@ const Header = () => {
   //   setOpen(false);
   // };
 
-
-   const logoutHandler = ()=>{
-    console.log("thisdfsvfvfdsfd")
-    dispatch(logout())
-   }
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (open && !e.target.closest('.menu-container')) {
@@ -45,6 +39,9 @@ const Header = () => {
   }, [open]);
   return (
     <>
+      {/* / { isAuthenticated ? <Logout/> : null   } */}
+
+
       <div className='max-w-[1300px] mx-auto' data-aos="fade-down">
         <div className="py-[20px] hidden md:block ">
           <div className='grid  mx-4 '>
@@ -68,31 +65,7 @@ const Header = () => {
                   className='absolute ml-16 top-16 '
                   style={{ display: open ? 'block' : 'none' }}
                 >
-                  <div className='bg-white mt-3  w-[350px] shadow-xl rounded-md  '>
-                    <div className='flex justify-center'>
-                      {/* ><><><><><></></> */}
-                      <img
-                        src={isAuthenticated ? "./images/user.png" : "./images/userp.png"}
-                        alt=''
-                        className='h-12 w-12 object-cover rounded-full'
-                      />
-                    </div>
-                    <p className='text-center mt-2  text-lg font-bold overflow-hidden whitespace-nowrap'>
-                      Krishanu Kaundilya
-                    </p>
-                    <ul>
-                      <div className='grid grid-cols-3 mt-2 px-3 text-[#656565]'>
-                        <p className='col-span-2'>You dont have any plan</p>
-                        <p>__Day's left</p>
-
-                      </div>
-
-                      <li className='my-3 px-3 text-[#656565] hover:text-[#00B2FF]'><Link to="/editprofile">Settings</Link></li>
-                    </ul>
-                    <hr />
-                    < Link className='text-[#656565] inline-block px-3 py-4 hover:text-[#00B2FF]'>log in</Link>
-                    < Link className='text-[red] font-bold inline-block px-3 py-4 'onClick={()=>{logoutHandler()}}>log Out</Link>
-                  </div>
+                 
                 </div>
               </div>
             </div>
@@ -123,7 +96,7 @@ const Header = () => {
             </Link>
           </div>
           <div className="my-6  lg:w-[50%] md:my-15 durat">
-            <img src="images/home img.png" alt='' className="sm:mx-auto home_img -z-10 .-1" />
+            <img src="images/home img.png" alt='' className="sm:mx-auto home_img z-20" />
           </div>
         </div>
 
