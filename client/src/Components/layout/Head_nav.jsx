@@ -1,11 +1,16 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect } from 'react'
 import { useState } from 'react';
+import { useSelector } from "react-redux"
+
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
+import { Logout } from '../pages/Logout';
 export const Head_nav = () => {
+  const { isAuthenticated, user } = useSelector((state) => state.user);
+
 
   // javascript///////////////////////////
 
@@ -76,12 +81,59 @@ export const Head_nav = () => {
                 <line x1="3" y1="18" x2="21" y2="18"></line>
               </svg>
             </button>
+
           </div>
           <div className="max-w-[70%]">
             <img src="logo/next tech waves logo.png" alt="" />
           </div>
-          <div className='  xs:max-w-[10%] sm:max-w-[6%] cursor-pointer ' onMouseEnter={handleMouseEnter} onMouseDown={handleMouseLeave}>
-            <img className='rounded-full ' src="./images/user.png" alt="" />
+          <div
+            className='h-12 w-12 object-cover  border-gray-400 rounded-full cursor-pointer'
+            style={{ backgroundColor: 'white' }}
+            onClick={() => {
+              const modal = document.getElementById('myModal')
+              modal.showModal()
+            }}
+          >
+            <img
+              src={isAuthenticated ? "./images/user.png" : "./images/userp.png"} alt=''
+              className='h-full w-full object-cover rounded-full'
+            />
+          </div>
+          <dialog
+            className='absolute mt-0 w-full '
+            id='myModal'
+          >
+            {isAuthenticated ? (<>
+
+              <div className='flex justify-center'>
+
+                <img
+                  src={isAuthenticated ? "./images/user.png" : "./images/userp.png"}
+                  alt=''
+                  className='h-12 w-12 object-cover rounded-full'
+                />
+              </div>
+              <p className='text-center mt-2  text-lg font-bold overflow-hidden whitespace-nowrap'>
+                Krishanu Kaundilya
+              </p>
+              <ul>
+                <div className='grid grid-cols-3 mt-2 px-3 text-[#656565]'>
+                  <p className='col-span-2'>You dont have any plan</p>
+                  <p>__Day's left</p>
+
+                </div>
+
+                <li className='my-3 px-3 text-[#656565] hover:text-[#00B2FF]'><Link to="/editprofile">Settings</Link></li>
+              </ul>
+              <hr />
+              {/* < Link className='text-[#656565] inline-block px-3 py-4 hover:text-[#00B2FF]'>log in</Link> */}
+              < Link className='text-[#656565]  inline-block px-3 py-4 ' onClick={LOGOUT_SUCCESS}>log Out</Link>
+            </>) : <Logout />}
+          </dialog>
+          {/* <div className='  xs:max-w-[10%] sm:max-w-[6%] cursor-pointer ' onMouseEnter={handleMouseEnter} onMouseDown={handleMouseLeave}>
+            { <img className='rounded-full '
+           src={isAuthenticated ? "./images/user.png" : "./images/userp.png"} alt=''
+           />}
           </div>
 
           <div
@@ -91,11 +143,7 @@ export const Head_nav = () => {
             <div className='bg-white mt-3 h-72 bg-opacity-100 md:w-[350px] w-full shadow-xl rounded-md  '>
               < hr className='w-full mb-2  bg-[gray]' />
               <div className='flex justify-center'>
-                <img
-                  src="./images/user.png"
-                  alt=''
-                  className='h-16 w-16 object-cover rounded-full'
-                />
+             s
               </div>
               <p className='text-center mt-2 text-lg font-bold overflow-hidden whitespace-nowrap'>
                 Krishanu Kaundilya
@@ -116,7 +164,7 @@ export const Head_nav = () => {
 
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
         {isMobileMenuOpen && (
           <div className="md:hidden">

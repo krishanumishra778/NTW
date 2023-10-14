@@ -1,11 +1,13 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect } from 'react'
 import { useState } from 'react';
+import { useSelector } from "react-redux"
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 export const MdNavbar = () => {
+  const { isAuthenticated, user } = useSelector((state) => state.user);
 
   // javascript start    ///////////////////////////
 
@@ -78,7 +80,8 @@ export const MdNavbar = () => {
           <div className='  xs:max-w-[12%] sm:max-w-[12%] md:max-w-[6%] cursor-pointer ' onMouseEnter={handleMouseEnter} onMouseDown={handleMouseLeave}>
             <img 
             className='rounded-full ' 
-            src="./images/user.png" alt="" />
+            src={isAuthenticated ? "./images/user.png" : "./images/userp.png"}
+            alt="" />
           </div>
 
 
@@ -89,8 +92,8 @@ export const MdNavbar = () => {
             <div className='bg-white mt-3 p-4 w-[350px] shadow-xl rounded-md  '>
               <div className='flex justify-center'>
                 <img
-                  src="./images/user.png"
-                  alt=''
+            src={isAuthenticated ? "./images/user.png" : "./images/userp.png"}
+            alt=''
                   className='h-16 w-16 object-cover rounded-full'
                 />
               </div>

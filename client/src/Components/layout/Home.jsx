@@ -7,24 +7,26 @@ import Founder from '../pages/Founder'
 import Subscription from '../pages/Subscription'
 import Creativeshowcase from '../pages/Creativeshowcase'
 import Testimonials from '../pages/Testimonials'
+
 import Rating from '../pages/Rating'
 import Trusted from '../pages/Trusted'
-
 import Contact from '../pages/Contact'
 import Join from '../pages/Join'
 import Fotter from './Fotter'
 import { NavDemo } from './NavDemo'
 import { Head_nav } from './Head_nav'
+import { Logout } from '../pages/Logout'
 // import { Icon } from '../pages/Icon'
 
 export const Home = () => {
   return (
     <div>
-      
+
       <NavDemo />
       {/* <Icon/> */}
       <Head_nav />
       <Header />
+
       <About />
       <Services />
       <Founder />

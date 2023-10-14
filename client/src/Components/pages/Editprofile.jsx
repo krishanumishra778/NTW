@@ -1,11 +1,16 @@
-import  { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { AiOutlineCaretUp, AiOutlineCaretDown } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import { MdNavbar } from '../layout/MdNavbar';
+import { useSelector } from "react-redux"
 
 export const Editprofile = () => {
+  const { isAuthenticated, user } = useSelector((state) => state.user);
+
+
+
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -21,6 +26,7 @@ export const Editprofile = () => {
     });
 
     const handleResize = () => {
+
       setWindowWidth(window.innerWidth);
     };
 
@@ -41,7 +47,9 @@ export const Editprofile = () => {
         <MdNavbar />
         <div className='bg-opacity-1 flex justify-center '>
           <div className='pt-6 absolute '>
-            <img className='rounded-full ' src="./images/user.png" alt="" />
+            <img className='rounded-full '
+              src={isAuthenticated ? "./images/user.png" : "./images/userp.png"}
+              alt="" />
           </div>
           <div className='pl-12 pt-7 relative '>
             <img

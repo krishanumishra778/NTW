@@ -12,9 +12,9 @@ import {
   LOGIN_SUCCESS,
   LOGOUT_FAIL,
   LOGOUT_SUCCESS,
-  REGISTER_USER_OTP_FAIL,
-  REGISTER_USER_OTP_REQUEST,
-  REGISTER_USER_OTP_SUCCESS,
+  REGISTER_USER_FAIL,
+  REGISTER_USER_REQUEST,
+  REGISTER_USER_SUCCESS,
   RESET_PASSWORD_FAIL,
   RESET_PASSWORD_REQUEST,
   RESET_PASSWORD_SUCCESS,
@@ -53,18 +53,18 @@ export const login = (email, password) => async (dispatch) => {
 // Register User
 export const register = (userData) => async (dispatch) => {
   try {
-    dispatch({ type: REGISTER_USER_OTP_REQUEST });
+    dispatch({ type: REGISTER_USER_REQUEST });
 
-
+    const config = { headers: { "Content-Type": "multipart/from-data" } };
     const { data } = await axios.post(
-      `http://localhost:4000/register`,
-      userData, { withCredentials: true, }
+      `http://localhost:4000/api/v1/register`,
+      userData,
+      config
     );
-    console.log(data)
-    dispatch({ type: REGISTER_USER_OTP_SUCCESS, payload: data });
+    dispatch({ type: REGISTER_USER_SUCCESS, payload: data?.user });
   } catch (error) {
     dispatch({
-      type: REGISTER_USER_OTP_FAIL,
+      type: REGISTER_USER_FAIL,
       payload: error?.response?.data?.error,
     });
   }
@@ -173,8 +173,7 @@ export const resetPassword =
       const res = await axios.put(
         `http://localhost:4000/api/v1/password/reset/${token.token}`,
         { password, confirmPassword },
-        config,
-        { withCredentials: true }
+        config
       );
       dispatch({ type: RESET_PASSWORD_SUCCESS, payload: res.data?.success });
     } catch (error) {

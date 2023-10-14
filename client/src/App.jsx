@@ -29,8 +29,6 @@ import { Mainservice } from "./Components/layout/Mainservice.jsx/Mainservice";
 import { Mainplans } from "./Components/layout/Mainplans/Mainplans";
 import { Ourportfolio } from "./Components/layout/Ourportfolio/Ourportfolio";
 import Contact from "./Components/pages/Contact";
-// import { Dashboard } from "./Components/layout/user dashboard/Dashboard";
-
 export default function App() {
   // ><<<<<<><
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -51,14 +49,14 @@ export default function App() {
 
     // Add other side effects or data fetching here
   }, []);
-
+                          
   return (
     <>
       {isLoading ? <Preloader /> : isAuthenticated ? <Icon /> : null}
       <Router>
 
         {/* <Head_nav /> */}
-        {/* <Dashboard/> */}
+
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<Mainabout />} />
