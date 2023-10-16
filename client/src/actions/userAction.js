@@ -55,13 +55,14 @@ export const register = (userData) => async (dispatch) => {
   try {
     dispatch({ type: REGISTER_USER_REQUEST });
 
-    const config = { headers: { "Content-Type": "multipart/from-data" } };
     const { data } = await axios.post(
-      `http://localhost:4000/api/v1/register`,
+      `http://localhost:4000/register`,
       userData,
-      config
+      { withCredentials: true }
     );
-    dispatch({ type: REGISTER_USER_SUCCESS, payload: data?.user });
+    console.log(data);
+    dispatch({ type: REGISTER_USER_SUCCESS, payload: data });
+
   } catch (error) {
     dispatch({
       type: REGISTER_USER_FAIL,
@@ -78,8 +79,8 @@ export const LoadUser = () => async (dispatch) => {
     const { data } = await axios.get(`http://localhost:4000/me`, {
       withCredentials: true,
     });
-    console.log(data);
-    dispatch({ type: LOAD_USER_SUCCESS, payload: data?.user });
+    // console.log(data);
+    dispatch({ type: LOAD_USER_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: LOAD_USER_FAIL, payload: error?.response?.data?.error });
   }

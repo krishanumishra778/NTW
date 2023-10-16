@@ -61,7 +61,7 @@ export const User_login = () => {
 
   useEffect(() => {
 
-
+    console.log(user)
     if (error) {
 
       toast.error(error?.message);
@@ -70,7 +70,7 @@ export const User_login = () => {
     // if user login so redirect in account page
     if (isAuthenticated) {
       // console.log(user)
-      toast.success(user?.message)
+      toast.success('login SuccessFully...')
       navigate("/");
     }
   }, [error, isAuthenticated]);
