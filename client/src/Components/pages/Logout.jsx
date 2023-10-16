@@ -6,7 +6,7 @@ export const Logout = () => {
     const { isAuthenticated, user } = useSelector((state) => state.user);
 
     return (
-        <div className='w-full'>
+        <div className='w-full shadow-md '>
             <div className='flex justify-center pt-10 '>
                 <img
                     src={isAuthenticated ? "./images/user.png" : "./images/userp.png"} alt=''
@@ -14,7 +14,7 @@ export const Logout = () => {
                 />
             </div>
 
-            <div className='pt-10 pb-7'>
+            <div className='pt-20 pb-7'>
                 <ul>
                     <li  className='my-3 cursor-pointer border-0  px-3 text-[#656565] '>
                         <Link to="/login" className='hover:text-[#00B2FF]'>Sign-in</Link>
@@ -25,7 +25,7 @@ export const Logout = () => {
                     </li>
                 </ul>
             </div>
-            <hr />
+            
 
         </div>
     );

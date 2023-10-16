@@ -46,7 +46,7 @@ const Header = () => {
         <div className="py-[20px] hidden md:block ">
           <div className='grid  mx-4 '>
 
-            <div className='absolute h-screen  flex justify-center z-20'>
+            <div className='absolute h-screen  flex justify-center  z-20'>
               <div className='relative menu-container'>
                 <div
                   className='h-12 w-12 object-cover  border-gray-400 rounded-full cursor-pointer'
@@ -59,7 +59,7 @@ const Header = () => {
                   />
                 </div>
                 <div
-                  className='absolute ml-16 top-16 w-[350px]  '
+                  className='absolute ml-16 top-16   w-[350px] bg-white '
                   style={{ display: open ? 'block' : 'none' }}
                 >
                   {isAuthenticated ? (<div className='bg-white mt-3   shadow-xl rounded-md '>

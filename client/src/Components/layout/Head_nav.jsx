@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { useSelector } from "react-redux"
+// import { LOGOUT_SUCCESS } from '../../constants/userConstants';
 
 
 import AOS from 'aos';
@@ -10,7 +11,16 @@ import { Link } from 'react-router-dom';
 import { Logout } from '../pages/Logout';
 export const Head_nav = () => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
+  // const [isDialogOpen, setIsDialogOpen] = useState(false);
 
+
+  // const openDialog = () => {
+  //   setIsDialogOpen(true);
+  // };
+
+  // const closeDialog = () => {
+  //   setIsDialogOpen(false);
+  // };
 
   // javascript///////////////////////////
 
@@ -100,7 +110,7 @@ export const Head_nav = () => {
             />
           </div>
           <dialog
-            className='absolute mt-0 w-full '
+            className='absolute mt-0 w-full mt-[10%]'
             id='myModal'
           >
             {isAuthenticated ? (<>
