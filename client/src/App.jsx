@@ -31,9 +31,10 @@ import { Ourportfolio } from "./Components/layout/Ourportfolio/Ourportfolio";
 import Contact from "./Components/pages/Contact";
 export default function App() {
   // ><<<<<<><
-  const { isAuthenticated, user } = useSelector((state) => state.user);
+  const { isAuthenticated , loading } = useSelector((state) => state.user);
   useEffect(() => {
     store.dispatch(LoadUser());
+    // console.log(loading)
   }, []);
   // ><><><><</></>
 

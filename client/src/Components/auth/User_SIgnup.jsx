@@ -77,7 +77,7 @@ export const User_Signup = () => {
         toast.success(data.message)
         navigate("/getotp")
     }
-  },[data, error])
+  },[data, error, navigate])
   return (
     <div className='max-w-full'>
       <div className='grid md:grid-cols-2 '>

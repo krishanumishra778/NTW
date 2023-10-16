@@ -28,7 +28,7 @@ export const userReducer = (state = { user: {} }, action) => {
         ...state,
         loading: false,
         isAuthenticated: action.payload.success,
-        user: action.payload,
+        user: action.payload.user,
       };
 
     case REGISTER_USER_SUCCESS:
