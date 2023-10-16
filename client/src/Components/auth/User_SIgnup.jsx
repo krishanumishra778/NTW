@@ -1,6 +1,6 @@
 /** @format */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { AiFillEyeInvisible } from "react-icons/ai";
 
@@ -9,9 +9,13 @@ import jwt_decode from "jwt-decode";
 import { Link, useNavigate } from "react-router-dom";
 
 import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { register } from "../../actions/userAction";
 
 
 export const User_Signup = () => {
+  const dispatch = useDispatch()
+  const { data , error} = useSelector(state => state.user)
   const navigate = useNavigate();
 
   const [userData, setuserData] = useState({
@@ -30,24 +34,26 @@ export const User_Signup = () => {
     });
   };
 
+  
   const formHandler = async event => {
     event.preventDefault();
-    const res = await axios.post("http://localhost:4000/register", userData)
-    if (res.data.success) {
-      toast.success(res.data.message)
-      navigate('/getotp')
-    } else {
-      toast.error(res.data.message)
-      setuserData({
-        name: "",
-        email: "",
-        company: "",
-        country: "",
-        password: "",
-        email_verified: false,
-      })
+    dispatch(register(userData))
+    // const res = await axios.post("http://localhost:4000/register", userData)
+    // if (res.data.success) {
+    //   toast.success(res.data.message)
+    //   navigate('/getotp')
+    // } else {
+    //   toast.error(res.data.message)
+    //   setuserData({
+    //     name: "",
+    //     email: "",
+    //     company: "",
+    //     country: "",
+    //     password: "",
+    //     email_verified: false,
+    //   })
 
-    }
+    // }
   };
 
   const showpwd = () => {
@@ -60,6 +66,18 @@ export const User_Signup = () => {
     }
   };
 
+  useEffect(()=>{
+    if(data?.success == false ){
+      toast.error(data?.message)
+    }
+    else if( error){
+      toast.error( error)
+    }
+    else if(data?.success == true){
+        toast.success(data.message)
+        navigate("/getotp")
+    }
+  },[data, error])
   return (
     <div className='max-w-full'>
       <div className='grid md:grid-cols-2 '>
@@ -178,29 +196,29 @@ export const User_Signup = () => {
                 className='text-white bg-[#00B2FF] hover:bg-[#00b3ffd3] hover:font-bold xs:text-mp sm:text-tp md:text-p w-full px-5 py-2.5 text-center  my-4 rounded-lg'>
                 Submit
               </button>
-             
+
 
               <div className=" flex justify-center">
-                
-              <GoogleOAuthProvider
-                clientId='693453829328-ovitjd596gvg88lnvovoeqs5eeud7kc7.apps.googleusercontent.com'
-                className='w-full'>
-                <GoogleLogin
-                  onSuccess={credentialResponse => {
-                    console.log(credentialResponse);
-                    const userData = jwt_decode(credentialResponse.credential);
-                    console.log(userData);
-                    axios.post(
-                      "http://localhost:4000/google_login",
-                      userData.name,
-                      userData.email
-                    );
-                  }}
-                  onError={() => {
-                    console.log("Login Failed");
-                  }}
-                />
-              </GoogleOAuthProvider>
+
+                <GoogleOAuthProvider
+                  clientId='693453829328-ovitjd596gvg88lnvovoeqs5eeud7kc7.apps.googleusercontent.com'
+                  className='w-full'>
+                  <GoogleLogin
+                    onSuccess={credentialResponse => {
+                      console.log(credentialResponse);
+                      const userData = jwt_decode(credentialResponse.credential);
+                      console.log(userData);
+                      axios.post(
+                        "http://localhost:4000/google_login",
+                        userData.name,
+                        userData.email
+                      );
+                    }}
+                    onError={() => {
+                      console.log("Login Failed");
+                    }}
+                  />
+                </GoogleOAuthProvider>
               </div>
 
               <div className='relative z-0 w-full  group text-center mt-2 text-[#494949]'>
