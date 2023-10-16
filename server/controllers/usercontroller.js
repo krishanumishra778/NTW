@@ -291,10 +291,10 @@ const sendMessage = (req, res) => {
     sendEmail({
       email: process.env.EMAIL,
       message: senderMessage,
-      subject: "thanks for contact next tech waves",
+      subject: "For Inquire from Next Tech Waves",
     });
 
-    res.status(200).send({ success: true, message: "email send success" });
+    res.status(200).send({ success: true, message: "thanks for contact next tech waves" });
   } catch (error) {
     console.log(error);
     res.send({ success: false, message: "can not send message right now" });

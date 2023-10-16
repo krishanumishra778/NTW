@@ -18,6 +18,9 @@ import {
   RESET_PASSWORD_FAIL,
   RESET_PASSWORD_REQUEST,
   RESET_PASSWORD_SUCCESS,
+  SEND_MESSAGE_FAIL,
+  SEND_MESSAGE_REQUEST,
+  SEND_MESSAGE_SUCCESS,
   UPDATE_PASSWORD_FAIL,
   UPDATE_PASSWORD_REQUEST,
   UPDATE_PASSWORD_SUCCESS,
@@ -202,3 +205,25 @@ export const logout = () => async (dispatch) => {
 export const clearErrors = () => async (dispatch) => {
   dispatch({ type: CLEAR_ERRORS });
 };
+
+
+// Contact us (Send Message)
+
+export const SendMessage = (inputdata) => async (dispatch) => {
+  try {
+    dispatch({ type: SEND_MESSAGE_REQUEST });
+
+    const { data } = await axios.post(
+      `http://localhost:4000/send/message`,
+      inputdata,
+      { withCredentials: true }
+    );
+    // console.log(inputdata)
+    // console.log(data);
+
+    dispatch({ type: SEND_MESSAGE_SUCCESS, payload: data });
+
+  } catch (error) {
+    dispatch({ type: SEND_MESSAGE_FAIL, payload: error?.response?.data?.error });
+  }
+}

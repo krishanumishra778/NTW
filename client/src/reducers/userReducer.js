@@ -11,6 +11,9 @@ import {
   LOAD_USER_FAIL,
   LOGOUT_SUCCESS,
   LOGOUT_FAIL,
+  SEND_MESSAGE_REQUEST,
+  SEND_MESSAGE_SUCCESS,
+  SEND_MESSAGE_FAIL,
 } from "../constants/userConstants";
 
 export const userReducer = (state = { user: {} }, action) => {
@@ -22,6 +25,11 @@ export const userReducer = (state = { user: {} }, action) => {
         loading: true,
         isAuthenticated: false,
       };
+
+      case SEND_MESSAGE_REQUEST:
+      return {
+        loading: true,
+      };
     case LOGIN_SUCCESS:
     case LOAD_USER_SUCCESS:
       return {
@@ -32,6 +40,7 @@ export const userReducer = (state = { user: {} }, action) => {
       };
 
     case REGISTER_USER_SUCCESS:
+    case SEND_MESSAGE_SUCCESS:
       return {
         ...state,
         loading: false,
@@ -59,6 +68,15 @@ export const userReducer = (state = { user: {} }, action) => {
         user: null,
         error: action.payload,
       };
+
+      case SEND_MESSAGE_FAIL:
+        return {
+          ...state,
+          loading: false,
+          error: action.payload,
+          data : null,
+        };
+
     case LOAD_USER_FAIL:
       return {
         loading: false,
