@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect } from 'react'
 import { useState } from 'react';
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 // import { LOGOUT_SUCCESS } from '../../constants/userConstants';
 
 
@@ -9,7 +9,9 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import { Logout } from '../pages/Logout';
+import { logout } from '../../actions/userAction';
 export const Head_nav = () => {
+  const dispatch = useDispatch()
   const { isAuthenticated, user } = useSelector((state) => state.user);
   // const [isDialogOpen, setIsDialogOpen] = useState(false);
 
@@ -137,7 +139,7 @@ export const Head_nav = () => {
               </ul>
               <hr />
               {/* < Link className='text-[#656565] inline-block px-3 py-4 hover:text-[#00B2FF]'>log in</Link> */}
-              < Link className='text-[#656565]  inline-block px-3 py-4 ' onClick={LOGOUT_SUCCESS}>log Out</Link>
+              < Link className='text-[#656565]  inline-block px-3 py-4 ' onClick={() => dispatch(logout()) }>log Out</Link>
             </>) : <Logout />}
           </dialog>
           {/* <div className='  xs:max-w-[10%] sm:max-w-[6%] cursor-pointer ' onMouseEnter={handleMouseEnter} onMouseDown={handleMouseLeave}>
