@@ -4,25 +4,22 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux"
 // import { LOGOUT_SUCCESS } from '../../constants/userConstants';
 
+import { AiOutlineClose } from 'react-icons/ai'
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
+import { LOGOUT_SUCCESS } from '../../constants/userConstants';
+
 import { Logout } from '../pages/Logout';
 import { logout } from '../../actions/userAction';
 export const Head_nav = () => {
+
+
   const dispatch = useDispatch()
+  const [myModal, setMyModal] = useState(true)
+
   const { isAuthenticated, user } = useSelector((state) => state.user);
-  // const [isDialogOpen, setIsDialogOpen] = useState(false);
-
-
-  // const openDialog = () => {
-  //   setIsDialogOpen(true);
-  // };
-
-  // const closeDialog = () => {
-  //   setIsDialogOpen(false);
-  // };
 
   // javascript///////////////////////////
 
@@ -30,9 +27,18 @@ export const Head_nav = () => {
 
   const [open, setOpen] = useState(false);
 
+
   const handleMouseEnter = () => {
     setOpen(true);
   };
+
+
+
+  const navLinks = document.querySelector('.nav-links')
+  function ontogglemenu(e) {
+    e.name = e.name === 'menu' ? 'close' : 'menu'
+    navLinks.classList.toggle('top-[9%]')
+  }
 
   const handleMouseLeave = () => {
     setOpen(false);
@@ -75,8 +81,13 @@ export const Head_nav = () => {
 
         <div className=" mx-auto flex justify-between items-center  relative z-10 ">
           <div className="md:hidden">
+
+
             {/* Mobile menu button */}
-            <button className="text-[black]" onClick={toggleMobileMenu}>
+            <button className="text-[black]" onClick={() => {
+              const modal = document.getElementById("myNav")
+              modal.showModal()
+            }}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -92,95 +103,127 @@ export const Head_nav = () => {
                 <line x1="3" y1="6" x2="21" y2="6"></line>
                 <line x1="3" y1="18" x2="21" y2="18"></line>
               </svg>
+              {/* <ion-icon onclick="ontogglemenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon> */}
+
             </button>
 
           </div>
           <div className="max-w-[70%]">
             <img src="logo/next tech waves logo.png" alt="" />
+
           </div>
           <div
             className='h-12 w-12 object-cover  border-gray-400 rounded-full cursor-pointer'
             style={{ backgroundColor: 'white' }}
-            onClick={() => {
-              const modal = document.getElementById('myModal')
-              modal.showModal()
-            }}
+
           >
             <img
               src={isAuthenticated ? "./images/user.png" : "./images/userp.png"} alt=''
-              className='h-full w-full object-cover rounded-full'
+              className='h-full w-full  rounded-full'
+              onClick={() => {
+                const modal = document.getElementById('myModal')
+                modal.showModal()
+              }}
             />
+
           </div>
+
+          {/* logout section */}
           <dialog
             className='absolute mt-0 w-full mt-[10%]'
             id='myModal'
           >
-            {isAuthenticated ? (<>
+            {isAuthenticated ? (
+              <>
+                <div>
+                  <div className='flex justify-end'>
+                    <button className='py-3 sm:px-4 text-[25px] rounded-sm ' onClick={() => {
+                      const modal = document.getElementById("myModal")
+                      modal.close()
+                    }}><AiOutlineClose /></button>
+                  </div>
+                </div>
 
-              <div className='flex justify-center'>
+                <div className='flex justify-center'>
 
-                <img
-                  src={isAuthenticated ? "./images/user.png" : "./images/userp.png"}
-                  alt=''
-                  className='h-12 w-12 object-cover rounded-full'
-                />
-              </div>
-              <p className='text-center mt-2  text-lg font-bold overflow-hidden whitespace-nowrap'>
-                Krishanu Kaundilya
-              </p>
-              <ul>
-                <div className='grid grid-cols-3 mt-2 px-3 text-[#656565]'>
-                  <p className='col-span-2'>You dont have any plan</p>
-                  <p>__Day's left</p>
+                  <img
+                    src={isAuthenticated ? "./images/user.png" : "./images/userp.png"}
+                    alt=''
+                    className='h-12 w-12 object-cover rounded-full'
+                  />
 
                 </div>
 
-                <li className='my-3 px-3 text-[#656565] hover:text-[#00B2FF]'><Link to="/editprofile">Settings</Link></li>
-              </ul>
-              <hr />
-              {/* < Link className='text-[#656565] inline-block px-3 py-4 hover:text-[#00B2FF]'>log in</Link> */}
-              < Link className='text-[#656565]  inline-block px-3 py-4 ' onClick={() => dispatch(logout()) }>log Out</Link>
-            </>) : <Logout />}
-          </dialog>
-          {/* <div className='  xs:max-w-[10%] sm:max-w-[6%] cursor-pointer ' onMouseEnter={handleMouseEnter} onMouseDown={handleMouseLeave}>
-            { <img className='rounded-full '
-           src={isAuthenticated ? "./images/user.png" : "./images/userp.png"} alt=''
-           />}
-          </div>
+                <p className='text-center mt-2   font-bold overflow-hidden whitespace-nowrap'>
+                  Krishanu Kaundilya
+                </p>
+                <ul>
+                  <div className='grid grid-cols-3 mt-14  xs:px-2 sm:px-4 text-[#656565] xs:text-mp sm:text-tp md:text-p '>
+                    <p className='col-span-2'>You dont have any plan</p>
+                    <p className='flex justify-end sm:pr-6 '>__Day's left</p>
 
-          <div
-            className='absolute  top-16 z-20 right-0  w-full'
-            style={{ display: open ? 'block' : 'none' }}
-          >
-            <div className='bg-white mt-3 h-72 bg-opacity-100 md:w-[350px] w-full shadow-xl rounded-md  '>
-              < hr className='w-full mb-2  bg-[gray]' />
-              <div className='flex justify-center'>
-             s
+                  </div>
+
+                  <li className='my-3  xs:px-2 sm:px-4 text-[#656565] hover:text-[#00B2FF]'><Link to="/editprofile">Settings</Link></li>
+                </ul>
+                <hr />
+                {/* < Link className='text-[#656565] inline-block px-3 py-4 hover:text-[#00B2FF]'>log in</Link> */}
+                < Link className='text-[#656565]  inline-block  xs:px-2 sm:px-4 py-4 ' onClick={() => dispatch(logout())}>log Out</Link>
+
+                {/* ><<<<<<<<< */}
+
+
+                {/* >><>< */}
+              </>
+            ) : (<><div className='w-full shadow-md '>
+
+
+              <div className='flex justify-end'>
+                <button className='py-3 px-4 text-[25px] rounded-sm ' onClick={() => {
+                  const modal = document.getElementById("myModal")
+                  modal.close()
+                }}><AiOutlineClose /></button>
+
               </div>
-              <p className='text-center mt-2 text-lg font-bold overflow-hidden whitespace-nowrap'>
-                Krishanu Kaundilya
-              </p>
-              <ul>
-                {Menus.map((menu, index) => (
-                  <li
-                    onClick={() => setOpen(false)}
-                    className={`p-2 text-[14px]  text-gray-500 cursor-pointer ${index === 2 ? 'border-t  border-gray-400  mx-auto' : ''
-                      } ${index === 2 ? 'mb-2' : ''} hover:text-blue-500 transition duration-300 ${index === 0 ? 'mt-4' : ''
-                      } ${index === 1 ? 'settings-menu-item' : ''}`}
-                    key={menu}
-                  >
-                    {index === 1 ? <Link to='/editprofile'>{menu}</Link> : menu}
+
+              <div className='flex justify-center pt-10 '>
+                <img
+                  src={isAuthenticated ? "./images/user.png" : "./images/userp.png"} alt=''
+                  className='h-12 w-12 object-cover rounded-full'
+                />
+              </div>
+
+              <div className='pt-20 pb-7'>
+
+                <ul>
+                  <li className='my-3 cursor-pointer border-0  px-3 text-[#656565] '>
+                    <Link to="/login" className='hover:text-[#00B2FF]'>Sign-in</Link>
                   </li>
+                  <hr />
+                  <li className='my-3 cursor-pointer border-0 px-3 text-[#656565]'>
+                    <Link to="/Sign-Up" >Sign-Up</Link>
+                  </li>
+                </ul>
+              </div>
 
-                ))}
+            </div></>)}
+          </dialog>
+          {/* logout section end  */}
 
-              </ul>
-            </div>
-          </div> */}
         </div>
-        {isMobileMenuOpen && (
-          <div className="md:hidden">
-            <ul className="mt-2 space-y-2 ">
+
+
+
+        <dialog id='myNav' className='w-full mt-20'>
+
+          <div className="md:hidden pl-10 pb-8 ">
+            <div className='flex justify-end'>
+              <button className='p-2 px-4 ml-5 rounded-sm text-[25px] ' onClick={() => {
+                const modal = document.getElementById("myNav")
+                modal.close()
+              }}><AiOutlineClose /></button>
+            </div>
+            <ul className="mt-2 space-y-6 font-bold ">
               <li>
                 <Link to='/' onClick={toggleMobileMenu}> Home</Link>
               </li>
@@ -196,13 +239,17 @@ export const Head_nav = () => {
               <li>
                 <Link to='/portfolio' onClick={toggleMobileMenu}> Our Portfolio</Link>
               </li>
+              <hr className='' />
               <li>
                 <Link to='/sign-up' onClick={toggleMobileMenu}>Sign-Up</Link>
               </li>
             </ul>
           </div>
-        )}
-      </nav>
+
+        </dialog>
+       
+      </nav >
+
       {/* <<<<<<<<<<<<<<<<   Navbar    End    >>>>>>>>>>>>>>>>>>>>>>> */}
     </>
   )
