@@ -1,10 +1,8 @@
 /** @format */
 
-import React, { useEffect, useState } from "react";
-import { FcGoogle } from "react-icons/fc";
+import { useEffect, useState } from "react";
 import { AiFillEyeInvisible } from "react-icons/ai";
-import axios from "axios";
-import { Link, json, useNavigate } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login } from "../../actions/userAction";
@@ -13,7 +11,7 @@ import { clearErrors, login } from "../../actions/userAction";
 export const User_login = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch();
-  const { error, loading, user, isAuthenticated } = useSelector(
+  const { error,  user, isAuthenticated } = useSelector(
     (state) => state.user
   );
   const [userData, setUserData] = useState({
