@@ -21,13 +21,13 @@ const userLogInController = async (req, res) => {
 
       if (!passwordMatch) {
         return res
-          .status(200)
+          .status(401)
           .json({ success: false, message: "Invalid Email or Password" });
       }
       sendToken(foundUser, 200, res);
     } else {
       return res
-        .status(200)
+        .status(401)
         .json({ success: false, message: "User not found" });
     }
   } catch (error) {

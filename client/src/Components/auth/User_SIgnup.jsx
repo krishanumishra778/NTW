@@ -15,7 +15,7 @@ import { register } from "../../actions/userAction";
 
 export const User_Signup = () => {
   const dispatch = useDispatch()
-  const { data , error} = useSelector(state => state.user)
+  const { data, error } = useSelector(state => state.user)
   const navigate = useNavigate();
 
   const [userData, setuserData] = useState({
@@ -34,7 +34,7 @@ export const User_Signup = () => {
     });
   };
 
-  
+
   const formHandler = async event => {
     event.preventDefault();
     dispatch(register(userData))
@@ -66,18 +66,18 @@ export const User_Signup = () => {
     }
   };
 
-  useEffect(()=>{
-    if(data?.success == false ){
+  useEffect(() => {
+    if (data?.success == false) {
       toast.error(data?.message)
     }
-    else if( error){
-      toast.error( error)
+    else if (error) {
+      toast.error(error)
     }
-    else if(data?.success == true){
-        toast.success(data.message)
-        navigate("/getotp")
+    else if (data?.success == true) {
+      toast.success(data.message)
+      navigate("/getotp")
     }
-  },[data, error, navigate])
+  }, [data, error, navigate])
   return (
     <div className='max-w-full'>
       <div className='grid md:grid-cols-2 '>
@@ -91,7 +91,7 @@ export const User_Signup = () => {
                   className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>
                   Your name
                 </label>
-                <input id="username"
+                <input
                   type='text'
                   name='name'
                   className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-8 mb-4'
@@ -100,7 +100,7 @@ export const User_Signup = () => {
                   onChange={inpHandler}
                   value={userData.name}
                   minLength={3}
-                  
+
                 />
               </div>
 
@@ -111,7 +111,7 @@ export const User_Signup = () => {
                   Your email
                 </label>
                 <input
-                id="useremail"
+
                   type='email'
                   name='email'
                   className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-8'
@@ -210,9 +210,11 @@ export const User_Signup = () => {
                       console.log(credentialResponse);
                       const userData = jwt_decode(credentialResponse.credential);
                       // console.log(userData);
+                      setuserData({ ...userData })
+                      console.log(userData.email)
                       // console.log(userData.given_name);
                       // console.log(userData.family_name);
-                     
+
                       axios.post(
                         "http://localhost:4000/google_login",
                         userData.name,

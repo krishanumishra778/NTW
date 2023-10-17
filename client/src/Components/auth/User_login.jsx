@@ -14,15 +14,15 @@ import axios from "axios";
 export const User_login = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch();
-  const { error, user, isAuthenticated } = useSelector(
+  const { error, user, isAuthenticated , data } = useSelector(
     (state) => state.user
   );
   const [userData, setUserData] = useState({
     email: "",
     password: "",
   });
-  
- 
+
+
 
   const inpHandler = event => {
     setUserData({
@@ -64,10 +64,10 @@ export const User_login = () => {
 
   useEffect(() => {
 
-    console.log(user)
+    console.log(error)
     if (error) {
 
-      toast.error(error?.message);
+      toast.error(error);
       dispatch(clearErrors());
     }
     // if user login so redirect in account page
@@ -85,6 +85,8 @@ export const User_login = () => {
     }
   }, [user?.message, messageShown]);
 
+  
+
   return (
 
     <div className='grid md:grid-cols-2'>
@@ -100,7 +102,7 @@ export const User_login = () => {
                 Your email
               </label>
               <input
-              id="useremail"
+                id="useremail"
                 type='email'
                 name='email'
                 className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
@@ -155,9 +157,12 @@ export const User_login = () => {
                 <GoogleLogin
                   onSuccess={credentialResponse => {
                     console.log(credentialResponse);
-                    const userData = jwt_decode(credentialResponse.credential);
-                    // console.log(userData); 
-                   
+                    const userdata = jwt_decode(credentialResponse.credential);
+                    console.log(userdata);
+                    setUserData({
+                      ...userData,
+                      email: userdata.email
+                    });
                     axios.post(
                       "http://localhost:4000/google_login",
                       userData.name,
