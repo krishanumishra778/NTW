@@ -212,8 +212,7 @@ export const User_Signup = () => {
                       // console.log(userData);
                       // console.log(userData.given_name);
                       // console.log(userData.family_name);
-                      document.getElementById("username").value = userData.name
-                      document.getElementById("useremail").value = userData.email
+                     
                       axios.post(
                         "http://localhost:4000/google_login",
                         userData.name,

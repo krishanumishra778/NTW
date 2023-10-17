@@ -21,6 +21,8 @@ export const User_login = () => {
     email: "",
     password: "",
   });
+  
+ 
 
   const inpHandler = event => {
     setUserData({
@@ -98,6 +100,7 @@ export const User_login = () => {
                 Your email
               </label>
               <input
+              id="useremail"
                 type='email'
                 name='email'
                 className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
@@ -134,8 +137,9 @@ export const User_login = () => {
               />
             </div>
 
-            <div className='relative z-0 w-full mb-3 pt-3 group text-center corsor-pointer'>
-              <Link to="/email"> Forgot password? </Link>
+            <div className='relative z-0 w-full mb-3 pt-3 group flex
+             justify-end pr-5 corsor-pointer'>
+              <Link to="/email" className="text-[12px]"> Forgot password? </Link>
             </div>
 
             <button
@@ -152,7 +156,8 @@ export const User_login = () => {
                   onSuccess={credentialResponse => {
                     console.log(credentialResponse);
                     const userData = jwt_decode(credentialResponse.credential);
-                    console.log(userData);
+                    // console.log(userData); 
+                   
                     axios.post(
                       "http://localhost:4000/google_login",
                       userData.name,
@@ -174,7 +179,7 @@ export const User_login = () => {
         </div>
       </div>
 
-      <div className='hidden md:block'>
+      <div className='hidden md:block '>
         <img src='./images/sign_up_side_img.jpg' alt='' className='' />
       </div>
     </div>
