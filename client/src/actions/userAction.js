@@ -195,7 +195,7 @@ export const logout = () => async (dispatch) => {
     await axios.get(`http://localhost:4000/logout`, {
       withCredentials: true,
     });
-
+  
     dispatch({ type: LOGOUT_SUCCESS });
   } catch (error) {
     dispatch({ type: LOGOUT_FAIL, payload: error?.response?.data?.error });

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { SendMessage } from '../../actions/userAction'
 import toast from 'react-hot-toast'
-import { Preloader } from './Preloader'
+// import { Preloader } from './Preloader'
 
 const Contact = () => {
   const dispatch = useDispatch()

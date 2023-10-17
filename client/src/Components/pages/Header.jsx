@@ -1,14 +1,18 @@
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { LOGOUT_SUCCESS } from '../../constants/userConstants';
-import { useSelector } from "react-redux"
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux"
 import { Logout } from './Logout';
+import { logout } from '../../actions/userAction';
+import toast from 'react-hot-toast';
 
 
 
 const Header = () => {
-  const { isAuthenticated, user } = useSelector((state) => state.user);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+ 
+  const { isAuthenticated , success, error } = useSelector(state => state.user);
   const [text] = useTypewriter({
     words: ["UI/UX Design and Development", "Web Development", "No Code Web Development", "Web Design"],
     loop: {},
@@ -37,6 +41,12 @@ const Header = () => {
       window.removeEventListener('click', handleClickOutside);
     };
   }, [open]);
+
+  const logout_user = () =>{
+    dispatch(logout())
+   
+  }
+ 
   return (
     <>
       {/* / { isAuthenticated ? <Logout/> : null   } */}
@@ -86,7 +96,7 @@ const Header = () => {
                     </ul>
                     <hr />
                     {/* < Link className='text-[#656565] inline-block px-3 py-4 hover:text-[#00B2FF]'>log in</Link> */}
-                    < Link className='text-[#656565]  inline-block px-3 py-4 ' onClick={LOGOUT_SUCCESS}>log Out</Link>
+                    < Link className='text-[#656565]  inline-block px-3 py-4 ' onClick={logout_user}>log Out</Link>
                   </div>) : <Logout />}
                 </div>
               </div>

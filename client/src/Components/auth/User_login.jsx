@@ -73,7 +73,7 @@ export const User_login = () => {
       toast.success('login SuccessFully...')
       navigate("/");
     }
-  }, [error, isAuthenticated]);
+  }, [dispatch, error, isAuthenticated, navigate, user]);
   const [messageShown, setMessageShown] = useState(false);
   useEffect(() => {
     if (typeof user?.message === "string" && !messageShown) {
