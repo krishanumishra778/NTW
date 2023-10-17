@@ -12,7 +12,7 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
  
-  const { isAuthenticated , success, error } = useSelector(state => state.user);
+  const { isAuthenticated , success} = useSelector(state => state.user);
   const [text] = useTypewriter({
     words: ["UI/UX Design and Development", "Web Development", "No Code Web Development", "Web Design"],
     loop: {},
@@ -46,7 +46,12 @@ const Header = () => {
     dispatch(logout())
    
   }
- 
+  useEffect(()=>{
+    if(success === true){
+      toast.success("Logout Successfully")
+      navigate("/")
+    }
+  },[navigate, success])
   return (
     <>
       {/* / { isAuthenticated ? <Logout/> : null   } */}

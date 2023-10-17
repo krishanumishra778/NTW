@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux"
 
 export const Logout = () => {
-    const { isAuthenticated, user } = useSelector((state) => state.user);
+    const { isAuthenticated } = useSelector((state) => state.user);
 
     return (
         <div className='w-full shadow-md '>

@@ -9,9 +9,6 @@ import { AiOutlineClose } from 'react-icons/ai'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
-import { LOGOUT_SUCCESS } from '../../constants/userConstants';
-
-import { Logout } from '../pages/Logout';
 import { logout } from '../../actions/userAction';
 export const Head_nav = () => {
 
@@ -168,7 +165,10 @@ export const Head_nav = () => {
                 </ul>
                 <hr />
                 {/* < Link className='text-[#656565] inline-block px-3 py-4 hover:text-[#00B2FF]'>log in</Link> */}
-                < Link className='text-[#656565]  inline-block  xs:px-2 sm:px-4 py-4 ' onClick={() => dispatch(logout())}>log Out</Link>
+                < Link className='text-[#656565]  inline-block  xs:px-2 sm:px-4 py-4 ' onClick={() => {dispatch(logout()) 
+                 const modal = document.getElementById("myModal")
+                 modal.close()
+                }} >log Out</Link>
 
                 {/* ><<<<<<<<< */}
 
