@@ -2,16 +2,19 @@
 
 import { useEffect, useState } from "react";
 import { AiFillEyeInvisible } from "react-icons/ai";
-import { Link,  useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login } from "../../actions/userAction";
+import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+import jwt_decode from "jwt-decode";
+import axios from "axios";
 
 
 export const User_login = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch();
-  const { error,  user, isAuthenticated } = useSelector(
+  const { error, user, isAuthenticated } = useSelector(
     (state) => state.user
   );
   const [userData, setUserData] = useState({
@@ -140,7 +143,29 @@ export const User_login = () => {
               className='text-white bg-[#00B2FF] hover:bg-[#00b3ffd3] xs:text-mp sm:text-tp md:text-p rounded-lg  w-full  px-5 py-2.5 text-center '>
               Log In
             </button>
-            <div className='relative z-0 w-full mb-3 group text-center pt-3'>
+            <div className=" flex justify-center my-6">
+
+              <GoogleOAuthProvider
+                clientId='693453829328-ovitjd596gvg88lnvovoeqs5eeud7kc7.apps.googleusercontent.com'
+                className='w-full'>
+                <GoogleLogin
+                  onSuccess={credentialResponse => {
+                    console.log(credentialResponse);
+                    const userData = jwt_decode(credentialResponse.credential);
+                    console.log(userData);
+                    axios.post(
+                      "http://localhost:4000/google_login",
+                      userData.name,
+                      userData.email
+                    );
+                  }}
+                  onError={() => {
+                    console.log("Login Failed");
+                  }}
+                />
+              </GoogleOAuthProvider>
+            </div>
+            <div className='relative z-0 w-full mb-3 group text-center '>
               <span> Don't have an </span>
               <span> <Link to='/sign-up' className="text-blue-400"> Sign Up?</Link></span>
             </div>

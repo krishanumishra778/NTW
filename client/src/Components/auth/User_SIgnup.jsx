@@ -91,15 +91,16 @@ export const User_Signup = () => {
                   className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>
                   Your name
                 </label>
-                <input
+                <input id="username"
                   type='text'
                   name='name'
-                  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-8 '
+                  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-8 mb-4'
                   placeholder='nexttechwaves'
                   required
                   onChange={inpHandler}
                   value={userData.name}
                   minLength={3}
+                  
                 />
               </div>
 
@@ -110,6 +111,7 @@ export const User_Signup = () => {
                   Your email
                 </label>
                 <input
+                id="useremail"
                   type='email'
                   name='email'
                   className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-8'
@@ -207,7 +209,11 @@ export const User_Signup = () => {
                     onSuccess={credentialResponse => {
                       console.log(credentialResponse);
                       const userData = jwt_decode(credentialResponse.credential);
-                      console.log(userData);
+                      // console.log(userData);
+                      // console.log(userData.given_name);
+                      // console.log(userData.family_name);
+                      document.getElementById("username").value = userData.name
+                      document.getElementById("useremail").value = userData.email
                       axios.post(
                         "http://localhost:4000/google_login",
                         userData.name,
