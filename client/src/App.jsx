@@ -36,7 +36,7 @@ export default function App() {
 
   useEffect(() => {
     store.dispatch(LoadUser());
-console.log(isAuthenticated)
+    console.log(isAuthenticated)
   }, []);
 
 
@@ -53,7 +53,7 @@ console.log(isAuthenticated)
 
   return (
     <>
-      {isLoading ? <Preloader /> : isAuthenticated ? <Icon /> : null }
+      {isLoading ? <Preloader /> : null}
       <Router>
 
         {/* <Head_nav /> */}

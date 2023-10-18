@@ -17,10 +17,16 @@ import { NavDemo } from './NavDemo'
 import { Head_nav } from './Head_nav'
 import { Logout } from '../pages/Logout'
 import { Icon } from '../pages/Icon'
+import { useSelector } from 'react-redux'
 
 
 export const Home = () => {
+  const { isAuthenticated, loading, user } = useSelector((state) => state.user);
   return (
+
+
+
+
     <div>
 
       <NavDemo />
@@ -37,7 +43,8 @@ export const Home = () => {
       <Contact />
       <Join />
       <Fotter />
-     
+      {isAuthenticated ? <Icon />
+        : ""}
 
 
     </div>
