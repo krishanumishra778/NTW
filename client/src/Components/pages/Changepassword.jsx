@@ -14,8 +14,6 @@ export const Changepassword = () => {
   const { isAuthenticated, user ,data ,error} = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
-
-
   const navigate = useNavigate();
 
   const [showModal, setShowModal] = useState(false);

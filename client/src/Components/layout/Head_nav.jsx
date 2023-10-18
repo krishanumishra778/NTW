@@ -3,7 +3,6 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux"
 // import { LOGOUT_SUCCESS } from '../../constants/userConstants';
-
 import { AiOutlineClose } from 'react-icons/ai'
 
 import AOS from 'aos';
@@ -11,7 +10,6 @@ import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import { logout } from '../../actions/userAction';
 export const Head_nav = () => {
-
 
   const dispatch = useDispatch()
   const [myModal, setMyModal] = useState(true)
@@ -152,7 +150,7 @@ export const Head_nav = () => {
                 </div>
 
                 <p className='text-center mt-2   font-bold overflow-hidden whitespace-nowrap'>
-                {user?.name}
+                  {user?.name}
                 </p>
                 <ul>
                   <div className='grid grid-cols-3 mt-14  xs:px-2 sm:px-4 text-[#656565] xs:text-mp sm:text-tp md:text-p '>
@@ -165,9 +163,10 @@ export const Head_nav = () => {
                 </ul>
                 <hr />
                 {/* < Link className='text-[#656565] inline-block px-3 py-4 hover:text-[#00B2FF]'>log in</Link> */}
-                < Link className='text-[#656565]  inline-block  xs:px-2 sm:px-4 py-4 ' onClick={() => {dispatch(logout()) 
-                 const modal = document.getElementById("myModal")
-                 modal.close()
+                < Link className='text-[#656565]  inline-block  xs:px-2 sm:px-4 py-4 ' onClick={() => {
+                  dispatch(logout())
+                  const modal = document.getElementById("myModal")
+                  modal.close()
                 }} >log Out</Link>
 
                 {/* ><<<<<<<<< */}
@@ -247,7 +246,7 @@ export const Head_nav = () => {
           </div>
 
         </dialog>
-       
+
       </nav >
 
       {/* <<<<<<<<<<<<<<<<   Navbar    End    >>>>>>>>>>>>>>>>>>>>>>> */}

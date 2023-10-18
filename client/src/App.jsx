@@ -33,13 +33,12 @@ import Maincontactus from "./Components/layout/Maincontactus/Maincontactus";
 export default function App() {
   // ><<<<<<><
   const { isAuthenticated, loading, user } = useSelector((state) => state.user);
+
   useEffect(() => {
     store.dispatch(LoadUser());
-    // console.log(user)
-  }, []);
-  // ><><><><</></>
 
-  // const location = useLocation();
+  }, []);
+
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -73,9 +72,7 @@ export default function App() {
           <Route path='/changepassword' element={<Changepassword />} />
           <Route path='/pages' element={<Pages />} />
           <Route path='/email' element={<Email />} />
-          <Route
-            path='/forgot-password'
-            element={<Forgot_password />}></Route>
+          <Route path='/forgot-password' element={<Forgot_password />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/maincontactus" element={<Maincontactus />}></Route>
 
