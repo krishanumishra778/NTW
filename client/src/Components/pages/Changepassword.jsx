@@ -3,19 +3,32 @@ import 'aos/dist/aos.css';
 import { useNavigate } from 'react-router-dom';
 import { MdNavbar } from '../layout/MdNavbar';
 import { AiFillEyeInvisible } from "react-icons/ai";
+// import { BsFillEyeFill } from "react-icons/bs";
+
 import Aos from "aos";
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import toast from 'react-hot-toast';
+import { updatePassword } from '../../actions/userAction';
 
 export const Changepassword = () => {
-  const { isAuthenticated, user } = useSelector((state) => state.user);
+  const { isAuthenticated, user ,data ,error} = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
 
 
   const navigate = useNavigate();
 
   const [showModal, setShowModal] = useState(false);
-  const [password, setpassword] = useState("")
-  
+  const [password, setpassword] = useState({
+    oldpassword: "",
+    newpassword: "",
+    conformpassword: "",
+  })
+
+  // 
+
+
+  // 
   useEffect(() => {
     Aos.init({
       offset: 100,
@@ -26,23 +39,12 @@ export const Changepassword = () => {
   }, []);
 
 
-  const showpwd = () => {
-    const pwdType = document.getElementById("pwd").type;
+  const showoldpwd = (Id) => {
+    const pwdType = document.getElementById(Id).type;
     if (pwdType === "password") {
-      document.getElementById("pwd").type = "text";
+      document.getElementById(Id).type = "text";
     } else {
-      document.getElementById("pwd").type = "password";
-    }
-
-  };
-
-  const showpwd2 = () => {
-    console.log("click")
-    const pwdType = document.getElementById("pwd").type;
-    if (pwdType === "password") {
-      document.getElementById("pwd2").type = "text";
-    } else {
-      document.getElementById("pwd2").type = "password";
+      document.getElementById(Id).type = "password";
     }
 
   };
@@ -50,8 +52,28 @@ export const Changepassword = () => {
   const confirmpwd = (e) => {
     e.preventDefault();
 
-   
+    // console.log(password)
+    if (password?.newpassword === password?.conformpassword) {
+      dispatch(updatePassword(password))
+      // console.log(data)
+
+    } else {
+      toast.error("New password and confirm password should be same")
+    }
   }
+  useEffect(()=>{
+    if (data?.success == false) {
+      toast.error(data?.message)
+
+    }
+    else if (error) {
+      toast.error(error)
+    }
+    else if (data?.success == true) {
+      toast.success(data.message)
+      isAuthenticated
+    }
+  }, [data, error, isAuthenticated, navigate])
 
 
   return (
@@ -59,9 +81,9 @@ export const Changepassword = () => {
       <MdNavbar />
       <div className='bg-opacity-1 flex justify-center '>
         <div className='pt-6 absolute '>
-          <img className='rounded-full' 
-              src={isAuthenticated ? "./images/user.png" : "./images/userp.png"}
-              alt="" />
+          <img className='rounded-full'
+            src={isAuthenticated ? "./images/user.png" : "./images/userp.png"}
+            alt="" />
         </div>
         <div className='pl-12 pt-7 relative '>
           <img className='absolute pt-1.5 pl-1.5 z-[1] cursor-pointer'
@@ -131,49 +153,96 @@ export const Changepassword = () => {
       <div className='w-[100%] mt-[10%] mx-auto xs:text-mp sm:text-tp md:text-p'>
 
         <form name='form' action="" className='' onSubmit={confirmpwd}>
+
+          <div className='relative z-0 mb-10 group'>
+
+            <label
+              htmlFor='password'
+              className='block mb-2 rounded-lg xs:text-mp sm:text-tp md:text-p   text-gray-900 dark:text-white'>
+              Old Password
+            </label>
+            <input
+              type='password'
+              name='oldpassword'
+              id='oldpwd'
+              className='bg-gray-50 border-2 pt-4 border-[#D9D9D9] text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
+    h-10'
+              placeholder='Enter Old Password'
+              required
+              onChange={(e) => {
+                setpassword({
+                  ...password, [e.target.name]: e.target.value
+                })
+              }}
+
+            />
+            <AiFillEyeInvisible
+              onClick={() => {
+                showoldpwd("oldpwd")
+              }}
+              className='relative md:left-[95%] xs:left-[90%] top-3'
+            />
+            {/* <BsFillEyeFill  onClick={()=>{
+                showoldpwd("oldpwd")
+              }}
+              className='relative md:left-[95%] xs:left-[90%] top-3'/> */}
+          </div>
+
           <div className='relative z-0 mb-6 group'>
 
             <label
               htmlFor='password'
               className='block mb-2 rounded-lg xs:text-mp sm:text-tp md:text-p   text-gray-900 dark:text-white'>
-              New password
+              New Password
             </label>
             <input
               type='password'
-              name='password'
+              name='newpassword'
               id='pwd'
               className='bg-gray-50 border-2 pt-4 border-[#D9D9D9] text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
                 h-10'
               placeholder='Set New Password'
               required
-
+              onChange={(e) => {
+                setpassword({
+                  ...password, [e.target.name]: e.target.value
+                })
+              }}
             />
             <AiFillEyeInvisible
-              onClick={showpwd}
+              onClick={() => {
+                showoldpwd("pwd")
+              }}
               className='relative md:left-[95%] xs:left-[90%] top-3'
             />
           </div>
 
           {/* ><><</> */}
 
-          <div className='relative z-0 group pt-7 '>
+          <div className='relative z-0 group pt-4 '>
             <label
               htmlFor='password'
               className='block mb-2 rounded-lg xs:text-mp sm:text-tp md:text-p  text-gray-900 dark:text-white'>
-              Confirm New password
+              Confirm New Password
             </label>
             <input
               type='password'
-              name='password'
+              name='conformpassword'
               id='pwd2'
               className='bg-gray-50 border-2 pt-4 border-[#D9D9D9] text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
             h-10'
               placeholder='Confirm New password'
               required
-
+              onChange={(e) => {
+                setpassword({
+                  ...password, [e.target.name]: e.target.value
+                })
+              }}
             />
             <AiFillEyeInvisible
-              onClick={showpwd2}
+              onClick={() => {
+                showoldpwd("pwd2")
+              }}
               className='relative md:left-[95%]  xs:left-[90%] top-3'
             />
           </div>

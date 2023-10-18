@@ -171,17 +171,17 @@ export const Editprofile = () => {
               <label htmlFor="">Change User Name</label>
               <input className=' w-full rounded-lg border-2  border-[#D9D9D9]' type="text"  name='name'  value={inputdata.name} onChange={(e)=>{
                 setInputdata({...inputdata,[e.target.name]: e.target.value})
-              }}/>
+              }} required/>
             </div>
             <div className='pt-5'>
-              <label htmlFor="">Change E-Mail</label>
-              <input className='border-2  w-full bg-gray-100 rounded-lg border-[#D9D9D9] ' value={user?.email} disabled type="text"  />
+              <label htmlFor=""> Your  E-Mail Address</label>
+              <input className='border-2  w-full bg-gray-100 rounded-lg border-[#D9D9D9] ' value={user?.email} disabled type="text"  required />
             </div>
             <div className='pt-5'>
               <label htmlFor="">Your company Name</label>
               <input className='border-2 w-full rounded-lg border-[#D9D9D9]' type="text" name='company' value={inputdata.company} onChange={(e)=>{
                 setInputdata({...inputdata,[e.target.name]: e.target.value})
-              }}/>
+              }} required/>
             </div>
             <div className='flex justify-end'>
               <button type='submit' className='text-white text-center p-2 bg-[#00B2FF] rounded-3xl px-[20px] py-[6px] sm:text-mp xs:text-tp md:text-p my-5 hover:bg-[#00b3ffd8]  '>Save Changes</button>
