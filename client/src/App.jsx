@@ -29,6 +29,7 @@ import { Mainservice } from "./Components/layout/Mainservice.jsx/Mainservice";
 import { Mainplans } from "./Components/layout/Mainplans/Mainplans";
 import { Ourportfolio } from "./Components/layout/Ourportfolio/Ourportfolio";
 import Contact from "./Components/pages/Contact";
+import Maincontactus from "./Components/layout/Maincontactus/Maincontactus";
 export default function App() {
   // ><<<<<<><
   const { isAuthenticated , loading } = useSelector((state) => state.user);
@@ -76,6 +77,8 @@ export default function App() {
             path='/forgot-password'
             element={<Forgot_password />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
+          <Route path="/maincontactus" element={<Maincontactus />}></Route>
+
         </Routes>
 
       </Router>

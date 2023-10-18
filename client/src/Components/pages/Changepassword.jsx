@@ -15,7 +15,7 @@ export const Changepassword = () => {
 
   const [showModal, setShowModal] = useState(false);
   const [password, setpassword] = useState("")
-  const [confirmpassword, setconfirmpassword] = useState("")
+  
   useEffect(() => {
     Aos.init({
       offset: 100,
@@ -50,16 +50,7 @@ export const Changepassword = () => {
   const confirmpwd = (e) => {
     e.preventDefault();
 
-    let pwd = document.getElementById("pwd").value;
-    let pwd2 = document.getElementById("pwd2").value;
-    // console.log(pwd ,pwd2)
-    if (pwd === pwd2) {
-      alert("Password Change ");
-      navigate("/editprofile")
-    } else {
-      alert("Confirmatoin failed");
-      form.reset()
-    }
+   
   }
 
 
