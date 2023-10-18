@@ -37,7 +37,7 @@ export const Home = () => {
       <Contact />
       <Join />
       <Fotter />
-      <Icon/>
+     
 
 
     </div>
