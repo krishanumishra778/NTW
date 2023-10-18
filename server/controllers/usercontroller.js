@@ -99,6 +99,7 @@ const userSignupController = async (req, res) => {
     res.send({ success: false, message: error.message });
   }
 };
+
 // email varify conrtoller
 
 const varifycontroller = async (req, res) => {
@@ -294,7 +295,9 @@ const sendMessage = (req, res) => {
       subject: "For Inquire from Next Tech Waves",
     });
 
-    res.status(200).send({ success: true, message: "thanks for contact next tech waves" });
+    res
+      .status(200)
+      .send({ success: true, message: "thanks for contact next tech waves" });
   } catch (error) {
     console.log(error);
     res.send({ success: false, message: "can not send message right now" });
@@ -303,13 +306,42 @@ const sendMessage = (req, res) => {
 // get data
 
 const getUserDetails = async (req, res) => {
-  console.log(req.user)
+  console.log(req.user);
   const User = await user.findById(req.user._id);
 
   res.status(200).json({
     success: true,
-    user : User,
+    user: User,
   });
+};
+
+// update profile
+
+const updateProfile = async (req, res) => {
+  try {
+    console.log(req.body);
+    const { name, company } = req.body;
+    // Assuming you have a 'User' model and 'user' is the instance of the user you want to update
+    const User = await user.findByIdAndUpdate(
+      req.user._id,
+      { name, company },
+      {
+        new: true,
+      }
+    );
+
+    res.status(200).json({
+      success: true,
+      user: User,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(401).send({
+      success: false,
+      message: "Error in updating data",
+      error: error.message, // Provide the error message for better clarity
+    });
+  }
 };
 
 module.exports = {
@@ -323,4 +355,5 @@ module.exports = {
   changePassword,
   sendMessage,
   getUserDetails,
+  updateProfile,
 };
