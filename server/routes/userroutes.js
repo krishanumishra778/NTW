@@ -13,7 +13,8 @@ const {
   resetPassword,
   changePassword,
   sendMessage,
-  getUserDetails
+  getUserDetails,
+  updateProfile
 } = require("../controllers/usercontroller");
 const isAuthenticateduser = require("../middleware/isAuthenticate");
 const {
@@ -44,5 +45,8 @@ router.route("/me").get(isAuthenticateduser, getUserDetails);
 
 /////  subscription  /////
 router.route('/email/subscription').post(emailSubscribeController)
+
+// update user profile
+router.route("/update/profile").put(isAuthenticateduser, updateProfile);
 
 module.exports = router;
