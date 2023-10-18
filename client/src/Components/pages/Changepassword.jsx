@@ -9,8 +9,6 @@ import { useSelector } from "react-redux"
 export const Changepassword = () => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
 
-
-
   const navigate = useNavigate();
 
   const [showModal, setShowModal] = useState(false);

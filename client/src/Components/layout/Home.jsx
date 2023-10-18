@@ -16,17 +16,16 @@ import Fotter from './Fotter'
 import { NavDemo } from './NavDemo'
 import { Head_nav } from './Head_nav'
 import { Logout } from '../pages/Logout'
-// import { Icon } from '../pages/Icon'
+import { Icon } from '../pages/Icon'
+
 
 export const Home = () => {
   return (
     <div>
 
       <NavDemo />
-      {/* <Icon/> */}
       <Head_nav />
       <Header />
-
       <About />
       <Services />
       <Founder />
@@ -38,6 +37,7 @@ export const Home = () => {
       <Contact />
       <Join />
       <Fotter />
+      <Icon/>
 
 
     </div>
