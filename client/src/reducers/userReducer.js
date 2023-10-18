@@ -62,6 +62,7 @@ export const userReducer = (state = { user: {} }, action) => {
       return {
         loading : false,
         data:action.payload,
+        isAuthenticated: action.payload.success,
 
       }
 
