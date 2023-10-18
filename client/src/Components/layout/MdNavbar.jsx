@@ -2,57 +2,21 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { useSelector } from "react-redux"
-
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 export const MdNavbar = () => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
 
-  // javascript start    ///////////////////////////
 
-  const Menus = ['You dont have any plan ', 'Settings', 'log Out'];
-
-  const [open, setOpen] = useState(false);
-
-  const handleMouseEnter = () => {
-    setOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    setOpen(false);
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (open && !e.target.closest('.menu-container')) {
-        setOpen(false);
-      }
-    };
-
-    window.addEventListener('click', handleClickOutside);
-    return () => {
-      window.removeEventListener('click', handleClickOutside);
-    };
-  }, [open]);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-  useEffect(() => {
-    AOS.init({
-      offset: 100,
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true,
-    });
-  }, []);
+  }; 
+  
   return (
     <>
       {/* <<<<<<<<<<<<<<<<   Navbar     start   >>>>>>>>>>>>>>>>>>>>>>> */}
 
-      <nav className="   my-2 px-4 relative main-container" data-aos="fade-down">
+      <nav className="   my-2 px-4 relative main-container">
         <div className="  flex justify-between items-center ">
           <div className="">
             {/* Mobile menu button */}
@@ -77,7 +41,7 @@ export const MdNavbar = () => {
           <div className="max-w-[65%]">
             <img src="logo/next tech waves logo.png" alt="" />
           </div>
-          <div className='  xs:max-w-[12%] sm:max-w-[12%] md:max-w-[6%] cursor-pointer ' onMouseEnter={handleMouseEnter} onMouseDown={handleMouseLeave}>
+          <div className='  xs:max-w-[12%] sm:max-w-[12%] md:max-w-[6%] cursor-pointer ' >
             <img 
             className='rounded-full ' 
             src={isAuthenticated ? "./images/user.png" : "./images/userp.png"}
@@ -85,37 +49,6 @@ export const MdNavbar = () => {
           </div>
 
 
-          <div
-            className='absolute ml-72 top-16 z-10 '
-            style={{ display: open ? 'block' : 'none' }}
-          >
-            <div className='bg-white mt-3 p-4 w-[350px] shadow-xl rounded-md  '>
-              <div className='flex justify-center'>
-                <img
-            src={isAuthenticated ? "./images/user.png" : "./images/userp.png"}
-            alt=''
-                  className='h-16 w-16 object-cover rounded-full'
-                />
-              </div>
-              <p className='text-center mt-2 text-lg font-bold overflow-hidden whitespace-nowrap'>
-                Krishanu Kaundilya
-              </p>
-              <ul>
-                {Menus.map((menu, index) => (
-                  <li
-                    onClick={() => setOpen(false)}
-                    className={`p-2 text-[14px]  text-gray-500 cursor-pointer ${index === 2 ? 'border-t border-gray-400 mx-auto' : ''
-                      } ${index === 2 ? 'mb-2' : ''} hover:text-blue-500 transition duration-300 ${index === 0 ? 'mt-4' : ''
-                      } ${index === 1 ? 'settings-menu-item' : ''}`}
-                    key={menu}
-                  >
-                    {index === 1 ? <Link to='/editprofile'>{menu}</Link> : menu}
-                  </li>
-
-                ))}
-              </ul>
-            </div>
-          </div>
         </div>
 
 

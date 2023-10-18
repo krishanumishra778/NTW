@@ -152,7 +152,7 @@ export const Head_nav = () => {
                 </div>
 
                 <p className='text-center mt-2   font-bold overflow-hidden whitespace-nowrap'>
-                  Krishanu Kaundilya
+                {user?.name}
                 </p>
                 <ul>
                   <div className='grid grid-cols-3 mt-14  xs:px-2 sm:px-4 text-[#656565] xs:text-mp sm:text-tp md:text-p '>

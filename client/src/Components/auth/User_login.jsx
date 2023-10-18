@@ -64,7 +64,7 @@ export const User_login = () => {
 
   useEffect(() => {
 
-    console.log(error)
+    // console.log(error)
     if (error) {
 
       toast.error(error);

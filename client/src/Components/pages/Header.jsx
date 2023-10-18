@@ -88,7 +88,7 @@ const Header = () => {
                       />
                     </div>
                     <p className='text-center mt-2  text-lg font-bold overflow-hidden whitespace-nowrap'>
-                      Krishanu Kaundilya
+                      Krishanu Kaudndilya
                     </p>
                     <ul>
                       <div className='grid grid-cols-3 mt-2 px-3 text-[#656565]'>

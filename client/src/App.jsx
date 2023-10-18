@@ -32,10 +32,10 @@ import Contact from "./Components/pages/Contact";
 import Maincontactus from "./Components/layout/Maincontactus/Maincontactus";
 export default function App() {
   // ><<<<<<><
-  const { isAuthenticated , loading } = useSelector((state) => state.user);
+  const { isAuthenticated, loading, user } = useSelector((state) => state.user);
   useEffect(() => {
     store.dispatch(LoadUser());
-    // console.log(loading)
+    // console.log(user)
   }, []);
   // ><><><><</></>
 
@@ -51,7 +51,7 @@ export default function App() {
 
     // Add other side effects or data fetching here
   }, []);
-                          
+
   return (
     <>
       {isLoading ? <Preloader /> : isAuthenticated ? <Icon /> : null}

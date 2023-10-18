@@ -1,45 +1,41 @@
 import { useEffect, useState } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import { AiOutlineCaretUp, AiOutlineCaretDown } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import { MdNavbar } from '../layout/MdNavbar';
-import { useSelector } from "react-redux"
+import {  useSelector } from "react-redux"
 
 export const Editprofile = () => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
-
-
-
   const navigate = useNavigate();
+
+  
+
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [isAccordionOpen, setIsAccordionOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    AOS.init({
-      offset: 100,
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true,
-    });
-
-    const handleResize = () => {
-
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
+  
+  const [inputdata , setInputdata] = useState({
+    name : "",
+    email : user?.email,
+    company : "",
+  })
+ 
+   const savechange =(e) =>{
+    e.preventDefault();
+    console.log(inputdata)
+   }
   const handleEditProfileClick = () => {
     setIsOpen((prev) => !prev);
   };
+
+  useEffect(()=>{
+  if(user){
+    setInputdata({
+      name : user?.name,
+      email : user?.email,
+      company : user?.company
+    })
+  }
+  },[user])
 
   return (
     <>
@@ -170,18 +166,22 @@ export const Editprofile = () => {
 
         {/* Change User Name section */}
         <div className={`pt-7 ${isOpen ? 'pt-72' : ''}`}>
-          <form action="" className='xs:text-mp sm:text-tp md:text-p' >
+          <form action="" className='xs:text-mp sm:text-tp md:text-p' onSubmit={savechange}>
             <div>
               <label htmlFor="">Change User Name</label>
-              <input className='pt-4 w-full rounded-lg border-2  border-[#D9D9D9]' type="text" />
+              <input className=' w-full rounded-lg border-2  border-[#D9D9D9]' type="text"  name='name'  value={inputdata.name} onChange={(e)=>{
+                setInputdata({...inputdata,[e.target.name]: e.target.value})
+              }}/>
             </div>
             <div className='pt-5'>
               <label htmlFor="">Change E-Mail</label>
-              <input className='border-2 pt-4 w-full rounded-lg border-[#D9D9D9] ' type="text" />
+              <input className='border-2  w-full bg-gray-100 rounded-lg border-[#D9D9D9] ' value={user?.email} disabled type="text"  />
             </div>
             <div className='pt-5'>
               <label htmlFor="">Your company Name</label>
-              <input className='border-2 pt-4 w-full rounded-lg border-[#D9D9D9]' type="text" />
+              <input className='border-2 w-full rounded-lg border-[#D9D9D9]' type="text" name='company' value={inputdata.company} onChange={(e)=>{
+                setInputdata({...inputdata,[e.target.name]: e.target.value})
+              }}/>
             </div>
             <div className='flex justify-end'>
               <button type='submit' className='text-white text-center p-2 bg-[#00B2FF] rounded-3xl px-[20px] py-[6px] sm:text-mp xs:text-tp md:text-p my-5 hover:bg-[#00b3ffd8]  '>Save Changes</button>
