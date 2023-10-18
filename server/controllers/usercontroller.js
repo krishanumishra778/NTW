@@ -321,7 +321,6 @@ const updateProfile = async (req, res) => {
   try {
     console.log(req.body);
     const { name, company } = req.body;
-    // Assuming you have a 'User' model and 'user' is the instance of the user you want to update
     const User = await user.findByIdAndUpdate(
       req.user._id,
       { name, company },
@@ -333,13 +332,14 @@ const updateProfile = async (req, res) => {
     res.status(200).json({
       success: true,
       user: User,
+      message: "Profile updated Successfully",
     });
   } catch (error) {
     console.log(error);
     res.status(401).send({
       success: false,
       message: "Error in updating data",
-      error: error.message, // Provide the error message for better clarity
+      error: error.message,
     });
   }
 };
