@@ -5,10 +5,10 @@ const user = require("../models/user_signup");
 
 const isAuthenticateduser = async (req, res, next) => {
   try {
-    
-    
+
+
     const { token } = req.cookies;
-  
+
     if (token) {
       const decodedata = jwt.verify(token, process.env.SECRET_KEY);
       if (decodedata) {
