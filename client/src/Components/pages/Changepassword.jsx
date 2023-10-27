@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import 'aos/dist/aos.css';
 import { useNavigate } from 'react-router-dom';
 import { MdNavbar } from '../layout/MdNavbar';
-import { AiFillEyeInvisible } from "react-icons/ai";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 // import { BsFillEyeFill } from "react-icons/bs";
 
 import Aos from "aos";
@@ -46,6 +46,19 @@ export const Changepassword = () => {
     }
 
   };
+  const [showaPassword, setShowaPassword] = useState(true);
+  const [showbPassword, setShowbPassword] = useState(true);
+  const [showcPassword, setShowcPassword] = useState(true);
+  
+  const AtogglePasswordVisibility = () => {
+    setShowaPassword(!showaPassword);
+  };
+  const BtogglePasswordVisibility = () => {
+    setShowbPassword(!showbPassword);
+  };
+  const CtogglePasswordVisibility = () => {
+    setShowcPassword(!showcPassword);
+  };
 
   const confirmpwd = (e) => {
     e.preventDefault();
@@ -70,6 +83,7 @@ export const Changepassword = () => {
     else if (data?.success == true) {
       toast.success(data.message)
       isAuthenticated
+      navigate("/editprofile")
     }
   }, [data, error, isAuthenticated, navigate])
 
@@ -174,16 +188,13 @@ export const Changepassword = () => {
               }}
 
             />
-            <AiFillEyeInvisible
-              onClick={() => {
-                showoldpwd("oldpwd")
-              }}
-              className='relative md:left-[95%] xs:left-[90%] top-3'
-            />
-            {/* <BsFillEyeFill  onClick={()=>{
-                showoldpwd("oldpwd")
-              }}
-              className='relative md:left-[95%] xs:left-[90%] top-3'/> */}
+           
+             {showaPassword ? (
+              <AiFillEyeInvisible onClick={() => { AtogglePasswordVisibility(); showoldpwd("oldpwd"); }} className='relative md:left-[95%] xs:left-[90%] top-3' />
+            ) : (
+              <AiFillEye onClick={() => { AtogglePasswordVisibility(); showoldpwd("oldpwd"); }} className='relative md:left-[95%] xs:left-[90%] top-3' />
+            )}
+          
           </div>
 
           <div className='relative z-0 mb-6 group'>
@@ -207,12 +218,12 @@ export const Changepassword = () => {
                 })
               }}
             />
-            <AiFillEyeInvisible
-              onClick={() => {
-                showoldpwd("pwd")
-              }}
-              className='relative md:left-[95%] xs:left-[90%] top-3'
-            />
+           
+             {showbPassword ? (
+              <AiFillEyeInvisible onClick={() => { BtogglePasswordVisibility(); showoldpwd("pwd"); }} className='relative md:left-[95%] xs:left-[90%] top-3' />
+            ) : (
+              <AiFillEye onClick={() => { BtogglePasswordVisibility(); showoldpwd("pwd"); }} className='relative md:left-[95%] xs:left-[90%] top-3' />
+            )}
           </div>
 
           {/* ><><</> */}
@@ -237,12 +248,12 @@ export const Changepassword = () => {
                 })
               }}
             />
-            <AiFillEyeInvisible
-              onClick={() => {
-                showoldpwd("pwd2")
-              }}
-              className='relative md:left-[95%]  xs:left-[90%] top-3'
-            />
+           
+             {showcPassword ? (
+              <AiFillEyeInvisible onClick={() => { CtogglePasswordVisibility(); showoldpwd("pwd2"); }} className='relative md:left-[95%] xs:left-[90%] top-3' />
+            ) : (
+              <AiFillEye onClick={() => { CtogglePasswordVisibility(); showoldpwd("pwd2"); }} className='relative md:left-[95%] xs:left-[90%] top-3' />
+            )}
           </div>
 
           {/* ><><></></> */}
