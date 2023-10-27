@@ -1,7 +1,7 @@
 /** @format */
 
 import { useEffect, useState } from "react";
-import { AiFillEyeInvisible } from "react-icons/ai";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
@@ -34,23 +34,6 @@ export const User_login = () => {
   const formHandler = event => {
     event.preventDefault();
     dispatch(login(userData.email, userData.password));
-    // console.log(user.message)
-    // axios
-    //   .post("http://localhost:4000/login", userData, { withCredentials: true })
-    //   .then(res => {
-    //     console.log(res.cookie)
-    //     if (res.data.success) {
-    //       toast.success(res.data.message)
-    //       navigate('/')
-    //       console.log(res)
-    //     } else {
-    //       toast.error(res.data.message)
-    //     }
-    //   })
-    //   .catch(err => {
-    //     toast.error(err);
-    //   });
-
   };
 
   const showpwd = () => {
@@ -60,6 +43,10 @@ export const User_login = () => {
     } else {
       document.getElementById("pwd").type = "password";
     }
+  }; 
+  const [showPassword, setShowPassword] = useState(true);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   useEffect(() => {
@@ -133,10 +120,11 @@ export const User_login = () => {
 
               />
 
-              <AiFillEyeInvisible
-                onClick={showpwd}
-                className='relative left-[90%] top-2'
-              />
+{showPassword ? (
+        <AiFillEyeInvisible onClick={() => { togglePasswordVisibility(); showpwd(); }} className='relative left-[90%] top-2 cursor-pointer' />
+      ) : (
+        <AiFillEye onClick={() => { togglePasswordVisibility(); showpwd(); }}  className='relative left-[90%] top-2 cursor-pointer' />
+      )}
             </div>
 
             <div className='relative z-0 w-full mb-3 pt-3 group flex

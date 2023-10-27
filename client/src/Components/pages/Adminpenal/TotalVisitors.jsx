@@ -4,7 +4,8 @@ export const TotalVisitors = () => {
 
 
     // Replace this with your actual data or logic for the circular graph
-    const percentage = 75; // Example: 75%
+    const percentage = 81;
+   
 
 
     return (
@@ -81,21 +82,43 @@ export const TotalVisitors = () => {
                 {/* .,.,.,.,.,.,.,.,.,.,.,.,.,.,. */}
 
 
-                <div className='bg-white shadow-lg  shadow-gray-400 mx-auto  mt-4 rounded-lg w-[96%]'>
+                <div className='bg-white shadow-lg  shadow-gray-400 mx-auto  mt-8 rounded-lg w-[96%]'>
                     <div className='flex justify-between px-5'>
                         <h1>Order</h1>
                         <h1>Download</h1>
                     </div>
                     <hr className=' bg-black  h-[1.5px]' />
                     {/* ><<<<<<<<<<<<<<<<<<<<<<<< */}
+                    <div className='flex justify-between px-5 py-5'>
 
-                </div>
+                        <div className="w-24 h-24 rounded-full border-4 border-[#FF5B5B]  relative">
+                            <div className="absolute inset-0 bg-[#FF5B5B] rounded-full clip-path-full" style={{ clipPath: `polygon(0 0, 100% 0, 100% ${percentage}%, 0 100%)` }}></div>
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <span className="text-4xl text-white">{percentage}%</span>
+                            </div>
+                            <h1 className='pt-24'>Total Order</h1>
+                        </div>
+                        {/* ,,,,,, */}
+                        <div className="w-24 h-24 rounded-full border-4 border-[#00B074]  relative">
+                            <div className="absolute inset-0 bg-[#00B074] rounded-full clip-path-full" style={{ clipPath: `polygon(0 0, 100% 0, 100% ${percentage}%, 0 100%)` }}></div>
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <span className="text-4xl text-white">{percentage}%</span>
+                            </div>
+                            {/* <h1 className='pt-24'>Customer Growth</h1> */}
 
-                <div className="w-24 h-24 rounded-full border-4 border-[#00B2FF] mx-auto relative">
-                    <div className="absolute inset-0 bg-[#00B2FF] rounded-full clip-path-full" style={{ clipPath: `polygon(0 0, 100% 0, 100% ${percentage}%, 0 100%)` }}></div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-4xl text-white">{percentage}%</span>
+                        </div>
+                        {/* ,,,,,,, */}
+                        <div className="w-24 h-24 rounded-full border-4 border-[#00B2FF]  relative">
+                            <div className="absolute inset-0 bg-[#00B2FF] rounded-full clip-path-full" style={{ clipPath: `polygon(0 0, 100% 0, 100% ${percentage}%, 0 100%)` }}></div>
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <span className="text-4xl text-white">{percentage}%</span>
+                            </div>
+                            {/* <h1 className='pt-24'>Total Revenue</h1> */}
+
+                        </div>
+
                     </div>
+
                 </div>
 
             </div>

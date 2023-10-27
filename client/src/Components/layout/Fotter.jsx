@@ -37,7 +37,7 @@ const Fotter = () => {
     return (
         // ><<<<<<<<<<   FOOTER  start  ><<<<<<<<<<<<<<<<< 
         <div>
-            <div className=" xs:max-w-[1300px]  mx-auto py-5 mt-6 md:mb-12 sm:grid grid-cols-2 gap-4 px-4" data-aos="fade-down">
+            <div className=" xs:max-w-[1300px]  mx-auto py-5 mt-6 md:mb-12 sm:grid grid-cols-2 gap-4 px-4" >
                 <div >
                     <div>
                         <img className='' src="logo/next tech waves logo.png" />

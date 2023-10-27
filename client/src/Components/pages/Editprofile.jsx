@@ -2,34 +2,39 @@ import { useEffect, useState } from 'react';
 import { AiOutlineCaretUp, AiOutlineCaretDown } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import { MdNavbar } from '../layout/MdNavbar';
-import {  useSelector } from "react-redux"
+import {  useDispatch, useSelector } from "react-redux"
+import { updateProfile } from '../../actions/userAction';
+import axios from 'axios';
 
 export const Editprofile = () => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   
 
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   
-  const [inputdata , setInputdata] = useState({
+  const [userData , setUserData] = useState({
     name : "",
     email : user?.email,
     company : "",
   })
  
-   const savechange =(e) =>{
+   const savechange = async (e) =>{
     e.preventDefault();
-    console.log(inputdata)
+    // console.log(inputdata)
+    dispatch(updateProfile(userData))
+    
    }
+
   const handleEditProfileClick = () => {
     setIsOpen((prev) => !prev);
   };
 
   useEffect(()=>{
   if(user){
-    setInputdata({
+    setUserData({
       name : user?.name,
       email : user?.email,
       company : user?.company
@@ -169,8 +174,8 @@ export const Editprofile = () => {
           <form action="" className='xs:text-mp sm:text-tp md:text-p' onSubmit={savechange}>
             <div>
               <label htmlFor="">Change User Name</label>
-              <input className=' w-full rounded-lg border-2  border-[#D9D9D9]' type="text"  name='name'  value={inputdata.name} onChange={(e)=>{
-                setInputdata({...inputdata,[e.target.name]: e.target.value})
+              <input className=' w-full rounded-lg border-2  border-[#D9D9D9]' type="text"  name='name'  value={userData.name} onChange={(e)=>{
+                setUserData({...userData,[e.target.name]: e.target.value})
               }} required/>
             </div>
             <div className='pt-5'>
@@ -179,8 +184,8 @@ export const Editprofile = () => {
             </div>
             <div className='pt-5'>
               <label htmlFor="">Your company Name</label>
-              <input className='border-2 w-full rounded-lg border-[#D9D9D9]' type="text" name='company' value={inputdata.company} onChange={(e)=>{
-                setInputdata({...inputdata,[e.target.name]: e.target.value})
+              <input className='border-2 w-full rounded-lg border-[#D9D9D9]' type="text" name='company' value={userData.company} onChange={(e)=>{
+                setUserData({...userData,[e.target.name]: e.target.value})
               }} required/>
             </div>
             <div className='flex justify-end'>

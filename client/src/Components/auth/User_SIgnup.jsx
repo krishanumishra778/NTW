@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { AiFillEyeInvisible } from "react-icons/ai";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
@@ -38,23 +38,14 @@ export const User_Signup = () => {
   const formHandler = async event => {
     event.preventDefault();
     dispatch(register(userData))
-    // const res = await axios.post("http://localhost:4000/register", userData)
-    // if (res.data.success) {
-    //   toast.success(res.data.message)
-    //   navigate('/getotp')
-    // } else {
-    //   toast.error(res.data.message)
-    //   setuserData({
-    //     name: "",
-    //     email: "",
-    //     company: "",
-    //     country: "",
-    //     password: "",
-    //     email_verified: false,
-    //   })
-
-    // }
+   
   };
+  // 
+  const [showPassword, setShowPassword] = useState(true);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
 
   const showpwd = () => {
     const pwdType = document.getElementById("pwd").type;
@@ -181,10 +172,12 @@ export const User_Signup = () => {
                   minLength={5}
                   maxLength={10}
                 />
-                <AiFillEyeInvisible
-                  onClick={showpwd}
-                  className='relative left-[90%] top-2 cursor-pointer'
-                />
+             
+                  {showPassword ? (
+        <AiFillEyeInvisible onClick={() => { togglePasswordVisibility(); showpwd(); }} className='relative left-[90%] top-2 cursor-pointer' />
+      ) : (
+        <AiFillEye onClick={() => { togglePasswordVisibility(); showpwd(); }}  className='relative left-[90%] top-2 cursor-pointer' />
+      )}
               </div>
               {/* ................. */}
               <input

@@ -4,11 +4,13 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const router = require("./routes/userroutes.js");
-const cookieParser = require("cookie-parser")
+
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
 const db = require("./db/conn.js");
 
-app.use(cookieParser())
+
+app.use(cookieParser());
 
 app.use(
   cors({

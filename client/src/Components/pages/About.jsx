@@ -6,7 +6,7 @@ const About = () => {
     <>
 
 
-      <div className=" w-[98%] max-w-[1300px] mx-auto   px-4 grid lg:grid-cols-3" data-aos="fade-down" >
+      <div className=" w-[98%] max-w-[1300px] mx-auto   px-4 grid lg:grid-cols-3"  >
         <div className=" flex gap-1  mx-auto  xs:max-w-[60%] md:max-w-[100%] ">
           <div >
             <img src="images/about-I.png" alt='Next Tech Waves' className="rounded lg:my-5 xs:my-2" />
