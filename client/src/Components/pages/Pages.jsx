@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { MdNavbar } from '../layout/MdNavbar';
 import toast from 'react-hot-toast';
@@ -19,12 +17,7 @@ export const Pages = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    AOS.init({
-      offset: 100,
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true,
-    });
+   
 
     const handleResize = () => {
       setWindowWidth(window.innerWidth);

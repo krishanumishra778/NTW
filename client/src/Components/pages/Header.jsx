@@ -11,8 +11,8 @@ import toast from 'react-hot-toast';
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
- 
-  const { isAuthenticated , success ,user} = useSelector(state => state.user);
+
+  const { isAuthenticated, success, user } = useSelector(state => state.user);
   const [text] = useTypewriter({
     words: ["UI/UX Design and Development", "Web Development", "No Code Web Development", "Web Design"],
     loop: {},
@@ -42,22 +42,19 @@ const Header = () => {
     };
   }, [open]);
 
-  const logout_user = () =>{
+  const logout_user = () => {
     dispatch(logout())
-   
+
   }
-  useEffect(()=>{
-    if(success === true){
+  useEffect(() => {
+    if (success === true) {
       toast.success("Logout Successfully")
       navigate("/")
     }
-  },[navigate, success])
+  }, [navigate, success])
   return (
     <>
-      {/* / { isAuthenticated ? <Logout/> : null   } */}
-
-
-      <div className='max-w-[1300px] mx-auto' data-aos="fade-down">
+      <div className='max-w-[1300px] mx-auto' >
         <div className="py-[20px] hidden md:block ">
           <div className='grid  mx-4 '>
 
@@ -88,7 +85,7 @@ const Header = () => {
                       />
                     </div>
                     <p className='text-center mt-2  text-lg font-bold overflow-hidden whitespace-nowrap'>
-                     {user.name}
+                      {user.name}
                     </p>
                     <ul>
                       <div className='grid grid-cols-3 mt-2 px-3 text-[#656565]'>

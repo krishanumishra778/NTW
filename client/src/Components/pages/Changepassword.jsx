@@ -1,11 +1,7 @@
 import { useState, useEffect } from 'react';
-import 'aos/dist/aos.css';
 import { useNavigate } from 'react-router-dom';
 import { MdNavbar } from '../layout/MdNavbar';
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-// import { BsFillEyeFill } from "react-icons/bs";
-
-import Aos from "aos";
 import { useDispatch, useSelector } from "react-redux"
 import toast from 'react-hot-toast';
 import { updatePassword } from '../../actions/userAction';
@@ -27,15 +23,7 @@ export const Changepassword = () => {
 
 
   // 
-  useEffect(() => {
-    Aos.init({
-      offset: 100,
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true,
-    });
-  }, []);
-
+  
 
   const showoldpwd = (Id) => {
     const pwdType = document.getElementById(Id).type;

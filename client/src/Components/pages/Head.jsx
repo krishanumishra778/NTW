@@ -29,7 +29,7 @@ export const Head = () => {
   return (
     <div>
         
-        <div className=" max-w-[1300px] mx-auto py-[20px] hidden md:block " data-aos="zoom-in">
+        <div className=" max-w-[1300px] mx-auto py-[20px] hidden md:block " >
           <div className='grid  mx-4 '>
 
             <div className='absolute h-screen  flex justify-center z-20'>

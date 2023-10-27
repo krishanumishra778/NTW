@@ -4,9 +4,6 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux"
 // import { LOGOUT_SUCCESS } from '../../constants/userConstants';
 import { AiOutlineClose } from 'react-icons/ai'
-
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import { logout } from '../../actions/userAction';
 export const Head_nav = () => {
@@ -56,14 +53,7 @@ export const Head_nav = () => {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
-  useEffect(() => {
-    AOS.init({
-      offset: 100,
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true,
-    });
-  }, []);
+ 
   return (
     <>
 
@@ -72,7 +62,7 @@ export const Head_nav = () => {
       {/* <<<<<<<<<<<<<<<<   Navbar     start   >>>>>>>>>>>>>>>>>>>>>>> */}
 
 
-      <nav className=" block md:hidden  my-2 px-4 relative main-container" data-aos="fade-down">
+      <nav className=" block md:hidden  my-2 px-4 relative main-container" >
 
         <div className=" mx-auto flex justify-between items-center  relative z-10 ">
           <div className="md:hidden">
