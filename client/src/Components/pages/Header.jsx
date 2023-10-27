@@ -11,8 +11,8 @@ import toast from 'react-hot-toast';
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
- 
-  const { isAuthenticated , success ,user} = useSelector(state => state.user);
+
+  const { isAuthenticated, success, user } = useSelector(state => state.user);
   const [text] = useTypewriter({
     words: ["UI/UX Design and Development", "Web Development", "No Code Web Development", "Web Design"],
     loop: {},
@@ -42,16 +42,16 @@ const Header = () => {
     };
   }, [open]);
 
-  const logout_user = () =>{
+  const logout_user = () => {
     dispatch(logout())
-   
+
   }
-  useEffect(()=>{
-    if(success === true){
+  useEffect(() => {
+    if (success === true) {
       toast.success("Logout Successfully")
       navigate("/")
     }
-  },[navigate, success])
+  }, [navigate, success])
   return (
     <>
       {/* / { isAuthenticated ? <Logout/> : null   } */}
@@ -88,7 +88,7 @@ const Header = () => {
                       />
                     </div>
                     <p className='text-center mt-2  text-lg font-bold overflow-hidden whitespace-nowrap'>
-                     {user.name}
+                      {user.name}
                     </p>
                     <ul>
                       <div className='grid grid-cols-3 mt-2 px-3 text-[#656565]'>
@@ -96,6 +96,14 @@ const Header = () => {
                         <p>__Day's left</p>
 
                       </div>
+                      <div className='grid grid-cols-3 mt-2 px-3 text-[#656565]'>
+                        <p className='col-span-2'>Project Completed</p>
+                        <p className='text-center'>3/5</p>
+
+                      </div>
+                      
+
+
 
                       <li className='my-3 px-3 text-[#656565] hover:text-[#00B2FF]'><Link to="/editprofile">Settings</Link></li>
                     </ul>

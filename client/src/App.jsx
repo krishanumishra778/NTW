@@ -1,4 +1,3 @@
-/** @format */
 
 import "../src/App.css";
 import { User_login } from "./Components/auth/User_login";
