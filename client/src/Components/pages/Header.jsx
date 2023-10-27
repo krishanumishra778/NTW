@@ -85,7 +85,7 @@ const Header = () => {
                       />
                     </div>
                     <p className='text-center mt-2  text-lg font-bold overflow-hidden whitespace-nowrap'>
-                      {user.name}
+                      {user?.name}
                     </p>
                     <ul>
                       <div className='grid grid-cols-3 mt-2 px-3 text-[#656565]'>
