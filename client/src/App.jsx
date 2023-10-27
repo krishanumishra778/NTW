@@ -1,15 +1,13 @@
 /** @format */
 
 import "../src/App.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { User_login } from "./Components/auth/User_login";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from "./Components/layout/Home";
 import { User_Signup } from "./Components/auth/User_Signup";
 import { Getotp } from "./Components/auth/Getotp";
-
-// import { Head_nav } from "./Components/layout/Head_nav";
-// import Fotter from "./Components/layout/Fotter";
-
 import { Editprofile } from "./Components/pages/Editprofile";
 import { Changepassword } from "./Components/pages/Changepassword";
 import { Pages } from "./Components/pages/Pages";
@@ -17,13 +15,12 @@ import { useState } from "react";
 
 import { Forgot_password } from "./Components/auth/Forgot_password/Forgot_password";
 import { Email } from "./Components/auth/Forgot_Password/Email";
-//
+
 import { useEffect } from "react";
 import { Preloader } from "./Components/pages/Preloader";
 import { LoadUser } from "./actions/userAction";
 import { useSelector } from "react-redux";
 import store from "./store";
-import { Icon } from "./Components/pages/Icon";
 import { Mainabout } from "./Components/layout/Mainabout/Mainabout";
 import { Mainservice } from "./Components/layout/Mainservice.jsx/Mainservice";
 import { Mainplans } from "./Components/layout/Mainplans/Mainplans";
@@ -43,12 +40,16 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate content loading with a setTimeout
     setTimeout(() => {
       setIsLoading(false);
-    }, 4000); // Change this to the actual loading time or condition
-
-    // Add other side effects or data fetching here
+    }, 4000); 
+    // ////////////SCROLL-ANIMATION////////////
+    AOS.init({
+      offset: 100, // Adjust this value as needed
+      duration: 1000, // Animation duration
+      easing: 'ease', // Easing type
+      once: true, // Only animate elements once
+    });
   }, []);
 
   return (
@@ -56,7 +57,7 @@ export default function App() {
       {isLoading ? <Preloader /> : null}
       <Router>
 
-        {/* <Head_nav /> */}
+       
 
         <Routes>
           <Route path='/' element={<Home />} />
