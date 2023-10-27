@@ -16,16 +16,60 @@ const userLogInController = async (req, res) => {
   try {
     const { email, password } = req.body;
     const foundUser = await user.findOne({ email: email }).select("+password");
+    console.log(foundUser);
 
     if (foundUser) {
-      const passwordMatch = await hash.compare(password, foundUser.password);
+      if (foundUser.email_verified) {
+        const passwordMatch = await hash.compare(password, foundUser.password);
 
-      if (!passwordMatch) {
-        return res
-          .status(401)
-          .json({ success: false, message: "Invalid Email or Password" });
+        if (!passwordMatch) {
+          return res
+            .status(401)
+            .json({ success: false, message: "Invalid Email or Password" });
+        }
+        sendToken(foundUser, 200, res);
+      } else {
+        const otp = Math.floor(Math.random() * 9999) + 1000;
+
+        const transporter = nodemailer.createTransport({
+          service: "gmail",
+          auth: {
+            user: process.env.EMAIL,
+            pass: process.env.MYPASSWORD,
+          },
+        });
+
+        var mailOptions = {
+          from: process.env.EMAIL,
+          to: email,
+          subject: "Next Tech Waves",
+          text: `Sign up success and variy your email with ${otp}`,
+        };
+        transporter.sendMail(mailOptions, async function (error, info) {
+          if (error) {
+            res.send({ error });
+            console.log(error);
+          } else {
+            let otphash = await hash.hash(otp.toString(), 10);
+            console.log(otphash);
+
+            const options = {
+              expires: new Date(
+                Date.now() + process.env.COOKIES_OTP_EXP * 60 * 1000
+              ),
+              httpOnly: true,
+            };
+            await res.cookie("data", { otphash, email }, options);
+           let email_verified= foundUser.email_verified
+            await res.status(200).send({
+              success: true,
+              email_verified,
+              message: `otp send to your email ${email} for verification`,
+            });
+            console.log("Email sent: " + info.response);
+          }
+        });
       }
-      sendToken(foundUser, 200, res);
     } else {
       return res
         .status(401)
@@ -80,11 +124,7 @@ const userSignupController = async (req, res) => {
           console.log(error);
         } else {
           const data = await User.save();
-          // const temporaryData = new tempdata({
-          //   userEmail: email,
-          //   otp: otp,
-          // });
-          // await temporaryData.save();
+
           otpsend(otp, email, res);
           console.log("Email sent: " + info.response);
         }
@@ -98,24 +138,23 @@ const userSignupController = async (req, res) => {
 // email varify conrtoller
 
 const varifycontroller = async (req, res) => {
+  // geting data from the cookies
   const { data } = req.cookies;
   let genotp = data?.otphash;
   let email = data?.email;
-  console.log(genotp, email);
+  // geting otp
   const { otp } = req.body;
 
   try {
     const temporaryData = await user.findOne({ email });
-    console.log(temporaryData);
+
     if (!temporaryData) {
       return res
         .status(404)
         .json({ success: false, message: "User not found" });
     } else {
-      console.log(otp, genotp);
+      // compare the otp
       const verify = await hash.compare(otp, genotp);
-      console.log(verify);
-
       if (verify) {
         await user.findByIdAndUpdate(temporaryData._id, {
           email_verified: true,
