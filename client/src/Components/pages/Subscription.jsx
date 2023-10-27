@@ -28,7 +28,7 @@ const Subscription = () => {
 
     return (
         <>
-            <div className="my-10 md:py-12  bg-[url(images/bg-banner.png)] bg-no-repeat bg-cover mx-[15px] px-[10px]" data-aos="fade-down">
+            <div className="my-10 md:py-12  bg-[url(images/bg-banner.png)] bg-no-repeat bg-cover mx-[15px] px-[10px]" >
                 <div>
 
                     <p className="text-[#00B2FF]  sm:text-tt  xs:text-mt md:text-title lg:text-center text-left font-[600]  ">

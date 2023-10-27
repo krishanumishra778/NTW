@@ -1,20 +1,12 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
 
 export const NavDemo = () => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
 
-  useEffect(() => {
-    AOS.init({
-      offset: 100,
-      duration: 1500,
-      easing: "ease-in-out",
-      once: true,
-    });
-  }, []);
+  
 
   return (
     <>

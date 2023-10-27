@@ -44,7 +44,7 @@ const Creativeshowcase = () => {
 
     return (
         <>
-            <div data-aos="fade-down"  className='max-w-[1300px]  mx-auto '  >
+            <div  className='max-w-[1300px]  mx-auto '  >
                 <div className="my-5">
                     <p className="md:text-center text-[#00B2FF]  sm:text-tt  xs:text-mt md:text-title font-[600] py-2 px-4">Explore Our
                         Creative Showcase</p>

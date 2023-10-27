@@ -57,7 +57,7 @@ const Header = () => {
       {/* / { isAuthenticated ? <Logout/> : null   } */}
 
 
-      <div className='max-w-[1300px] mx-auto' data-aos="fade-down">
+      <div className='max-w-[1300px] mx-auto'>
         <div className="py-[20px] hidden md:block ">
           <div className='grid  mx-4 '>
 

@@ -5,7 +5,7 @@ import About from '../pages/About'
 import Services from '../pages/Services'
 import Founder from '../pages/Founder'
 import Subscription from '../pages/Subscription'
-import Creativeshowcase from '../pages/Creativeshowcase'
+// import Creativeshowcase from '../pages/Creativeshowcase'
 import Testimonials from '../pages/Testimonials'
 
 import Rating from '../pages/Rating'
@@ -18,6 +18,7 @@ import { Head_nav } from './Head_nav'
 import { Logout } from '../pages/Logout'
 import { Icon } from '../pages/Icon'
 import { useSelector } from 'react-redux'
+import Creativeshowcase from '../pages/Creativeshowcase'
 
 
 export const Home = () => {
