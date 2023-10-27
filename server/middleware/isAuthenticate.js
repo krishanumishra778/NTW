@@ -5,16 +5,19 @@ const user = require("../models/user_signup");
 
 const isAuthenticateduser = async (req, res, next) => {
   try {
+    
+    
     const { token } = req.cookies;
+  
     if (token) {
       const decodedata = jwt.verify(token, process.env.SECRET_KEY);
       if (decodedata) {
         req.user = await user.findById(decodedata.id);
         next();
-      }else{
+      } else {
         res
-        .status(201)
-        .send({ success: false, message: "user is not authenticated" });
+          .status(201)
+          .send({ success: false, message: "user is not authenticated" });
       }
     } else {
       res
@@ -26,4 +29,6 @@ const isAuthenticateduser = async (req, res, next) => {
   }
 };
 
-module.exports = isAuthenticateduser;
+
+
+module.exports = isAuthenticateduser

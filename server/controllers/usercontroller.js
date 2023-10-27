@@ -307,7 +307,7 @@ const sendMessage = (req, res) => {
 // get data
 
 const getUserDetails = async (req, res) => {
-  console.log(req.user);
+ 
   const User = await user.findById(req.user._id);
 
   res.status(200).json({
@@ -320,7 +320,7 @@ const getUserDetails = async (req, res) => {
 
 const updateProfile = async (req, res) => {
   try {
-    console.log(req.body);
+    
     const { name, company } = req.body;
     const User = await user.findByIdAndUpdate(
       req.user._id,

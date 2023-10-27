@@ -8,7 +8,7 @@ const router = require("./routes/userroutes.js");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
 const db = require("./db/conn.js");
-
+const adminroutes = require("./routes/adminroutes.js");
 
 app.use(cookieParser());
 
@@ -20,6 +20,7 @@ app.use(
 );
 app.use(express.json());
 app.use(router);
+app.use(adminroutes);
 
 app.get("/", (rew, res) => {
   res.send("home page called");
