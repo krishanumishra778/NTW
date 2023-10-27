@@ -14,7 +14,7 @@ import axios from "axios";
 export const User_login = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch();
-  const { error, user, isAuthenticated , data } = useSelector(
+  const { error, user, isAuthenticated, data, email_verified } = useSelector(
     (state) => state.user
   );
   const [userData, setUserData] = useState({
@@ -43,7 +43,7 @@ export const User_login = () => {
     } else {
       document.getElementById("pwd").type = "password";
     }
-  }; 
+  };
   const [showPassword, setShowPassword] = useState(true);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -51,19 +51,27 @@ export const User_login = () => {
 
   useEffect(() => {
 
-    // console.log(error)
+    
     if (error) {
 
       toast.error(error);
       dispatch(clearErrors());
     }
     // if user login so redirect in account page
-    if (isAuthenticated) {
-      // console.log(user)
-      toast.success('login SuccessFully...')
-      navigate("/");
+    if (email_verified == true) {
+
+      if (isAuthenticated) {
+        // console.log(user)
+        toast.success('login SuccessFully...')
+        navigate("/");
+      }
+    } 
+    else if (email_verified == false) {
+      toast.success(data?.message)
+      navigate('/getotp')
     }
-  }, [dispatch, error, isAuthenticated, navigate, user]);
+
+  }, [dispatch, error, isAuthenticated, navigate, user, email_verified]);
   const [messageShown, setMessageShown] = useState(false);
   useEffect(() => {
     if (typeof user?.message === "string" && !messageShown) {
@@ -72,7 +80,7 @@ export const User_login = () => {
     }
   }, [user?.message, messageShown]);
 
-  
+
 
   return (
 
@@ -120,11 +128,11 @@ export const User_login = () => {
 
               />
 
-{showPassword ? (
-        <AiFillEyeInvisible onClick={() => { togglePasswordVisibility(); showpwd(); }} className='relative left-[90%] top-2 cursor-pointer' />
-      ) : (
-        <AiFillEye onClick={() => { togglePasswordVisibility(); showpwd(); }}  className='relative left-[90%] top-2 cursor-pointer' />
-      )}
+              {showPassword ? (
+                <AiFillEyeInvisible onClick={() => { togglePasswordVisibility(); showpwd(); }} className='relative left-[90%] top-2 cursor-pointer' />
+              ) : (
+                <AiFillEye onClick={() => { togglePasswordVisibility(); showpwd(); }} className='relative left-[90%] top-2 cursor-pointer' />
+              )}
             </div>
 
             <div className='relative z-0 w-full mb-3 pt-3 group flex

@@ -62,7 +62,7 @@ const userLogInController = async (req, res) => {
             await res.cookie("data", { otphash, email }, options);
            let email_verified= foundUser.email_verified
             await res.status(200).send({
-              success: true,
+              success: false,
               email_verified,
               message: `otp send to your email ${email} for verification`,
             });

@@ -78,28 +78,6 @@ const Header = () => {
                 </div>
                 <div
                   className='absolute ml-16 top-16   w-[350px] bg-white '
-<<<<<<< HEAD
-                  style={{ display: open ? 'block' : 'none' }}
-                >
-                  {isAuthenticated ? (<div className='bg-white mt-3   shadow-xl rounded-md '>
-
-                    <div className='flex justify-center'>
-
-                      <img
-                        src={isAuthenticated ? "./images/user.png" : "./images/userp.png"}
-                        alt=''
-                        className='h-12 w-12 object-cover rounded-full'
-                      />
-                    </div>
-                    <p className='text-center mt-2  text-lg font-bold overflow-hidden whitespace-nowrap'>
-                      {user?.name}
-                    </p>
-                    <ul>
-                      <div className='grid grid-cols-3 mt-2 px-3 text-[#656565]'>
-                        <p className='col-span-2'>You dont have any plan</p>
-                        <p>__Day's left</p>
-
-=======
                   style={{ display: open ? "block" : "none" }}>
                   {isAuthenticated ? (
                     <div className='bg-white mt-3   shadow-xl rounded-md '>
@@ -113,7 +91,6 @@ const Header = () => {
                           alt=''
                           className='h-12 w-12 object-cover rounded-full'
                         />
->>>>>>> 05fc136c8ee0876c0ea35943900947d4b5a6d9bf
                       </div>
                       <p className='text-center mt-2  text-lg font-bold overflow-hidden whitespace-nowrap'>
                         {user?.name}
