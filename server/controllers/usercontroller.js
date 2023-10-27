@@ -323,7 +323,7 @@ const changePassword = async (req, res) => {
 const sendMessage = (req, res) => {
   try {
     const { name, email, contactnumber, message } = req.body;
-    const senderMessage = `Name:-${name},Email:-${email},Contact-Number;-${contactnumber},Message:-${message}`;
+    const senderMessage = `\n Name:-${name}, \n Email:-${email}, \n Contact-Number;-${contactnumber}, \n Message:-${message}`;
     sendEmail({
       email: process.env.EMAIL,
       message: senderMessage,
@@ -341,7 +341,6 @@ const sendMessage = (req, res) => {
 // get data
 
 const getUserDetails = async (req, res) => {
-  console.log(req.user);
   const User = await user.findById(req.user._id);
 
   res.status(200).json({
@@ -354,7 +353,6 @@ const getUserDetails = async (req, res) => {
 
 const updateProfile = async (req, res) => {
   try {
-    console.log(req.body);
     const { name, company } = req.body;
     const User = await user.findByIdAndUpdate(
       req.user._id,
