@@ -47,7 +47,7 @@ export const userReducer = (state = { user: {} }, action) => {
         email_verified: action.payload.email_verified,
         isAuthenticated: action.payload.success,
         user: action.payload.user,
-        data: action.payload,
+        logindata: action.payload,
       };
 
     case UPDATE_PROFILE_SUCCESS:
