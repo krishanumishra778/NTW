@@ -79,7 +79,7 @@ export const User_Signup = () => {
               <div className='relative z-0 w-full group'>
                 <label
                   htmlFor='name'
-                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>
+                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 '>
                   Your name
                 </label>
                 <input
@@ -116,7 +116,7 @@ export const User_Signup = () => {
               <div className='relative z-0 w-full mb-6 group'>
                 <label
                   htmlFor='name'
-                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>
+                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 '>
                   Company Name
                 </label>
                 <input
@@ -137,7 +137,7 @@ export const User_Signup = () => {
               <div className='relative z-0 w-full mb-6 group'>
                 <label
                   htmlFor='name'
-                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>
+                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 '>
                   Country Name
                 </label>
                 <input
@@ -157,7 +157,7 @@ export const User_Signup = () => {
               <div className='relative z-0 w-full mb-6 group'>
                 <label
                   htmlFor='password'
-                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>
+                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 '>
                   Your password
                 </label>
                 <input
