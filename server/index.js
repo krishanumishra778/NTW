@@ -20,7 +20,6 @@ app.use(
 );
 app.use(express.json());
 app.use(router);
-app.use(adminroutes);
 
 app.get("/", (rew, res) => {
   res.send("home page called");
