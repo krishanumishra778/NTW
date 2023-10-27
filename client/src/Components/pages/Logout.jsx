@@ -13,10 +13,9 @@ export const Logout = () => {
                     className='h-12 w-12 object-cover rounded-full'
                 />
             </div>
-
             <div className='pt-20 pb-7'>
                 <ul>
-                    <li  className='my-3 cursor-pointer border-0  px-3 text-[#656565] '>
+                    <li className='my-3 cursor-pointer border-0  px-3 text-[#656565] '>
                         <Link to="/login" className='hover:text-[#00B2FF]'>Sign-in</Link>
                     </li>
                     <hr />
@@ -25,8 +24,8 @@ export const Logout = () => {
                     </li>
                 </ul>
             </div>
-            
-            
+
+
 
         </div>
     );

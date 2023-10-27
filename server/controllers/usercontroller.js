@@ -7,6 +7,7 @@ const sendToken = require("../utils/jwtToken");
 const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
 const tempdata = require("../models/Tempdata");
+const otpsend = require("../utils/otpvarify");
 require("dotenv").config();
 
 //user log in controller
@@ -79,18 +80,12 @@ const userSignupController = async (req, res) => {
           console.log(error);
         } else {
           const data = await User.save();
-          const temporaryData = new tempdata({
-            userEmail: email,
-            otp: otp,
-          });
-          await temporaryData.save();
-          res.status(200).send({
-            success: true,
-            message: `otp send to your email ${email} for verification`,
-            otp,
-            email,
-          });
-
+          // const temporaryData = new tempdata({
+          //   userEmail: email,
+          //   otp: otp,
+          // });
+          // await temporaryData.save();
+          otpsend(otp, email, res);
           console.log("Email sent: " + info.response);
         }
       });
@@ -103,35 +98,35 @@ const userSignupController = async (req, res) => {
 // email varify conrtoller
 
 const varifycontroller = async (req, res) => {
+  const { data } = req.cookies;
+  let genotp = data?.otphash;
+  let email = data?.email;
+  console.log(genotp, email);
   const { otp } = req.body;
 
   try {
-    const temporaryData = await tempdata.findOne({ otp: otp });
+    const temporaryData = await user.findOne({ email });
+    console.log(temporaryData);
     if (!temporaryData) {
       return res
         .status(404)
         .json({ success: false, message: "User not found" });
     } else {
-      if (temporaryData.otp === Number(otp)) {
-        const userToVerify = await user.findOne({
-          email: temporaryData.userEmail,
-        });
-        if (!userToVerify) {
-          return res
-            .status(404)
-            .json({ success: false, message: "User not found" });
-        } else {
-          await user.findByIdAndUpdate(userToVerify._id, {
-            email_verified: true,
-          });
-          await tempdata.findOneAndDelete({
-            userEmail: temporaryData.userEmail,
-          });
+      console.log(otp, genotp);
+      const verify = await hash.compare(otp, genotp);
+      console.log(verify);
 
-          res
-            .status(200)
-            .json({ success: true, message: "Verification success" });
-        }
+      if (verify) {
+        await user.findByIdAndUpdate(temporaryData._id, {
+          email_verified: true,
+        });
+        res.cookie("data", null, {
+          expires: new Date(Date.now()),
+          httpOnly: true,
+        });
+        res
+          .status(200)
+          .json({ success: true, message: "Verification success" });
       } else {
         res.status(400).json({ success: false, message: "Wrong OTP" });
       }
@@ -253,7 +248,7 @@ const resetPassword = async (req, res) => {
 
 ///  change password
 const changePassword = async (req, res) => {
-  console.log("ok")
+  console.log("ok");
   try {
     const { oldpassword, newpassword, conformpassword } = req.body;
     if (newpassword == conformpassword) {
@@ -289,7 +284,7 @@ const changePassword = async (req, res) => {
 const sendMessage = (req, res) => {
   try {
     const { name, email, contactnumber, message } = req.body;
-    const senderMessage = `Name:-${name},Email:-${email},Contact-Number;-${contactnumber},Message:-${message}`;
+    const senderMessage = `\n Name:-${name}, \n Email:-${email}, \n Contact-Number;-${contactnumber}, \n Message:-${message}`;
     sendEmail({
       email: process.env.EMAIL,
       message: senderMessage,
@@ -307,7 +302,6 @@ const sendMessage = (req, res) => {
 // get data
 
 const getUserDetails = async (req, res) => {
- 
   const User = await user.findById(req.user._id);
 
   res.status(200).json({
@@ -320,7 +314,6 @@ const getUserDetails = async (req, res) => {
 
 const updateProfile = async (req, res) => {
   try {
-    
     const { name, company } = req.body;
     const User = await user.findByIdAndUpdate(
       req.user._id,

@@ -23,7 +23,7 @@ export const Getotp = () => {
     event.preventDefault();
 
     axios
-      .post("http://localhost:4000/varify", otp)
+      .post("http://localhost:4000/varify", otp, { withCredentials: true })
       .then(res => {
         if (res?.data?.success) {
           toast.success(res?.data?.message);
