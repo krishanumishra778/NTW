@@ -50,7 +50,7 @@ export const login = (email, password) => async (dispatch) => {
     dispatch({ type: LOGIN_SUCCESS, payload: data });
   } catch (error) {
    
-    console.log(error)
+    // console.log(error)
     dispatch({ type: LOGIN_FAIL, payload: error?.response?.data?.message });
   }
 };
@@ -84,7 +84,7 @@ export const LoadUser = () => async (dispatch) => {
     const { data } = await axios.get(`http://localhost:4000/me`, {
       withCredentials: true,
     });
-    console.log(data,"loaduser");
+    // console.log(data,"loaduser");
     dispatch({ type: LOAD_USER_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: LOAD_USER_FAIL, payload: error?.response?.data?.error });
@@ -124,14 +124,15 @@ export const updatePassword = (password) => async (dispatch) => {
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
     };
+    console.log(password)
     const { data } = await axios.put(
-      `http://localhost:4000/api/v1/password/update`,
+      `http://localhost:4000/change/password`,
       password,
       config
     );
+    console.log(data)
     // console.log(dispatch);
-    // console.log(data)
-    dispatch({ type: UPDATE_PASSWORD_SUCCESS, payload: data.success });
+    dispatch({ type: UPDATE_PASSWORD_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
       type: UPDATE_PASSWORD_FAIL,

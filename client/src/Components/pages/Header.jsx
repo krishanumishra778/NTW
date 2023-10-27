@@ -12,7 +12,7 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
  
-  const { isAuthenticated , success} = useSelector(state => state.user);
+  const { isAuthenticated , success ,user} = useSelector(state => state.user);
   const [text] = useTypewriter({
     words: ["UI/UX Design and Development", "Web Development", "No Code Web Development", "Web Design"],
     loop: {},
@@ -88,7 +88,7 @@ const Header = () => {
                       />
                     </div>
                     <p className='text-center mt-2  text-lg font-bold overflow-hidden whitespace-nowrap'>
-                      Krishanu Kaudndilya
+                     {user.name}
                     </p>
                     <ul>
                       <div className='grid grid-cols-3 mt-2 px-3 text-[#656565]'>

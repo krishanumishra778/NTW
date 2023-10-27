@@ -15,6 +15,9 @@ import {
   SEND_MESSAGE_SUCCESS,
   SEND_MESSAGE_FAIL,
   LOGOUT_REQUEST,
+  UPDATE_PASSWORD_SUCCESS,
+  UPDATE_PASSWORD_REQUEST,
+  UPDATE_PASSWORD_FAIL,
 } from "../constants/userConstants";
 
 export const userReducer = (state = { user: {} }, action) => {
@@ -22,6 +25,7 @@ export const userReducer = (state = { user: {} }, action) => {
     case LOGIN_REQUEST:
     case REGISTER_USER_REQUEST:
     case LOAD_USER_REQUEST:
+    case UPDATE_PASSWORD_REQUEST:
       return {
         loading: true,
         isAuthenticated: false,
@@ -54,6 +58,14 @@ export const userReducer = (state = { user: {} }, action) => {
         success: false,
       }
 
+    case UPDATE_PASSWORD_SUCCESS:
+      return {
+        loading : false,
+        data:action.payload,
+        isAuthenticated: action.payload.success,
+
+      }
+
 
     case LOGOUT_SUCCESS:
       return {
@@ -63,6 +75,7 @@ export const userReducer = (state = { user: {} }, action) => {
         isAuthenticated: false,
       };
     case LOGOUT_FAIL:
+      case UPDATE_PASSWORD_FAIL:
       return {
         ...state,
         loading: false,
@@ -99,6 +112,8 @@ export const userReducer = (state = { user: {} }, action) => {
         ...state,
         error: null,
       };
+
+
 
     default:
       return state;
