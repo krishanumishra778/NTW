@@ -307,7 +307,7 @@ const sendMessage = (req, res) => {
 // get data
 
 const getUserDetails = async (req, res) => {
-  console.log(req.user);
+  // console.log(req.user);
   const User = await user.findById(req.user._id);
 
   res.status(200).json({
@@ -318,7 +318,7 @@ const getUserDetails = async (req, res) => {
 
 // update profile
 
-const updateProfile = async (req, res) => {
+const updateProfile = async (req, res, next) => {
   try {
     console.log(req.body);
     const { name, company } = req.body;
@@ -335,6 +335,7 @@ const updateProfile = async (req, res) => {
       user: User,
       message: "Profile updated Successfully",
     });
+    // console.log(User)
   } catch (error) {
     console.log(error);
     res.status(401).send({
