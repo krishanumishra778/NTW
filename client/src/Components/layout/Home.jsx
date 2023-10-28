@@ -20,13 +20,13 @@ import { Head_nav } from './Head_nav'
 import { Logout } from '../pages/Logout'
 import { Icon } from '../pages/Icon'
 import { useSelector } from 'react-redux'
-import AdminPanel from '../pages/Adminpenal/Adminpenal'
-import { SubscriberBiodata } from '../pages/Adminpenal/SubscriberBiodata'
-import { TotalSubscriber } from '../pages/Adminpenal/TotalSubscriber'
-import { Chatboard } from '../pages/Adminpenal/Chatboard'
-import { TotalCustomers } from '../pages/Adminpenal/TotalCustomers'
-import { TotalSubscriberActive } from '../pages/Adminpenal/TotalSubscriberActive'
-import { TotalVisitors } from '../pages/Adminpenal/TotalVisitors'
+// import AdminPanel from '../pages/Adminpenal/Adminpenal'
+// import { SubscriberBiodata } from '../pages/Adminpenal/SubscriberBiodata'
+// import { TotalSubscriber } from '../pages/Adminpenal/TotalSubscriber'
+// import { Chatboard } from '../pages/Adminpenal/Chatboard'
+// import { TotalCustomers } from '../pages/Adminpenal/TotalCustomers'
+// import { TotalSubscriberActive } from '../pages/Adminpenal/TotalSubscriberActive'
+// import { TotalVisitors } from '../pages/Adminpenal/TotalVisitors'
 
 
 export const Home = () => {
@@ -51,13 +51,13 @@ export const Home = () => {
       <Trusted />
       <Contact />
       {/* <Graph /> */}
-      <AdminPanel />
+      {/* <AdminPanel />
       <SubscriberBiodata />
       <TotalSubscriber />
       <Chatboard />
       <TotalCustomers />
       <TotalSubscriberActive />
-      <TotalVisitors/>
+      <TotalVisitors/> */}
       <Join />
       <Fotter />
       {isAuthenticated ? <Icon />

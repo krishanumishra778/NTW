@@ -1,22 +1,42 @@
 // import Link from 'antd/es/typography/Link';
 // import React, { useState } from 'react';
 
+import { Link } from "react-router-dom";
+
 const AdminPanel = () => {
 
     return (
         <div className="mx-auto flex justify-center max-w-[1300px]">
-            <div className=" bg-[#00B2FF] h-[100vh] text-white w-[20%] text-center pt-13 pb-16">
+            <div className=" bg-[#00B2FF] h-[100vh]   text-white w-[20%] text-center ">
 
-                <ul className='flex flex-col gap-12 py-14 lg:text-[17px] md:text-[13px] sm:text-[10px]'>
-                    <li className="  font-bold bg-[#0091CF] py-2  rounded-full">Message</li>
-                    <li className=" active:bg-[#0091CF] rounded-full ">Total Subscriber</li>
-                    <li className="active:bg-[#0091CF] rounded-full">Total Visitor's</li>
-                    <li className="active:bg-[#0091CF] rounded-full">Total Costumers</li>
-                    <li className="active:bg-[#0091CF] rounded-full">feedback & review</li>
-                    <li className="active:bg-[#0091CF]   py-1 rounded-full">Affiliate marketars</li>
+                <ul className='flex flex-col gap-8 pt-[80px]  lg:text-[17px] md:text-[13px] sm:text-[10px]'>
+                    <Link to="/adminpanel" className="  font-bold bg-[#0091CF] py-1 rounded-full ">
+                        <li >Message</li>
+                    </Link>
 
-                    <li className="active:bg-[#0091CF] rounded-full">Active Subscription</li>
-                    <li className="active:bg-[#0091CF] rounded-full">Paused Subscription</li>
+                    <Link to="/totalsubscriber" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
+                        <li >Total Subscriber</li>
+                    </Link>
+
+                    <Link to="totalvisitors"  className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
+                        <li >Total Visitor's</li>
+                    </Link>
+                    <Link to="totalcustomers"  className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold ">
+                        <li>Total Costumers</li>
+                    </Link>
+                    <Link to=""  className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
+                        <li >feedback & review</li>
+                    </Link>
+                    <Link to=""  className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
+                        <li >Affiliate marketars</li>
+                    </Link>
+
+                    <Link to="/totalactive"  className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold ">
+                        <li >Active Subscription</li>
+                    </Link>
+                    <Link to=""  className="py-1 hover:bg-[#0091CF] hover:font-bold rounded-full ">
+                        <li >Paused Subscription</li>
+                    </Link>
                 </ul>
             </div>
 
