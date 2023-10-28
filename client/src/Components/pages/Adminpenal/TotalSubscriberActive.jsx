@@ -1,6 +1,62 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export const TotalSubscriberActive = () => {
+
+
+    // [navigate, success]);
+    const [showButton1, setShowButton1] = useState(true);
+    const [showButton2, setShowButton2] = useState(true);
+    const [showButton3, setShowButton3] = useState(true);
+    const [showButton4, setShowButton4] = useState(true);
+    const [showButton5, setShowButton5] = useState(true);
+    const [showButton6, setShowButton6] = useState(true);
+    const [showButton7, setShowButton7] = useState(true);
+    const [showButton8, setShowButton8] = useState(true);
+    const [showButton9, setShowButton9] = useState(true);
+    const [showButton10, setShowButton10] = useState(true);
+
+
+
+    const toggleButtons1 = () => {
+        setShowButton1(!showButton1);
+    };
+
+    const toggleButtons2 = () => {
+        setShowButton2(!showButton2);
+    };
+
+    const toggleButtons3 = () => {
+        setShowButton3(!showButton3);
+    };
+
+    const toggleButtons4 = () => {
+        setShowButton4(!showButton4);
+    };
+
+    const toggleButtons5 = () => {
+        setShowButton5(!showButton5);
+    };
+
+    const toggleButtons6 = () => {
+        setShowButton6(!showButton6);
+    };
+
+    const toggleButtons7 = () => {
+        setShowButton7(!showButton7);
+    };
+
+    const toggleButtons8 = () => {
+        setShowButton8(!showButton8);
+    };
+
+    const toggleButtons9 = () => {
+        setShowButton9(!showButton9);
+    };
+
+    const toggleButtons10 = () => {
+        setShowButton10(!showButton10);
+    };
+
     return (
         <div className="mx-auto flex justify-center max-w-[1300px] pt-1">
             <div className=" bg-[#00B2FF] h-[100vh] text-white w-[20%] text-center pt-13 pb-16">
@@ -27,181 +83,330 @@ export const TotalSubscriberActive = () => {
 
                 <div className='overflow-y-scroll h-[80vh] '>
                     <hr className=' bg-black  h-[2.5px]' />
-                    <div className='flex m-8 gap-5 items-center '>
+                    <div className='flex justify-between mr-7 items-center'>
+
+                        <div className='flex m-8 gap-5 items-center '>
+                            <div>
+                                <img className='rounded-full w-12' src="./images/user.png" alt="" />
+                            </div>
+                            <div className=''>
+                                <p className='leading-5 font-bold ]'>Jackson chain</p>
+                                <p className='' >we love  your designs </p>
+                            </div>
+
+
+
+                        </div>
                         <div>
-                            <img className='rounded-full w-12' src="./images/user.png" alt="" />
+                            {showButton1 ? (
+                                <button
+                                    className="  font-bold   bg-[#11C400]  text-white py-1 px-6"
+                                    onClick={toggleButtons1}
+                                >
+                                    Active
+                                </button>
+                            ) : (
+                                <button
+                                    className="  font-bold   bg-[#FF1F1F]  text-white py-1 px-5"
+                                    onClick={toggleButtons1}
+                                >
+                                    Paused
+                                </button>
+                            )}
                         </div>
-                        <div className=''>
-                            <p className='leading-5 font-bold ]'>Jackson chain</p>
-                            <p className='' >we love  your designs </p>
-                        </div>
-                        <button
-                            className="bg-[#11C400] ml-auto text-white font-bold py-1 px-6"
-                            onClick={()=>window.location.reload()}
-                            >
-                                Active
-                        </button>
                     </div>
                     {/* 2 */}
 
                     <hr className=' bg-black  h-[2.5px]' />
-                    <div className=' flex m-8 gap-5 items-center'>
-                        <div>
-                            <img className='rounded-full w-12' src="./images/user.png" alt="" />
-                        </div>
-                        <div>
-                            <p className='leading-5 font-bold'>Jackson chain</p>
-                            <p className='' >we love  your designs  </p>
-                        </div>
-                        <button
-                            className="bg-[#11C400] ml-auto text-white font-bold py-1 px-6"
-                            onClick={()=>window.location.reload()}
-                            >
-                                Active
-                        </button>
+                    <div className='flex justify-between mr-7 items-center'>
 
+                        <div className='flex m-8 gap-5 items-center '>
+                            <div>
+                                <img className='rounded-full w-12' src="./images/user.png" alt="" />
+                            </div>
+                            <div className=''>
+                                <p className='leading-5 font-bold ]'>Jackson chain</p>
+                                <p className='' >we love  your designs </p>
+                            </div>
+
+                        </div>
+                        <div>
+                            {showButton2 ? (
+                                <button
+                                    className="  font-bold   bg-[#11C400]  text-white py-1 px-6"
+                                    onClick={toggleButtons2}
+                                >
+                                    Active
+                                </button>
+                            ) : (
+                                <button
+                                    className="  font-bold   bg-[#FF1F1F]  text-white py-1 px-5"
+                                    onClick={toggleButtons2}
+                                >
+                                    Paused
+                                </button>
+                            )}
+                        </div>
                     </div>
                     {/* ><><>,      3   </> */}
 
                     <hr className=' bg-black  h-[2.5px]' />
-                    <div className=' flex m-8 gap-5 items-center'>
-                        <div>
-                            <img className='rounded-full w-12' src="./images/user.png" alt="" />
+                    <div className='flex justify-between mr-7 items-center'>
+
+                        <div className='flex m-8 gap-5 items-center '>
+                            <div>
+                                <img className='rounded-full w-12' src="./images/user.png" alt="" />
+                            </div>
+                            <div className=''>
+                                <p className='leading-5 font-bold ]'>Jackson chain</p>
+                                <p className='' >we love  your designs </p>
+                            </div>
+
                         </div>
                         <div>
-                            <p className='leading-5 font-bold'>Jackson chain</p>
-                            <p className='' >we love  your designs </p>
+                            {showButton3 ? (
+                                <button
+                                    className="  font-bold   bg-[#11C400]  text-white py-1 px-6"
+                                    onClick={toggleButtons3}
+                                >
+                                    Active
+                                </button>
+                            ) : (
+                                <button
+                                    className="  font-bold   bg-[#FF1F1F]  text-white py-1 px-5"
+                                    onClick={toggleButtons3}
+                                >
+                                    Paused
+                                </button>
+                            )}
                         </div>
-                        <button
-                            className="bg-[#11C400] ml-auto text-white font-bold py-1 px-6"
-                            onClick={()=>window.location.reload()}
-                            >
-                                Active
-                        </button>
                     </div>
 
                     {/* ><><>,  4  </> */}
                     <hr className=' bg-black  h-[2.5px]' />
-                    <div className=' flex m-8 gap-5 items-center'>
-                        <div>
-                            <img className='rounded-full w-12' src="./images/user.png" alt="" />
+                    <div className='flex justify-between mr-7 items-center'>
+
+                        <div className='flex m-8 gap-5 items-center '>
+                            <div>
+                                <img className='rounded-full w-12' src="./images/user.png" alt="" />
+                            </div>
+                            <div className=''>
+                                <p className='leading-5 font-bold ]'>Jackson chain</p>
+                                <p className='' >we love  your designs </p>
+                            </div>
+
                         </div>
                         <div>
-                            <p className='leading-5 font-bold'>Jackson chain</p>
-                            <p className='' >we love  your designs  </p>
+                            {showButton4 ? (
+                                <button
+                                    className="  font-bold   bg-[#11C400]  text-white py-1 px-6"
+                                    onClick={toggleButtons4}
+                                >
+                                    Active
+                                </button>
+                            ) : (
+                                <button
+                                    className="  font-bold   bg-[#FF1F1F]  text-white py-1 px-5"
+                                    onClick={toggleButton4}
+                                >
+                                    Paused
+                                </button>
+                            )}
                         </div>
-                        <button
-                            className="bg-[#FF1F1F] ml-auto text-white font-bold py-1 px-6"
-                            onClick={() => window.location.reload()}
-                        >
-                            Paused
-                        </button>
                     </div>
 
                     {/* ><><>,  5  </> */}
 
                     <hr className=' bg-black  h-[2.5px]' />
-                    <div className=' flex m-8 gap-5 items-center'>
-                        <div>
-                            <img className='rounded-full w-12' src="./images/user.png" alt="" />
-                        </div>
-                        <div>
-                            <p className='leading-5 font-bold'>Jackson chain</p>
-                            <p className='' >we love  your designs  </p>
-                        </div>
-                        <button
-                            className="bg-[#FF1F1F] ml-auto text-white font-bold py-1 px-6"
-                            onClick={() => window.location.reload()}
-                        >
-                            Paused
-                        </button>
-                    </div>
+                    <div className='flex justify-between mr-7 items-center'>
 
+                        <div className='flex m-8 gap-5 items-center '>
+                            <div>
+                                <img className='rounded-full w-12' src="./images/user.png" alt="" />
+                            </div>
+                            <div className=''>
+                                <p className='leading-5 font-bold ]'>Jackson chain</p>
+                                <p className='' >we love  your designs </p>
+                            </div>
+
+                        </div>
+                        <div>
+                            {showButton5 ? (
+                                <button
+                                    className="  font-bold   bg-[#11C400]  text-white py-1 px-6"
+                                    onClick={toggleButtons5}
+                                >
+                                    Active
+                                </button>
+                            ) : (
+                                <button
+                                    className="  font-bold   bg-[#FF1F1F]  text-white py-1 px-5"
+                                    onClick={toggleButtons5}
+                                >
+                                    Paused
+                                </button>
+                            )}
+                        </div>
+                    </div>
                     {/* 6 */}
                     <hr className=' bg-black  h-[2.5px]' />
-                    <div className='flex m-8 gap-5 items-center'>
-                        <div>
-                            <img className='rounded-full w-12' src="./images/user.png" alt="" />
+                    <div className='flex justify-between mr-7 items-center'>
+
+                        <div className='flex m-8 gap-5 items-center '>
+                            <div>
+                                <img className='rounded-full w-12' src="./images/user.png" alt="" />
+                            </div>
+                            <div className=''>
+                                <p className='leading-5 font-bold ]'>Jackson chain</p>
+                                <p className='' >we love  your designs </p>
+                            </div>
+
                         </div>
                         <div>
-                            <p className='leading-5 font-bold'>Jackson chain</p>
-                            <p className='' >we love  your designs </p>
+                            {showButton6 ? (
+                                <button
+                                    className="  font-bold   bg-[#11C400]  text-white py-1 px-6"
+                                    onClick={toggleButtons6}
+                                >
+                                    Active
+                                </button>
+                            ) : (
+                                <button
+                                    className="  font-bold   bg-[#FF1F1F]  text-white py-1 px-5"
+                                    onClick={toggleButtons6}
+                                >
+                                    Paused
+                                </button>
+                            )}
                         </div>
-                        <button
-                            className="bg-[#FF1F1F] ml-auto text-white font-bold py-1 px-6"
-                            onClick={() => window.location.reload()}
-                        >
-                            Paused
-                        </button>
                     </div>
                     {/* 7 */}
                     <hr className=' bg-black  h-[2.5px]' />
-                    <div className=' flex m-8 gap-5 items-center'>
-                        <div>
-                            <img className='rounded-full w-12' src="./images/user.png" alt="" />
+                    <div className='flex justify-between mr-7 items-center'>
+
+                        <div className='flex m-8 gap-5 items-center '>
+                            <div>
+                                <img className='rounded-full w-12' src="./images/user.png" alt="" />
+                            </div>
+                            <div className=''>
+                                <p className='leading-5 font-bold ]'>Jackson chain</p>
+                                <p className='' >we love  your designs </p>
+                            </div>
+
                         </div>
                         <div>
-                            <p className='leading-5 font-bold'>Jackson chain</p>
-                            <p className='' >we love  your designs </p>
+                            {showButton7 ? (
+                                <button
+                                    className="  font-bold   bg-[#11C400]  text-white py-1 px-6"
+                                    onClick={toggleButtons7}
+                                >
+                                    Active
+                                </button>
+                            ) : (
+                                <button
+                                    className="  font-bold   bg-[#FF1F1F]  text-white py-1 px-5"
+                                    onClick={toggleButtons7}
+                                >
+                                    Paused
+                                </button>
+                            )}
                         </div>
-                        <button
-                            className="bg-[#FF1F1F] ml-auto text-white font-bold py-1 px-6"
-                            onClick={() => window.location.reload()}
-                        >
-                            Paused
-                        </button>
                     </div>
                     {/* 8 */}
                     <hr className=' bg-black  h-[2.5px]' />
-                    <div className='flex m-8 gap-5 items-center'>
-                        <div>
-                            <img className='rounded-full w-12' src="./images/user.png" alt="" />
+                    <div className='flex justify-between mr-7 items-center'>
+
+                        <div className='flex m-8 gap-5 items-center '>
+                            <div>
+                                <img className='rounded-full w-12' src="./images/user.png" alt="" />
+                            </div>
+                            <div className=''>
+                                <p className='leading-5 font-bold ]'>Jackson chain</p>
+                                <p className='' >we love  your designs </p>
+                            </div>
+
                         </div>
                         <div>
-                            <p className='leading-5 font-bold'>Jackson chain</p>
-                            <p className='' >we love  your designs  </p>
+                            {showButton8 ? (
+                                <button
+                                    className="  font-bold   bg-[#11C400]  text-white py-1 px-6"
+                                    onClick={toggleButtons8}
+                                >
+                                    Active
+                                </button>
+                            ) : (
+                                <button
+                                    className="  font-bold   bg-[#FF1F1F]  text-white py-1 px-5"
+                                    onClick={toggleButtons8}
+                                >
+                                    Paused
+                                </button>
+                            )}
                         </div>
-                        <button
-                            className="bg-[#FF1F1F] ml-auto text-white font-bold py-1 px-6"
-                            onClick={() => window.location.reload()}
-                        >
-                            Paused
-                        </button>
                     </div>
                     {/* 9 */}
                     <hr className=' bg-black  h-[2.5px]' />
-                    <div className='flex m-8 gap-5 items-center'>
-                        <div>
-                            <img className='rounded-full w-12' src="./images/user.png" alt="" />
+                    <div className='flex justify-between mr-7 items-center'>
+
+                        <div className='flex m-8 gap-5 items-center '>
+                            <div>
+                                <img className='rounded-full w-12' src="./images/user.png" alt="" />
+                            </div>
+                            <div className=''>
+                                <p className='leading-5 font-bold ]'>Jackson chain</p>
+                                <p className='' >we love  your designs </p>
+                            </div>
+
                         </div>
                         <div>
-                            <p className='leading-5 font-bold'>Jackson chain</p>
-                            <p className='' >we love  your designs  </p>
+                            {showButton9 ? (
+                                <button
+                                    className="  font-bold   bg-[#11C400]  text-white py-1 px-6"
+                                    onClick={toggleButtons9}
+                                >
+                                    Active
+                                </button>
+                            ) : (
+                                <button
+                                    className="  font-bold   bg-[#FF1F1F]  text-white py-1 px-5"
+                                    onClick={toggleButtons9}
+                                >
+                                    Paused
+                                </button>
+                            )}
                         </div>
-                        <button
-                            className="bg-[#FF1F1F] ml-auto text-white font-bold py-1 px-6"
-                            onClick={() => window.location.reload()}
-                        >
-                            Paused
-                        </button>
                     </div>
                     {/* 10 */}
                     <hr className=' bg-black  h-[2.5px]' />
-                    <div className='flex m-8 gap-5 items-center'>
-                        <div>
-                            <img className='rounded-full w-12' src="./images/user.png" alt="" />
-                        </div>
-                        <div>
-                            <p className='leading-5 font-bold'>Jackson chain</p>
-                            <p>we love  your designs  </p>
-                        </div>
-                        <button
-                            className="bg-[#FF1F1F] ml-auto text-white font-bold py-1 px-6"
-                            onClick={() => window.location.reload()}
-                        >
-                            Paused
-                        </button>
+                    <div className='flex justify-between mr-7 items-center'>
 
+                        <div className='flex m-8 gap-5 items-center '>
+                            <div>
+                                <img className='rounded-full w-12' src="./images/user.png" alt="" />
+                            </div>
+                            <div className=''>
+                                <p className='leading-5 font-bold ]'>Jackson chain</p>
+                                <p className='' >we love  your designs </p>
+                            </div>
+
+                        </div>
+                        <div>
+                            {showButton10 ? (
+                                <button
+                                    className="  font-bold   bg-[#11C400]  text-white py-1 px-6"
+                                    onClick={toggleButtons10}
+                                >
+                                    Active
+                                </button>
+                            ) : (
+                                <button
+                                    className="  font-bold   bg-[#FF1F1F]  text-white py-1 px-5"
+                                    onClick={toggleButtons10}
+                                >
+                                    Paused
+                                </button>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>
