@@ -8,6 +8,9 @@ const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
 const tempdata = require("../models/Tempdata");
 const otpsend = require("../utils/otpvarify");
+const stripe = require("stripe")(
+  "sk_test_51O64xKSIWvRI9Ne71LKP5Rq8BMpdxiaVmW3gCU635fudp0WHxtMajRMWcxkyzs8BeB1OdpYmsaxMZdT5Sg1CJzGj00ddIlf1K3"
+);
 require("dotenv").config();
 
 //user log in controller
@@ -60,7 +63,7 @@ const userLogInController = async (req, res) => {
               httpOnly: true,
             };
             await res.cookie("data", { otphash, email }, options);
-           let email_verified= foundUser.email_verified
+            let email_verified = foundUser.email_verified;
             await res.status(200).send({
               success: false,
               email_verified,
@@ -377,6 +380,34 @@ const updateProfile = async (req, res) => {
   }
 };
 
+////make payments
+
+const makePayment = async (req, res) => {
+  console.log("working");
+
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ["card"],
+    line_items: [
+      {
+        price_data: {
+          currency: "inr",
+          product_data: {
+            name: "website",
+          },
+          unit_amount: 14999 * 100,
+        },
+        quantity: 1,
+      },
+    ],
+    mode: "payment",
+    success_url: "http://localhost:5173/success",
+    cancel_url: "http://localhost:5173/cancel",
+  });
+
+  res.json({ id: session.id, session });
+  console.log(session);
+};
+
 module.exports = {
   userSignupController,
   userLogInController,
@@ -389,4 +420,5 @@ module.exports = {
   sendMessage,
   getUserDetails,
   updateProfile,
+  makePayment,
 };

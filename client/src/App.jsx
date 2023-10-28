@@ -1,7 +1,8 @@
+/** @format */
 
 import "../src/App.css";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { User_login } from "./Components/auth/User_login";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from "./Components/layout/Home";
@@ -32,27 +33,29 @@ import { TotalSubscriber } from "./Components/pages/Adminpenal/TotalSubscriber";
 import { TotalVisitors } from "./Components/pages/Adminpenal/TotalVisitors";
 import { TotalCustomers } from "./Components/pages/Adminpenal/TotalCustomers";
 import { TotalSubscriberActive } from "./Components/pages/Adminpenal/TotalSubscriberActive";
+import axios from "axios";
+import { Payment_Success } from "./Components/pages/Payment_Success";
+import { Payment_Cancel } from "./Components/pages/Payment_Cancel";
 export default function App() {
   // ><<<<<<><
-  const { isAuthenticated, loading, user } = useSelector((state) => state.user);
+  const { isAuthenticated, loading, user } = useSelector(state => state.user);
 
   useEffect(() => {
     store.dispatch(LoadUser());
-    console.log(isAuthenticated)
+    console.log(isAuthenticated);
   }, []);
-
 
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 4000); 
+    }, 4000);
     // ////////////SCROLL-ANIMATION////////////
     AOS.init({
       offset: 100, // Adjust this value as needed
       duration: 1000, // Animation duration
-      easing: 'ease', // Easing type
+      easing: "ease", // Easing type
       once: true, // Only animate elements once
     });
   }, []);
@@ -61,9 +64,6 @@ export default function App() {
     <>
       {isLoading ? <Preloader /> : null}
       <Router>
-
-       
-
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<Mainabout />} />
@@ -78,20 +78,19 @@ export default function App() {
           <Route path='/pages' element={<Pages />} />
           <Route path='/email' element={<Email />} />
           <Route path='/forgot-password' element={<Forgot_password />}></Route>
-          <Route path="/contact" element={<Contact />}></Route>
-          <Route path="/maincontactus" element={<Maincontactus />}></Route>
+          <Route path='/contact' element={<Contact />}></Route>
+          <Route path='/maincontactus' element={<Maincontactus />}></Route>
           {/* ///////////////   ADMIN PANEL ROUTER /////////////// */}
-          <Route path="/adminpanel" element={<AdminPanel/>}/>
-          <Route path="/chatboard" element={<Chatboard/>}/>
-          <Route path="/totalsubscriber" element={<TotalSubscriber/>}/>
-          <Route path="/totalvisitors" element={<TotalVisitors/>}/>
-          <Route path="/totalcustomers" element={<TotalCustomers/>}/>
-          <Route path="/totalactive" element={<TotalSubscriberActive/>}/>
-          
+          <Route path='/adminpanel' element={<AdminPanel />} />
+          <Route path='/chatboard' element={<Chatboard />} />
+          <Route path='/totalsubscriber' element={<TotalSubscriber />} />
+          <Route path='/totalvisitors' element={<TotalVisitors />} />
+          <Route path='/totalcustomers' element={<TotalCustomers />} />
+          <Route path='/totalactive' element={<TotalSubscriberActive />} />
+          <Route path='/success' element={<Payment_Success />} />
+          <Route path='/cancel' element={<Payment_Cancel />} />
         </Routes>
-
       </Router>
-
     </>
   );
 }

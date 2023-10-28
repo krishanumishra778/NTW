@@ -14,7 +14,8 @@ const {
   changePassword,
   sendMessage,
   getUserDetails,
-  updateProfile
+  updateProfile,
+  makePayment,
 } = require("../controllers/usercontroller");
 const isAuthenticateduser = require("../middleware/isAuthenticate");
 const {
@@ -44,9 +45,12 @@ router.route("/send/message").post(sendMessage);
 router.route("/me").get(isAuthenticateduser, getUserDetails);
 
 /////  subscription  /////
-router.route('/email/subscription').post(emailSubscribeController)
+router.route("/email/subscription").post(emailSubscribeController);
 
 // update user profile
 router.route("/update/profile").put(isAuthenticateduser, updateProfile);
+
+/// payment integration
+router.route("/create-checkout-session").post(makePayment);
 
 module.exports = router;
