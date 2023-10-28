@@ -1,14 +1,20 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 
+const percentage = 81;
 export const TotalVisitors = () => {
 
 
-    // Replace this with your actual data or logic for the circular graph
-    const percentage = 81;
+    const [deta, SetDeta] = useState("")
 
-
-
+    useEffect(() => {
+        axios.get('http://localhost:4000/admin/users', { withCredentials: true }).then((res) => {
+            SetDeta(res?.data.users.length)
+            // console.log(res)
+        })
+    }, [])
+    console.log(deta)
     return (
         <div className="mx-auto flex justify-center max-w-[1300px] ">
             <div className=" bg-[#00B2FF] h-[100vh]   text-white w-[20%] text-center ">
@@ -64,7 +70,7 @@ export const TotalVisitors = () => {
                         </div>
                         <div className=''>
                             <h1 className='leading-4'>total Users</h1>
-                            <p className='text-[#AEAEAE] leading-4'>900</p>
+                            <p className='text-[#AEAEAE] leading-4 ml-'>{deta}</p>
                         </div>
 
                     </div>

@@ -46,7 +46,7 @@ export const login = (email, password) => async (dispatch) => {
       },
       config
     );
-    console.log(data);
+    // console.log(data);
     dispatch({ type: LOGIN_SUCCESS, payload: data });
   } catch (error) {
    
