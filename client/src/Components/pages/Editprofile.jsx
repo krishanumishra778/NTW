@@ -2,45 +2,45 @@ import { useEffect, useState } from 'react';
 import { AiOutlineCaretUp, AiOutlineCaretDown } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import { MdNavbar } from '../layout/MdNavbar';
-import {  useDispatch, useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { updateProfile } from '../../actions/userAction';
 import axios from 'axios';
 
 export const Editprofile = () => {
-  const { isAuthenticated, user } = useSelector((state) => state.user);
+  const { isAuthenticated, user , loading} = useSelector((state) => state.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
+
 
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  
-  const [userData , setUserData] = useState({
-    name : "",
-    email : user?.email,
-    company : "",
+
+  const [userData, setUserData] = useState({
+    name: "",
+    email: user?.email,
+    company: "",
   })
- 
-   const savechange = async (e) =>{
+
+  const savechange = async (e) => {
     e.preventDefault();
     // console.log(inputdata)
     dispatch(updateProfile(userData))
-    
-   }
+
+  }
 
   const handleEditProfileClick = () => {
     setIsOpen((prev) => !prev);
   };
 
-  useEffect(()=>{
-  if(user){
-    setUserData({
-      name : user?.name,
-      email : user?.email,
-      company : user?.company
-    })
-  }
-  },[user])
+  useEffect(() => {
+    if (user) {
+      setUserData({
+        name: user?.name,
+        email: user?.email,
+        company: user?.company
+      })
+    }
+  }, [user])
 
   return (
     <>
@@ -174,22 +174,71 @@ export const Editprofile = () => {
           <form action="" className='xs:text-mp sm:text-tp md:text-p' onSubmit={savechange}>
             <div>
               <label htmlFor="">Change User Name</label>
-              <input className=' w-full rounded-lg border-2  border-[#D9D9D9]' type="text"  name='name'  value={userData.name} onChange={(e)=>{
-                setUserData({...userData,[e.target.name]: e.target.value})
-              }} required/>
+              <input className=' w-full rounded-lg border-2  border-[#D9D9D9]' type="text" name='name' value={userData.name} onChange={(e) => {
+                setUserData({ ...userData, [e.target.name]: e.target.value })
+              }} required />
             </div>
             <div className='pt-5'>
               <label htmlFor=""> Your  E-Mail Address</label>
-              <input className='border-2  w-full bg-gray-100 rounded-lg border-[#D9D9D9] ' value={user?.email} disabled type="text"  required />
+              <input className='border-2  w-full bg-gray-100 rounded-lg border-[#D9D9D9] ' value={user?.email} disabled type="text" required />
             </div>
             <div className='pt-5'>
               <label htmlFor="">Your company Name</label>
-              <input className='border-2 w-full rounded-lg border-[#D9D9D9]' type="text" name='company' value={userData.company} onChange={(e)=>{
-                setUserData({...userData,[e.target.name]: e.target.value})
-              }} required/>
+              <input className='border-2 w-full rounded-lg border-[#D9D9D9]' type="text" name='company' value={userData.company} onChange={(e) => {
+                setUserData({ ...userData, [e.target.name]: e.target.value })
+              }} required />
             </div>
             <div className='flex justify-end'>
-              <button type='submit' className='text-white text-center p-2 bg-[#00B2FF] rounded-3xl px-[20px] py-[6px] sm:text-mp xs:text-tp md:text-p my-5 hover:bg-[#00b3ffd8]  '>Save Changes</button>
+            <button disabled={loading}
+                
+
+                type='submit'
+                className='text-white bg-[#00B2FF] hover:bg-[#00b3ffd3] hover:font-bold xs:text-mp sm:text-tp md:text-p w-full px-5 py-2.5 text-center  my-4 rounded-lg'>
+                {loading ? (
+                  <svg width="25" height="25" className="mx-auto" viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
+                    <g fill="none" fillRule="evenodd" transform="translate(1 1)" strokeWidth="2">
+                      <circle cx="22" cy="22" r="16" strokeOpacity="0">
+                        <animate attributeName="r"
+                          begin="1.5s" dur="3s"
+                          values="16;22"
+                          calcMode="linear"
+                          repeatCount="indefinite" />
+                        <animate attributeName="stroke-opacity"
+                          begin="1.5s" dur="3s"
+                          values="1;0" calcMode="linear"
+                          repeatCount="indefinite" />
+                        <animate attributeName="stroke-width"
+                          begin="1.5s" dur="3s"
+                          values="2;0" calcMode="linear"
+                          repeatCount="indefinite" />
+                      </circle>
+                      <circle cx="22" cy="22" r="16" strokeOpacity="0">
+                        <animate attributeName="r"
+                          begin="3s" dur="3s"
+                          values="16;22"
+                          calcMode="linear"
+                          repeatCount="indefinite" />
+                        <animate attributeName="stroke-opacity"
+                          begin="3s" dur="3s"
+                          values="1;0" calcMode="linear"
+                          repeatCount="indefinite" />
+                        <animate attributeName="stroke-width"
+                          begin="3s" dur="3s"
+                          values="2;0" calcMode="linear"
+                          repeatCount="indefinite" />
+                      </circle>
+                      <circle cx="22" cy="22" r="18">
+                        <animate attributeName="r"
+                          begin="0s" dur="1.5s"
+                          values="18;1;2;3;4;5;18"
+                          calcMode="linear"
+                          repeatCount="indefinite" />
+                      </circle>
+                    </g>
+                  </svg>
+                ) : "Log in"}
+
+              </button>
             </div>
           </form>
         </div>

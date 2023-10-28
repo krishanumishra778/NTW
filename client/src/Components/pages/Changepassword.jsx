@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 import { updatePassword } from '../../actions/userAction';
 
 export const Changepassword = () => {
-  const { isAuthenticated, user ,data ,error} = useSelector((state) => state.user);
+  const { isAuthenticated, user, data, error , loading } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ export const Changepassword = () => {
 
 
   // 
-  
+
 
   const showoldpwd = (Id) => {
     const pwdType = document.getElementById(Id).type;
@@ -37,7 +37,7 @@ export const Changepassword = () => {
   const [showaPassword, setShowaPassword] = useState(true);
   const [showbPassword, setShowbPassword] = useState(true);
   const [showcPassword, setShowcPassword] = useState(true);
-  
+
   const AtogglePasswordVisibility = () => {
     setShowaPassword(!showaPassword);
   };
@@ -60,7 +60,7 @@ export const Changepassword = () => {
       toast.error("New password and confirm password should be same")
     }
   }
-  useEffect(()=>{
+  useEffect(() => {
     if (data?.success == false) {
       toast.error(data?.message)
 
@@ -176,13 +176,13 @@ export const Changepassword = () => {
               }}
 
             />
-           
-             {showaPassword ? (
+
+            {showaPassword ? (
               <AiFillEyeInvisible onClick={() => { AtogglePasswordVisibility(); showoldpwd("oldpwd"); }} className='relative md:left-[95%] xs:left-[90%] top-3' />
             ) : (
               <AiFillEye onClick={() => { AtogglePasswordVisibility(); showoldpwd("oldpwd"); }} className='relative md:left-[95%] xs:left-[90%] top-3' />
             )}
-          
+
           </div>
 
           <div className='relative z-0 mb-6 group'>
@@ -206,8 +206,8 @@ export const Changepassword = () => {
                 })
               }}
             />
-           
-             {showbPassword ? (
+
+            {showbPassword ? (
               <AiFillEyeInvisible onClick={() => { BtogglePasswordVisibility(); showoldpwd("pwd"); }} className='relative md:left-[95%] xs:left-[90%] top-3' />
             ) : (
               <AiFillEye onClick={() => { BtogglePasswordVisibility(); showoldpwd("pwd"); }} className='relative md:left-[95%] xs:left-[90%] top-3' />
@@ -236,8 +236,8 @@ export const Changepassword = () => {
                 })
               }}
             />
-           
-             {showcPassword ? (
+
+            {showcPassword ? (
               <AiFillEyeInvisible onClick={() => { CtogglePasswordVisibility(); showoldpwd("pwd2"); }} className='relative md:left-[95%] xs:left-[90%] top-3' />
             ) : (
               <AiFillEye onClick={() => { CtogglePasswordVisibility(); showoldpwd("pwd2"); }} className='relative md:left-[95%] xs:left-[90%] top-3' />
@@ -246,7 +246,56 @@ export const Changepassword = () => {
 
           {/* ><><></></> */}
           <div className='  flex justify-end  mt-6'>
-            <button type='submit' className='text-white text-center   p-2 bg-[#00B2FF]  rounded-3xl px-2 py-[6px] sm:text-mp xs:text-tp md:text-p  my-5 hover:bg-[#00b3ffd8]  '>Save Changes</button>
+          <button disabled={loading}
+                
+
+                type='submit'
+                className='text-white bg-[#00B2FF] hover:bg-[#00b3ffd3] hover:font-bold xs:text-mp sm:text-tp md:text-p w-full px-5 py-2.5 text-center  my-4 rounded-lg'>
+                {loading ? (
+                  <svg width="25" height="25" className="mx-auto" viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
+                    <g fill="none" fillRule="evenodd" transform="translate(1 1)" strokeWidth="2">
+                      <circle cx="22" cy="22" r="16" strokeOpacity="0">
+                        <animate attributeName="r"
+                          begin="1.5s" dur="3s"
+                          values="16;22"
+                          calcMode="linear"
+                          repeatCount="indefinite" />
+                        <animate attributeName="stroke-opacity"
+                          begin="1.5s" dur="3s"
+                          values="1;0" calcMode="linear"
+                          repeatCount="indefinite" />
+                        <animate attributeName="stroke-width"
+                          begin="1.5s" dur="3s"
+                          values="2;0" calcMode="linear"
+                          repeatCount="indefinite" />
+                      </circle>
+                      <circle cx="22" cy="22" r="16" strokeOpacity="0">
+                        <animate attributeName="r"
+                          begin="3s" dur="3s"
+                          values="16;22"
+                          calcMode="linear"
+                          repeatCount="indefinite" />
+                        <animate attributeName="stroke-opacity"
+                          begin="3s" dur="3s"
+                          values="1;0" calcMode="linear"
+                          repeatCount="indefinite" />
+                        <animate attributeName="stroke-width"
+                          begin="3s" dur="3s"
+                          values="2;0" calcMode="linear"
+                          repeatCount="indefinite" />
+                      </circle>
+                      <circle cx="22" cy="22" r="18">
+                        <animate attributeName="r"
+                          begin="0s" dur="1.5s"
+                          values="18;1;2;3;4;5;18"
+                          calcMode="linear"
+                          repeatCount="indefinite" />
+                      </circle>
+                    </g>
+                  </svg>
+                ) : "Log in"}
+
+              </button>
           </div>
         </form>
       </div>
