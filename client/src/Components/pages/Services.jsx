@@ -5,7 +5,7 @@ const Services = () => {
  
     return (
         <>
-            <div className='bg-[url(images/bg-sub.png)] bg-no-repeat bg-cover' data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease">
+            <div className='bg-[url(images/bg-sub.png)] bg-no-repeat bg-cover' >
                 < div className=" max-w-[1300px] mx-auto xs:mt-5 lg:mt-10  py-8 md:px-[25px]" >
                     <div className=" xs:text-center md:text-left">
                         <h1 className="text-[#00B2FF] font-[600]  sm:text-tt  xs:text-mt md:text-title mb-4">
