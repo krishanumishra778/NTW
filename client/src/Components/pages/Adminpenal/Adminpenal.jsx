@@ -47,7 +47,7 @@ const AdminPanel = () => {
                     <img className='mx-auto' src="logo/next tech waves logo.png" alt='' />
                 </div>
 
-                <div className='overflow-y-scroll h-[80vh] '>
+                <div className='overflow-y-scroll h-[85.5vh] '>
                     <hr className=' bg-black  h-[2.5px]' />
                     <div className='flex m-8 gap-5 items-center'>
                         <div>
