@@ -32,6 +32,8 @@ const Header = () => {
   //   setOpen(false);
   // };
 
+
+
   useEffect(() => {
     const handleClickOutside = e => {
       if (open && !e.target.closest(".menu-container")) {
@@ -49,12 +51,20 @@ const Header = () => {
   const logout_user = () => {
     dispatch(logout());
   };
+
   useEffect(() => {
     if (success === true) {
       toast.success("Logout Successfully");
       navigate("/");
     }
   }, [navigate, success]);
+  const [showButton1, setShowButton1] = useState(true);
+
+  const toggleButtons = () => {
+    setShowButton1(!showButton1);
+  };
+
+
   return (
     <>
       <div className='max-w-[1300px] mx-auto'>
@@ -103,9 +113,30 @@ const Header = () => {
                         <div className='grid grid-cols-3 mt-2 px-3 text-[#656565]'>
                           <p className='col-span-2'>Project Completed</p>
                           <p className='text-center'>3/5</p>
+
+                          <div>
+                            {showButton1 ? (
+                              <button
+                                className="  font-bold pt-2 "
+                                onClick={toggleButtons}
+                              >
+                                Paused
+                              </button>
+                            ) : (
+                              <button
+                                className=" font-bold pt-2 "
+                                onClick={toggleButtons}
+                              >
+                                Resume
+                              </button>
+                            )}
+                          </div>
+
                         </div>
 
-                        <li className='my-3 px-3 text-[#656565] hover:text-[#00B2FF]'>
+
+
+                        <li className='my-2 px-3 text-[#656565] hover:text-[#00B2FF]'>
                           <Link to='/editprofile'>Settings</Link>
                         </li>
                       </ul>

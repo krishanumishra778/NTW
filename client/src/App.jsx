@@ -26,6 +26,12 @@ import { Mainplans } from "./Components/layout/Mainplans/Mainplans";
 import { Ourportfolio } from "./Components/layout/Ourportfolio/Ourportfolio";
 import Contact from "./Components/pages/Contact";
 import Maincontactus from "./Components/layout/Maincontactus/Maincontactus";
+import AdminPanel from "./Components/pages/Adminpenal/Adminpenal";
+import { Chatboard } from "./Components/pages/Adminpenal/Chatboard";
+import { TotalSubscriber } from "./Components/pages/Adminpenal/TotalSubscriber";
+import { TotalVisitors } from "./Components/pages/Adminpenal/TotalVisitors";
+import { TotalCustomers } from "./Components/pages/Adminpenal/TotalCustomers";
+import { TotalSubscriberActive } from "./Components/pages/Adminpenal/TotalSubscriberActive";
 export default function App() {
   // ><<<<<<><
   const { isAuthenticated, loading, user } = useSelector((state) => state.user);
@@ -67,7 +73,6 @@ export default function App() {
           <Route path='/sign-up' element={<User_Signup />} />
           <Route path='/getotp' element={<Getotp />} />
           <Route path='/login' element={<User_login />} />
-
           <Route path='/editprofile' element={<Editprofile />} />
           <Route path='/changepassword' element={<Changepassword />} />
           <Route path='/pages' element={<Pages />} />
@@ -75,7 +80,14 @@ export default function App() {
           <Route path='/forgot-password' element={<Forgot_password />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/maincontactus" element={<Maincontactus />}></Route>
-
+          {/* ///////////////   ADMIN PANEL ROUTER /////////////// */}
+          <Route path="/adminpanel" element={<AdminPanel/>}/>
+          <Route path="/chatboard" element={<Chatboard/>}/>
+          <Route path="/totalsubscriber" element={<TotalSubscriber/>}/>
+          <Route path="/totalvisitors" element={<TotalVisitors/>}/>
+          <Route path="/totalcustomers" element={<TotalCustomers/>}/>
+          <Route path="/totalactive" element={<TotalSubscriberActive/>}/>
+          
         </Routes>
 
       </Router>

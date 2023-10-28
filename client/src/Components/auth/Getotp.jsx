@@ -3,11 +3,18 @@
 import React, { useState } from "react";
 
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+
+import {  useNavigate } from "react-router-dom";
 import { Layout } from "../layout/Layout";
 import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
 export const Getotp = () => {
-  const navigate = useNavigate();
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const { error, user, isAuthenticated, logindata, email_verified } = useSelector(
+    (state) => state.user
+  );
   const [otp, setOtp] = useState({
     otp: "",
   });
@@ -26,10 +33,10 @@ export const Getotp = () => {
       .post("http://localhost:4000/varify", otp, { withCredentials: true })
       .then(res => {
         if (res?.data?.success) {
+          window.location.href = "/login";
           toast.success(res?.data?.message);
-          navigate("/login");
         } else {
-          navigate("/getotp");
+          window.location.href = "/getotp";
         }
       })
       .catch(err => {

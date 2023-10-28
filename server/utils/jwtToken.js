@@ -15,9 +15,13 @@ const sendToken = async (user, statusCode, res) => {
     httpOnly: true,
   };
 
+  let email_verified = user.email_verified;
+
   res.cookie("token", token, options);
+
   res.status(statusCode).json({
     success: true,
+    email_verified,
     message: "Login Successfully...",
     user: userWithoutPassword,
     token,

@@ -79,13 +79,13 @@ export const User_Signup = () => {
               <div className='relative z-0 w-full group'>
                 <label
                   htmlFor='name'
-                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>
+                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 '>
                   Your name
                 </label>
                 <input
                   type='text'
                   name='name'
-                  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-8 mb-4'
+                  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5    dark:focus:ring-blue-500 dark:focus:border-blue-500 h-8 mb-4'
                   placeholder='nexttechwaves'
                   required
                   onChange={inpHandler}
@@ -98,14 +98,14 @@ export const User_Signup = () => {
               <div className='relative z-0 w-full mb-6 group'>
                 <label
                   htmlFor='email'
-                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>
+                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 '>
                   Your email
                 </label>
                 <input
 
                   type='email'
                   name='email'
-                  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-8'
+                  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:focus:ring-blue-500 dark:focus:border-blue-500 h-8'
                   placeholder='email@nexttechwaves.com'
                   required
                   onChange={inpHandler}
@@ -116,13 +116,13 @@ export const User_Signup = () => {
               <div className='relative z-0 w-full mb-6 group'>
                 <label
                   htmlFor='name'
-                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>
+                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 '>
                   Company Name
                 </label>
                 <input
                   type='text'
                   name='company'
-                  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+                  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:focus:ring-blue-500 dark:focus:border-blue-500
                  h-8'
                   placeholder='enter company name'
                   required
@@ -137,13 +137,13 @@ export const User_Signup = () => {
               <div className='relative z-0 w-full mb-6 group'>
                 <label
                   htmlFor='name'
-                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>
+                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 '>
                   Country Name
                 </label>
                 <input
                   type='text'
                   name='country'
-                  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+                  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:focus:ring-blue-500 dark:focus:border-blue-500
                  h-8'
                   placeholder='enter country name'
                   required
@@ -157,14 +157,14 @@ export const User_Signup = () => {
               <div className='relative z-0 w-full mb-6 group'>
                 <label
                   htmlFor='password'
-                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>
+                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 '>
                   Your password
                 </label>
                 <input
                   type='password'
                   name='password'
                   id='pwd'
-                  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute h-8'
+                  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute h-8'
                   placeholder='******'
                   required
                   onChange={inpHandler}

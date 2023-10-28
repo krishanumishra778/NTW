@@ -39,15 +39,15 @@ export const userReducer = (state = { user: {} }, action) => {
         loading: true,
       };
 
-
-
     case LOGIN_SUCCESS:
     case LOAD_USER_SUCCESS:
       return {
         ...state,
         loading: false,
+        email_verified: action.payload.email_verified,
         isAuthenticated: action.payload.success,
         user: action.payload.user,
+        logindata: action.payload,
       };
 
     case UPDATE_PROFILE_SUCCESS:
@@ -64,16 +64,14 @@ export const userReducer = (state = { user: {} }, action) => {
       return {
         loading: true,
         success: false,
-      }
+      };
 
     case UPDATE_PASSWORD_SUCCESS:
       return {
         loading: false,
         data: action.payload,
         isAuthenticated: action.payload.success,
-
-      }
-
+      };
 
     case LOGOUT_SUCCESS:
       return {
@@ -120,8 +118,6 @@ export const userReducer = (state = { user: {} }, action) => {
         ...state,
         error: null,
       };
-
-
 
     default:
       return state;

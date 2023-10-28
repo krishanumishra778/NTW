@@ -14,7 +14,7 @@ import axios from "axios";
 export const User_login = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch();
-  const { error, user, isAuthenticated , data } = useSelector(
+  const { error, user, isAuthenticated, logindata, email_verified } = useSelector(
     (state) => state.user
   );
   const [userData, setUserData] = useState({
@@ -43,7 +43,7 @@ export const User_login = () => {
     } else {
       document.getElementById("pwd").type = "password";
     }
-  }; 
+  };
   const [showPassword, setShowPassword] = useState(true);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -51,20 +51,30 @@ export const User_login = () => {
 
   useEffect(() => {
 
-    // console.log(error)
+
     if (error) {
 
       toast.error(error);
       dispatch(clearErrors());
     }
     // if user login so redirect in account page
-    if (isAuthenticated) {
-      // console.log(user)
-      toast.success('login SuccessFully...')
-      navigate("/");
+    if (email_verified == true) {
+
+      if (isAuthenticated) {
+        // console.log(user)
+        toast.success('login SuccessFully...')
+        navigate("/");
+      }
     }
-  }, [dispatch, error, isAuthenticated, navigate, user]);
+    else if (email_verified == false) {
+      toast.success(logindata?.message)
+      navigate('/getotp')
+    }
+
+  }, [dispatch, error, isAuthenticated, navigate, user, email_verified, logindata]);
+
   const [messageShown, setMessageShown] = useState(false);
+
   useEffect(() => {
     if (typeof user?.message === "string" && !messageShown) {
       toast.success(user?.message);
@@ -72,7 +82,7 @@ export const User_login = () => {
     }
   }, [user?.message, messageShown]);
 
-  
+
 
   return (
 
@@ -92,7 +102,7 @@ export const User_login = () => {
                 id="useremail"
                 type='email'
                 name='email'
-                className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+                className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:focus:ring-blue-500 dark:focus:border-blue-500
             h-8'
                 placeholder='email@nexttechwaves.com'
                 required
@@ -111,7 +121,7 @@ export const User_login = () => {
                 type='password'
                 name='password'
                 id='pwd'
-                className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
+                className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
                 h-8'
                 placeholder='******'
                 required
@@ -120,11 +130,11 @@ export const User_login = () => {
 
               />
 
-{showPassword ? (
-        <AiFillEyeInvisible onClick={() => { togglePasswordVisibility(); showpwd(); }} className='relative left-[90%] top-2 cursor-pointer' />
-      ) : (
-        <AiFillEye onClick={() => { togglePasswordVisibility(); showpwd(); }}  className='relative left-[90%] top-2 cursor-pointer' />
-      )}
+              {showPassword ? (
+                <AiFillEyeInvisible onClick={() => { togglePasswordVisibility(); showpwd(); }} className='relative left-[90%] top-2 cursor-pointer' />
+              ) : (
+                <AiFillEye onClick={() => { togglePasswordVisibility(); showpwd(); }} className='relative left-[90%] top-2 cursor-pointer' />
+              )}
             </div>
 
             <div className='relative z-0 w-full mb-3 pt-3 group flex
