@@ -121,7 +121,7 @@ export const Getotp = () => {
                       </circle>
                     </g>
                   </svg>
-                ) : "Submit otp"}
+                ) : "Continue"}
 
               </button>
 
