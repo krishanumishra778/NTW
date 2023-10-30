@@ -28,8 +28,12 @@ export const Forgot_password = () => {
       const { data } = await axios.put(
         `http://localhost:4000/password/reset/${restToken}`,
         { inpData }
-      );
-      console.log(data);
+      ).then((res) => {
+        toast.success(res.response.data.message)
+        console.log(res)
+      }).catch((error) => {
+        toast.error(error.response.data.message)
+      })
     } else {
       toast.error("New password and conform password should be same");
     }
@@ -72,14 +76,14 @@ export const Forgot_password = () => {
               <div className='relative z-0 w-full mb-6 group'>
                 <label
                   htmlFor='password'
-                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>
+                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 '>
                   Set New Password
                 </label>
                 <input
                   type='password'
                   name='new_password'
                   id='pwd'
-                  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
+                  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600   dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
               h-8'
                   placeholder='******'
                   required
@@ -108,14 +112,14 @@ export const Forgot_password = () => {
               <div className='relative z-0 w-full mb-6 group'>
                 <label
                   htmlFor='password'
-                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>
+                  className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 '>
                   Confirm Password
                 </label>
                 <input
                   type='password'
                   name='c_password'
                   id='cmpwd'
-                  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
+                  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
               h-8'
                   placeholder='******'
                   required
