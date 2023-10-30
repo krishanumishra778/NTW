@@ -1,4 +1,5 @@
 // eslint-disable-next-line no-unused-vars
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { FaStar } from 'react-icons/fa'
 const Starrating = () => {
@@ -15,6 +16,8 @@ const Starrating = () => {
     const sendmsg = (e) =>{
         e.preventDefault();
         console.log(inputdata)
+        console.log(rating)
+        axios.post('http://localhost:4000/')
     }
    
     
