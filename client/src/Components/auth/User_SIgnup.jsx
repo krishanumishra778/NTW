@@ -15,7 +15,7 @@ import { register } from "../../actions/userAction";
 
 export const User_Signup = () => {
   const dispatch = useDispatch()
-  const { data, error } = useSelector(state => state.user)
+  const { data, error, loading } = useSelector(state => state.user)
   const navigate = useNavigate();
 
   const [userData, setuserData] = useState({
@@ -38,7 +38,7 @@ export const User_Signup = () => {
   const formHandler = async event => {
     event.preventDefault();
     dispatch(register(userData))
-   
+
   };
   // 
   const [showPassword, setShowPassword] = useState(true);
@@ -172,12 +172,12 @@ export const User_Signup = () => {
                   minLength={5}
                   maxLength={10}
                 />
-             
-                  {showPassword ? (
-        <AiFillEyeInvisible onClick={() => { togglePasswordVisibility(); showpwd(); }} className='relative left-[90%] top-2 cursor-pointer' />
-      ) : (
-        <AiFillEye onClick={() => { togglePasswordVisibility(); showpwd(); }}  className='relative left-[90%] top-2 cursor-pointer' />
-      )}
+
+                {showPassword ? (
+                  <AiFillEyeInvisible onClick={() => { togglePasswordVisibility(); showpwd(); }} className='relative left-[90%] top-2 cursor-pointer' />
+                ) : (
+                  <AiFillEye onClick={() => { togglePasswordVisibility(); showpwd(); }} className='relative left-[90%] top-2 cursor-pointer' />
+                )}
               </div>
               {/* ................. */}
               <input
@@ -186,10 +186,55 @@ export const User_Signup = () => {
                 value={userData.email_verified}
               />
 
-              <button
+              <button disabled={loading}
+                
+
                 type='submit'
                 className='text-white bg-[#00B2FF] hover:bg-[#00b3ffd3] hover:font-bold xs:text-mp sm:text-tp md:text-p w-full px-5 py-2.5 text-center  my-4 rounded-lg'>
-                Submit
+                {loading ? (
+                  <svg width="25" height="25" className="mx-auto" viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
+                    <g fill="none" fillRule="evenodd" transform="translate(1 1)" strokeWidth="2">
+                      <circle cx="22" cy="22" r="16" strokeOpacity="0">
+                        <animate attributeName="r"
+                          begin="1.5s" dur="3s"
+                          values="16;22"
+                          calcMode="linear"
+                          repeatCount="indefinite" />
+                        <animate attributeName="stroke-opacity"
+                          begin="1.5s" dur="3s"
+                          values="1;0" calcMode="linear"
+                          repeatCount="indefinite" />
+                        <animate attributeName="stroke-width"
+                          begin="1.5s" dur="3s"
+                          values="2;0" calcMode="linear"
+                          repeatCount="indefinite" />
+                      </circle>
+                      <circle cx="22" cy="22" r="16" strokeOpacity="0">
+                        <animate attributeName="r"
+                          begin="3s" dur="3s"
+                          values="16;22"
+                          calcMode="linear"
+                          repeatCount="indefinite" />
+                        <animate attributeName="stroke-opacity"
+                          begin="3s" dur="3s"
+                          values="1;0" calcMode="linear"
+                          repeatCount="indefinite" />
+                        <animate attributeName="stroke-width"
+                          begin="3s" dur="3s"
+                          values="2;0" calcMode="linear"
+                          repeatCount="indefinite" />
+                      </circle>
+                      <circle cx="22" cy="22" r="18">
+                        <animate attributeName="r"
+                          begin="0s" dur="1.5s"
+                          values="18;1;2;3;4;5;18"
+                          calcMode="linear"
+                          repeatCount="indefinite" />
+                      </circle>
+                    </g>
+                  </svg>
+                ) : "Submit"}
+
               </button>
 
 

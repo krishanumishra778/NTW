@@ -5,20 +5,20 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import {  useNavigate } from "react-router-dom";
-import { Layout } from "../layout/Layout";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 export const Getotp = () => {
 
   const navigate = useNavigate()
   const dispatch = useDispatch();
-  const { error, user, isAuthenticated, logindata, email_verified } = useSelector(
+  const { error, user, isAuthenticated, logindata, email_verified , } = useSelector(
     (state) => state.user
   );
   const [otp, setOtp] = useState({
     otp: "",
   });
-
+   
+  const [loading , setLoading] = useState(false);
   const inpHandler = event => {
     setOtp({
       ...otp,
@@ -34,12 +34,15 @@ export const Getotp = () => {
       .then(res => {
         if (res?.data?.success) {
           window.location.href = "/login";
+          setLoading(false)
           toast.success(res?.data?.message);
         } else {
           window.location.href = "/getotp";
         }
       })
       .catch(err => {
+        setLoading(false)
+
         toast.error(err?.response?.data?.message);
       });
   };
@@ -68,11 +71,60 @@ export const Getotp = () => {
               />
             </div>
 
-            <button
-              type='submit'
-              className='text-white bg-blue-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 '>
-              Send
-            </button>
+            <button 
+                onClick={() => {
+                  setLoading(true)
+                
+                }}
+
+                type='submit'
+                className='text-white bg-[#00B2FF] hover:bg-[#00b3ffd3] hover:font-bold xs:text-mp sm:text-tp md:text-p w-full px-5 py-2.5 text-center  my-4 rounded-lg'>
+                {loading ? (
+                  <svg width="25" height="25" className="mx-auto" viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
+                    <g fill="none" fillRule="evenodd" transform="translate(1 1)" strokeWidth="2">
+                      <circle cx="22" cy="22" r="16" strokeOpacity="0">
+                        <animate attributeName="r"
+                          begin="1.5s" dur="3s"
+                          values="16;22"
+                          calcMode="linear"
+                          repeatCount="indefinite" />
+                        <animate attributeName="stroke-opacity"
+                          begin="1.5s" dur="3s"
+                          values="1;0" calcMode="linear"
+                          repeatCount="indefinite" />
+                        <animate attributeName="stroke-width"
+                          begin="1.5s" dur="3s"
+                          values="2;0" calcMode="linear"
+                          repeatCount="indefinite" />
+                      </circle>
+                      <circle cx="22" cy="22" r="16" strokeOpacity="0">
+                        <animate attributeName="r"
+                          begin="3s" dur="3s"
+                          values="16;22"
+                          calcMode="linear"
+                          repeatCount="indefinite" />
+                        <animate attributeName="stroke-opacity"
+                          begin="3s" dur="3s"
+                          values="1;0" calcMode="linear"
+                          repeatCount="indefinite" />
+                        <animate attributeName="stroke-width"
+                          begin="3s" dur="3s"
+                          values="2;0" calcMode="linear"
+                          repeatCount="indefinite" />
+                      </circle>
+                      <circle cx="22" cy="22" r="18">
+                        <animate attributeName="r"
+                          begin="0s" dur="1.5s"
+                          values="18;1;2;3;4;5;18"
+                          calcMode="linear"
+                          repeatCount="indefinite" />
+                      </circle>
+                    </g>
+                  </svg>
+                ) : "Continue"}
+
+              </button>
+
           </form>
         </div>
       </div>
