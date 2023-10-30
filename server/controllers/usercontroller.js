@@ -215,7 +215,7 @@ const logout = async (req, res) => {
 ///forgot password
 const forgotPassword = async (req, res) => {
   try {
-    const { email } = req.body;
+    const email = req.body.email.email;
     let User = await user.findOne({ email });
     if (!User) {
       res
@@ -224,7 +224,7 @@ const forgotPassword = async (req, res) => {
     } else {
       let restToken = User.getRestPasswordToken();
       await User.save();
-      const resetPasswordUrl = `${req.protocol}://localhost:5173/password/reset/${restToken}`;
+      const resetPasswordUrl = `http://localhost:5173/password/reset/${restToken}`;
       const message = `Your password reset token is :- \n\n ${resetPasswordUrl} \n\n if you have not requested this email
       then, please ignore it  `;
 
@@ -257,20 +257,18 @@ const forgotPassword = async (req, res) => {
 ///reset password
 const resetPassword = async (req, res) => {
   try {
-    const { token } = req.params;
-    const { password, confirmpassword } = req.body;
-
+    const token = req.params.token;
+    const password = req.body.inpData.new_password;
     const resetPasswordToken = crypto
       .createHash("sha256")
       .update(token)
       .digest("hex");
-
     const User = await user.findOne({
       resetPasswordToken,
       resetPasswordExpire: { $gt: Date.now() },
     });
 
-    if (!user) {
+    if (!User) {
       res.status(401).send({ success: false, message: "link expired" });
     } else {
       User.password = password;
@@ -282,9 +280,10 @@ const resetPassword = async (req, res) => {
         .send({ success: true, message: "password change Successfully" });
     }
   } catch (error) {
-    res
-      .status(401)
-      .send({ success: false, message: "can not reset password this time..." });
+    res.send({
+      success: false,
+      message: "can not reset password this time...",
+    });
   }
 };
 
@@ -404,6 +403,7 @@ const makePayment = async (req, res) => {
     cancel_url: "http://localhost:5173/cancel",
   });
 
+  console.log(session);
   res.json({ id: session.id, session });
   console.log(session);
 };

@@ -77,7 +77,9 @@ export default function App() {
           <Route path='/changepassword' element={<Changepassword />} />
           <Route path='/pages' element={<Pages />} />
           <Route path='/email' element={<Email />} />
-          <Route path='/forgot-password' element={<Forgot_password />}></Route>
+          <Route
+            path='/password/reset/:restToken'
+            element={<Forgot_password />}></Route>
           <Route path='/contact' element={<Contact />}></Route>
           <Route path='/maincontactus' element={<Maincontactus />}></Route>
           {/* ///////////////   ADMIN PANEL ROUTER /////////////// */}
