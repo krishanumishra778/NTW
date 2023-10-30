@@ -35,7 +35,7 @@ const Starrating = () => {
                             const currenrating = index + 1;
                             return (
                                 // eslint-disable-next-line react/jsx-key
-                                <label>
+                                <label key={index}>
                                     <input
                                         type="radio"
                                         name='rating'
