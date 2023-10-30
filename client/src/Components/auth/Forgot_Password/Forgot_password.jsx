@@ -25,14 +25,14 @@ export const Forgot_password = () => {
   const formHandler = async e => {
     e.preventDefault();
     if (inpData.new_password == inpData.c_password) {
-      const { data } = await axios.put(
+      await axios.put(
         `http://localhost:4000/password/reset/${restToken}`,
         { inpData }
       ).then((res) => {
-        toast.success(res.response.data.message)
-        console.log(res)
+        toast.success(res.data.message)
+        console.log(res.data.message)
       }).catch((error) => {
-        toast.error(error.response.data.message)
+        toast.error(error?.response?.data?.message)
       })
     } else {
       toast.error("New password and conform password should be same");

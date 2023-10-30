@@ -158,14 +158,14 @@ export const Changepassword = () => {
 
             <label
               htmlFor='password'
-              className='block mb-2 rounded-lg xs:text-mp sm:text-tp md:text-p   text-gray-900 dark:text-white'>
+              className='block mb-2 rounded-lg xs:text-mp sm:text-tp md:text-p   text-gray-900 '>
               Old Password
             </label>
             <input
               type='password'
               name='oldpassword'
               id='oldpwd'
-              className='bg-gray-50 border-2 pt-4 border-[#D9D9D9] text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
+              className='bg-gray-50 border-2 pt-4 border-[#D9D9D9] text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
     h-10'
               placeholder='Enter Old Password'
               required
@@ -189,14 +189,14 @@ export const Changepassword = () => {
 
             <label
               htmlFor='password'
-              className='block mb-2 rounded-lg xs:text-mp sm:text-tp md:text-p   text-gray-900 dark:text-white'>
+              className='block mb-2 rounded-lg xs:text-mp sm:text-tp md:text-p   text-gray-900 '>
               New Password
             </label>
             <input
               type='password'
               name='newpassword'
               id='pwd'
-              className='bg-gray-50 border-2 pt-4 border-[#D9D9D9] text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
+              className='bg-gray-50 border-2 pt-4 border-[#D9D9D9] text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
                 h-10'
               placeholder='Set New Password'
               required
@@ -219,14 +219,14 @@ export const Changepassword = () => {
           <div className='relative z-0 group pt-4 '>
             <label
               htmlFor='password'
-              className='block mb-2 rounded-lg xs:text-mp sm:text-tp md:text-p  text-gray-900 dark:text-white'>
+              className='block mb-2 rounded-lg xs:text-mp sm:text-tp md:text-p  text-gray-900 '>
               Confirm New Password
             </label>
             <input
               type='password'
               name='conformpassword'
               id='pwd2'
-              className='bg-gray-50 border-2 pt-4 border-[#D9D9D9] text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
+              className='bg-gray-50 border-2 pt-4 border-[#D9D9D9] text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
             h-10'
               placeholder='Confirm New password'
               required

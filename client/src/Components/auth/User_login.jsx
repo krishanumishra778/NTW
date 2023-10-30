@@ -95,7 +95,7 @@ export const User_login = () => {
             <div className='relative z-0 w-full mb-6 group'>
               <label
                 htmlFor='email'
-                className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>
+                className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 '>
                 Your email
               </label>
               <input
@@ -114,7 +114,7 @@ export const User_login = () => {
             <div className='relative z-0 w-full mb-6 group'>
               <label
                 htmlFor='password'
-                className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>
+                className='block mb-2 xs:text-mp sm:text-tp md:text-p text-gray-900 '>
                 Your password
               </label>
               <input
