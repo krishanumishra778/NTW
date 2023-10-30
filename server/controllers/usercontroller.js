@@ -8,6 +8,7 @@ const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
 const tempdata = require("../models/Tempdata");
 const otpsend = require("../utils/otpvarify");
+const reviewmodel = require("../models/reviewModel");
 const stripe = require("stripe")(
   "sk_test_51O64xKSIWvRI9Ne71LKP5Rq8BMpdxiaVmW3gCU635fudp0WHxtMajRMWcxkyzs8BeB1OdpYmsaxMZdT5Sg1CJzGj00ddIlf1K3"
 );
@@ -382,8 +383,6 @@ const updateProfile = async (req, res) => {
 ////make payments
 
 const makePayment = async (req, res) => {
-  console.log("working");
-
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
     line_items: [
@@ -408,6 +407,38 @@ const makePayment = async (req, res) => {
   console.log(session);
 };
 
+///review and feedback controller
+const review = async (req, res) => {
+  try {
+    const { rating, comment } = req.body;
+    const getReview = await reviewmodel.findOne({ userId: req.user._id });
+    if (getReview) {
+      await reviewmodel.findByIdAndUpdate(getReview, {
+        rating: rating,
+        comment: comment,
+      });
+      res.send({
+        success: true,
+        message: `Thanks ${req.user.name} for submitting review`,
+      });
+    } else {
+      const Review = new reviewmodel({
+        name: req.user.name,
+        userId: req.user._id,
+        rating: rating,
+        comment: comment,
+      });
+      await Review.save();
+      res.send({
+        success: true,
+        message: `Thanks ${req.user.name} for submitting review`,
+      });
+    }
+  } catch (error) {
+    res.status(401).send({ success: false, message: `${error.message}` });
+  }
+};
+
 module.exports = {
   userSignupController,
   userLogInController,
@@ -421,4 +452,5 @@ module.exports = {
   getUserDetails,
   updateProfile,
   makePayment,
+  review,
 };

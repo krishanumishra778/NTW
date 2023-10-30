@@ -16,6 +16,7 @@ const {
   getUserDetails,
   updateProfile,
   makePayment,
+  review,
 } = require("../controllers/usercontroller");
 const isAuthenticateduser = require("../middleware/isAuthenticate");
 const {
@@ -52,5 +53,8 @@ router.route("/update/profile").put(isAuthenticateduser, updateProfile);
 
 /// payment integration
 router.route("/create-checkout-session").post(makePayment);
+
+///review and feedback
+router.route("/review").post(isAuthenticateduser, review);
 
 module.exports = router;
