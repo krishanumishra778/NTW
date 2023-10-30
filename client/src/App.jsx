@@ -65,8 +65,7 @@ export default function App() {
 
   return (
     <>
-      {isLoading ? <Preloader /> : null}
-
+      {isLoading ? <Preloader /> : <>
       <Router>
         <Routes>
 
@@ -129,15 +128,15 @@ export default function App() {
             </ProtectedRoute>
           } />
           <Route path='/totalactive' element={
-          <ProtectedRoute>
-            <TotalSubscriberActive />
-          </ProtectedRoute>
-        } />
+            <ProtectedRoute>
+              <TotalSubscriberActive />
+            </ProtectedRoute>
+          } />
           <Route path='/success' element={
             <ProtectedRoute>
               <Payment_Success />
             </ProtectedRoute>
-        } />
+          } />
           <Route path='/cancel' element={
             <ProtectedRoute>
               <Payment_Cancel />
@@ -145,6 +144,9 @@ export default function App() {
           } />
         </Routes>
       </Router>
+       </>}
+
+   
     </>
   );
 }
