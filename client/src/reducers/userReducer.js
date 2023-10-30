@@ -45,7 +45,7 @@ export const userReducer = (state = { user: {} }, action) => {
         ...state,
         loading: false,
         email_verified: action.payload.email_verified,
-        isAuthenticated: action.payload.success,
+        isAuthenticated: action.payload.success || false,
         user: action.payload.user,
         logindata: action.payload,
       };

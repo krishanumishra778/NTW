@@ -46,6 +46,7 @@ export default function App() {
   useEffect(() => {
     store.dispatch(LoadUser());
     console.log(isAuthenticated);
+    console.log(user);
   }, []);
 
   const [isLoading, setIsLoading] = useState(true);
@@ -129,15 +130,15 @@ export default function App() {
             </ProtectedRoute>
           } />
           <Route path='/totalactive' element={
-          <ProtectedRoute>
-            <TotalSubscriberActive />
-          </ProtectedRoute>
-        } />
+            <ProtectedRoute>
+              <TotalSubscriberActive />
+            </ProtectedRoute>
+          } />
           <Route path='/success' element={
             <ProtectedRoute>
               <Payment_Success />
             </ProtectedRoute>
-        } />
+          } />
           <Route path='/cancel' element={
             <ProtectedRoute>
               <Payment_Cancel />

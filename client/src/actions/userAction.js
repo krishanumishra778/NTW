@@ -49,7 +49,6 @@ export const login = (email, password) => async (dispatch) => {
     // console.log(data);
     dispatch({ type: LOGIN_SUCCESS, payload: data });
   } catch (error) {
-   
     // console.log(error)
     dispatch({ type: LOGIN_FAIL, payload: error?.response?.data?.message });
   }
@@ -67,7 +66,6 @@ export const register = (userData) => async (dispatch) => {
     );
     console.log(data);
     dispatch({ type: REGISTER_USER_SUCCESS, payload: data });
-
   } catch (error) {
     dispatch({
       type: REGISTER_USER_FAIL,
@@ -84,7 +82,7 @@ export const LoadUser = () => async (dispatch) => {
     const { data } = await axios.get(`http://localhost:4000/me`, {
       withCredentials: true,
     });
-    // console.log(data,"loaduser");
+    console.log(data, "loaduser");
     dispatch({ type: LOAD_USER_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: LOAD_USER_FAIL, payload: error?.response?.data?.error });
@@ -97,7 +95,6 @@ export const updateProfile = (userData) => async (dispatch) => {
     dispatch({ type: UPDATE_PROFILE_REQUEST });
 
     const config = {
-     
       withCredentials: true,
     };
     const { data } = await axios.put(
@@ -105,9 +102,9 @@ export const updateProfile = (userData) => async (dispatch) => {
       userData,
       config
     );
-   console.log(userData)
-   // console.log(dispatch);
-   dispatch({ type: UPDATE_PROFILE_SUCCESS, payload: data });
+    console.log(userData);
+    // console.log(dispatch);
+    dispatch({ type: UPDATE_PROFILE_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
       type: UPDATE_PROFILE_FAIL,
@@ -124,13 +121,13 @@ export const updatePassword = (password) => async (dispatch) => {
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
     };
-    console.log(password)
+    console.log(password);
     const { data } = await axios.put(
       `http://localhost:4000/change/password`,
       password,
       config
     );
-    console.log(data)
+    console.log(data);
     // console.log(dispatch);
     dispatch({ type: UPDATE_PASSWORD_SUCCESS, payload: data });
   } catch (error) {
@@ -198,7 +195,7 @@ export const logout = () => async (dispatch) => {
     await axios.get(`http://localhost:4000/logout`, {
       withCredentials: true,
     });
-  
+
     dispatch({ type: LOGOUT_SUCCESS });
   } catch (error) {
     dispatch({ type: LOGOUT_FAIL, payload: error?.response?.data?.error });
@@ -208,7 +205,6 @@ export const logout = () => async (dispatch) => {
 export const clearErrors = () => async (dispatch) => {
   dispatch({ type: CLEAR_ERRORS });
 };
-
 
 // Contact us (Send Message)
 
@@ -225,8 +221,10 @@ export const SendMessage = (inputdata) => async (dispatch) => {
     // console.log(data);
 
     dispatch({ type: SEND_MESSAGE_SUCCESS, payload: data });
-
   } catch (error) {
-    dispatch({ type: SEND_MESSAGE_FAIL, payload: error?.response?.data?.error });
+    dispatch({
+      type: SEND_MESSAGE_FAIL,
+      payload: error?.response?.data?.error,
+    });
   }
-}
+};
