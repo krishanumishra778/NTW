@@ -40,6 +40,16 @@ import ProtectedRoute from "./Router/ProtectedRoute";
 import PublicRoute from "./Router/PublicRoute";
 
 export default function App() {
+  ///country api
+
+  // axios
+  //   .get("https://restcountries.com/v2/all")
+  //   .then(res => {
+  //     console.log(res.data);
+  //   })
+  //   .catch(err => {
+  //     console.log(err);
+  //   });
   // ><<<<<<><
   const { isAuthenticated, loading, user } = useSelector(state => state.user);
 
@@ -69,31 +79,39 @@ export default function App() {
 
       <Router>
         <Routes>
-
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<Mainabout />} />
           <Route path='/services' element={<Mainservice />} />
 
-          <Route path="/subscription" element={
-            <ProtectedRoute>
-              <Mainplans />
-            </ProtectedRoute>
-          } />
+          <Route
+            path='/subscription'
+            element={
+              <ProtectedRoute>
+                <Mainplans />
+              </ProtectedRoute>
+            }
+          />
 
           <Route path='/portfolio' element={<Ourportfolio />} />
           <Route path='/sign-up' element={<User_Signup />} />
           <Route path='/getotp' element={<Getotp />} />
-          <Route path='/login' element={
-            <PublicRoute>
-              <User_login />
-            </PublicRoute>
-          } />
+          <Route
+            path='/login'
+            element={
+              <PublicRoute>
+                <User_login />
+              </PublicRoute>
+            }
+          />
           <Route path='/editprofile' element={<Editprofile />} />
-          <Route path='/changepassword' element={
-            <ProtectedRoute>
-              <Changepassword />
-            </ProtectedRoute>
-          } />
+          <Route
+            path='/changepassword'
+            element={
+              <ProtectedRoute>
+                <Changepassword />
+              </ProtectedRoute>
+            }
+          />
           <Route path='/pages' element={<Pages />} />
           <Route path='/email' element={<Email />} />
           <Route
@@ -102,47 +120,70 @@ export default function App() {
           <Route path='/contact' element={<Contact />}></Route>
           <Route path='/maincontactus' element={<Maincontactus />}></Route>
           {/* ///////////////   ADMIN PANEL ROUTER /////////////// */}
-          <Route path='/adminpanel' element={
-            <ProtectedRoute>
-              <AdminPanel />
-            </ProtectedRoute>
-          } />
-          <Route path='/chatboard' element={
-            <ProtectedRoute>
-              <Chatboard />
-            </ProtectedRoute>
-          } />
-          <Route path='/totalsubscriber' element={
-            <ProtectedRoute>
-              <TotalSubscriber />
-            </ProtectedRoute>
-          } />
-          <Route path='/totalvisitors' element={
-            <ProtectedRoute>
-              <TotalVisitors />
-            </ProtectedRoute>
-
-          } />
-          <Route path='/totalcustomers' element={
-            <ProtectedRoute>
-              <TotalCustomers />
-            </ProtectedRoute>
-          } />
-          <Route path='/totalactive' element={
-          <ProtectedRoute>
-            <TotalSubscriberActive />
-          </ProtectedRoute>
-        } />
-          <Route path='/success' element={
-            <ProtectedRoute>
-              <Payment_Success />
-            </ProtectedRoute>
-        } />
-          <Route path='/cancel' element={
-            <ProtectedRoute>
-              <Payment_Cancel />
-            </ProtectedRoute>
-          } />
+          <Route
+            path='/adminpanel'
+            element={
+              <ProtectedRoute>
+                <AdminPanel />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/chatboard'
+            element={
+              <ProtectedRoute>
+                <Chatboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/totalsubscriber'
+            element={
+              <ProtectedRoute>
+                <TotalSubscriber />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/totalvisitors'
+            element={
+              <ProtectedRoute>
+                <TotalVisitors />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/totalcustomers'
+            element={
+              <ProtectedRoute>
+                <TotalCustomers />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/totalactive'
+            element={
+              <ProtectedRoute>
+                <TotalSubscriberActive />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/success'
+            element={
+              <ProtectedRoute>
+                <Payment_Success />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/cancel'
+            element={
+              <ProtectedRoute>
+                <Payment_Cancel />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </Router>
     </>

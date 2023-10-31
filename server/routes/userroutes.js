@@ -52,7 +52,7 @@ router.route("/email/subscription").post(emailSubscribeController);
 router.route("/update/profile").put(isAuthenticateduser, updateProfile);
 
 /// payment integration
-router.route("/create-checkout-session").post(makePayment);
+router.route("/create-checkout-session").post(isAuthenticateduser, makePayment);
 
 ///review and feedback
 router.route("/review").post(isAuthenticateduser, review);

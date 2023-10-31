@@ -395,6 +395,7 @@ const makePayment = async (req, res) => {
           unit_amount: 14999 * 100,
         },
         quantity: 1,
+
       },
     ],
     mode: "payment",
@@ -403,7 +404,7 @@ const makePayment = async (req, res) => {
   });
 
   console.log(session);
-  res.json({ id: session.id, session });
+  res.json({ success: true, id: session.id, session });
   console.log(session);
 };
 

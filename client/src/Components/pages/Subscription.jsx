@@ -4,6 +4,7 @@
 import React, { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const Subscription = () => {
   const [changePrice, setChangePrice] = useState(true);
@@ -29,20 +30,31 @@ const Subscription = () => {
   };
 
   const makePayment = async () => {
-    const stripe = await loadStripe(
-      "pk_test_51O64xKSIWvRI9Ne7vTGnXsMs5Rm0voJfiGC3k8rUEWBP24D90lmK2M7RT9S7QHt1fjDS9uMqi3bIX6bJyyoIbE3w00HZD1drGj"
-    );
-
     const { data } = await axios.post(
-      "http://localhost:4000/create-checkout-session"
+      "http://localhost:4000/create-checkout-session",
+      {},
+      {
+        withCredentials: true,
+      }
     );
+    console.log(data);
+    if (data.success) {
+      console.log(data);
 
-    const result = stripe.redirectToCheckout({
-      sessionId: data.id,
-    });
+      const stripe = await loadStripe(
+        "pk_test_51O64xKSIWvRI9Ne7vTGnXsMs5Rm0voJfiGC3k8rUEWBP24D90lmK2M7RT9S7QHt1fjDS9uMqi3bIX6bJyyoIbE3w00HZD1drGj"
+      );
 
-    if (result.error) {
-      console.log(result.error);
+      const result = stripe.redirectToCheckout({
+        sessionId: data.id,
+      });
+
+      if (result.error) {
+        console.log(result.error);
+      }
+    } else {
+      console.log(data);
+      toast.error(data.message);
     }
   };
 
