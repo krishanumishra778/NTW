@@ -56,6 +56,7 @@ export default function App() {
   useEffect(() => {
     store.dispatch(LoadUser());
     console.log(isAuthenticated);
+    console.log(user);
   }, []);
 
   const [isLoading, setIsLoading] = useState(true);
@@ -75,8 +76,7 @@ export default function App() {
 
   return (
     <>
-      {isLoading ? <Preloader /> : null}
-
+      {isLoading ? <Preloader /> : <>
       <Router>
         <Routes>
           <Route path='/' element={<Home />} />
@@ -186,6 +186,9 @@ export default function App() {
           />
         </Routes>
       </Router>
+       </>}
+
+   
     </>
   );
 }

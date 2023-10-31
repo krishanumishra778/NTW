@@ -20,6 +20,7 @@ import { Head_nav } from './Head_nav'
 import { Logout } from '../pages/Logout'
 import { Icon } from '../pages/Icon'
 import { useSelector } from 'react-redux'
+// import Starrating from '../pages/Starrating'
 // import AdminPanel from '../pages/Adminpenal/Adminpenal'
 // import { SubscriberBiodata } from '../pages/Adminpenal/SubscriberBiodata'
 // import { TotalSubscriber } from '../pages/Adminpenal/TotalSubscriber'
@@ -37,7 +38,7 @@ export const Home = () => {
 
 
     <div>
-
+      {/* <Starrating /> */}
       <NavDemo />
       <Head_nav />
       <Header />

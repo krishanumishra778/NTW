@@ -40,14 +40,14 @@ export const Email = () => {
                 <div className='relative z-0 w-full mb-6 group'>
                   <label
                     htmlFor='password'
-                    className='block mb-4 xs:text-mp sm:text-tp md:text-p text-gray-900 dark:text-white'>
+                    className='block mb-4 xs:text-mp sm:text-tp md:text-p text-gray-900 '>
                     Registered Email id
                   </label>
                   <input
                     type='email'
                     name='email'
                     id='email'
-                    className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
+                    className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
               h-8'
                     placeholder='Enter Valid Email'
                     // required
