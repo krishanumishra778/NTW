@@ -1,5 +1,6 @@
 /** @format */
 
+const emailSubModel = require("../models/emailsubscribe");
 const user = require("../models/user_signup");
 
 const getAllUsers = async (req, res) => {
@@ -57,4 +58,25 @@ const deleteUser = async (req, res) => {
   }
 };
 
-module.exports = { getAllUsers, getSingleUser, updateUserRole, deleteUser };
+const getEmailSubscriber = async (req, res) => {
+  try {
+    const getEmailSubscriber = await emailSubModel.find();
+    res.send({
+      success: true,
+      message: "email subscriber fetched",
+      emaiSubscribers: getEmailSubscriber,
+    });
+    console.log("working");
+  } catch (error) {
+    console.log(error.message);
+    res.send({ success: false, message: `${error.message}` });
+  }
+};
+
+module.exports = {
+  getAllUsers,
+  getSingleUser,
+  updateUserRole,
+  deleteUser,
+  getEmailSubscriber,
+};

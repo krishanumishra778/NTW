@@ -6,7 +6,7 @@ import "aos/dist/aos.css";
 import { User_login } from "./Components/auth/User_login";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from "./Components/layout/Home";
-import { User_Signup } from "./Components/auth/User_Signup";
+import { User_Signup } from "./Components/auth/User_SIgnup";
 import { Getotp } from "./Components/auth/Getotp";
 import { Editprofile } from "./Components/pages/Editprofile";
 import { Changepassword } from "./Components/pages/Changepassword";
@@ -76,119 +76,121 @@ export default function App() {
 
   return (
     <>
-      {isLoading ? <Preloader /> : <>
-      <Router>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/about' element={<Mainabout />} />
-          <Route path='/services' element={<Mainservice />} />
+      {isLoading ? (
+        <Preloader />
+      ) : (
+        <>
+          <Router>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/about' element={<Mainabout />} />
+              <Route path='/services' element={<Mainservice />} />
 
-          <Route
-            path='/subscription'
-            element={
-              <ProtectedRoute>
-                <Mainplans />
-              </ProtectedRoute>
-            }
-          />
+              <Route
+                path='/subscription'
+                element={
+                  <ProtectedRoute>
+                    <Mainplans />
+                  </ProtectedRoute>
+                }
+              />
 
-          <Route path='/portfolio' element={<Ourportfolio />} />
-          <Route path='/sign-up' element={<User_Signup />} />
-          <Route path='/getotp' element={<Getotp />} />
-          <Route
-            path='/login'
-            element={
-              <PublicRoute>
-                <User_login />
-              </PublicRoute>
-            }
-          />
-          <Route path='/editprofile' element={<Editprofile />} />
-          <Route
-            path='/changepassword'
-            element={
-              <ProtectedRoute>
-                <Changepassword />
-              </ProtectedRoute>
-            }
-          />
-          <Route path='/pages' element={<Pages />} />
-          <Route path='/email' element={<Email />} />
-          <Route
-            path='/password/reset/:restToken'
-            element={<Forgot_password />}></Route>
-          <Route path='/contact' element={<Contact />}></Route>
-          <Route path='/maincontactus' element={<Maincontactus />}></Route>
-          {/* ///////////////   ADMIN PANEL ROUTER /////////////// */}
-          <Route
-            path='/adminpanel'
-            element={
-              <ProtectedRoute>
-                <AdminPanel />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path='/chatboard'
-            element={
-              <ProtectedRoute>
-                <Chatboard />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path='/totalsubscriber'
-            element={
-              <ProtectedRoute>
-                <TotalSubscriber />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path='/totalvisitors'
-            element={
-              <ProtectedRoute>
-                <TotalVisitors />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path='/totalcustomers'
-            element={
-              <ProtectedRoute>
-                <TotalCustomers />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path='/totalactive'
-            element={
-              <ProtectedRoute>
-                <TotalSubscriberActive />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path='/success'
-            element={
-              <ProtectedRoute>
-                <Payment_Success />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path='/cancel'
-            element={
-              <ProtectedRoute>
-                <Payment_Cancel />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
-      </Router>
-       </>}
-
-   
+              <Route path='/portfolio' element={<Ourportfolio />} />
+              <Route path='/sign-up' element={<User_Signup />} />
+              <Route path='/getotp' element={<Getotp />} />
+              <Route
+                path='/login'
+                element={
+                  <PublicRoute>
+                    <User_login />
+                  </PublicRoute>
+                }
+              />
+              <Route path='/editprofile' element={<Editprofile />} />
+              <Route
+                path='/changepassword'
+                element={
+                  <ProtectedRoute>
+                    <Changepassword />
+                  </ProtectedRoute>
+                }
+              />
+              <Route path='/pages' element={<Pages />} />
+              <Route path='/email' element={<Email />} />
+              <Route
+                path='/password/reset/:restToken'
+                element={<Forgot_password />}></Route>
+              <Route path='/contact' element={<Contact />}></Route>
+              <Route path='/maincontactus' element={<Maincontactus />}></Route>
+              {/* ///////////////   ADMIN PANEL ROUTER /////////////// */}
+              <Route
+                path='/adminpanel'
+                element={
+                  <ProtectedRoute>
+                    <AdminPanel />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path='/chatboard'
+                element={
+                  <ProtectedRoute>
+                    <Chatboard />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path='/totalsubscriber'
+                element={
+                  <ProtectedRoute>
+                    <TotalSubscriber />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path='/totalvisitors'
+                element={
+                  <ProtectedRoute>
+                    <TotalVisitors />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path='/totalcustomers'
+                element={
+                  <ProtectedRoute>
+                    <TotalCustomers />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path='/totalactive'
+                element={
+                  <ProtectedRoute>
+                    <TotalSubscriberActive />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path='/success'
+                element={
+                  <ProtectedRoute>
+                    <Payment_Success />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path='/cancel'
+                element={
+                  <ProtectedRoute>
+                    <Payment_Cancel />
+                  </ProtectedRoute>
+                }
+              />
+            </Routes>
+          </Router>
+        </>
+      )}
     </>
   );
 }
