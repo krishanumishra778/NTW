@@ -12,7 +12,7 @@ export const Workssimple = () => {
             <div className=''>
                 <div className='bg-[#00B2FF] rounded-md text-white p-5'>
                     <div>
-                        <h1 className='text-xl'>1</h1>
+                        <h1 className='text-xl font-bold'>1</h1>
                         <p>We’ll jump on a call together, learn more about
                             your business, goals and ambitions , and then
                             explore how we can help you with unlimited Webflow development.
@@ -23,8 +23,8 @@ export const Workssimple = () => {
                 <div className='bg-[#00B2FF] rounded-md text-white p-5 my-5'>
 
                     <div className=''>
-                        <h1 className='text-xl'>2</h1>
-                        <p className='text-xl '>We'll get going in as little as 24 hours
+                        <h1 className='text-xl font-bold'>2</h1>
+                        <p className='text-xl font-bold'>We'll get going in as little as 24 hours
                         </p>
                         <div className='py-3'>
                             <span className=''>
@@ -38,8 +38,8 @@ export const Workssimple = () => {
                 <div className='bg-[#00B2FF] rounded-md text-white p-5'>
 
                     <div>
-                        <h1 className='text-xl'>3</h1>
-                        <p className='text-xl'>Unlimited Webflow on tap
+                        <h1 className='text-xl font-bold'>3</h1>
+                        <p className='text-xl font-bold'>Unlimited Webflow on tap
                         </p>
 
                         <div className='py-3'>
