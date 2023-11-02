@@ -21,6 +21,7 @@ import { Logout } from '../pages/Logout'
 import { Icon } from '../pages/Icon'
 import { useSelector } from 'react-redux'
 import { Whychooseus } from '../pages/Whychooseus'
+import { Workssimple } from '../pages/Workssimple'
 // import Starrating from '../pages/Starrating'
 // import AdminPanel from '../pages/Adminpenal/Adminpenal'
 // import { SubscriberBiodata } from '../pages/Adminpenal/SubscriberBiodata'
@@ -52,15 +53,8 @@ export const Home = () => {
       <Testimonials />
       <Rating />
       <Trusted />
+      <Workssimple/>
       <Contact />
-      {/* <Graph /> */}
-      {/* <AdminPanel />
-      <SubscriberBiodata />
-      <TotalSubscriber />
-      <Chatboard />
-      <TotalCustomers />
-      <TotalSubscriberActive />
-      <TotalVisitors/> */}
       <Join />
       <Fotter />
       {isAuthenticated ? <Icon />
