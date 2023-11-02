@@ -1,12 +1,15 @@
 /** @format */
 
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useSelector } from "react-redux";
 
 const Subscription = () => {
+  const [countryName, setCountryName] = useState(null);
+  const { isAuthenticated, user, loading } = useSelector(state => state.user);
   const [changePrice, setChangePrice] = useState(true);
   const price = () => {
     if (changePrice == true) {
@@ -28,6 +31,32 @@ const Subscription = () => {
       setIsShowMore3(!isShowMore3);
     }
   };
+
+  useEffect(() => {
+    if (user) {
+      // setCountryName(user.country);
+      console.log(user);
+      if (user.country == "India") {
+        document.getElementById("price1").innerHTML = "14999 RUPEES";
+        document.getElementById("price2").innerHTML = "15999 RUPEES";
+      } else if (user.country == "United States of America") {
+        document.getElementById("price1").innerHTML = "14999 dollar";
+        document.getElementById("price2").innerHTML = "15999 dollar";
+      } else if (user.country == "Germany") {
+        document.getElementById("price1").innerHTML = "14999 euro";
+        document.getElementById("price2").innerHTML = "15999 euro";
+      } else if (user.country == "Switzerland") {
+        document.getElementById("price1").innerHTML = "14999 switz";
+        document.getElementById("price2").innerHTML = "15999 switz";
+      } else {
+        document.getElementById("price1").innerHTML = "14999 dollar";
+        document.getElementById("price2").innerHTML = "15999 dollar";
+      }
+    } else {
+      document.getElementById("price1").innerHTML = "14999dollar";
+      document.getElementById("price2").innerHTML = "15999 dollar";
+    }
+  }, [user]);
 
   const makePayment = async () => {
     const { data } = await axios.post(
@@ -105,11 +134,9 @@ const Subscription = () => {
                   Subscription plan for startup’s
                 </p>
 
-                <p className='sm:text-mc xs:text-tc md:text-c font-[600] text-center'>
-                  {changePrice
-                    ? "₹14,999/- Per Month"
-                    : "₹40,000/- Per three Month"}
-                </p>
+                <p
+                  className='sm:text-mc xs:text-tc md:text-c font-[600] text-center'
+                  id='price1'></p>
                 <ul className='pt-6 px-6'>
                   <li className='list-disc sm:text-mc xs:text-tc md:text-c '>
                     Includes 5 UI Design Projects in a month
@@ -162,9 +189,9 @@ const Subscription = () => {
                 <p className='sm:text-mc xs:text-tc md:text-c text-center'>
                   Subscription plan for Large Business
                 </p>
-                <p className='sm:text-mc xs:text-tc md:text-c font-[600] text-center'>
-                  ₹34,999/- Per page{" "}
-                </p>
+                <p
+                  className='sm:text-mc xs:text-tc md:text-c font-[600] text-center'
+                  id='price2'></p>
                 <ul className='pt-6 px-6'>
                   <li className='list-disc sm:text-mc xs:text-tc md:text-c '>
                     Includes 10 UI Design Projects per month.

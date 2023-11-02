@@ -1,3 +1,5 @@
+/** @format */
+
 const mongoose = require("mongoose");
 const validator = require("validator");
 
@@ -14,4 +16,5 @@ const emailSubscribe = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("emailsubscribe", emailSubscribe);
+const emailSubModel = mongoose.model("emailsubscribe", emailSubscribe);
+module.exports = emailSubModel;

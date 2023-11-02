@@ -6,7 +6,7 @@ import "aos/dist/aos.css";
 import { User_login } from "./Components/auth/User_login";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from "./Components/layout/Home";
-import { User_Signup } from "./Components/auth/User_Signup";
+import { User_Signup } from "./Components/auth/User_SIgnup";
 import { Getotp } from "./Components/auth/Getotp";
 import { Editprofile } from "./Components/pages/Editprofile";
 import { Changepassword } from "./Components/pages/Changepassword";
