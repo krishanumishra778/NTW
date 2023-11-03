@@ -10,41 +10,59 @@ export const Askquestions = () => {
             <div className='w-[98%] max-w-[1300px] mx-auto grid lg:grid-cols-3 sm:grid-cols-2 py-10 text-center'>
 
 
-                <div className='border-2 h-80 flex flex-col justify-center items-center'>
-                    <h1 className='font-bold'>1.  What is social media</h1>
-                    <p>We’ll jump on a call together, learn more about
-                        your business, goals and ambitions , and then
-                        explore how we can help you with unlimited Webflow development..</p>
+                <div className='border-2 relative h-80 flex flex-col hover:bg-gray-100 overflow-hidden justify-center items-center  cursor-pointer  '>
+                    <div className="h-80 duration-500 absolute top-[180px] hover:top-0 flex flex-col justify-center items-center cursor-pointer group gap-10">
+                        <h1 className="font-bold pt-90">1. What is social media</h1>
+                        <p className="">
+                            We’ll jump on a call together, learn more about your business, goals and ambitions, and then explore how we can help you with unlimited Webflow development.
+                        </p>
+                    </div>
+
                 </div>
-                <div className='border-2 h-80 flex flex-col justify-center items-center'>
-                    <h1 className='font-bold'>1.  What is social media</h1>
-                    <p>We’ll jump on a call together, learn more about
-                        your business, goals and ambitions , and then
-                        explore how we can help you with unlimited Webflow development..</p>
+                <div className='border-2 relative h-80 flex flex-col  hover:bg-gray-100 overflow-hidden justify-center items-center  cursor-pointer  '>
+                    <div className="h-80 duration-500 absolute top-[180px] hover:top-0 flex flex-col justify-center items-center cursor-pointer group gap-10">
+                        <h1 className="font-bold pt-90">1. What is social media</h1>
+                        <p className="">
+                            We’ll jump on a call together, learn more about your business, goals and ambitions, and then explore how we can help you with unlimited Webflow development.
+                        </p>
+                    </div>
+
                 </div>
-                <div className='border-2 h-80 flex flex-col justify-center items-center'>
-                    <h1 className='font-bold'>1.  What is social media</h1>
-                    <p>We’ll jump on a call together, learn more about
-                        your business, goals and ambitions , and then
-                        explore how we can help you with unlimited Webflow development..</p>
+                <div className='border-2 relative h-80 flex flex-col  hover:bg-gray-100 overflow-hidden justify-center items-center  cursor-pointer  '>
+                    <div className="h-80 duration-500 absolute top-[180px] hover:top-0 flex flex-col justify-center items-center cursor-pointer group gap-10">
+                        <h1 className="font-bold pt-90">1. What is social media</h1>
+                        <p className="">
+                            We’ll jump on a call together, learn more about your business, goals and ambitions, and then explore how we can help you with unlimited Webflow development.
+                        </p>
+                    </div>
+
                 </div>
-                <div className='border-2 h-80 flex flex-col justify-center items-center'>
-                    <h1 className='font-bold'>1.  What is social media</h1>
-                    <p>We’ll jump on a call together, learn more about
-                        your business, goals and ambitions , and then
-                        explore how we can help you with unlimited Webflow development..</p>
+                <div className='border-2 relative h-80 flex flex-col  hover:bg-gray-100 overflow-hidden justify-center items-center  cursor-pointer  '>
+                    <div className="h-80 duration-500 absolute top-[180px] hover:top-0 flex flex-col justify-center items-center cursor-pointer group gap-10">
+                        <h1 className="font-bold pt-90">1. What is social media</h1>
+                        <p className="">
+                            We’ll jump on a call together, learn more about your business, goals and ambitions, and then explore how we can help you with unlimited Webflow development.
+                        </p>
+                    </div>
+
                 </div>
-                <div className='border-2 h-80 flex flex-col justify-center items-center'>
-                    <h1 className='font-bold'>1.  What is social media</h1>
-                    <p>We’ll jump on a call together, learn more about
-                        your business, goals and ambitions , and then
-                        explore how we can help you with unlimited Webflow development..</p>
+                <div className='border-2 relative h-80 flex flex-col  hover:bg-gray-100 overflow-hidden justify-center items-center  cursor-pointer  '>
+                    <div className="h-80 duration-500 absolute top-[180px] hover:top-0 flex flex-col justify-center items-center cursor-pointer group gap-10">
+                        <h1 className="font-bold pt-90">1. What is social media</h1>
+                        <p className="">
+                            We’ll jump on a call together, learn more about your business, goals and ambitions, and then explore how we can help you with unlimited Webflow development.
+                        </p>
+                    </div>
+
                 </div>
-                <div className='border-2 h-80 flex flex-col justify-center items-center'>
-                    <h1 className='font-bold'>1.  What is social media</h1>
-                    <p>We’ll jump on a call together, learn more about
-                        your business, goals and ambitions , and then
-                        explore how we can help you with unlimited Webflow development..</p>
+                <div className='border-2 relative h-80 flex flex-col  hover:bg-gray-100 overflow-hidden justify-center items-center  cursor-pointer  '>
+                    <div className="h-80 duration-500 absolute top-[180px] hover:top-0 flex flex-col justify-center items-center cursor-pointer group gap-10">
+                        <h1 className="font-bold pt-90">1. What is social media</h1>
+                        <p className="">
+                            We’ll jump on a call together, learn more about your business, goals and ambitions, and then explore how we can help you with unlimited Webflow development.
+                        </p>
+                    </div>
+
                 </div>
 
             </div>

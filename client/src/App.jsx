@@ -74,6 +74,7 @@ export default function App() {
       once: true, // Only animate elements once
     });
   }, []);
+  
 
   return (
     <>
