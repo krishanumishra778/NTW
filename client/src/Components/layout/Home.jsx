@@ -22,6 +22,9 @@ import { Icon } from '../pages/Icon'
 import { useSelector } from 'react-redux'
 import { Whychooseus } from '../pages/Whychooseus'
 import { Workssimple } from '../pages/Workssimple'
+import { Askquestions } from '../pages/Askquestions'
+import { VideoAdvertising } from '../pages/VideoAdvertising'
+
 // import Starrating from '../pages/Starrating'
 // import AdminPanel from '../pages/Adminpenal/Adminpenal'
 // import { SubscriberBiodata } from '../pages/Adminpenal/SubscriberBiodata'
@@ -53,7 +56,9 @@ export const Home = () => {
       <Testimonials />
       <Rating />
       <Trusted />
-      <Workssimple/>
+      <Workssimple />
+      <VideoAdvertising/>
+      <Askquestions />
       <Contact />
       <Join />
       <Fotter />
