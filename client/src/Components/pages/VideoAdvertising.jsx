@@ -51,9 +51,9 @@ export const VideoAdvertising = () => {
                 </video>
                 <button className="absolute inset-0 flex items-center justify-center w-full h-full" onClick={togglePlayPause}>
                     {isPlaying ? (
-                        <img className='w-[52px] h-[52px]' src="images/pause.png" alt="Pause" />
+                        <img className=' w-[42px] h-[42px]' src="images/pause.png" alt="Pause" />
                     ) : (
-                        <img className='w-[52px] h-[52px]' src="images/play.png" alt="Play" />
+                        <img className='w-[42px] h-[42px]' src="images/play.png" alt="Play" />
                     )}
                 </button>
             </div>
