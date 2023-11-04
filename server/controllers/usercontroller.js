@@ -383,29 +383,31 @@ const updateProfile = async (req, res) => {
 ////make payments
 
 const makePayment = async (req, res) => {
-  const session = await stripe.checkout.sessions.create({
-    payment_method_types: ["card"],
-    line_items: [
-      {
-        price_data: {
-          currency: "inr",
-          product_data: {
-            name: "website",
+  try {
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ["card"],
+      line_items: [
+        {
+          price_data: {
+            currency: "inr",
+            product_data: {
+              name: "website",
+            },
+            unit_amount: 14999 * 100,
           },
-          unit_amount: 14999 * 100,
+          quantity: 1,
         },
-        quantity: 1,
+      ],
+      mode: "payment",
+      success_url: "http://localhost:5173/success",
+      cancel_url: "http://localhost:5173/cancel",
+    });
 
-      },
-    ],
-    mode: "payment",
-    success_url: "http://localhost:5173/success",
-    cancel_url: "http://localhost:5173/cancel",
-  });
-
-  console.log(session);
-  res.json({ success: true, id: session.id, session });
-  console.log(session);
+    await user.findByIdAndUpdate(req.body.id, { paymentId: "1234" });
+    res.json({ success: true, id: session.id, session });
+  } catch (error) {
+    res.send({ success: false, message: `${error.message}` });
+  }
 };
 
 ///review and feedback controller
@@ -440,6 +442,28 @@ const review = async (req, res) => {
   }
 };
 
+//subscribe controller
+const subscribeController = async (req, res) => {
+  const { plan, days } = req.body;
+  const currentDate = new Date();
+  const futureDate = new Date(
+    currentDate.getTime() + `${days}` * 24 * 60 * 60 * 1000 - new Date()
+  );
+  const myDate = new Date(futureDate.getTime() - new Date());
+  console.log(futureDate);
+  const timeDifference = futureDate - currentDate;
+  const daysDifference = timeDifference / (24 * 60 * 60 * 1000);
+  console.log(daysDifference);
+  // const { id } = req.params;
+  // const updated = await user.findByIdAndUpdate(
+  //   id,
+  //   { $set: { "subscription.buyingSubscriptionDate": Date.now() } },
+  //   { new: true }
+  // );
+  // console.log(updated);
+  // res.send("success",updated);
+};
+
 module.exports = {
   userSignupController,
   userLogInController,
@@ -454,4 +478,5 @@ module.exports = {
   updateProfile,
   makePayment,
   review,
+  subscribeController,
 };

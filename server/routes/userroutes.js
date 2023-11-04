@@ -17,6 +17,7 @@ const {
   updateProfile,
   makePayment,
   review,
+  subscribeController,
 } = require("../controllers/usercontroller");
 const isAuthenticateduser = require("../middleware/isAuthenticate");
 const {
@@ -56,5 +57,8 @@ router.route("/create-checkout-session").post(isAuthenticateduser, makePayment);
 
 ///review and feedback
 router.route("/review").post(isAuthenticateduser, review);
+
+//update user model when subscribe
+router.route("/subscribe/:id").post(isAuthenticateduser, subscribeController);
 
 module.exports = router;

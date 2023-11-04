@@ -38,6 +38,17 @@ const userSchema = mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    subscription: {
+      joiningDate: { type: Date, default: Date.now() },
+      buyingSubscriptionDate: { type: Date, default: 0 },
+      planThatActive: { type: String, default: "nothing" },
+      completedProject: { type: String, default: 0 },
+      additionalPages: { type: String, default: 0 },
+      daysRemain: { type: String, default: 0 },
+      refer: { type: String, default: 0 },
+      submittedHistory: { type: String, default: 0 },
+      pauseOrContinue: { type: String, default: "paused" },
+    },
     resetPasswordToken: String,
     resetPasswordExpire: Date,
   },
@@ -77,7 +88,7 @@ userSchema.methods.getRestPasswordToken = function () {
   this.resetPasswordExpire = Date.now() + 15 * 60 * 1000;
 
   return restToken;
-  };
+};
 
 const user = mongoose.model("user", userSchema);
 module.exports = user;
