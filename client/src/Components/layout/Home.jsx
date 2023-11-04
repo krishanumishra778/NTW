@@ -24,6 +24,7 @@ import { Whychooseus } from '../pages/Whychooseus'
 import { Workssimple } from '../pages/Workssimple'
 import { Askquestions } from '../pages/Askquestions'
 import { VideoAdvertising } from '../pages/VideoAdvertising'
+import { Paymentcheckoutpage } from '../pages/Paymentcheckoutpage'
 
 // import Starrating from '../pages/Starrating'
 // import AdminPanel from '../pages/Adminpenal/Adminpenal'
@@ -50,6 +51,7 @@ export const Home = () => {
       <About />
       <Whychooseus />
       <Services />
+      <Paymentcheckoutpage/>
       <Founder />
       <Subscription />
       <Creativeshowcase />
@@ -57,7 +59,7 @@ export const Home = () => {
       <Rating />
       <Trusted />
       <Workssimple />
-      <VideoAdvertising/>
+      <VideoAdvertising />
       <Askquestions />
       <Contact />
       <Join />
