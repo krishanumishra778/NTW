@@ -445,12 +445,12 @@ const review = async (req, res) => {
 //subscribe controller
 const subscribeController = async (req, res) => {
   try {
-    const { plan } = req.body;
+    const { plan, days } = req.body;
     const { id } = req.params;
 
     const currentDate = new Date();
     const expMonthDate = new Date(
-      currentDate.getTime() + 30 * 24 * 60 * 60 * 1000
+      currentDate.getTime() + `${days}` * 24 * 60 * 60 * 1000
     );
     const planExpDate = new Date(
       currentDate.getTime() + 240 * 24 * 60 * 60 * 1000
@@ -468,6 +468,7 @@ const subscribeController = async (req, res) => {
             "subscription.expMonthDate": expMonthDate.toLocaleString(),
             "subscription.planExpDate": planExpDate.toLocaleString(),
             "subscription.planThatActive": plan,
+            "subscription.continue": true,
           },
         },
         { new: true }
@@ -515,16 +516,21 @@ const playPlan = async (req, res) => {
     const { id } = req.params;
     const User = await user.findById(id);
     if (User) {
-      const currentDate = new Date("2023-11-0T08:13:13.000+00:00");
+      const currentDate = new Date();
       const daysRemain = User.subscription.daysRemain;
       const expMonthDate = new Date(
         currentDate.getTime() + `${daysRemain}` * 24 * 60 * 60 * 1000
       );
-      if (currentDate.getTime() < expMonthDate.getTime()) {
-        User.subscription.planStatus = true;
-        User.subscription.expMonthDate = expMonthDate;
-        await User.save();
-        res.send({ success: true, message: "plan playing" });
+      const planExpDate = new Date(User.subscription.planExpDate);
+      if (currentDate.getTime() <= planExpDate.getTime()) {
+        if (currentDate.getTime() <= expMonthDate.getTime()) {
+          User.subscription.planStatus = true;
+          User.subscription.expMonthDate = expMonthDate;
+          await User.save();
+          res.send({ success: true, message: "plan playing" });
+        } else {
+          res.send({ success: false, message: "your plan expired" });
+        }
       } else {
         res.send({ success: false, message: "your plan expired" });
       }
