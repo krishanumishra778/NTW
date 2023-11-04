@@ -207,7 +207,7 @@ export const TotalSubscriberActive = () => {
                             ) : (
                                 <button
                                     className="  font-bold   bg-[#FF1F1F]  text-white py-1 px-5"
-                                    onClick={toggleButton4}
+                                    onClick={toggleButtons4}
                                 >
                                     Paused
                                 </button>

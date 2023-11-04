@@ -112,7 +112,7 @@ const Header = () => {
                         </div>
                         <div className='grid grid-cols-3 mt-2 px-3 text-[#656565]'>
                           <p className='col-span-2'>Project Completed</p>
-                          <p className='text-center'>3/5</p>
+                          <p className='text-center'>3</p>
 
                           <div>
                             {showButton1 ? (

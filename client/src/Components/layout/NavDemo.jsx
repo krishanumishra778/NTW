@@ -11,7 +11,7 @@ export const NavDemo = () => {
 
   return (
     <>
-      <div className="max-w-[90%] w-[1540px] hidden md:block mx-auto fixed bottom-[15px] left-0 right-0 bg-[#494949] rounded-full z-[1]">
+      <div className="max-w-[90%] w-[1540px] hidden md:block mx-auto fixed bottom-[15px] left-0 right-0 bg-[#494949] rounded-full z-50">
         <nav>
           <ul className="grid grid-cols-6 text-center">
             <Link className={`rounded-full hover:text-[#FFF] py-4 lg:text-p font-[600] sm:text-[13px] hover:bg-[#00B2FF] ${location.pathname == '/' ? 'bg-[#00B2FF]' : ""}  text-white`} to="/">
