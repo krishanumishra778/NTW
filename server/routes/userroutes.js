@@ -18,6 +18,8 @@ const {
   makePayment,
   review,
   subscribeController,
+  pausePlan,
+  playPlan,
 } = require("../controllers/usercontroller");
 const isAuthenticateduser = require("../middleware/isAuthenticate");
 const {
@@ -60,5 +62,12 @@ router.route("/review").post(isAuthenticateduser, review);
 
 //update user model when subscribe
 router.route("/subscribe/:id").post(isAuthenticateduser, subscribeController);
+
+// pause subscribe plan api
+router.route("/pause/plan/:id").post(isAuthenticateduser, pausePlan);
+
+
+// play plan
+router.route('/play/plan/:id').post(isAuthenticateduser,playPlan)
 
 module.exports = router;

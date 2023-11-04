@@ -39,8 +39,12 @@ const userSchema = mongoose.Schema(
       default: false,
     },
     subscription: {
+      planStatus: { type: Boolean, default: false },
+      payment: { type: Boolean, default: false },
       joiningDate: { type: Date, default: Date.now() },
       buyingSubscriptionDate: { type: Date, default: 0 },
+      planExpDate: { type: Date, default: 0 },
+      expMonthDate: { type: Date, default: 0 },
       planThatActive: { type: String, default: "nothing" },
       completedProject: { type: String, default: 0 },
       additionalPages: { type: String, default: 0 },
