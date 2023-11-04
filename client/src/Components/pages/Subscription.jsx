@@ -9,9 +9,11 @@ import { useSelector } from "react-redux";
 
 const Subscription = () => {
   const [countryName, setCountryName] = useState(null);
+  const [subscribeData, setSubscribeData] = useState({});
   const { isAuthenticated, user, loading } = useSelector(state => state.user);
-  const [changePrice, setChangePrice] = useState(true);
+  const [changePrice, setChangePrice] = useState(false);
   const price = () => {
+    console.log(changePrice);
     if (changePrice == true) {
       setChangePrice(false);
     } else {
@@ -34,53 +36,133 @@ const Subscription = () => {
 
   useEffect(() => {
     if (user) {
-      // setCountryName(user.country);
-      console.log(user);
-      if (user.country == "India") {
-        document.getElementById("price1").innerHTML = "14999 RUPEES";
-        document.getElementById("price2").innerHTML = "15999 RUPEES";
-      } else if (user.country == "United States of America") {
-        document.getElementById("price1").innerHTML = "14999 dollar";
-        document.getElementById("price2").innerHTML = "15999 dollar";
-      } else if (user.country == "Germany") {
-        document.getElementById("price1").innerHTML = "14999 euro";
-        document.getElementById("price2").innerHTML = "15999 euro";
-      } else if (user.country == "Switzerland") {
-        document.getElementById("price1").innerHTML = "14999 switz";
-        document.getElementById("price2").innerHTML = "15999 switz";
+      if (changePrice) {
+        if (user.country == "India") {
+          document.getElementById("price1").innerHTML = "₹6,06,819.10";
+          document.getElementById("price2").innerHTML = "₹10,11,365.10";
+        } else if (user.country == "United States of America") {
+          document.getElementById("price1").innerHTML = " $8,097.30";
+          document.getElementById("price2").innerHTML = " $13,497.30";
+        } else if (user.country == "Germany") {
+          document.getElementById("price1").innerHTML = "EUR 7,342.20";
+          document.getElementById("price2").innerHTML = "EUR 12,237.30";
+        } else if (user.country == "Switzerland") {
+          document.getElementById("price1").innerHTML = "CHF 7,935.25";
+          document.getElementById("price2").innerHTML = "CHF 13,260.33 ";
+        } else if (user.country == "United Arab Emirates") {
+          document.getElementById("price1").innerHTML = " AED 29,986.35";
+          document.getElementById("price2").innerHTML = " AED 49,977.55";
+        } else {
+          document.getElementById("price1").innerHTML = " $8,097.30";
+          document.getElementById("price2").innerHTML = "$13,497.30";
+        }
       } else {
-        document.getElementById("price1").innerHTML = "14999 dollar";
-        document.getElementById("price2").innerHTML = "15999 dollar";
+        if (user.country == "India") {
+          document.getElementById("price1").innerHTML = "₹2,24,999.00";
+          document.getElementById("price2").innerHTML = "₹3,74,999.00";
+        } else if (user.country == "United States of America") {
+          document.getElementById("price1").innerHTML = " $2999";
+          document.getElementById("price2").innerHTML = "$4999";
+        } else if (user.country == "Germany") {
+          document.getElementById("price1").innerHTML = "EUR 2,700.22";
+          document.getElementById("price2").innerHTML = "EUR 4,050.33 ";
+        } else if (user.country == "Switzerland") {
+          document.getElementById("price1").innerHTML = "CHF 2,911.58";
+          document.getElementById("price2").innerHTML = "CHF 7,935.25";
+        } else if (user.country == "United Arab Emirates") {
+          document.getElementById("price1").innerHTML = "AED 11,038.17";
+          document.getElementById("price2").innerHTML = "AED 16,557.25";
+        } else {
+          document.getElementById("price1").innerHTML = "$2999";
+          document.getElementById("price2").innerHTML = "$4999";
+        }
       }
     } else {
-      document.getElementById("price1").innerHTML = "14999dollar";
-      document.getElementById("price2").innerHTML = "15999 dollar";
+      if (changePrice) {
+        document.getElementById("price1").innerHTML = " $8,097.30";
+        document.getElementById("price2").innerHTML = " $13,497.30";
+      } else {
+        document.getElementById("price1").innerHTML = "$2999";
+        document.getElementById("price2").innerHTML = "$4999";
+      }
     }
-  }, [user]);
+  }, [user, changePrice]);
 
-  const makePayment = async () => {
+  const makePayment = async e => {
+    const date = new Date();
+    const theDayOfTheMonthOnNextWeek = date.getDate() + 1;
+    date.setDate(theDayOfTheMonthOnNextWeek);
+    console.log(date);
     const { data } = await axios.post(
       "http://localhost:4000/create-checkout-session",
-      {},
+      { id: "65420b058023c6bb66ee79e0" },
       {
         withCredentials: true,
       }
     );
     console.log(data);
     if (data.success) {
-      console.log(data);
-
-      const stripe = await loadStripe(
-        "pk_test_51O64xKSIWvRI9Ne7vTGnXsMs5Rm0voJfiGC3k8rUEWBP24D90lmK2M7RT9S7QHt1fjDS9uMqi3bIX6bJyyoIbE3w00HZD1drGj"
-      );
-
-      const result = stripe.redirectToCheckout({
-        sessionId: data.id,
-      });
-
-      if (result.error) {
-        console.log(result.error);
+      
+      if (changePrice) {
+        if (e.target.value == "standard") {
+          const { data } = await axios.post(
+            `http://localhost:4000/subscribe/${user._id}`,
+            {
+              plan: `${e.target.value} (quartaly)`,
+            },
+            {
+              withCredentials: true,
+            }
+          );
+        } else {
+          const { data } = await axios.post(
+            `http://localhost:4000/subscribe/${user._id}`,
+            {
+              plan: `${e.target.value} (quarterly)`,
+              remain_days: "123",
+            },
+            {
+              withCredentials: true,
+            }
+          );
+        }
+      } else {
+        if (e.target.value == "standard") {
+          const { data } = await axios.post(
+            `http://localhost:4000/subscribe/${user._id}`,
+            {
+              plan: `${e.target.value} (monthly)`,
+              remain_days: "123",
+            },
+            {
+              withCredentials: true,
+            }
+          );
+        } else {
+          const { data } = await axios.post(
+            `http://localhost:4000/subscribe/${user._id}`,
+            {
+              plan: `${e.target.value} (monthly)`,
+              remain_days: "123",
+            },
+            {
+              withCredentials: true,
+            }
+          );
+        }
       }
+
+      // const stripe = await loadStripe(
+      //   "pk_test_51O64xKSIWvRI9Ne7vTGnXsMs5Rm0voJfiGC3k8rUEWBP24D90lmK2M7RT9S7QHt1fjDS9uMqi3bIX6bJyyoIbE3w00HZD1drGj"
+      // );
+
+      // const result = stripe.redirectToCheckout({
+      //   sessionId: data.id,
+      // });
+
+      // if (result.error) {
+      //   console.log(result.error);
+      // }
     } else {
       console.log(data);
       toast.error(data.message);
@@ -101,6 +183,7 @@ const Subscription = () => {
           <p className='sm:text-tt  xs:text-mt md:text-title font-[600] md:text-center text-left pt-2 text-[#494949]'>
             Pricing &amp; Plans for UI/UX Design&amp; Development
           </p>
+
           <div className='flex  justify-center  gap-2 '>
             <p className='sm:text-mp xs:text-tp md:text-p text-center pt-2 inline  '>
               Bill Monthly
@@ -111,7 +194,7 @@ const Subscription = () => {
                 type='checkbox'
                 defaultValue
                 className='sr-only peer '
-                onChange={price}
+                onClick={price}
               />
               <div className="w-11 h-6  bg-gray-200 peer-focus:outline-none  rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute xs:after:top-[2px] md:after:top-[3px]  after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
               <span className=' text-sm font-medium text-gray-900 dark:text-gray-300' />
@@ -128,7 +211,7 @@ const Subscription = () => {
               {/*  */}
               <div className='  pt-2  border-2 rounded-xl  bg-[#FFF]'>
                 <p className='sm:text-mp xs:text-tp md:text-p font-[700] text-center'>
-                  Startup’s
+                  STANDARD PLAN
                 </p>
                 <p className='sm:text-mc xs:text-tc md:text-c text-center'>
                   Subscription plan for startup’s
@@ -169,7 +252,8 @@ const Subscription = () => {
                 <div className='text-center'>
                   <button
                     className=' bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  mt-8 mb-1  hover:bg-[#00b3ffd8]  '
-                    onClick={makePayment}>
+                    onClick={makePayment}
+                    value={"standard"}>
                     Contact Us
                   </button>
                 </div>
@@ -184,7 +268,7 @@ const Subscription = () => {
               {/*  */}
               <div className=' pt-2 border-2 rounded-xl bg-[#FFF]'>
                 <p className='sm:text-mp xs:text-tp md:text-p font-[700] text-center'>
-                  Large Business
+                  PRO PLAN
                 </p>
                 <p className='sm:text-mc xs:text-tc md:text-c text-center'>
                   Subscription plan for Large Business
@@ -225,7 +309,11 @@ const Subscription = () => {
                   </li>
                 </ul>
                 <div className='text-center'>
-                  <button className='bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  mt-1 mb-1   hover:bg-[#00b3ffd8]  '>
+                  <button
+                    className='bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  mt-1 mb-1   hover:bg-[#00b3ffd8]  '
+                    value={"pro"}
+                    onClick={makePayment}>
+                    {" "}
                     Contact Us
                   </button>
                 </div>
