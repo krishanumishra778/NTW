@@ -12,8 +12,8 @@ export const Paymentcheckoutpage = () => {
     return (
         <div className='max-w-[1300px] xs:w-[90%] sm:w-[80%] md:w-[70%] mx-auto'>
 
-            <nav className="   my-2 px-4 relative main-container">
-                <div className="  flex justify-between items-center ">
+            <nav className="   my-2 xs:px-2 md:px-4 relative main-container">
+                <div className="  flex justify-between items-center gap-1 ">
                     <div className="">
                         {/* Mobile menu button */}
                         <button className="text-[black]" onClick={toggleMobileMenu}>
@@ -40,7 +40,7 @@ export const Paymentcheckoutpage = () => {
                     <div className='cursor-pointer'>
                         <button
                             type='submit'
-                            className='text-white text-center bg-[#00B2FF] rounded-full lg:px-8 lg:py-3 md:px-5 md:py-2 sm:px-2 sm:py-2 md:text-xl  sm:text-mc ' 
+                            className='text-white text-center bg-[#00B2FF] rounded-full xs:text-[9px] sm:text-[14px]  xs:py-[5px] xs:px-[3px] sm:px-2 md:text-[16px] ' 
                         >
                             Book a call
                         </button>
@@ -86,14 +86,14 @@ export const Paymentcheckoutpage = () => {
             <div className='bg-white mt-10  rounded-md shadow-2xl outline-none ' >
                 <div className='flex flex-row md:flex-col justify-evenly' >
 
-                    <div class="grid md:grid-cols-4 gap-4 px-5 py-1">
+                    <div className="grid md:grid-cols-4 gap-4 px-5 py-1">
                         <div className=''>Product</div>
                         <div className=''>Pricing</div>
                         <div className=''>Months</div>
                         <div className=' '>Renew</div>
                     </div>
                     <hr className=' bg-gray-300 h-[2.5px]' />
-                    <div class="grid md:grid-cols-4 gap-4 px-5 py-4">
+                    <div className="grid md:grid-cols-4 gap-4 px-5 py-4">
                         <div className='text-sm'>Standard plan</div>
                         <div className='text-sm'>$2999</div>
                         <div className='text-sm'>one month</div>
@@ -104,15 +104,15 @@ export const Paymentcheckoutpage = () => {
                 </div>
                 <hr className='px-2 bg-gray-300 h-[2.5px] ' />
 
-                <div class="grid grid-cols-2  py-10 px-5 gap-3">
+                <div className="grid grid-cols-2  xs:py-2 md:py-3 px-5 gap-3">
 
                     <div className='bg-white rounded-md shadow-lg outline-none  ' >
-                        <h1 className='py-2 text-center   text-md text-[#494949]'>Apply Promo Code</h1>
+                        <h1 className='xs:py-1 sm:py-2 text-center  xs:text-[11px] sm:text-[14px] md:text-[16px] lg:text-[18px] text-[#494949]'>Apply Promo Code</h1>
                     </div>
                     <div className='cursor-pointer sm:gap-5 xs:gap-0'>
                         <button
                             type='submit'
-                            className='text-white text-center bg-[#00B2FF] rounded-md sm:px-8 sm:py-3 xs:px-4 xs:py-2 md:px-12 md:py-3'
+                            className='text-white text-center bg-[#00B2FF] rounded-md  xs:text-[11px] sm:text-[14px] md:text-[16px] lg:text-[18px] xs:py-1 sm:py-2 xs:px-2 sm:px-3'
                         >
                             Apply
                         </button>

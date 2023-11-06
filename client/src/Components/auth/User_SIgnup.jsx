@@ -19,6 +19,7 @@ export const User_Signup = () => {
   const navigate = useNavigate();
 
   ///get country data from api
+  
   useEffect(() => {
     axios
       .get("https://restcountries.com/v2/all")

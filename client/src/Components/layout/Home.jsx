@@ -51,7 +51,7 @@ export const Home = () => {
       <About />
       <Whychooseus />
       <Services />
-      <Paymentcheckoutpage/>
+      <Paymentcheckoutpage />
       <Founder />
       <Subscription />
       <Creativeshowcase />
