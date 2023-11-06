@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
@@ -10,6 +10,11 @@ import {
     CartesianGrid,
     Tooltip as RechartsTooltip
 } from "recharts";
+<<<<<<< HEAD
+=======
+import axios from 'axios';
+
+>>>>>>> 434cfaeae18ad254b2a666a033f315a5f70a2a89
 
 
 const data0 = [
@@ -130,11 +135,26 @@ export const data2 = {
 
 
 
-
 export const TotalVisitors = () => {
+    const [totaluser, setTotaluser] = useState("");
+
+  useEffect(()=>{
+
+      
+      
+      axios.get('http://localhost:4000/admin/users').then((res) => {
+          
+          setTotaluser(res.data.users.length)
+          
+        }).catch((error) => {
+            console.log(error)
+        })
+    })
+
+  
 
     return (
-        <div className="mx-auto flex justify-center max-w-[1300px] ">
+        <div className="mx-auto flex justify-center max-w-[1300px] h-[100vh]">
             <div className=" bg-[#00B2FF] h-[100vh]   text-white w-[20%] text-center ">
 
                 <ul className='flex flex-col gap-8 pt-[80px]  lg:text-[17px] md:text-[13px] sm:text-[10px]'>
@@ -169,7 +189,7 @@ export const TotalVisitors = () => {
             </div>
 
             {/* Main Content */}
-            <div className='  w-[85%] '>
+            <div className='  w-[85%] h-[100vh]'>
 
                 <div className='flex mt-6  items-center gap-4 px-6'>
                     <div className='ml-auto '>
@@ -180,18 +200,18 @@ export const TotalVisitors = () => {
                     </div>
                 </div>
 
-                <div className='grid grid-cols-4 md:gap-3  '>
-                    <div className='mx-auto  flex justify-center items-center gap-3 rounded-lg shadow-gray-400 shadow-lg bg-white py-10 xl:px-12 px-4'>
+                <div className='grid grid-cols-4 md:gap-3 py-6 '>
+                    <div className='mx-auto  flex justify-center items-center gap-3 rounded-lg shadow-gray-400 shadow-lg bg-white  xl:px-12 px-4'>
                         <div className=''>
                             <img src="./images/graphicon.png" alt="" />
                         </div>
                         <div className=''>
                             <h1 className='leading-4'>Total Users</h1>
-                            <p className='text-[#AEAEAE] leading-4 ml-'>299</p>
+                            <p className='text-[#AEAEAE] leading-4 ml-'>{totaluser}</p>
                         </div>
                     </div>
 
-                    <div className='mx-auto md:gap-3 flex justify-center items-center  rounded-lg shadow-gray-400 shadow-lg bg-white xl:px-12 px-4 '>
+                    <div className='mx-auto md:gap-3 flex justify-center items-center  rounded-lg shadow-gray-400 shadow-lg bg-white xl:px-12 px-4 py-4'>
                         <div className=''>
                             <img src="./images/graphmessageicon.png" alt="" />
                         </div>
@@ -256,7 +276,7 @@ export const TotalVisitors = () => {
                         <h1>Download</h1>
                     </div>
                     <AreaChart
-                        width={1020}
+                        width={1000}
                         height={190}
                         data={data0}
                         margin={{

@@ -20,6 +20,7 @@ const {
   subscribeController,
   pausePlan,
   playPlan,
+  planDetails,
 } = require("../controllers/usercontroller");
 const isAuthenticateduser = require("../middleware/isAuthenticate");
 const {
@@ -69,5 +70,9 @@ router.route("/pause/plan/:id").post(isAuthenticateduser, pausePlan);
 
 // play plan
 router.route('/play/plan/:id').post(isAuthenticateduser,playPlan)
+
+
+//plan details
+router.route('/plan/details/:id').get(isAuthenticateduser,planDetails)
 
 module.exports = router;

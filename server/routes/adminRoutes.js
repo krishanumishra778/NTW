@@ -16,7 +16,7 @@ const adminroutes = require("express").Router();
 // get all users
 adminroutes
   .route("/admin/users")
-  .get(isAuthenticateduser, isAdmin("admin"), getAllUsers);
+  .get( getAllUsers);
 
 // get single user
 adminroutes
