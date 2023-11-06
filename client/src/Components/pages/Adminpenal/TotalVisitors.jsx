@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
+import axios from 'axios'; // Import axios here
+
 import {
     AreaChart,
     Area,
@@ -10,11 +12,6 @@ import {
     CartesianGrid,
     Tooltip as RechartsTooltip
 } from "recharts";
-<<<<<<< HEAD
-=======
-import axios from 'axios';
-
->>>>>>> 434cfaeae18ad254b2a666a033f315a5f70a2a89
 
 
 const data0 = [
@@ -138,20 +135,20 @@ export const data2 = {
 export const TotalVisitors = () => {
     const [totaluser, setTotaluser] = useState("");
 
-  useEffect(()=>{
+    useEffect(() => {
 
-      
-      
-      axios.get('http://localhost:4000/admin/users').then((res) => {
-          
-          setTotaluser(res.data.users.length)
-          
+
+
+        axios.get('http://localhost:4000/admin/users').then((res) => {
+
+            setTotaluser(res.data.users.length)
+
         }).catch((error) => {
             console.log(error)
         })
     })
 
-  
+
 
     return (
         <div className="mx-auto flex justify-center max-w-[1300px] h-[100vh]">
@@ -169,7 +166,7 @@ export const TotalVisitors = () => {
                     <Link to="/totalvisitors" className="font-bold bg-[#0091CF] py-1 rounded-full">
                         <li >Total Visitor's</li>
                     </Link>
-                    <Link to="/totalcustomers" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold ">
+                    <Link to="/totalcustomers" className="py-1  rounded-full hover:font-bold ">
                         <li>Total Customers</li>
                     </Link>
                     <Link to="" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
@@ -182,9 +179,7 @@ export const TotalVisitors = () => {
                     <Link to="/totalactive" className="py-1 hover-bg-[#0091CF] rounded-full hover:font-bold">
                         <li >Active Subscription</li>
                     </Link>
-                    <Link to="" className="py-1 hover-bg-[#0091CF] hover:font-bold rounded-full">
-                        <li >Paused Subscription</li>
-                    </Link>
+                 
                 </ul>
             </div>
 

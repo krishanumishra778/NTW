@@ -14,7 +14,6 @@ export const Chatboard = () => {
                     <li className="active:bg-[#0091CF]   py-1 rounded-full">Affiliate marketars</li>
 
                     <li className="active:bg-[#0091CF] rounded-full">Active Subscription</li>
-                    <li className="active:bg-[#0091CF] rounded-full">Paused Subscription</li>
                 </ul>
             </div>
 

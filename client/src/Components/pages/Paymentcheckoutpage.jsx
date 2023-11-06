@@ -40,7 +40,7 @@ export const Paymentcheckoutpage = () => {
                     <div className='cursor-pointer'>
                         <button
                             type='submit'
-                            className='text-white text-center bg-[#00B2FF] rounded-full xs:text-[9px] sm:text-[14px]  xs:py-[5px] xs:px-[3px] sm:px-2 md:text-[16px] ' 
+                            className='text-white text-center bg-[#00B2FF] rounded-full xs:text-[9px] sm:text-[14px]  xs:py-[5px] xs:px-[3px] sm:px-2 md:text-[16px] '
                         >
                             Book a call
                         </button>
@@ -112,7 +112,7 @@ export const Paymentcheckoutpage = () => {
                     <div className='cursor-pointer sm:gap-5 xs:gap-0'>
                         <button
                             type='submit'
-                            className='text-white text-center bg-[#00B2FF] rounded-md  xs:text-[11px] sm:text-[14px] md:text-[16px] lg:text-[18px] xs:py-1 sm:py-2 xs:px-2 sm:px-3'
+                            className='text-white text-center  bg-[#00B2FF] rounded-md  xs:text-[11px] sm:text-[14px] md:text-[16px] lg:text-[18px] xs:py-1 sm:py-2 xs:px-2 sm:px-3'
                         >
                             Apply
                         </button>
@@ -151,9 +151,7 @@ export const Paymentcheckoutpage = () => {
                     </button>
                 </div>
 
-
             </div>
-
         </div>
     )
 }

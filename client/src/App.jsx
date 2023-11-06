@@ -175,9 +175,6 @@ export default function App() {
                   <TotalCustomers />
                 </ProtectedRoute>
               }
-
-
-
             />
             <Route
               path='/totalactive'

@@ -34,9 +34,7 @@ const AdminPanel = () => {
                     <Link to="/totalactive"  className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold ">
                         <li >Active Subscription</li>
                     </Link>
-                    <Link to=""  className="py-1 hover:bg-[#0091CF] hover:font-bold rounded-full ">
-                        <li >Paused Subscription</li>
-                    </Link>
+                   
                 </ul>
             </div>
 

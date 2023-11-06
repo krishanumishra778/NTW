@@ -13,7 +13,7 @@ export const TotalSubscriber = () => {
                         <li >Message</li>
                     </Link>
 
-                    <Link to="/totalsubscriber" className="  font-bold bg-[#0091CF] py-1 rounded-full ">
+                    <Link to="/totalsubscriber" className=" hover:bg-[#0091CF]  font-bold  py-1 rounded-full ">
                         <li >Total Subscriber</li>
                     </Link>
 
@@ -33,9 +33,7 @@ export const TotalSubscriber = () => {
                     <Link to="/totalactive" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold ">
                         <li >Active Subscription</li>
                     </Link>
-                    <Link to="" className="py-1 hover:bg-[#0091CF] hover:font-bold rounded-full ">
-                        <li >Paused Subscription</li>
-                    </Link>
+                    
                 </ul>
             </div>
 
