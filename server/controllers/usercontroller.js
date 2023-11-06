@@ -499,6 +499,7 @@ const pausePlan = async (req, res) => {
       const daysRemain = days - daysDifference;
       User.subscription.daysRemain = daysRemain;
       User.subscription.planStatus = false;
+      User.subscription.continue = false;
       await User.save();
       res.send({ success: true, message: "plan paused" });
     } else {
@@ -522,8 +523,12 @@ const playPlan = async (req, res) => {
         currentDate.getTime() + `${daysRemain}` * 24 * 60 * 60 * 1000
       );
       const planExpDate = new Date(User.subscription.planExpDate);
+      // console.log(planExpDate);
+      console.log(expMonthDate);
+      console.log(currentDate);
+      console.log(currentDate.getTime() > expMonthDate.getTime());
       if (currentDate.getTime() <= planExpDate.getTime()) {
-        if (currentDate.getTime() <= expMonthDate.getTime()) {
+        if (currentDate.getTime() < expMonthDate.getTime()) {
           User.subscription.planStatus = true;
           User.subscription.expMonthDate = expMonthDate;
           await User.save();
@@ -543,6 +548,17 @@ const playPlan = async (req, res) => {
   }
 };
 
+// plan details controller
+const planDetails = async (req, res) => {
+  const { id } = req.params;
+  const User = await user.findById(id);
+  if (!User) {
+    return res.send({ success: false, message: "user not found" });
+  }
+
+  res.send({ success: true, details: User.subscription });
+};
+
 module.exports = {
   userSignupController,
   userLogInController,
@@ -560,4 +576,5 @@ module.exports = {
   subscribeController,
   pausePlan,
   playPlan,
+  planDetails,
 };
