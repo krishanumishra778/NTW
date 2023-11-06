@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const TotalSubscriber = () => {
     const navigate = useNavigate()
@@ -51,7 +51,7 @@ export const TotalSubscriber = () => {
 
                     <div onClick={() => {
                         navigate("/subscriberbiodata")
-                        console.log('dknkvdnk')
+
                     }} className='flex m-8 gap-5 items-center'>
                         <div>
                             <img className='rounded-full w-12' src="./images/user.png" alt="" />

@@ -9,13 +9,13 @@ import {
     YAxis,
     CartesianGrid,
     Tooltip as RechartsTooltip
-  } from "recharts";
+} from "recharts";
 
 
 const data0 = [
     {
         name: "Sunday",
-        uv: 4000,
+        uv: 1000,
         pv: 2400,
         amt: 2400
     },
@@ -261,14 +261,14 @@ export const TotalVisitors = () => {
                         data={data0}
                         margin={{
                             top: 10,
-                            right:30,
-                            left:0,
-                            bottom:0
+                            right: 30,
+                            left: 0,
+                            bottom: 0
                         }}
                     >
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="name" />
-                        <YAxis  />
+                        <YAxis />
                         <RechartsTooltip />
                         <Area type="monotone" dataKey="uv" stroke="#2D9CDB" strokeWidth={3} fill="#6EC8EF" />
                     </AreaChart>

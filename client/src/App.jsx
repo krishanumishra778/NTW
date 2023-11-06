@@ -39,6 +39,7 @@ import { Payment_Cancel } from "./Components/pages/Payment_Cancel";
 import ProtectedRoute from "./Router/ProtectedRoute";
 import PublicRoute from "./Router/PublicRoute";
 import { SubscriberBiodata } from "./Components/pages/Adminpenal/SubscriberBiodata";
+import { SubscriberBiodata1 } from "./Components/pages/Adminpenal/SubscriberBiodata1";
 
 export default function App() {
   ///country api
@@ -74,7 +75,7 @@ export default function App() {
       once: true, // Only animate elements once
     });
   }, []);
-  
+
 
   return (
     <>
@@ -129,6 +130,12 @@ export default function App() {
                 <SubscriberBiodata />
               </ProtectedRoute>
             }></Route>
+            <Route path='/subscriberbiodata1' element={
+              <ProtectedRoute>
+                <SubscriberBiodata1 />
+              </ProtectedRoute>
+            }></Route>
+
             <Route
               path='/adminpanel'
               element={
@@ -156,9 +163,9 @@ export default function App() {
             <Route
               path='/totalvisitors'
               element={
-                <ProtectedRoute>
-                  <TotalVisitors />
-                </ProtectedRoute>
+                // <ProtectedRoute>
+                <TotalVisitors />
+                // </ProtectedRoute>
               }
             />
             <Route
@@ -168,6 +175,9 @@ export default function App() {
                   <TotalCustomers />
                 </ProtectedRoute>
               }
+
+
+
             />
             <Route
               path='/totalactive'

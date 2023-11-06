@@ -1,7 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const TotalCustomers = () => {
+    const navigate = useNavigate()
+
     return (
         <div className="mx-auto flex justify-center max-w-[1300px] ">
             <div className=" bg-[#00B2FF] h-[100vh]   text-white w-[20%] text-center ">
@@ -46,7 +48,40 @@ export const TotalCustomers = () => {
 
                 <div className='overflow-y-scroll h-[85.5vh] '>
                     <hr className=' bg-black  h-[2.5px]' />
-                    <div className='flex m-8 gap-5 items-center'>
+                    <div onClick={() => {
+                        navigate("/subscriberbiodata1")
+                        console.log('next tech waves')
+                    }} className='flex m-8 gap-5 items-center'>
+                        <div>
+                            <img className='rounded-full w-12' src="./images/user.png" alt="" />
+                        </div>
+                        <div className=''>
+                            <p className='leading-5 font-bold ]'>Jackson chain</p>
+                            <p className='' >we love  your designs </p>
+                        </div>
+                    </div>
+                    {/* 2 */}
+
+                    <hr className=' bg-black  h-[2.5px]' />
+                    <div onClick={() => {
+                        navigate("/subscriberbiodata1")
+                        console.log('next tech waves')
+                    }} className='flex m-8 gap-5 items-center'>
+                        <div>
+                            <img className='rounded-full w-12' src="./images/user.png" alt="" />
+                        </div>
+                        <div className=''>
+                            <p className='leading-5 font-bold ]'>Jackson chain</p>
+                            <p className='' >No plan</p>
+                        </div>
+                    </div>
+                    {/* ><><>,      3   </> */}
+
+                    <hr className=' bg-black  h-[2.5px]' />
+                    <div onClick={() => {
+                        navigate("/subscriberbiodata1")
+                        console.log('next tech waves')
+                    }} className='flex m-8 gap-5 items-center'>
                         <div>
                             <img className='rounded-full w-12' src="./images/user.png" alt="" />
                         </div>
@@ -55,110 +90,106 @@ export const TotalCustomers = () => {
                             <p className='' >No plan </p>
                         </div>
                     </div>
-                    {/* 2 */}
-
-                    <hr className=' bg-black  h-[2.5px]' />
-                    <div className=' flex m-8 gap-5 items-center'>
-                        <div>
-                            <img className='rounded-full w-12' src="./images/user.png" alt="" />
-                        </div>
-                        <div>
-                            <p className='leading-5 font-bold'>Jackson chain</p>
-                            <p className='' >Expiring in 20 days</p>
-                        </div>
-
-                    </div>
-                    {/* ><><>,      3   </> */}
-
-                    <hr className=' bg-black  h-[2.5px]' />
-                    <div className=' flex m-8 gap-5 items-center'>
-                        <div>
-                            <img className='rounded-full w-12' src="./images/user.png" alt="" />
-                        </div>
-                        <div>
-                            <p className='leading-5 font-bold'>Jackson chain</p>
-                            <p className='' >No plan</p>
-                        </div>
-                    </div>
 
                     {/* ><><>,  4  </> */}
                     <hr className=' bg-black  h-[2.5px]' />
-                    <div className=' flex m-8 gap-5 items-center'>
+                    <div onClick={() => {
+                        navigate("/subscriberbiodata1")
+                        console.log('next tech waves')
+                    }} className='flex m-8 gap-5 items-center'>
                         <div>
                             <img className='rounded-full w-12' src="./images/user.png" alt="" />
                         </div>
-                        <div>
-                            <p className='leading-5 font-bold'>Jackson chain</p>
-                            <p className='' >No plan </p>
+                        <div className=''>
+                            <p className='leading-5 font-bold ]'>Jackson chain</p>
+                            <p className='' >we love  your designs </p>
                         </div>
                     </div>
 
                     {/* ><><>,  5  </> */}
 
                     <hr className=' bg-black  h-[2.5px]' />
-                    <div className=' flex m-8 gap-5 items-center'>
+                    <div onClick={() => {
+                        navigate("/subscriberbiodata1")
+                        console.log('next tech waves')
+                    }} className='flex m-8 gap-5 items-center'>
                         <div>
                             <img className='rounded-full w-12' src="./images/user.png" alt="" />
                         </div>
-                        <div>
-                            <p className='leading-5 font-bold'>Jackson chain</p>
-                            <p className='' >Expiring in 32 days </p>
+                        <div className=''>
+                            <p className='leading-5 font-bold ]'>Jackson chain</p>
+                            <p className='' >No plan</p>
                         </div>
                     </div>
 
                     {/* 6 */}
                     <hr className=' bg-black  h-[2.5px]' />
-                    <div className='flex m-8 gap-5 items-center'>
+                    <div onClick={() => {
+                        navigate("/subscriberbiodata1")
+                        console.log('next tech waves')
+                    }} className='flex m-8 gap-5 items-center'>
                         <div>
                             <img className='rounded-full w-12' src="./images/user.png" alt="" />
                         </div>
-                        <div>
-                            <p className='leading-5 font-bold'>Jackson chain</p>
-                            <p className='' >Expiring in 20 days </p>
+                        <div className=''>
+                            <p className='leading-5 font-bold ]'>Jackson chain</p>
+                            <p className='' >we love  your designs </p>
                         </div>
                     </div>
                     {/* 7 */}
                     <hr className=' bg-black  h-[2.5px]' />
-                    <div className=' flex m-8 gap-5 items-center'>
+                    <div onClick={() => {
+                        navigate("/subscriberbiodata1")
+                        console.log('next tech waves')
+                    }} className='flex m-8 gap-5 items-center'>
                         <div>
                             <img className='rounded-full w-12' src="./images/user.png" alt="" />
                         </div>
-                        <div>
-                            <p className='leading-5 font-bold'>Jackson chain</p>
-                            <p className='' >No plan</p>
+                        <div className=''>
+                            <p className='leading-5 font-bold ]'>Jackson chain</p>
+                            <p className='' >we love  your designs </p>
                         </div>
                     </div>
                     {/* 8 */}
                     <hr className=' bg-black  h-[2.5px]' />
-                    <div className='flex m-8 gap-5 items-center'>
+                    <div onClick={() => {
+                        navigate("/subscriberbiodata1")
+                        console.log('next tech waves')
+                    }} className='flex m-8 gap-5 items-center'>
                         <div>
                             <img className='rounded-full w-12' src="./images/user.png" alt="" />
                         </div>
-                        <div>
-                            <p className='leading-5 font-bold'>Jackson chain</p>
-                            <p className='' >No plan</p>
+                        <div className=''>
+                            <p className='leading-5 font-bold ]'>Jackson chain</p>
+                            <p className='' >we love  your designs </p>
                         </div>
                     </div>
                     {/* 9 */}
                     <hr className=' bg-black  h-[2.5px]' />
-                    <div className='flex m-8 gap-5 items-center'>
+                    <div onClick={() => {
+                        navigate("/subscriberbiodata1")
+                        console.log('next tech waves')
+                    }} className='flex m-8 gap-5 items-center'>
                         <div>
                             <img className='rounded-full w-12' src="./images/user.png" alt="" />
                         </div>
-                        <div>
-                            <p className='leading-5 font-bold'>Jackson chain</p>
-                            <p className='' >Expiring in 20 days </p>
+                        <div className=''>
+                            <p className='leading-5 font-bold ]'>Jackson chain</p>
+                            <p className='' >we love  your designs </p>
                         </div>
                     </div>
                     {/* 10 */}
                     <hr className=' bg-black  h-[2.5px]' />
-                    <div className='flex m-8 gap-5 items-center'>
+                    <div onClick={() => {
+                        navigate("/subscriberbiodata1")
+                        console.log('next tech waves')
+                    }} className='flex m-8 gap-5 items-center'>
                         <div>
                             <img className='rounded-full w-12' src="./images/user.png" alt="" />
                         </div>
-                        <div>
-                            <p className='leading-5 font-bold'>Jackson chain</p>
-                            <p>No plan</p>
+                        <div className=''>
+                            <p className='leading-5 font-bold ]'>Jackson chain</p>
+                            <p className='' >No plan </p>
                         </div>
                     </div>
                 </div>
