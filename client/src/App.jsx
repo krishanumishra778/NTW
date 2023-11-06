@@ -156,9 +156,9 @@ export default function App() {
             <Route
               path='/totalvisitors'
               element={
-                <ProtectedRoute>
+                // <ProtectedRoute>
                   <TotalVisitors />
-                </ProtectedRoute>
+                // </ProtectedRoute>
               }
             />
             <Route
