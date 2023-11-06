@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
@@ -132,19 +132,23 @@ export const data2 = {
 
 
 
-
 export const TotalVisitors = () => {
+    const [totaluser, setTotaluser] = useState("");
 
-//     const getdata = () =>{
+  useEffect(()=>{
 
-        
-//     axios.get('http://localhost:4000/admin/users').then((res)=>{
-//         console.log(res.data)
-//     }).catch((error)=>{
-//         console.log(error)
-//     })
-// }
-// getdata();
+      
+      
+      axios.get('http://localhost:4000/admin/users').then((res) => {
+          
+          setTotaluser(res.data.users.length)
+          
+        }).catch((error) => {
+            console.log(error)
+        })
+    })
+
+  
 
     return (
         <div className="mx-auto flex justify-center max-w-[1300px] h-[100vh]">
@@ -200,7 +204,7 @@ export const TotalVisitors = () => {
                         </div>
                         <div className=''>
                             <h1 className='leading-4'>Total Users</h1>
-                            <p className='text-[#AEAEAE] leading-4 ml-'>299</p>
+                            <p className='text-[#AEAEAE] leading-4 ml-'>{totaluser}</p>
                         </div>
                     </div>
 

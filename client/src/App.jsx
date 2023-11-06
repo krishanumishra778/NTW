@@ -57,7 +57,7 @@ export default function App() {
   useEffect(() => {
     store.dispatch(LoadUser());
     console.log(isAuthenticated);
-    console.log(user);
+    // console.log(user);
   }, []);
 
   const [isLoading, setIsLoading] = useState(true);
