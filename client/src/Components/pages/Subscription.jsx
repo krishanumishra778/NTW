@@ -6,6 +6,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Subscription = () => {
   const [countryName, setCountryName] = useState(null);
@@ -102,7 +103,7 @@ const Subscription = () => {
     );
     console.log(data);
     if (data.success) {
-      
+
       if (changePrice) {
         if (e.target.value == "standard") {
           const { data } = await axios.post(
@@ -250,11 +251,13 @@ const Subscription = () => {
                   </li>
                 </ul>
                 <div className='text-center'>
+
                   <button
-                    className=' bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  mt-8 mb-1  hover:bg-[#00b3ffd8]  '
-                    onClick={makePayment}
+                    className=' bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  mt-8 mb-1  hover:bg-[#00b3ffd8]'
                     value={"standard"}>
-                    Contact Us
+                    <Link to="/paymentcheckoutpage">
+                      Book Now
+                    </Link>
                   </button>
                 </div>
                 <div className='text-center text-[#AEAEAE] sm:text-mc xs:text-tc md:text-c'>
@@ -312,9 +315,12 @@ const Subscription = () => {
                   <button
                     className='bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  mt-1 mb-1   hover:bg-[#00b3ffd8]  '
                     value={"pro"}
-                    onClick={makePayment}>
-                    {" "}
-                    Contact Us
+                  >
+                    <Link to="/paymentcheckoutpage">
+                      Book Now
+                    </Link>
+
+
                   </button>
                 </div>
                 <div className='text-center text-[#AEAEAE] sm:text-mc xs:text-tc md:text-c'>
@@ -363,7 +369,9 @@ const Subscription = () => {
                 </ul>
                 <div className='text-center'>
                   <button className=' bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff] xs:mt-2 lg:mt-[60px]   hover:bg-[#00b3ffd8] '>
-                    Contact Us
+                    <Link to="/contact">
+                      Contact Us
+                    </Link>
                   </button>
                 </div>
                 <div className='text-center text-[#AEAEAE] sm:text-mc xs:text-tc md:text-c'>
@@ -433,8 +441,10 @@ const Subscription = () => {
                 </button>
               </ul>
               <div className='text-center'>
-                <button className=' bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  my-1   hover:bg-[#00b3ffd8] '>
+
+                <button button className=' bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  my-1   hover:bg-[#00b3ffd8] '>
                   Contact Us
+
                 </button>
               </div>
               <div className='text-center text-[#AEAEAE] sm:text-mc xs:text-tc md:text-c'>

@@ -37,10 +37,11 @@ export const Paymentcheckoutpage = () => {
                     <div className="max-w-[65%]">
                         <img src="logo/next tech waves logo.png" alt="" />
                     </div>
+                    
                     <div className='cursor-pointer'>
-                        <button
+                        <button 
                             type='submit'
-                            className='text-white text-center bg-[#00B2FF] rounded-full xs:text-[9px] sm:text-[14px]  xs:py-[5px] xs:px-[3px] sm:px-2 md:text-[16px] '
+                            className='text-white text-center bg-[#00B2FF] rounded-full xs:text-[9px] sm:text-[14px]  xs:py-[5px] xs:px-[3px]  sm:px-2 md:text-[16px] '
                         >
                             Book a call
                         </button>
@@ -104,9 +105,9 @@ export const Paymentcheckoutpage = () => {
                 </div>
                 <hr className='px-2 bg-gray-300 h-[2.5px] ' />
 
-                <div className="grid grid-cols-2  xs:py-2 md:py-3 px-5 gap-3">
+                <div className="grid grid-cols-2 mx-auto  xs:py-4 md:py-3 px-5 gap-3">
 
-                    <div className='bg-white rounded-md shadow-lg outline-none  ' >
+                    <div className='bg-white rounded-md shadow-lg outline-none' >
                         <h1 className='xs:py-1 sm:py-2 text-center  xs:text-[11px] sm:text-[14px] md:text-[16px] lg:text-[18px] text-[#494949]'>Apply Promo Code</h1>
                     </div>
                     <div className='cursor-pointer sm:gap-5 xs:gap-0'>

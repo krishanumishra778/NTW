@@ -40,6 +40,7 @@ import ProtectedRoute from "./Router/ProtectedRoute";
 import PublicRoute from "./Router/PublicRoute";
 import { SubscriberBiodata } from "./Components/pages/Adminpenal/SubscriberBiodata";
 import { SubscriberBiodata1 } from "./Components/pages/Adminpenal/SubscriberBiodata1";
+import { Paymentcheckoutpage } from "./Components/pages/Paymentcheckoutpage";
 
 export default function App() {
   ///country api
@@ -94,6 +95,11 @@ export default function App() {
                 </ProtectedRoute>
               }
             />
+            <Route
+              path="/paymentcheckoutpage"
+              element={<Paymentcheckoutpage />}
+            />
+
 
             <Route path='/portfolio' element={<Ourportfolio />} />
             <Route path='/sign-up' element={<User_Signup />} />
