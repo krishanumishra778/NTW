@@ -444,24 +444,103 @@ const review = async (req, res) => {
 
 //subscribe controller
 const subscribeController = async (req, res) => {
-  const { plan, days } = req.body;
-  const currentDate = new Date();
-  const futureDate = new Date(
-    currentDate.getTime() + `${days}` * 24 * 60 * 60 * 1000 - new Date()
-  );
-  const myDate = new Date(futureDate.getTime() - new Date());
-  console.log(futureDate);
-  const timeDifference = futureDate - currentDate;
-  const daysDifference = timeDifference / (24 * 60 * 60 * 1000);
-  console.log(daysDifference);
-  // const { id } = req.params;
-  // const updated = await user.findByIdAndUpdate(
-  //   id,
-  //   { $set: { "subscription.buyingSubscriptionDate": Date.now() } },
-  //   { new: true }
-  // );
-  // console.log(updated);
-  // res.send("success",updated);
+  try {
+    const { plan, days } = req.body;
+    const { id } = req.params;
+
+    const currentDate = new Date();
+    const expMonthDate = new Date(
+      currentDate.getTime() + `${days}` * 24 * 60 * 60 * 1000
+    );
+    const planExpDate = new Date(
+      currentDate.getTime() + 240 * 24 * 60 * 60 * 1000
+    );
+
+    const User = await user.findById(id);
+    if (User) {
+      const updated = await user.findByIdAndUpdate(
+        id,
+        {
+          $set: {
+            "subscription.planStatus": true,
+            "subscription.payment": true,
+            "subscription.buyingSubscriptionDate": currentDate.toLocaleString(),
+            "subscription.expMonthDate": expMonthDate.toLocaleString(),
+            "subscription.planExpDate": planExpDate.toLocaleString(),
+            "subscription.planThatActive": plan,
+            "subscription.continue": true,
+          },
+        },
+        { new: true }
+      );
+
+      res.send({ success: true, message: "subscription success", updated });
+    } else {
+      res.send({ success: false, message: "user not found" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.send({ success: false, message: `${error.message}` });
+  }
+};
+
+//pause plan controller
+const pausePlan = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { days } = req.body;
+
+    const User = await user.findById(id);
+    if (User) {
+      const currentDate = new Date();
+      const buyingSubscriptionDate = User.subscription.buyingSubscriptionDate;
+      const timeDifference = currentDate - buyingSubscriptionDate;
+      const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      const daysRemain = days - daysDifference;
+      User.subscription.daysRemain = daysRemain;
+      User.subscription.planStatus = false;
+      await User.save();
+      res.send({ success: true, message: "plan paused" });
+    } else {
+      res.send({ success: false, message: "user not found" });
+    }
+  } catch (error) {
+    res.send({ success: false, message: `${error.message}` });
+    console.log(error);
+  }
+};
+
+// play plan controller
+const playPlan = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const User = await user.findById(id);
+    if (User) {
+      const currentDate = new Date();
+      const daysRemain = User.subscription.daysRemain;
+      const expMonthDate = new Date(
+        currentDate.getTime() + `${daysRemain}` * 24 * 60 * 60 * 1000
+      );
+      const planExpDate = new Date(User.subscription.planExpDate);
+      if (currentDate.getTime() <= planExpDate.getTime()) {
+        if (currentDate.getTime() <= expMonthDate.getTime()) {
+          User.subscription.planStatus = true;
+          User.subscription.expMonthDate = expMonthDate;
+          await User.save();
+          res.send({ success: true, message: "plan playing" });
+        } else {
+          res.send({ success: false, message: "your plan expired" });
+        }
+      } else {
+        res.send({ success: false, message: "your plan expired" });
+      }
+    } else {
+      res.send({ success: false, message: `user not found` });
+    }
+  } catch (error) {
+    res.send({ success: false, message: `${error.message}` });
+    console.log(error);
+  }
 };
 
 module.exports = {
@@ -479,4 +558,6 @@ module.exports = {
   makePayment,
   review,
   subscribeController,
+  pausePlan,
+  playPlan,
 };
