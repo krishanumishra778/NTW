@@ -269,7 +269,7 @@ const Subscription = () => {
               </div>
               {/*  */}
               {/*  */}
-              <div className=' pt-2 border-2 rounded-xl bg-[#FFF]'>
+              <div className=' pt-2 border-2 rounded-xl bg-[#FFF] shadow-lg shadow-[#76c9ed]'>
                 <p className='sm:text-mp xs:text-tp md:text-p font-[700] text-center'>
                   PRO PLAN
                 </p>

@@ -84,7 +84,7 @@ export const Forgot_password = () => {
                   name='new_password'
                   id='pwd'
                   className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600   dark:focus:ring-blue-500 dark:focus:border-blue-500 absolute
-              h-8'
+              h-8 '
                   placeholder='******'
                   required
                   onChange={inpHandler}
@@ -96,7 +96,7 @@ export const Forgot_password = () => {
                       togglePasswordVisibility();
                       showoldpwd("pwd");
                     }}
-                    className='relative md:left-[95%] xs:left-[90%] top-2'
+                    className='relative md:left-[92%] xs:left-[90%] top-2 '
                   />
                 ) : (
                   <AiFillEye
@@ -104,7 +104,7 @@ export const Forgot_password = () => {
                       togglePasswordVisibility();
                       showoldpwd("pwd");
                     }}
-                    className='relative md:left-[95%] xs:left-[90%] top-2'
+                    className='relative md:left-[92%] xs:left-[90%] top-2'
                   />
                 )}
               </div>
@@ -132,7 +132,7 @@ export const Forgot_password = () => {
                       toggle2PasswordVisibility();
                       showoldpwd("cmpwd");
                     }}
-                    className='relative md:left-[95%] xs:left-[90%] top-2'
+                    className='relative md:left-[92%] xs:left-[90%] top-2'
                   />
                 ) : (
                   <AiFillEye
@@ -140,7 +140,7 @@ export const Forgot_password = () => {
                       toggle2PasswordVisibility();
                       showoldpwd("cmpwd");
                     }}
-                    className='relative md:left-[95%] xs:left-[90%] top-2'
+                    className='relative md:left-[92%] xs:left-[90%] top-2'
                   />
                 )}
               </div>

@@ -208,7 +208,7 @@ export const Head_nav = () => {
             <div className='flex justify-end'>
 
             </div>
-            <ul className="mt-2 flex flex-col gap-3 font-bold ">
+            <ul className="sm:mt-1 flex flex-col gap-3 font-bold ">
               <li className='flex justify-between  pt-4'>
                 <div><Link to='/' onClick={toggleMobileMenu} className='xs:text-[14px] sm:text-[15px] xs:pl-3 sm:pl-6'> Home</Link></div>
                 <div><button className=' rounded-sm xs:text-[20px] sm:text-[22px] xs:pr-3 sm:pr-6' onClick={() => {
