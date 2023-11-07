@@ -21,6 +21,9 @@ import {
   SEND_MESSAGE_FAIL,
   SEND_MESSAGE_REQUEST,
   SEND_MESSAGE_SUCCESS,
+  SINGLE_USER_FAIL,
+  SINGLE_USER_REQUEST,
+  SINGLE_USER_SUCCESS,
   UPDATE_PASSWORD_FAIL,
   UPDATE_PASSWORD_REQUEST,
   UPDATE_PASSWORD_SUCCESS,
@@ -228,3 +231,26 @@ export const SendMessage = (inputdata) => async (dispatch) => {
     });
   }
 };
+
+//Singleuser id 
+
+export const Singleuserid = (id) => async (dispatch) => {
+  try {
+    // console.log(id)
+    dispatch({ type: SINGLE_USER_REQUEST });
+
+    const { data } = await axios.get(
+      `http://localhost:4000/admin/user/${id}`,
+      { withCredentials: true }
+    );
+  //  console.log(data)
+
+    dispatch({ type: SINGLE_USER_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: SINGLE_USER_FAIL,
+      payload: error?.response?.data?.error,
+    });
+    console.log(error)
+  }
+}

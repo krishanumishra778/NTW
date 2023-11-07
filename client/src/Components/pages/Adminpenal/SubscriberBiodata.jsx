@@ -1,8 +1,10 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 export const SubscriberBiodata = () => {
-
+//     const {user } = useSelector(state => state.user);
+// console.log(user)
     return (
         <div className="mx-auto flex justify-center max-w-[1300px]  ">
             <div className=" bg-[#00B2FF] h-[100vh]   text-white w-[20%] text-center ">
@@ -48,7 +50,7 @@ export const SubscriberBiodata = () => {
                     </div>
                     {/* .,.,., */}
                     <div>
-                        <h1 className='font-bold py-1'>Jackson chain</h1>
+                        <h1 className='font-bold py-1'>Ganesh</h1>
                         <h1 className=' text-[#AEAEAE]'>Basic 60day’s plan</h1>
 
                     </div>
@@ -61,13 +63,13 @@ export const SubscriberBiodata = () => {
                     <div className='grid grid-cols-2 '>
                         <h1 className='font-bold'>Joining Date:-</h1>
                         <h6 className='text-[#AEAEAE]'>Tuesday,
-                            <span className='pl-5'> 26/10/2023 </span></h6>
+                            <span className='pl-5'> </span></h6>
                     </div>
                     {/* 2 */}
                     <div className='grid grid-cols-2 '>
                         <h1 className='font-bold '>Buying subscription Date:-</h1>
                         <h6 className='text-[#AEAEAE]  '>Saturday,
-                            <span className='pl-5'>31/10/2023</span></h6>
+                            <span className='pl-5'></span></h6>
                     </div>
                     {/* 3 */}
                     <div className='grid grid-cols-2'>
@@ -92,7 +94,7 @@ export const SubscriberBiodata = () => {
                     {/* 7 */}
                     <div className='grid grid-cols-2'>
                         <h1 className='font-bold'>Company Name:-</h1>
-                        <h6 className='text-[#AEAEAE]'>Leadon technologies</h6>
+                        <h6 className='text-[#AEAEAE]'></h6>
                     </div>
                     {/* 8 */}
                     <div className='grid grid-cols-2'>

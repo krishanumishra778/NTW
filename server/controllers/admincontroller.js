@@ -16,6 +16,8 @@ const getSingleUser = async (req, res) => {
   try {
     const { id } = req.params;
     const singleUser = await user.findById({ _id: id });
+    console.log(id)
+    console.log(singleUser)
     res.send({ success: true, message: " user fetched", user: singleUser });
   } catch (error) {
     res.status(401).send({ success: false, message: `Invalid User Id` });
