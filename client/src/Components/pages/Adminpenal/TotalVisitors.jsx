@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import axios from 'axios'; // Import axios here
-
 import {
     AreaChart,
     Area,
@@ -13,132 +12,132 @@ import {
     Tooltip as RechartsTooltip
 } from "recharts";
 
-
-const data0 = [
-    {
-        name: "Sunday",
-        uv: 1000,
-        pv: 2400,
-        amt: 2400
-    },
-    {
-        name: "Monday",
-        uv: 800,
-        pv: 1398,
-        amt: 2210
-    },
-    {
-        name: "Tuesday",
-        uv: 2000,
-        pv: 9800,
-        amt: 2290
-    },
-    {
-        name: "Wednesday",
-        uv: 2780,
-        pv: 3908,
-        amt: 2000
-    },
-    {
-        name: "Thursday",
-        uv: 1890,
-        pv: 4800,
-        amt: 2181
-    },
-    {
-        name: "Friday",
-        uv: 1390,
-        pv: 1800,
-        amt: 1500
-    },
-    {
-        name: "Saturday",
-        uv: 3490,
-        pv: 4300,
-        amt: 2100
-    }
-];
-
-ChartJS.register(ArcElement, Tooltip, Legend);
-
-
-export const data = {
-    // labels: ['#FF5B5B', 'rgba(255, 91, 91, 0.15)',],
-    datasets: [
-        {
-            label: '# of Votes',
-            data: [11, 3,],
-            backgroundColor: [
-                '#FF5B5B',
-                'rgba(255, 91, 91, 0.15)',
-
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-
-            ],
-            borderWidth: 0,
-        },
-    ],
-};
-// <>>>>>>>>    2    >>>>>>></>
-export const data1 = {
-    // labels: ['#FF5B5B', 'rgba(255, 91, 91, 0.15)',],
-    datasets: [
-        {
-            label: '# of Votes',
-            data: [4, 11,],
-            backgroundColor: [
-                '#00B074',
-                'rgba(0, 176, 116, 0.15',
-
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-
-            ],
-            borderWidth: 0,
-        },
-    ],
-};
-
-
-// <>>>>>>>>    3    >>>>>>></>
-export const data2 = {
-    // labels: ['#FF5B5B', 'rgba(255, 91, 91, 0.15)',],
-    datasets: [
-        {
-            label: '# of Votes',
-            data: [10, 5,],
-            backgroundColor: [
-                '#2D9CDB',
-                'rgba(45, 156, 219, 0.15',
-
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-
-            ],
-            borderWidth: 0,
-        },
-    ],
-};
-
-
-
 export const TotalVisitors = () => {
     const [totaluser, setTotaluser] = useState("");
 
+
+    const data0 = [
+        {
+            name: "Sunday",
+            uv: 1000,
+            pv: 2400,
+            amt: 2400
+        },
+        {
+            name: "Monday",
+            uv: 800,
+            pv: 1398,
+            amt: 2210
+        },
+        {
+            name: "Tuesday",
+            uv: 2000,
+            pv: 9800,
+            amt: 2290
+        },
+        {
+            name: "Wednesday",
+            uv: 2780,
+            pv: 3908,
+            amt: 2000
+        },
+        {
+            name: "Thursday",
+            uv: 1890,
+            pv: 4800,
+            amt: 2181
+        },
+        {
+            name: "Friday",
+            uv: 1390,
+            pv: 1800,
+            amt: 1500
+        },
+        {
+            name: "Saturday",
+            uv: 3490,
+            pv: 4300,
+            amt: 2100
+        }
+    ];
+
+    ChartJS.register(ArcElement, Tooltip, Legend);
+
+
+    const data = {
+        // labels: ['#FF5B5B', 'rgba(255, 91, 91, 0.15)',],
+        datasets: [
+            {
+                label: '# of Votes',
+                data: [100, totaluser,],
+                backgroundColor: [
+                    '#FF5B5B',
+                    'rgba(255, 91, 91, 0.15)',
+
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+
+                ],
+                borderWidth: 0,
+            },
+        ],
+    };
+    // <>>>>>>>>    2    >>>>>>></>
+    const data1 = {
+        // labels: ['#FF5B5B', 'rgba(255, 91, 91, 0.15)',],
+        datasets: [
+            {
+                label: '# of Votes',
+                data: [4, 11,],
+                backgroundColor: [
+                    '#00B074',
+                    'rgba(0, 176, 116, 0.15',
+
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+
+                ],
+                borderWidth: 0,
+            },
+        ],
+    };
+
+
+    // <>>>>>>>>    3    >>>>>>></>
+    const data2 = {
+        // labels: ['#FF5B5B', 'rgba(255, 91, 91, 0.15)',],
+        datasets: [
+            {
+                label: '# of Votes',
+                data: [10, 5,],
+                backgroundColor: [
+                    '#2D9CDB',
+                    'rgba(45, 156, 219, 0.15',
+
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+
+                ],
+                borderWidth: 0,
+            },
+        ],
+    };
+
+
+
+
+
+
     useEffect(() => {
-
-
-
         axios.get('http://localhost:4000/admin/users').then((res) => {
 
             setTotaluser(res.data.users.length)
@@ -179,7 +178,7 @@ export const TotalVisitors = () => {
                     <Link to="/totalactive" className="py-1 hover-bg-[#0091CF] rounded-full hover:font-bold">
                         <li >Active Subscription</li>
                     </Link>
-                 
+
                 </ul>
             </div>
 

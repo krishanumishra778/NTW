@@ -12,7 +12,7 @@ export const Paymentcheckoutpage = () => {
     return (
         <div className='max-w-[1300px] xs:w-[90%] sm:w-[80%] md:w-[70%] mx-auto'>
 
-            <nav className="   my-2 xs:px-2 md:px-4 relative main-container">
+            <nav className="my-2 xs:px-2 md:px-4 relative main-container">
                 <div className="  flex justify-between items-center gap-1 ">
                     <div className="">
                         {/* Mobile menu button */}
@@ -37,9 +37,9 @@ export const Paymentcheckoutpage = () => {
                     <div className="max-w-[65%]">
                         <img src="logo/next tech waves logo.png" alt="" />
                     </div>
-                    
+
                     <div className='cursor-pointer'>
-                        <button 
+                        <button
                             type='submit'
                             className='text-white text-center bg-[#00B2FF] rounded-full xs:text-[9px] sm:text-[14px]  xs:py-[5px] xs:px-[3px]  sm:px-2 md:text-[16px] '
                         >

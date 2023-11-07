@@ -54,7 +54,7 @@ export const VideoAdvertising = () => {
 
     return (
         <div className="w-[98%] max-w-[1300px] mx-auto pt-16 text-center">
-            <div className="relative" style={{ width: "80%", margin: "auto" }}>
+            <div className="relative" style={{ width: "90%", margin: "auto" }}>
                 <video
                     ref={videoRef}
                     width="100%"
