@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Workssimple = () => {
     return (
-        <div class="grid md:grid-cols-2 w-[98%] max-w-[1300px] mx-auto ">
+        <div className="grid md:grid-cols-2 w-[98%] max-w-[1300px] mx-auto ">
             <div className=''>
                 <h1 className="text-[#00B2FF] font-[600] sticky top-44   sm:text-tt  xs:text-mt md:text-title xs:text-center md:text-left    mb-4 sm:mb-1 ">
                     How it works? <span className='text-[#494949]'>Simple</span>
@@ -10,7 +10,7 @@ export const Workssimple = () => {
             </div>
             {/*  1  //// */}
             <div className=''>
-                <div className='bg-[#00B2FF] rounded-md text-white p-5 sticky z-10 top-44 '>
+                <div className='bg-[#00B2FF] py-8 rounded-md text-white p-5 sticky z-10 top-44 '>
                     <div className=''>
                         <h1 className='text-xl font-bold '>1</h1>
                         <p>We’ll jump on a call together, learn more about
