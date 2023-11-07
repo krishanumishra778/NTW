@@ -52,7 +52,7 @@ export const Head_nav = () => {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
- 
+
   return (
     <>
 
@@ -202,34 +202,36 @@ export const Head_nav = () => {
 
 
 
-        <dialog id='myNav' className='w-full mt-20'>
+        <dialog id='myNav' className='w-full xs:mt-[60px] sm:mt-16'>
 
-          <div className="md:hidden pl-10 pb-8 ">
+          <div className="md:hidden pb-8 ">
             <div className='flex justify-end'>
-              <button className='p-2 px-4 ml-5 rounded-sm text-[25px] ' onClick={() => {
-                const modal = document.getElementById("myNav")
-                modal.close()
-              }}><AiOutlineClose /></button>
+
             </div>
-            <ul className="mt-2 space-y-6 font-bold ">
-              <li>
-                <Link to='/' onClick={toggleMobileMenu}> Home</Link>
+            <ul className="mt-2 flex flex-col gap-3 font-bold ">
+              <li className='flex justify-between  pt-4'>
+                <div><Link to='/' onClick={toggleMobileMenu} className='xs:text-[14px] sm:text-[15px] xs:pl-3 sm:pl-6'> Home</Link></div>
+                <div><button className=' rounded-sm xs:text-[20px] sm:text-[22px] xs:pr-3 sm:pr-6' onClick={() => {
+                  const modal = document.getElementById("myNav")
+                  modal.close()
+                }}><AiOutlineClose /></button></div>
+
               </li>
               <li>
-                <Link to='/about' onClick={toggleMobileMenu}> About Us</Link>
+                <Link to='/about' className='xs:text-[14px] sm:text-[15px] xs:pl-3 sm:pl-6' onClick={toggleMobileMenu}> About Us</Link>
               </li>
               <li>
-                <Link to='/services' onClick={toggleMobileMenu}> Services</Link>
+                <Link to='/services'   className='xs:text-[14px] sm:text-[15px] xs:pl-3 sm:pl-6' onClick={toggleMobileMenu}> Services</Link>
               </li>
               <li>
-                <Link to='/subscription' onClick={toggleMobileMenu}> Recharge & Plans</Link>
+                <Link to='/subscription'  className='xs:text-[14px] sm:text-[15px] xs:pl-3 sm:pl-6' onClick={toggleMobileMenu}> Recharge & Plans</Link>
               </li>
               <li>
-                <Link to='/portfolio' onClick={toggleMobileMenu}> Our Portfolio</Link>
+                <Link to='/portfolio'  className='xs:text-[14px] sm:text-[15px] xs:pl-3 sm:pl-6' onClick={toggleMobileMenu}> Our Portfolio</Link>
               </li>
               <hr className='' />
               <li>
-                <Link to='/sign-up' onClick={toggleMobileMenu}>Sign-Up</Link>
+                <Link to='/sign-up'  className='xs:text-[14px] sm:text-[15px] xs:pl-3 sm:pl-6' onClick={toggleMobileMenu}>Sign-Up</Link>
               </li>
             </ul>
           </div>
