@@ -59,7 +59,7 @@ export const VideoAdvertising = () => {
                     ref={videoRef}
                     width="100%"
                     height="auto"
-                    className="rounded-3xl shadow-2xl shadow-[#494949]"
+                    className="rounded-3xl shadow-lg shadow-[#494949]"
                 >
                     <source
                         src="https://www.w3schools.com/html/mov_bbb.mp4"

@@ -10,7 +10,7 @@ export const Workssimple = () => {
             </div>
             {/*  1  //// */}
             <div className=''>
-                <div className='bg-[#00B2FF] py-8 rounded-md text-white p-5 sticky z-10 top-44 '>
+                <div className='bg-[#00B2FF] py-8 rounded-md text-white p-5 sticky z-10 top-44 shadow-lg  shadow-[#848484] '>
                     <div className=''>
                         <h1 className='text-xl font-bold '>1</h1>
                         <p>We’ll jump on a call together, learn more about
@@ -20,7 +20,7 @@ export const Workssimple = () => {
                     </div>
                 </div>
                 {/* 2 */}
-                <div className='bg-[#00B2FF] rounded-md text-white p-5 my-5 sticky z-10 top-44  '>
+                <div className='bg-[#00B2FF] rounded-md text-white p-5 my-5 sticky z-10 top-44  shadow-lg  shadow-[#848484] '>
 
                     <div className=''>
                         <h1 className='text-xl font-bold'>2</h1>
@@ -35,7 +35,7 @@ export const Workssimple = () => {
                     </div>
                 </div>
                 {/* 3 */}
-                <div className='bg-[#00B2FF] rounded-md text-white p-5 sticky z-10 top-44 '>
+                <div className='bg-[#00B2FF] rounded-md text-white p-5 sticky z-10 top-44 shadow-lg  shadow-[#848484] '>
 
                     <div className=''>
                         <h1 className='text-xl font-bold'>3</h1>
