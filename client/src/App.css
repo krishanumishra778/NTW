@@ -43,12 +43,12 @@ img {
 .text {
   position: absolute;
   top: -100px;
-  left: 22%;
+  left: 26%;
   text-align: center;
   transition: all 0.5s;
 }
 .box:hover .text {
-  top: 30%;
+  top: 38%;
 }
 
 /* 2 */
