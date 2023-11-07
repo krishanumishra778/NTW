@@ -53,13 +53,13 @@ export const VideoAdvertising = () => {
     };
 
     return (
-        <div className="w-[98%] max-w-[1300px] mx-auto pt-16 text-center">
+        <div className=" xs:w-[90%] md:w-[70%] max-w-[1300px] mx-auto pt-16 text-center">
             <div className="relative" style={{ width: "90%", margin: "auto" }}>
                 <video
                     ref={videoRef}
                     width="100%"
                     height="auto"
-                    className="rounded-3xl"
+                    className="rounded-3xl shadow-2xl shadow-[#494949]"
                 >
                     <source
                         src="https://www.w3schools.com/html/mov_bbb.mp4"
