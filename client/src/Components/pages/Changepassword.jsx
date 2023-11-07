@@ -293,7 +293,7 @@ export const Changepassword = () => {
                       </circle>
                     </g>
                   </svg>
-                ) : "Log in"}
+                ) : "Change password"}
 
               </button>
           </div>

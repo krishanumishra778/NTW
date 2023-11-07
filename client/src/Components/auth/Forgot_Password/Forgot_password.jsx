@@ -2,7 +2,7 @@
 
 // import { Link } from "react-router-dom"
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -30,7 +30,8 @@ export const Forgot_password = () => {
         { inpData }
       ).then((res) => {
         toast.success(res.data.message)
-        console.log(res.data.message)
+        // console.log(res.data.message)
+        navigate("/login")
       }).catch((error) => {
         toast.error(error?.response?.data?.message)
       })

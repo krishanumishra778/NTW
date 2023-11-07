@@ -39,7 +39,7 @@ const Fotter = () => {
         <div>
             <div className=" xs:max-w-[1300px]  mx-auto py-5 mt-6 md:mb-12 sm:grid grid-cols-2 gap-4 px-4" >
                 <div >
-                    <div>
+                    <div className='flex xs:justify-center sm:justify-start  '>
                         <img className='' src="logo/next tech waves logo.png" />
                     </div>
                     <div className="flex justify-between mb-5 items-center w-[50%] md:w-[40%] lg:w-[30%]  mt-2 pl-2 mx-auto sm:mx-0 sm:gap-2  ">

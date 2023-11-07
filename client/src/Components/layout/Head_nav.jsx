@@ -114,7 +114,7 @@ export const Head_nav = () => {
 
           {/* logout section */}
           <dialog
-            className='absolute mt-0 w-full mt-[10%]'
+            className='absolute  w-full mt-[10%]'
             id='myModal'
           >
             {isAuthenticated ? (

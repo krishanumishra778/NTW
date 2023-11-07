@@ -3,7 +3,7 @@ import { AiOutlineCaretUp, AiOutlineCaretDown } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import { MdNavbar } from '../layout/MdNavbar';
 import { useDispatch, useSelector } from "react-redux"
-import { updateProfile } from '../../actions/userAction';
+import { logout, updateProfile } from '../../actions/userAction';
 import axios from 'axios';
 
 export const Editprofile = () => {
@@ -106,9 +106,12 @@ export const Editprofile = () => {
                 </div>
                 <div className='py-3'>
                   <hr className='border-2' />
-                  <h1 className='pt-4 px-2 cursor-pointer' onClick={() => { navigate("/") }}  >
-                    LogOut
-                  </h1>
+                 {isAuthenticated ? (<h1 className='pt-4 px-2 cursor-pointer' onClick={() => { dispatch(logout()) , navigate("/")}}  >
+                    Log Out
+                  </h1>) : (<h1 className='pt-4 px-2 cursor-pointer' onClick={() => { navigate("/login") }}  >
+                    Log In
+                  </h1>)} 
+                  
                 </div>
               </div>
             )}
@@ -236,7 +239,7 @@ export const Editprofile = () => {
                       </circle>
                     </g>
                   </svg>
-                ) : "Log in"}
+                ) : "Save Changes"}
 
               </button>
             </div>
