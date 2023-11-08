@@ -18,18 +18,19 @@ export const Whychooseus = () => {
                     <p className='xs:text-mp sm:text-tp md:text-p md:w-[70%] mx-auto'>We are masters at our craft. Designing for our team is like knowing the back of their hands. But there’s much more</p>
                 </div>
 
-                <div className='border-2 grid grid-cols-3 gap-3 max-w-[95%] mx-auto'>
-<div className='border-2 text-center p-6'>
-    <p>Rapid turnaround time</p>
-</div>
-<div className='border-2 text-center p-6' >
-    <p>Pixel-perfect design</p>
-</div>
-<div className='border-2 text-center p-6'>
-    <p>
-    No hidden charges
-    </p>
-</div>
+                <div className=' py-3 grid grid-cols-3 gap-3 max-w-[95%] mx-auto'>
+                    <div className=' shadow-lg rounded-lg  shadow-[#848484] text-center p-8'>
+                        <p>Rapid turnaround <p> time</p></p>
+                    </div>
+                    <div className=' shadow-lg rounded-lg  shadow-[#848484] text-center p-8 bg-[#00B2FF] text-[#fff]' >
+                        <p>Pixel-perfect
+                            <p> design </p> </p>
+                    </div>
+                    <div className=' shadow-lg rounded-lg  shadow-[#848484] text-center p-8'>
+                        <p>
+                            No hidden <p>   charges</p>
+                        </p>
+                    </div>
                 </div>
 
             </div>
@@ -43,6 +44,12 @@ export const Whychooseus = () => {
 
                 {/*  1  //// */}
                 <div className='md:hidden'>
+
+                    <div className=''>
+                        <p className='xs:text-mt sm:text-tt md:text-t py-2 text-center'>Choosing us will save you money and time. What sets us apart?</p>
+                        <p className='xs:text-mp sm:text-tp md:text-p md:w-[70%] mx-auto sm:text-center mb-2'>We are masters at our craft. Designing for our team is like knowing the back of their hands. But there’s much more</p>
+                    </div>
+
                     <div className='bg-[#00B2FF]  rounded-md text-white p-5 sticky z-10 top-44 shadow-lg  shadow-[#848484] '>
                         <div className=''>
                             <p>Rapid turnaround time</p>

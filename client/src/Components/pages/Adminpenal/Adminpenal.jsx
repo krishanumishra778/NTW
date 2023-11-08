@@ -18,23 +18,23 @@ const AdminPanel = () => {
                         <li >Total Subscriber</li>
                     </Link>
 
-                    <Link to="totalvisitors"  className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
+                    <Link to="/totalvisitors" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
                         <li >Total Visitor's</li>
                     </Link>
-                    <Link to="totalcustomers"  className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold ">
+                    <Link to="/totalcustomers" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold ">
                         <li>Total Costumers</li>
                     </Link>
-                    <Link to=""  className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
+                    <Link to="" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
                         <li >feedback & review</li>
                     </Link>
-                    <Link to=""  className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
+                    <Link to="" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
                         <li >Affiliate marketars</li>
                     </Link>
 
-                    <Link to="/totalactive"  className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold ">
+                    <Link to="/totalactive" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold ">
                         <li >Active Subscription</li>
                     </Link>
-                   
+
                 </ul>
             </div>
 

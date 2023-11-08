@@ -70,10 +70,10 @@ export const TotalSubscriberActive = () => {
                         <li >Total Subscriber</li>
                     </Link>
 
-                    <Link to="totalvisitors"  className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
+                    <Link to="/totalvisitors"  className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
                         <li >Total Visitor's</li>
                     </Link>
-                    <Link to="totalcustomers"  className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold ">
+                    <Link to="/totalcustomers"  className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold ">
                         <li>Total Costumers</li>
                     </Link>
                     <Link to=""  className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">

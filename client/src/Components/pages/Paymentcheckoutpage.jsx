@@ -49,7 +49,7 @@ export const Paymentcheckoutpage = () => {
         <div className='max-w-[1300px] xs:w-[90%] sm:w-[80%] md:w-[70%] mx-auto'>
 
             <nav className="my-2 xs:px-2 md:px-4 relative main-container">
-                <div className="  flex justify-between items-center gap-1 ">
+                <div className="  flex justify-between items-center  gap-1 ">
                     <div className="">
                         {/* Mobile menu button */}
                         <button className="text-[black]" onClick={toggleMobileMenu}>
@@ -70,14 +70,14 @@ export const Paymentcheckoutpage = () => {
                             </svg>
                         </button>
                     </div>
-                    <div className="max-w-[65%]">
+                    <div className="max-w-[56%]">
                         <img src="logo/next tech waves logo.png" alt="" />
                     </div>
 
                     <div className='cursor-pointer'>
                         <button
                             type='submit'
-                            className='text-white text-center bg-[#00B2FF] rounded-full xs:text-[9px] sm:text-[14px]  xs:py-[5px] xs:px-[3px]  sm:px-2 md:text-[16px] '
+                            className='text-white text-center bg-[#00B2FF] rounded-full xs:text-[12px] sm:text-[16px]  xs:py-1  sm:py-2 xs:px-1 sm:px-2 md:px-3   md:text-[16px] '
                         >
                             Book a call
                         </button>
@@ -158,7 +158,7 @@ export const Paymentcheckoutpage = () => {
             </div>
             {/* section 4 start  */}
 
-            <div className='bg-gray-100 md:w-[60%] sm:w-[80%] xs:w-[95%]  mt-14 rounded-xl shadow-lg outline-none'>
+            <div className='bg-gray-100 md:w-[60%] sm:w-[80%] xs:w-[95%]  mt-14 rounded-xl shadow-lg outline-none mx-auto'>
                 <div>
 
                     <h1 className="text-[#00B2FF] px-4 font-[600] py-4 sm:text-tt  xs:text-mt md:text-title xs:text-center   mt-8 mb-4 sm:mb-1">Proceed to Payment:-</h1>

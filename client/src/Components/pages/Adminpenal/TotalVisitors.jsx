@@ -13,7 +13,13 @@ import {
 } from "recharts";
 
 export const TotalVisitors = () => {
-    const [totaluser, setTotaluser] = useState("");
+    const [totaluser, setTotaluser] = useState();
+    const [totalOrders, setTotalOrders] = useState(0);
+    const [totalactive, setTotalactive] = useState(0);
+
+
+
+
 
 
     const data0 = [
@@ -69,7 +75,7 @@ export const TotalVisitors = () => {
         datasets: [
             {
                 label: '# of Votes',
-                data: [100, totaluser,],
+                data: [100, totalOrders,],
                 backgroundColor: [
                     '#FF5B5B',
                     'rgba(255, 91, 91, 0.15)',
@@ -85,13 +91,13 @@ export const TotalVisitors = () => {
             },
         ],
     };
-    // <>>>>>>>>    2    >>>>>>></>
-    const data1 = {
+    // <>>>>>>>>    1    >>>>>>></>
+    const CustomerGrowth = {
         // labels: ['#FF5B5B', 'rgba(255, 91, 91, 0.15)',],
         datasets: [
             {
                 label: '# of Votes',
-                data: [4, 11,],
+                data: [100, totaluser],
                 backgroundColor: [
                     '#00B074',
                     'rgba(0, 176, 116, 0.15',
@@ -109,13 +115,13 @@ export const TotalVisitors = () => {
     };
 
 
-    // <>>>>>>>>    3    >>>>>>></>
+    // <>>>>>>>>    2    >>>>>>></>
     const data2 = {
         // labels: ['#FF5B5B', 'rgba(255, 91, 91, 0.15)',],
         datasets: [
             {
                 label: '# of Votes',
-                data: [10, 5,],
+                data: [100,0],
                 backgroundColor: [
                     '#2D9CDB',
                     'rgba(45, 156, 219, 0.15',
@@ -125,7 +131,6 @@ export const TotalVisitors = () => {
                     'rgba(255, 99, 132, 1)',
                     'rgba(54, 162, 235, 1)',
                     'rgba(255, 206, 86, 1)',
-
                 ],
                 borderWidth: 0,
             },
@@ -134,18 +139,34 @@ export const TotalVisitors = () => {
 
 
 
-
-
-
     useEffect(() => {
         axios.get('http://localhost:4000/admin/users').then((res) => {
 
             setTotaluser(res.data.users.length)
+            const userData = res.data.users;
+            const totalPaymentUsers = userData.filter((items, index) => {
+                return items.subscription.payment == true
+
+            })
+
+            setTotalOrders(totalPaymentUsers.length)
+            setTotaluser(userData.length)
+
+            const totalactiveuser = userData.filter((items, index) => {
+                return items.subscription.planStatus == true
+
+            })
+            console.log(totalactiveuser.length)
+            setTotalactive(totalactiveuser.length)
+
+
 
         }).catch((error) => {
             console.log(error)
         })
     })
+
+    // ,,,,,,
 
 
 
@@ -211,7 +232,7 @@ export const TotalVisitors = () => {
                         </div>
                         <div className=''>
                             <h1 className='leading-4 lg:text-lg'>Total Orders</h1>
-                            <p className='text-[#AEAEAE] leading-4'>650</p>
+                            <p className='text-[#AEAEAE] leading-4'>{totalOrders}</p> {/* Display the totalOrders state variable here */}
                         </div>
                     </div>
 
@@ -221,7 +242,7 @@ export const TotalVisitors = () => {
                         </div>
                         <div className=''>
                             <h1 className='leading-4 lg:text-lg'>Active Orders</h1>
-                            <p className='text-[#AEAEAE] leading-4'>500</p>
+                            <p className='text-[#AEAEAE] leading-4'>{totalactive}</p>
                         </div>
                     </div>
 
@@ -250,7 +271,7 @@ export const TotalVisitors = () => {
                             <h1 className=''>Total Order</h1>
                         </div>
                         <div className='w-36'>
-                            <Doughnut className=' ' data={data1} width={20} height={20} /> {/* Customize the width and height */}
+                            <Doughnut className=' ' data={CustomerGrowth} width={20} height={20} /> {/* Customize the width and height */}
                             <h1>Customer Growth</h1>
                         </div>
                         <div className='w-36'>
@@ -286,7 +307,6 @@ export const TotalVisitors = () => {
                         <RechartsTooltip />
                         <Area type="monotone" dataKey="uv" stroke="#2D9CDB" strokeWidth={3} fill="#6EC8EF" />
                     </AreaChart>
-
                 </div>
             </div>
         </div>
