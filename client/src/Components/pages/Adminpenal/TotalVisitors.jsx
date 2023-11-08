@@ -121,7 +121,7 @@ export const TotalVisitors = () => {
         datasets: [
             {
                 label: '# of Votes',
-                data: [5, 10],
+                data: [100,0],
                 backgroundColor: [
                     '#2D9CDB',
                     'rgba(45, 156, 219, 0.15',

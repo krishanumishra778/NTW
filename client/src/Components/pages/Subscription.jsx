@@ -2,7 +2,7 @@
 
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
-import { loadStripe } from "@stripe/stripe-js";
+
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
@@ -118,86 +118,7 @@ const Subscription = () => {
     }
   }, [changePrice, user]);
 
-  const makePayment = async e => {
-    const date = new Date();
-    const theDayOfTheMonthOnNextWeek = date.getDate() + 1;
-    date.setDate(theDayOfTheMonthOnNextWeek);
-    console.log(date);
-    const { data } = await axios.post(
-      "http://localhost:4000/create-checkout-session",
-      { id: "65420b058023c6bb66ee79e0" },
-      {
-        withCredentials: true,
-      }
-    );
-    console.log(data);
-    if (data.success) {
-
-      if (changePrice) {
-        if (e.target.value == "standard") {
-          const { data } = await axios.post(
-            `http://localhost:4000/subscribe/${user._id}`,
-            {
-              plan: `${e.target.value} (quartaly)`,
-            },
-            {
-              withCredentials: true,
-            }
-          );
-        } else {
-          const { data } = await axios.post(
-            `http://localhost:4000/subscribe/${user._id}`,
-            {
-              plan: `${e.target.value} (quarterly)`,
-              remain_days: "123",
-            },
-            {
-              withCredentials: true,
-            }
-          );
-        }
-      } else {
-        if (e.target.value == "standard") {
-          const { data } = await axios.post(
-            `http://localhost:4000/subscribe/${user._id}`,
-            {
-              plan: `${e.target.value} (monthly)`,
-              remain_days: "123",
-            },
-            {
-              withCredentials: true,
-            }
-          );
-        } else {
-          const { data } = await axios.post(
-            `http://localhost:4000/subscribe/${user._id}`,
-            {
-              plan: `${e.target.value} (monthly)`,
-              remain_days: "123",
-            },
-            {
-              withCredentials: true,
-            }
-          );
-        }
-      }
-
-      // const stripe = await loadStripe(
-      //   "pk_test_51O64xKSIWvRI9Ne7vTGnXsMs5Rm0voJfiGC3k8rUEWBP24D90lmK2M7RT9S7QHt1fjDS9uMqi3bIX6bJyyoIbE3w00HZD1drGj"
-      // );
-
-      // const result = stripe.redirectToCheckout({
-      //   sessionId: data.id,
-      // });
-
-      // if (result.error) {
-      //   console.log(result.error);
-      // }
-    } else {
-      console.log(data);
-      toast.error(data.message);
-    }
-  };
+  
 
   return (
     <>

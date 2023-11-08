@@ -41,6 +41,8 @@ import { SubscriberBiodata } from "./Components/pages/Adminpenal/SubscriberBioda
 import { SubscriberBiodata1 } from "./Components/pages/Adminpenal/SubscriberBiodata1";
 import { Paymentcheckoutpage } from "./Components/pages/Paymentcheckoutpage";
 
+
+
 export default function App() {
   ///country api
 
@@ -53,7 +55,7 @@ export default function App() {
   //     console.log(err);
   //   });
   // ><<<<<<><
-  const { isAuthenticated,  } = useSelector(state => state.user);
+  const { isAuthenticated  } = useSelector(state => state.user);
 
   useEffect(() => {
     store.dispatch(LoadUser());
@@ -162,7 +164,7 @@ export default function App() {
               path='/totalsubscriber'
               element={
                 // <ProtectedRoute>
-                  <TotalSubscriber />
+                <TotalSubscriber />
                 // </ProtectedRoute>
               }
             />
