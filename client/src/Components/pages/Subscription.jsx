@@ -14,7 +14,7 @@ const Subscription = () => {
   const { isAuthenticated, user, loading } = useSelector(state => state.user);
   const [changePrice, setChangePrice] = useState(false);
   const price = () => {
-    console.log(changePrice);
+    // console.log(changePrice);
     if (changePrice == true) {
       setChangePrice(false);
     } else {
@@ -41,53 +41,82 @@ const Subscription = () => {
         if (user.country == "India") {
           document.getElementById("price1").innerHTML = "₹6,06,819.10";
           document.getElementById("price2").innerHTML = "₹10,11,365.10";
+          document.getElementById("price3").innerHTML = "₹6,06,819.10";
+          document.getElementById("price4").innerHTML = "₹10,11,365.10";
         } else if (user.country == "United States of America") {
           document.getElementById("price1").innerHTML = " $8,097.30";
           document.getElementById("price2").innerHTML = " $13,497.30";
+          document.getElementById("price3").innerHTML = " $8,097.30";
+          document.getElementById("price4").innerHTML = " $13,497.30";
+          
         } else if (user.country == "Germany") {
           document.getElementById("price1").innerHTML = "EUR 7,342.20";
           document.getElementById("price2").innerHTML = "EUR 12,237.30";
+          document.getElementById("price3").innerHTML = "EUR 7,342.20";
+          document.getElementById("price4").innerHTML = "EUR 12,237.30";
         } else if (user.country == "Switzerland") {
           document.getElementById("price1").innerHTML = "CHF 7,935.25";
           document.getElementById("price2").innerHTML = "CHF 13,260.33 ";
+          document.getElementById("price3").innerHTML = "CHF 7,935.25";
+          document.getElementById("price4").innerHTML = "CHF 13,260.33 ";
         } else if (user.country == "United Arab Emirates") {
           document.getElementById("price1").innerHTML = " AED 29,986.35";
           document.getElementById("price2").innerHTML = " AED 49,977.55";
+          document.getElementById("price3").innerHTML = " AED 29,986.35";
+          document.getElementById("price4").innerHTML = " AED 49,977.55";
         } else {
           document.getElementById("price1").innerHTML = " $8,097.30";
           document.getElementById("price2").innerHTML = "$13,497.30";
+          document.getElementById("price3").innerHTML = " $8,097.30";
+          document.getElementById("price4").innerHTML = "$13,497.30";
         }
       } else {
         if (user.country == "India") {
           document.getElementById("price1").innerHTML = "₹2,24,999.00";
           document.getElementById("price2").innerHTML = "₹3,74,999.00";
+          document.getElementById("price3").innerHTML = "₹2,24,999.00";
+          document.getElementById("price4").innerHTML = "₹3,74,999.00";
         } else if (user.country == "United States of America") {
           document.getElementById("price1").innerHTML = " $2999";
           document.getElementById("price2").innerHTML = "$4999";
+          document.getElementById("price3").innerHTML = " $2999";
+          document.getElementById("price4").innerHTML = "$4999";
         } else if (user.country == "Germany") {
           document.getElementById("price1").innerHTML = "EUR 2,700.22";
           document.getElementById("price2").innerHTML = "EUR 4,050.33 ";
+          document.getElementById("price3").innerHTML = "EUR 2,700.22";
+          document.getElementById("price4").innerHTML = "EUR 4,050.33 ";
         } else if (user.country == "Switzerland") {
           document.getElementById("price1").innerHTML = "CHF 2,911.58";
           document.getElementById("price2").innerHTML = "CHF 7,935.25";
+          document.getElementById("price3").innerHTML = "CHF 2,911.58";
+          document.getElementById("price4").innerHTML = "CHF 7,935.25";
         } else if (user.country == "United Arab Emirates") {
           document.getElementById("price1").innerHTML = "AED 11,038.17";
           document.getElementById("price2").innerHTML = "AED 16,557.25";
+          document.getElementById("price3").innerHTML = "AED 11,038.17";
+          document.getElementById("price4").innerHTML = "AED 16,557.25";
         } else {
           document.getElementById("price1").innerHTML = "$2999";
           document.getElementById("price2").innerHTML = "$4999";
+          document.getElementById("price3").innerHTML = "$2999";
+          document.getElementById("price4").innerHTML = "$4999";
         }
       }
     } else {
       if (changePrice) {
         document.getElementById("price1").innerHTML = " $8,097.30";
         document.getElementById("price2").innerHTML = " $13,497.30";
+        document.getElementById("price3").innerHTML = " $8,097.30";
+        document.getElementById("price4").innerHTML = " $13,497.30";
       } else {
         document.getElementById("price1").innerHTML = "$2999";
         document.getElementById("price2").innerHTML = "$4999";
+        document.getElementById("price3").innerHTML = "$2999";
+        document.getElementById("price4").innerHTML = "$4999";
       }
     }
-  }, [user, changePrice]);
+  }, [changePrice, user]);
 
   const makePayment = async e => {
     const date = new Date();
@@ -369,7 +398,7 @@ const Subscription = () => {
                 </ul>
                 <div className='text-center'>
                   <button className=' bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff] xs:mt-2 lg:mt-[60px]   hover:bg-[#00b3ffd8] '>
-                    <Link to="/contact">
+                    <Link to="/maincontactus">
                       Contact Us
                     </Link>
                   </button>
@@ -395,12 +424,11 @@ const Subscription = () => {
               <p className='sm:text-mc xs:text-tc md:text-c text-center'>
                 Subscription plan for startup’s
               </p>
-
-              <p className='sm:text-mc xs:text-tc md:text-c font-[600] text-center'>
-                {changePrice
-                  ? "₹14,999/- Per Month"
-                  : "₹40,000/- Per three Month"}
-              </p>
+              <p
+                  className='sm:text-mc xs:text-tc md:text-c font-[600] text-center'
+                  id='price3'></p>
+             
+              
               <ul className='pt-6 px-6'>
                 <li className='list-disc sm:text-mc xs:text-tc md:text-c '>
                   Includes 5 UI Design Projects in a month
@@ -442,10 +470,12 @@ const Subscription = () => {
               </ul>
               <div className='text-center'>
 
-                <button button className=' bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  my-1   hover:bg-[#00b3ffd8] '>
-                  Contact Us
+                <Link to="/paymentcheckoutpage">
+                <button  className=' bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  my-1   hover:bg-[#00b3ffd8] '>
+                      Book Now
 
                 </button>
+                    </Link>
               </div>
               <div className='text-center text-[#AEAEAE] sm:text-mc xs:text-tc md:text-c'>
                 <button className=' underline hover:text-[#00B2FF]'>
@@ -463,9 +493,9 @@ const Subscription = () => {
               <p className='sm:text-mc xs:text-tc md:text-c text-center'>
                 Subscription plan for Large Business
               </p>
-              <p className='sm:text-mc xs:text-tc md:text-c font-[600] text-center'>
-                ₹34,999/- Per page{" "}
-              </p>
+              <p
+                  className='sm:text-mc xs:text-tc md:text-c font-[600] text-center'
+                  id='price4'></p>
               <ul className='pt-6 px-6'>
                 <li className='list-disc sm:text-mc xs:text-tc md:text-c '>
                   Includes 10 UI Design Projects per month.
@@ -509,9 +539,12 @@ const Subscription = () => {
                 </button>
               </ul>
               <div className='text-center'>
+                  <Link to="/paymentcheckoutpage">
                 <button className=' bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  my-1   hover:bg-[#00b3ffd8] '>
-                  Contact Us
+                 
+                      Book Now
                 </button>
+                    </Link>
               </div>
               <div className='text-center text-[#AEAEAE] sm:text-mc xs:text-tc md:text-c'>
                 <button className=' underline hover:text-[#00B2FF]'>
@@ -568,9 +601,11 @@ const Subscription = () => {
                 </button>
               </ul>
               <div className='text-center'>
+                  <Link to="/maincontactus">
                 <button className=' bg-[#00B2FF]  rounded-3xl   px-[20px] py-[5px]  sm:text-mp xs:text-tp md:text-p  text-[#fff]  my-1   hover:bg-[#00b3ffd8] '>
-                  Contact Us
+                    Contact us
                 </button>
+                    </Link>
               </div>
               <div className='text-center text-[#AEAEAE] sm:text-mc xs:text-tc md:text-c'>
                 <p>Term’s &amp; Condition</p>

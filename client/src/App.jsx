@@ -33,7 +33,6 @@ import { TotalSubscriber } from "./Components/pages/Adminpenal/TotalSubscriber";
 import { TotalVisitors } from "./Components/pages/Adminpenal/TotalVisitors";
 import { TotalCustomers } from "./Components/pages/Adminpenal/TotalCustomers";
 import { TotalSubscriberActive } from "./Components/pages/Adminpenal/TotalSubscriberActive";
-import axios from "axios";
 import { Payment_Success } from "./Components/pages/Payment_Success";
 import { Payment_Cancel } from "./Components/pages/Payment_Cancel";
 import ProtectedRoute from "./Router/ProtectedRoute";
@@ -54,7 +53,7 @@ export default function App() {
   //     console.log(err);
   //   });
   // ><<<<<<><
-  const { isAuthenticated, loading, user } = useSelector(state => state.user);
+  const { isAuthenticated,  } = useSelector(state => state.user);
 
   useEffect(() => {
     store.dispatch(LoadUser());
