@@ -43,6 +43,12 @@ export const Editprofile = () => {
 
   }
 
+  //remove image
+  const removeImage = async () => {
+    const { data } = await axios.put('http://localhost:4000/remove/image', {}, { withCredentials: true })
+    console.log(data)
+  }
+
   const savechange = async (e) => {
     e.preventDefault();
     // console.log(inputdata)
@@ -167,9 +173,9 @@ export const Editprofile = () => {
                       </div>
                       <hr className='py-[0.5px] bg-[#AEAEAE]' />
                       <div className='relative'>
-                        <p className='my-4 text-[#00B2FF] xs:text-mp sm:text-tp md:text-p cursor-pointer  '>Remove Current Profile Picture</p>
-                        <input type="file" className='absolute top-[-5px] xs:left-[5%] sm:left-[12%] md:left-[18%] lg:left-[25%] 
-                      xl:left-[30%] cursor-pointer opacity-0' />
+                        <p className='my-4 text-[#00B2FF] xs:text-mp sm:text-tp md:text-p cursor-pointer  
+                        ' onClick={removeImage}>Remove Current Profile Picture</p>
+
                       </div>
                       <hr className='py-[0.5px] bg-[#AEAEAE]' />
                       <div className="flex justify-center gap-2 border-blueGray-200 py-3">
