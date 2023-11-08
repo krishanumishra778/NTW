@@ -34,7 +34,8 @@ const {
   pausePlan,
   playPlan,
   planDetails,
-  imageController,
+  uploadImage,
+  removeImage,
 } = require("../controllers/usercontroller");
 const isAuthenticateduser = require("../middleware/isAuthenticate");
 const {
@@ -70,7 +71,10 @@ router.route("/email/subscription").post(emailSubscribeController);
 router.route("/update/profile").put(isAuthenticateduser, updateProfile);
 
 // upload image
-router.route('/upload/image').post(isAuthenticateduser, upload.single('file'), imageController)
+router.route('/upload/image').post(isAuthenticateduser, upload.single('file'), uploadImage)
+
+//remove image
+router.route('/remove/image').put(isAuthenticateduser, removeImage)
 
 /// payment integration
 router.route("/create-checkout-session").post(isAuthenticateduser, makePayment);
