@@ -53,11 +53,13 @@ export default function App() {
   //     console.log(err);
   //   });
   // ><<<<<<><
-  const { isAuthenticated,  } = useSelector(state => state.user);
+  const { isAuthenticated, } = useSelector(state => state?.user);
 
   useEffect(() => {
-    store.dispatch(LoadUser());
-    console.log(isAuthenticated);
+    store.dispatch(LoadUser()).then(() => {
+
+      console.log(isAuthenticated);
+    })
     // console.log(user);
   }, []);
 
@@ -161,7 +163,7 @@ export default function App() {
               path='/totalsubscriber'
               element={
                 // <ProtectedRoute>
-                  <TotalSubscriber />
+                <TotalSubscriber />
                 // </ProtectedRoute>
               }
             />
@@ -208,8 +210,6 @@ export default function App() {
           </Routes>
         </Router>
       </>}
-
-
     </>
   );
 }

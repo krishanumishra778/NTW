@@ -48,29 +48,28 @@ export const userReducer = (state = { user: {} }, action) => {
       return {
         ...state,
         loading: false,
-        email_verified: action.payload.email_verified,
-        isAuthenticated: action.payload.success || false,
-        user: action.payload.user,
-        logindata: action.payload,
+        email_verified: action?.payload?.email_verified,
+        isAuthenticated: true,
+        user: action?.payload?.user,
+        logindata: action?.payload,
       };
 
     case UPDATE_PROFILE_SUCCESS:
     case REGISTER_USER_SUCCESS:
     case SEND_MESSAGE_SUCCESS:
-      
       return {
         ...state,
         loading: false,
         isAuthenticated: action.payload.success,
         data: action.payload,
       };
-      case SINGLE_USER_SUCCESS:
-        // console.log(action.payload)
-        return{
-          loading: false,
-          // isAuthenticated: action.payload.success,
-          singleuser: action.payload,
-        }
+    case SINGLE_USER_SUCCESS:
+      // console.log(action.payload)
+      return {
+        loading: false,
+        isAuthenticated: true,
+        singleuser: action.payload,
+      };
 
     case LOGOUT_REQUEST:
       return {
@@ -111,7 +110,7 @@ export const userReducer = (state = { user: {} }, action) => {
       };
 
     case SEND_MESSAGE_FAIL:
-      case SINGLE_USER_FAIL:
+    case SINGLE_USER_FAIL:
       return {
         ...state,
         loading: false,
