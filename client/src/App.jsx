@@ -53,7 +53,7 @@ export default function App() {
   //     console.log(err);
   //   });
   // ><<<<<<><
-  const { isAuthenticated,  } = useSelector(state => state.user);
+  const { isAuthenticated  } = useSelector(state => state.user);
 
   useEffect(() => {
     store.dispatch(LoadUser());
