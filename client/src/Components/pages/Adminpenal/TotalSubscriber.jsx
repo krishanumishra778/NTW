@@ -22,8 +22,8 @@ export const TotalSubscriber = () => {
     const Singleuser = (id) =>{
         // console.log(id)
         dispacth(Singleuserid(id))
-        window.location.href="/subscriberbiodata"
-        // navigate("/subscriberbiodata")
+        // window.location.href="/subscriberbiodata"
+        navigate("/subscriberbiodata")
     }
     return (
         <div className="mx-auto flex justify-center max-w-[1300px] ">
