@@ -68,8 +68,8 @@ export const userReducer = (state = { user: {} }, action) => {
         // console.log(action.payload)
         return{
           loading: false,
-          isAuthenticated: action.payload.success,
-          user: action.payload,
+          // isAuthenticated: action.payload.success,
+          singleuser: action.payload,
         }
 
     case LOGOUT_REQUEST:

@@ -81,6 +81,7 @@ export default function App() {
     <>
       {isLoading ? <Preloader /> : <>
         <Router>
+          <TotalSubscriber/>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<Mainabout />} />
