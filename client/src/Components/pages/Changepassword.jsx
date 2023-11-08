@@ -71,7 +71,7 @@ export const Changepassword = () => {
     else if (data?.success == true) {
       toast.success(data.message)
       isAuthenticated
-      navigate("/editprofile")
+      navigate("/login")
     }
   }, [data, error, isAuthenticated, navigate])
 

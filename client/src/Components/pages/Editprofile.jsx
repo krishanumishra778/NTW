@@ -79,7 +79,7 @@ export const Editprofile = () => {
         <MdNavbar />
         <div className='bg-opacity-1 flex justify-center '>
           <div className='pt-6 absolute '>
-            <img className='rounded-full w-[100px] h-[100px] '
+            <img className='rounded-full w-[65px] h-[65px] '
               src={isAuthenticated && userData.profile ? `http://localhost:4000/public/images/${userData?.profile}` : "./images/userp.png"}
               alt="" />
           </div>
