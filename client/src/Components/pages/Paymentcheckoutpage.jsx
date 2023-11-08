@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { loadStripe } from "@stripe/stripe-js";
+import axios from 'axios';
+
 
 export const Paymentcheckoutpage = () => {
 
@@ -8,6 +11,39 @@ export const Paymentcheckoutpage = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
+    };
+
+
+
+    const makePayment = async e => {
+
+        const { data } = await axios.post(
+            "http://localhost:4000/create-checkout-session",
+            { id: "65420b058023c6bb66ee79e0" },
+            {
+                withCredentials: true,
+            }
+        );
+        console.log(data);
+        if (data.success) {
+
+
+
+            const stripe = await loadStripe(
+                "pk_test_51O64xKSIWvRI9Ne7vTGnXsMs5Rm0voJfiGC3k8rUEWBP24D90lmK2M7RT9S7QHt1fjDS9uMqi3bIX6bJyyoIbE3w00HZD1drGj"
+            );
+
+            const result = stripe.redirectToCheckout({
+                sessionId: data.id,
+            });
+
+            if (result.error) {
+                console.log(result.error);
+            }
+        } else {
+            console.log(data);
+            toast.error(data.message);
+        }
     };
     return (
         <div className='max-w-[1300px] xs:w-[90%] sm:w-[80%] md:w-[70%] mx-auto'>
@@ -145,8 +181,9 @@ export const Paymentcheckoutpage = () => {
                 </div>
                 <div className='cursor-pointer py-7 px-5'>
                     <button
-                        type='submit'
+                        type='button'
                         className='text-white text-center font-bold bg-[#00B2FF] rounded-md w-full  py-3'
+                        onClick={makePayment}
                     >
                         Proceed to Payment
                     </button>

@@ -14,13 +14,14 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: `${process.env.CORS_ORIGIN}`, 
+    origin: `${process.env.CORS_ORIGIN}`,
     credentials: true,
   })
 );
 app.use(express.json());
 app.use(router);
 app.use(adminroutes);
+app.use('/public', express.static('public'))
 
 app.get("/", (rew, res) => {
   res.send("home page called");

@@ -18,6 +18,9 @@ const userSchema = mongoose.Schema(
       required: [true, "please enter your email.."],
       validate: [validator.isEmail, "please enter valid email"],
     },
+    profile:{
+      type:String
+    },
     company: {
       type: String,
     },

@@ -380,6 +380,20 @@ const updateProfile = async (req, res) => {
   }
 };
 
+// upload image controller
+const imageController = async (req, res) => {
+  try {
+    const profile = req.file.filename
+    const User = await user.findByIdAndUpdate(req.user._id, { profile: profile })
+    res.send({ success: true, message: "profile added" })
+
+  } catch (error) {
+    res.send({ sucess: false, message: "error in image uploading" })
+    console.log(error)
+
+  }
+}
+
 ////make payments
 
 const makePayment = async (req, res) => {
@@ -577,4 +591,5 @@ module.exports = {
   pausePlan,
   playPlan,
   planDetails,
+  imageController
 };
