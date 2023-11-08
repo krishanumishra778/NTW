@@ -19,14 +19,14 @@ export const Whychooseus = () => {
                 </div>
 
                 <div className=' py-3 grid grid-cols-3 gap-3 max-w-[95%] mx-auto'>
-                    <div className=' shadow-md  shadow-[#EBEBEB] text-center p-8'>
+                    <div className=' shadow-lg rounded-lg  shadow-[#848484] text-center p-8'>
                         <p>Rapid turnaround <p> time</p></p>
                     </div>
-                    <div className=' shadow-md  shadow-[#EBEBEB] text-center p-8 bg-[#00B2FF] text-[#fff]' >
+                    <div className=' shadow-lg rounded-lg  shadow-[#848484] text-center p-8 bg-[#00B2FF] text-[#fff]' >
                         <p>Pixel-perfect
                             <p> design </p> </p>
                     </div>
-                    <div className=' shadow-md  shadow-[#EBEBEB] text-center p-8'>
+                    <div className=' shadow-lg rounded-lg  shadow-[#848484] text-center p-8'>
                         <p>
                             No hidden <p>   charges</p>
                         </p>
