@@ -55,7 +55,7 @@ export const VideoAdvertising = () => {
     return (
         <div className=" xs:w-[90%] md:w-[70%] max-w-[1300px] mx-auto pt-16 text-center">
             <div className="relative" style={{ width: "90%", margin: "auto" }}>
-                <video
+                {/* <video
                     ref={videoRef}
                     width="100%"
                     height="auto"
@@ -65,7 +65,7 @@ export const VideoAdvertising = () => {
                         src="https://www.w3schools.com/html/mov_bbb.mp4"
                         type="video/mp4"
                     />
-                </video>
+                </video> */}
                 <button
                     className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                     onClick={togglePlayPause}
