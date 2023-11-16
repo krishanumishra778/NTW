@@ -239,7 +239,7 @@ export const Singleuserid = (id) => async (dispatch) => {
     // console.log(id)
     dispatch({ type: SINGLE_USER_REQUEST });
 
-    const { data } = await axios.get(
+    const {data} = await axios.get(
       `http://localhost:4000/admin/user/${id}`,
       { withCredentials: true }
     );

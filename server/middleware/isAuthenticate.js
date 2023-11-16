@@ -15,12 +15,12 @@ const isAuthenticateduser = async (req, res, next) => {
         next();
       } else {
         res
-          .status(201)
+          .status(401)
           .send({ success: false, message: "user is not authenticated" });
       }
     } else {
       res
-        .status(201)
+        .status(401)
         .send({ success: false, message: "user is not authenticated" });
     }
   } catch (error) {

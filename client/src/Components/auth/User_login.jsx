@@ -62,7 +62,6 @@ export const User_login = () => {
 
       if (isAuthenticated) {
         console.log(user)
-        localStorage.setItem("usertoken", 'dsfkjdsfjds');
         toast.success('login SuccessFully...')
         navigate("/");
       }

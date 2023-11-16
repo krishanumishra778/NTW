@@ -6,8 +6,8 @@ const Join = () => {
         <>
         <div className='bg-[#00B2FF]' >
             <div className="max-w-[1300px]  mx-auto xs:py-10 sm:py-20 xs:px-4 sm:px-5 sm:flex justify-between flex-col-2" >
-                <div className=" sm:max-w-[70%]">   
-                    <p className="text-[#FFF] sm:text-mp xs:text-tp md:text-p font-[600]  sm:text-left">Join Us
+                <div className="xs:max-w-[100%] sm:max-w-[70%]">   
+                    <p className="text-[#FFF] sm:text-mp xs:text-tp md:text-p font-[600]  xs:text-left">Join Us
                         to Elevate UI Design with Next Tech Waves Through Our Subscription Service, Unleash Creativity and
                         Beauty</p>
                 </div>

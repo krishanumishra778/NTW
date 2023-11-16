@@ -110,9 +110,8 @@ export default function App() {
             <Route
               path='/login'
               element={
-                <PublicRoute>
+                // <PublicRoute>
                   <User_login />
-                </PublicRoute>
               }
             />
             <Route path='/editprofile' element={<Editprofile />} />
@@ -137,7 +136,7 @@ export default function App() {
             <Route path='/subscriberbiodata' element={
               <ProtectedRoute>
                 <SubscriberBiodata />
-              </ProtectedRoute>
+               </ProtectedRoute>
             }></Route>
             <Route path='/subscriberbiodata1' element={
               <ProtectedRoute>
