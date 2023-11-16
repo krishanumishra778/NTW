@@ -3,6 +3,12 @@ import { Link } from 'react-router-dom';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import axios from 'axios'; // Import axios here
+import Modal from 'react-modal';
+import CalendarComponent from './CalendarComponent'; // Import your calendar component here
+
+
+
+
 import {
     AreaChart,
     Area,
@@ -18,8 +24,21 @@ export const TotalVisitors = () => {
     const [totalactive, setTotalactive] = useState(0);
 
 
+    const [selectedDate, setSelectedDate] = useState(''); // Initialize selectedDate state variable
 
 
+
+
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
 
 
     const data0 = [
@@ -67,8 +86,8 @@ export const TotalVisitors = () => {
         }
     ];
 
-    ChartJS.register(ArcElement, Tooltip, Legend);
 
+    ChartJS.register(ArcElement, Tooltip, Legend);
 
     const data = {
         // labels: ['#FF5B5B', 'rgba(255, 91, 91, 0.15)',],
@@ -114,14 +133,13 @@ export const TotalVisitors = () => {
         ],
     };
 
-
     // <>>>>>>>>    2    >>>>>>></>
     const data2 = {
         // labels: ['#FF5B5B', 'rgba(255, 91, 91, 0.15)',],
         datasets: [
             {
                 label: '# of Votes',
-                data: [100,0],
+                data: [100, 0],
                 backgroundColor: [
                     '#2D9CDB',
                     'rgba(45, 156, 219, 0.15',
@@ -137,8 +155,6 @@ export const TotalVisitors = () => {
         ],
     };
 
-
-
     useEffect(() => {
         axios.get('http://localhost:4000/admin/users').then((res) => {
 
@@ -146,7 +162,6 @@ export const TotalVisitors = () => {
             const userData = res.data.users;
             const totalPaymentUsers = userData.filter((items, index) => {
                 return items.subscription.payment == true
-
             })
 
             setTotalOrders(totalPaymentUsers.length)
@@ -154,7 +169,6 @@ export const TotalVisitors = () => {
 
             const totalactiveuser = userData.filter((items, index) => {
                 return items.subscription.planStatus == true
-
             })
             console.log(totalactiveuser.length)
             setTotalactive(totalactiveuser.length)
@@ -205,7 +219,6 @@ export const TotalVisitors = () => {
 
             {/* Main Content */}
             <div className='  w-[85%] h-[100vh]'>
-
                 <div className='flex mt-6  items-center gap-4 px-6'>
                     <div className='ml-auto '>
                         <img className='rounded-full w-12' src="./images/user.png" alt="" />
@@ -282,7 +295,6 @@ export const TotalVisitors = () => {
                 </div>
                 {/* pie chart end  */}
 
-
                 {/* graph start */}
 
                 <div className=' shadow-gray-400 mx-auto  mt-4 rounded-lg w-[96%]'>
@@ -307,6 +319,59 @@ export const TotalVisitors = () => {
                         <RechartsTooltip />
                         <Area type="monotone" dataKey="uv" stroke="#2D9CDB" strokeWidth={3} fill="#6EC8EF" />
                     </AreaChart>
+
+
+
+
+
+                    <div className="relative w-[20%]">
+                        <input
+                            className="w-full cursor-pointer rounded-lg border-2 border-[#D9D9D9] text-lg text-center"
+                            type="text"
+                            name="name"
+                            value={selectedDate}
+                            onClick={openModal}
+                        />
+                        <img
+                            src="images/calendericon.png"
+                            alt="Calendar Icon"
+                            className="absolute top-1/2 right-2 transform -translate-y-1/2 h-6 w-6 cursor-pointer"
+                            onClick={openModal}
+                        />
+
+                        <Modal
+                            isOpen={isModalOpen}
+                            onRequestClose={closeModal}
+                            contentLabel="Calendar Modal"
+                            style={{
+                                content: {
+                                    width: '40%',
+                                    height: '55%',
+                                    top: '50%',
+                                    left: '50%',
+                                    transform: 'translate(-50%, -50%)',
+                                    display: 'flex',  // Add this line
+                                    flexDirection: 'column',  // Add this line
+                                    justifyContent: 'center',  // Add this line
+                                    alignItems: 'center',  // Add this line
+                                }
+                            }}
+                        >
+                            <CalendarComponent
+                                selectedDate={selectedDate}
+                                onDateChange={(e) => setSelectedDate(e.target.value)}
+                                closeCalendar={closeModal}
+                            />
+                        </Modal>
+
+
+
+
+                    </div>
+
+
+
+
                 </div>
             </div>
         </div>
