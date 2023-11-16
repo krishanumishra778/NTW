@@ -40,7 +40,7 @@ import PublicRoute from "./Router/PublicRoute";
 import { SubscriberBiodata } from "./Components/pages/Adminpenal/SubscriberBiodata";
 import { SubscriberBiodata1 } from "./Components/pages/Adminpenal/SubscriberBiodata1";
 import { Paymentcheckoutpage } from "./Components/pages/Paymentcheckoutpage";
-// import Reviewandfeedback from "./Components/pages/Adminpenal/Reviewandfeedback";
+import { CalendarComponent } from "./Components/pages/Adminpenal/CalendarComponent";
 
 export default function App() {
   ///country api
@@ -54,13 +54,11 @@ export default function App() {
   //     console.log(err);
   //   });
   // ><<<<<<><
-  const { isAuthenticated, } = useSelector(state => state?.user);
+  const { isAuthenticated, } = useSelector(state => state.user);
 
   useEffect(() => {
-    store.dispatch(LoadUser()).then(() => {
-
-      console.log(isAuthenticated);
-    })
+    store.dispatch(LoadUser());
+    console.log(isAuthenticated);
     // console.log(user);
   }, []);
 
@@ -79,12 +77,11 @@ export default function App() {
     });
   }, []);
 
-//testing
+
   return (
     <>
       {isLoading ? <Preloader /> : <>
         <Router>
-          {/* <Reviewandfeedback/> */}
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<Mainabout />} />
@@ -112,6 +109,7 @@ export default function App() {
               element={
               
                   <User_login />
+               
               }
             />
             <Route path='/editprofile' element={<Editprofile />} />
@@ -136,7 +134,7 @@ export default function App() {
             <Route path='/subscriberbiodata' element={
               <ProtectedRoute>
                 <SubscriberBiodata />
-               </ProtectedRoute>
+              </ProtectedRoute>
             }></Route>
             <Route path='/subscriberbiodata1' element={
               <ProtectedRoute>
@@ -208,9 +206,20 @@ export default function App() {
                 </ProtectedRoute>
               }
             />
+            <Route
+              path='/CalendarComponent'
+              element={
+                <ProtectedRoute>
+                  <CalendarComponent />
+                </ProtectedRoute>
+              }
+            />
+
           </Routes>
         </Router>
       </>}
+
+
     </>
   );
 }
