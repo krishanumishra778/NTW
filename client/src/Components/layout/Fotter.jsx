@@ -20,7 +20,8 @@ const Fotter = () => {
 
     const formHandler = async (e) => {
         e.preventDefault()
-        const res = await axios.post('http://localhost:4000/email/subscription', email)
+        const res = await axios.post('http://localhost:4000/email/subscription', email);
+        console.log(res)
         if (res.data.success) {
             toast.success(res.data.message)
             setEmail({

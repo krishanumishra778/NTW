@@ -16,7 +16,7 @@ const adminroutes = require("express").Router();
 // get all users
 adminroutes
   .route("/admin/users")
-  .get( getAllUsers);
+  .get(getAllUsers);
 
 // get single user
 adminroutes
@@ -26,7 +26,7 @@ adminroutes
   .delete(isAuthenticateduser, isAdmin("admin"), deleteUser);
 
 
-  //get email subscriber
-  adminroutes.route('/email/subscriber').get(isAuthenticateduser,isAdmin('admin'),getEmailSubscriber)
+//get email subscriber
+adminroutes.route('/email/subscriber').get(isAuthenticateduser, isAdmin('admin'), getEmailSubscriber)
 
 module.exports = adminroutes;

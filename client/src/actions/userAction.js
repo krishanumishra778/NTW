@@ -85,7 +85,7 @@ export const LoadUser = () => async (dispatch) => {
     const { data } = await axios.get(`http://localhost:4000/me`, {
       withCredentials: true,
     });
-    // console.log(data, "loaduser");
+    console.log(data, "loaduser");
     dispatch({ type: LOAD_USER_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: LOAD_USER_FAIL, payload: error?.response?.data?.error });
@@ -239,11 +239,12 @@ export const Singleuserid = (id) => async (dispatch) => {
     // console.log(id)
     dispatch({ type: SINGLE_USER_REQUEST });
 
-    const { data } = await axios.get(
+    const {data} = await axios.get(
       `http://localhost:4000/admin/user/${id}`,
       { withCredentials: true }
     );
-  //  console.log(data)
+     console.log(data)
+     
 
     dispatch({ type: SINGLE_USER_SUCCESS, payload: data });
   } catch (error) {

@@ -1,5 +1,18 @@
 /** @format */
 const jwt = require("jsonwebtoken");
+const multer = require('multer')
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/images')
+  },
+  filename: function (req, file, cb) {
+
+    cb(null, Date.now() + '' + file.originalname)
+  }
+})
+
+const upload = multer({ storage: storage })
 
 const {
   userLogInController,
@@ -21,6 +34,8 @@ const {
   pausePlan,
   playPlan,
   planDetails,
+  uploadImage,
+  removeImage,
 } = require("../controllers/usercontroller");
 const isAuthenticateduser = require("../middleware/isAuthenticate");
 const {
@@ -55,6 +70,12 @@ router.route("/email/subscription").post(emailSubscribeController);
 // update user profile
 router.route("/update/profile").put(isAuthenticateduser, updateProfile);
 
+// upload image
+router.route('/upload/image').post(isAuthenticateduser, upload.single('file'), uploadImage)
+
+//remove image
+router.route('/remove/image').put(isAuthenticateduser, removeImage)
+
 /// payment integration
 router.route("/create-checkout-session").post(isAuthenticateduser, makePayment);
 
@@ -69,10 +90,10 @@ router.route("/pause/plan/:id").post(isAuthenticateduser, pausePlan);
 
 
 // play plan
-router.route('/play/plan/:id').post(isAuthenticateduser,playPlan)
+router.route('/play/plan/:id').post(isAuthenticateduser, playPlan)
 
 
 //plan details
-router.route('/plan/details/:id').get(isAuthenticateduser,planDetails)
+router.route('/plan/details/:id').get(isAuthenticateduser, planDetails)
 
 module.exports = router;

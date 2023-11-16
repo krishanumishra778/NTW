@@ -5,12 +5,13 @@ import { MdNavbar } from '../layout/MdNavbar';
 import { useDispatch, useSelector } from "react-redux"
 import { logout, updateProfile } from '../../actions/userAction';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 export const Editprofile = () => {
-  const { isAuthenticated, user , loading} = useSelector((state) => state.user);
+  const { isAuthenticated, user, loading } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  const [file, setFile] = useState(null)
 
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -19,7 +20,34 @@ export const Editprofile = () => {
     name: "",
     email: user?.email,
     company: "",
+    profile: ""
   })
+
+  const imageChange = (e) => {
+    setFile(e.target.files[0])
+  }
+
+  const uploadImage = async (e) => {
+    e.preventDefault()
+    const formdata = new FormData()
+    formdata.append('file', file)
+    console.log(file)
+    const { data } = await axios.post('http://localhost:4000/upload/image', formdata, { withCredentials: true })
+    if (data.success) {
+      toast.success(data.message)
+      setShowModal(false)
+      navigate('/editprofile')
+    } else {
+      toast.error(data.message)
+    }
+
+  }
+
+  //remove image
+  const removeImage = async () => {
+    const { data } = await axios.put('http://localhost:4000/remove/image', {}, { withCredentials: true })
+    console.log(data)
+  }
 
   const savechange = async (e) => {
     e.preventDefault();
@@ -37,10 +65,13 @@ export const Editprofile = () => {
       setUserData({
         name: user?.name,
         email: user?.email,
-        company: user?.company
+        company: user?.company,
+        profile: user?.profile
       })
     }
+
   }, [user])
+
 
   return (
     <>
@@ -48,8 +79,8 @@ export const Editprofile = () => {
         <MdNavbar />
         <div className='bg-opacity-1 flex justify-center '>
           <div className='pt-6 absolute '>
-            <img className='rounded-full '
-              src={isAuthenticated ? "./images/user.png" : "./images/userp.png"}
+            <img className='rounded-full w-[65px] h-[65px] '
+              src={isAuthenticated && userData.profile ? `http://localhost:4000/public/images/${userData?.profile}` : "./images/userp.png"}
               alt="" />
           </div>
           <div className='pl-12 pt-7 relative '>
@@ -106,12 +137,12 @@ export const Editprofile = () => {
                 </div>
                 <div className='py-3'>
                   <hr className='border-2' />
-                 {isAuthenticated ? (<h1 className='pt-4 px-2 cursor-pointer' onClick={() => { dispatch(logout()) , navigate("/")}}  >
+                  {isAuthenticated ? (<h1 className='pt-4 px-2 cursor-pointer' onClick={() => { dispatch(logout()), navigate("/") }}  >
                     Log Out
                   </h1>) : (<h1 className='pt-4 px-2 cursor-pointer' onClick={() => { navigate("/login") }}  >
                     Log In
-                  </h1>)} 
-                  
+                  </h1>)}
+
                 </div>
               </div>
             )}
@@ -133,38 +164,41 @@ export const Editprofile = () => {
                     </div>
                     <hr className='py-[0.5px] bg-[#AEAEAE]' />
 
-                    <div className='relative'>
-                      <p className='my-4 text-[red] xs:text-mp sm:text-tp md:text-p'>Upload New Profile Picture</p>
-                      <input type="file" className='absolute top-[-5px] xs:left-[5%] sm:left-[12%] md:left-[18%] lg:left-[25%] 
-                      xl:left-[30%] cursor-pointer opacity-0' />
-                    </div>
-                    <hr className='py-[0.5px] bg-[#AEAEAE]' />
-                    <div className='relative'>
-                      <p className='my-4 text-[#00B2FF] xs:text-mp sm:text-tp md:text-p cursor-pointer  '>Remove Current Profile Picture</p>
-                      <input type="file" className='absolute top-[-5px] xs:left-[5%] sm:left-[12%] md:left-[18%] lg:left-[25%] 
-                      xl:left-[30%] cursor-pointer opacity-0' />
-                    </div>
-                    <hr className='py-[0.5px] bg-[#AEAEAE]' />
-                    <div className="flex justify-center gap-2 border-blueGray-200 py-3">
-                      <button
-                        className="text-[#fff] bg-[black] rounded-md uppercase px-2 py-1 xs:text-mc 
+                    <form onSubmit={uploadImage}>
+                      <div className='relative'>
+                        <p className='my-4 text-[red] xs:text-mp sm:text-tp md:text-p'>Upload New Profile Picture</p>
+                        <input type="file" className='absolute top-[-5px] xs:left-[5%] sm:left-[12%] md:left-[18%] lg:left-[25%] 
+                      xl:left-[30%] cursor-pointer opacity-0'
+                          onChange={imageChange} />
+                      </div>
+                      <hr className='py-[0.5px] bg-[#AEAEAE]' />
+                      <div className='relative'>
+                        <p className='my-4 text-[#00B2FF] xs:text-mp sm:text-tp md:text-p cursor-pointer  
+                        ' onClick={removeImage}>Remove Current Profile Picture</p>
+
+                      </div>
+                      <hr className='py-[0.5px] bg-[#AEAEAE]' />
+                      <div className="flex justify-center gap-2 border-blueGray-200 py-3">
+                        <button
+                          className="text-[#fff] bg-[black] rounded-md uppercase px-2 py-1 xs:text-mc 
                         sm:text-tc md:text-c mr-1 mb-1 transition-all duration-150 
                         ease-linear outline-none focus:outline-none background-transparent"
-                        type="button"
-                        onClick={() => setShowModal(false)}
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        className="bg-[#00B2FF] text-white uppercase px-2 rounded-md shadow hover:shadow-lg 
+                          type="button"
+                          onClick={() => setShowModal(false)}
+                        >
+                          Cancel
+                        </button>
+                        <button
+                          className="bg-[#00B2FF] text-white uppercase px-2 rounded-md shadow hover:shadow-lg 
                         outline-none focus:outline-none mb-1 transition-all duration-150 
                         ease-linear xs:text-mc sm:text-tc md:text-c"
-                        type="button"
-                        onClick={() => setShowModal(false)}
-                      >
-                        Save Changes
-                      </button>
-                    </div>
+                          type="submit"
+
+                        >
+                          Save Changes
+                        </button>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -192,8 +226,8 @@ export const Editprofile = () => {
               }} required />
             </div>
             <div className='flex justify-end'>
-            <button disabled={loading}
-                
+              <button disabled={loading}
+
 
                 type='submit'
                 className='text-white bg-[#00B2FF] hover:bg-[#00b3ffd3] hover:font-bold xs:text-mp sm:text-tp md:text-p w-full px-5 py-2.5 text-center  my-4 rounded-lg'>

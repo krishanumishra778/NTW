@@ -380,6 +380,33 @@ const updateProfile = async (req, res) => {
   }
 };
 
+// upload image controller
+const uploadImage = async (req, res) => {
+  try {
+    const profile = req.file.filename
+    const User = await user.findByIdAndUpdate(req.user._id, { profile: profile })
+    res.send({ success: true, message: "profile added" })
+
+  } catch (error) {
+    res.send({ sucess: false, message: "error in image uploading" })
+    console.log(error)
+
+  }
+}
+
+//remove image controller
+const removeImage = async (req, res) => {
+
+  try {
+
+    const { imageName } = req.body
+    await user.findByIdAndUpdate(req.user._id, { profile: null })
+    res.send({ success: true, message: "profile removed" })
+  } catch (error) {
+    res.send({ success: false, message: "error in image removing" })
+    console.log(error)
+  }
+}
 ////make payments
 
 const makePayment = async (req, res) => {
@@ -577,4 +604,6 @@ module.exports = {
   pausePlan,
   playPlan,
   planDetails,
+  uploadImage,
+  removeImage
 };
