@@ -40,6 +40,7 @@ import PublicRoute from "./Router/PublicRoute";
 import { SubscriberBiodata } from "./Components/pages/Adminpenal/SubscriberBiodata";
 import { SubscriberBiodata1 } from "./Components/pages/Adminpenal/SubscriberBiodata1";
 import { Paymentcheckoutpage } from "./Components/pages/Paymentcheckoutpage";
+// import Reviewandfeedback from "./Components/pages/Adminpenal/Reviewandfeedback";
 
 export default function App() {
   ///country api
@@ -83,6 +84,7 @@ export default function App() {
     <>
       {isLoading ? <Preloader /> : <>
         <Router>
+          {/* <Reviewandfeedback/> */}
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<Mainabout />} />
