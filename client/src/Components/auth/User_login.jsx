@@ -61,9 +61,14 @@ export const User_login = () => {
     if (email_verified == true) {
 
       if (isAuthenticated) {
+
         console.log(user)
-        toast.success('login SuccessFully...')
-        navigate("/");
+        console.log(logindata)
+        if(logindata?.token){
+          // localStorage.setItem('token',logindata?.token)
+          toast.success('login SuccessFully...')
+          navigate("/");
+        }
       }
     }
     else if (email_verified == false) {

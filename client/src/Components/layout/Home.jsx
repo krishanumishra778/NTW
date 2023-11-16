@@ -23,7 +23,7 @@ import { useSelector } from 'react-redux'
 import { Whychooseus } from '../pages/Whychooseus'
 import { Workssimple } from '../pages/Workssimple'
 import { Askquestions } from '../pages/Askquestions'
-import { VideoAdvertising } from '../pages/VideoAdvertising'
+import { VideoSection } from '../pages/VideoSection'
 import { Paymentcheckoutpage } from '../pages/Paymentcheckoutpage'
 
 // import Starrating from '../pages/Starrating'
@@ -58,7 +58,7 @@ export const Home = () => {
       <Rating />
       <Trusted />
       <Workssimple />
-      <VideoAdvertising />
+      <VideoSection />
       <Askquestions />
       <Contact />
       <Join />
