@@ -61,7 +61,7 @@ export const TotalSubscriberActive = () => {
         <div className="mx-auto flex justify-center max-w-[1300px]">
             <div className=" bg-[#00B2FF] h-[100vh] text-white w-[20%] text-center ">
 
-                <ul className='flex flex-col gap-8 py-14 pt-[80px]  lg:text-[17px] md:text-[13px] sm:text-[10px]'>
+                <ul className='flex flex-col gap-10 py-14 pt-[80px]  lg:text-[17px] md:text-[13px] sm:text-[10px]'>
                 <Link to="/adminpanel" className="  font-bold bg-[#0091CF] py-1 rounded-full ">
                         <li >Message</li>
                     </Link>
@@ -96,7 +96,7 @@ export const TotalSubscriberActive = () => {
                     <img className='mx-auto' src="logo/next tech waves logo.png" alt='' />
                 </div>
 
-                <div className='overflow-y-scroll h-[85.5vh] '>
+                <div className='overflow-y-scroll h-[85vh] '>
                     <hr className=' bg-black  h-[2.5px]' />
                     <div className='flex justify-between mr-7 items-center'>
 
