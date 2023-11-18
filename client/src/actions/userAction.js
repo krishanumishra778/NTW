@@ -86,6 +86,7 @@ export const LoadUser = () => async (dispatch) => {
       withCredentials: true,
     });
     console.log(data, "loaduser");
+    
     dispatch({ type: LOAD_USER_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: LOAD_USER_FAIL, payload: error?.response?.data?.error });

@@ -2,7 +2,8 @@ import axios, { all } from 'axios';
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { Singleuserid } from '../../../actions/userAction';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import toast from 'react-hot-toast';
 
 export const TotalSubscriber = () => {
     const navigate = useNavigate()
@@ -27,6 +28,16 @@ export const TotalSubscriber = () => {
         // window.location.href="/subscriberbiodata"
         navigate("/subscriberbiodata")
     }
+
+    const { user } = useSelector(state => state.user)
+
+    useEffect(() => {
+        if (user.role !== 'admin') {
+            toast.error('you are not Autorised')
+            navigate("/")
+        }
+        console.log(user)
+    }, [user])
     return (
         <div className="mx-auto flex justify-center max-w-[1300px] ">
 

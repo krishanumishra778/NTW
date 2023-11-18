@@ -1,11 +1,23 @@
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
+import toast from 'react-hot-toast'
+import { useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Reviewandfeedback = async () => {
  const data  =  await axios.get('http://localhost:4000/review')
  console.log(data)
   
   
+ const { user } = useSelector(state => state.user)
+ const navigate = useNavigate()
+ useEffect(() => {
+     if (user.role !== 'admin') {
+         toast.error('you are not Autorised')
+         navigate("/")
+     }
+     console.log(user)
+ }, [user])
    
 //   const [star , setStar] = useState([])
   return (
