@@ -6,7 +6,7 @@ export const SubscriberBiodata1 = () => {
     <div className="mx-auto flex justify-center max-w-[1300px]  ">
     <div className=" bg-[#00B2FF] h-[100vh]   text-white w-[20%] text-center ">
 
-    <ul className='flex flex-col gap-8 pt-[80px]  lg:text-[17px] md:text-[13px] sm:text-[10px]'>
+    <ul className='flex flex-col gap-10 pt-[80px]  lg:text-[17px] md:text-[13px] sm:text-[10px]'>
             <Link to="/adminpanel" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
                 <li >Message</li>
             </Link>

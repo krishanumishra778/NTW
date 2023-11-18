@@ -40,6 +40,7 @@ export const userReducer = (state = { user: {} }, action) => {
     case SEND_MESSAGE_REQUEST:
     case SINGLE_USER_REQUEST:
       return {
+
         loading: true,
       };
 
@@ -60,14 +61,14 @@ export const userReducer = (state = { user: {} }, action) => {
       return {
         ...state,
         loading: false,
-        isAuthenticated: action.payload.success,
+        isAuthenticated: true,
         data: action.payload,
       };
     case SINGLE_USER_SUCCESS:
       // console.log(action.payload)
       return {
         loading: false,
-        isAuthenticated: true,
+        // isAuthenticated: true,
         singleuser: action?.payload,  
       };
 
@@ -81,7 +82,7 @@ export const userReducer = (state = { user: {} }, action) => {
       return {
         loading: false,
         data: action.payload,
-        isAuthenticated: action.payload.success,
+        isAuthenticated: true,
       };
 
     case LOGOUT_SUCCESS:

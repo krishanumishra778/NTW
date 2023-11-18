@@ -32,7 +32,7 @@ export const TotalSubscriber = () => {
 
             <div className=" bg-[#00B2FF] h-[100vh]   text-white w-[20%] text-center ">
 
-                <ul className='flex flex-col gap-8 pt-[80px]  lg:text-[17px] md:text-[13px] sm:text-[10px]'>
+                <ul className='flex flex-col gap-10 pt-[80px]  lg:text-[17px] md:text-[13px] sm:text-[10px]'>
                     <Link to="/adminpanel" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
                         <li >Message</li>
                     </Link>
@@ -68,14 +68,14 @@ export const TotalSubscriber = () => {
                     <img className='mx-auto' src="logo/next tech waves logo.png" alt='' />
                 </div>
 
-                <div className='overflow-y-scroll h-[85.5vh] '>
+                <div className='overflow-y-scroll h-[85vh] '>
                     {alluser.map((items, index) => {
                         return (
                             <>
                                 <hr className=' bg-black  h-[2.5px]' />
                                 <div onClick={() => {
                                     Singleuser(items?._id)
-                                }} key={index} className='flex m-8 gap-5 items-center'>
+                                }} key={index} className='flex m-8 gap-5 items-center cursor-pointer'>
                                     <div>
                                         <img className='rounded-full w-12' src="./images/user.png" alt="" />
                                     </div>

@@ -3,13 +3,13 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 export const SubscriberBiodata = () => {
-    const {singleuser } = useSelector(state => state.user);
-console.log(singleuser)
+    const { singleuser } = useSelector(state => state.user);
+    console.log(singleuser)
     return (
         <div className="mx-auto flex justify-center max-w-[1300px]  ">
             <div className=" bg-[#00B2FF] h-[100vh]   text-white w-[20%] text-center ">
 
-            <ul className='flex flex-col gap-8 pt-[80px]  lg:text-[17px] md:text-[13px] sm:text-[10px]'>
+                <ul className='flex flex-col gap-10 pt-[80px]  lg:text-[17px] md:text-[13px] sm:text-[10px]'>
                     <Link to="/adminpanel" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
                         <li >Message</li>
                     </Link>
@@ -34,7 +34,7 @@ console.log(singleuser)
                     <Link to="/totalactive" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold ">
                         <li >Active Subscription</li>
                     </Link>
-                 
+
                 </ul>
             </div>
 
@@ -59,12 +59,12 @@ console.log(singleuser)
                 <hr className=' bg-[#AEAEAE] mt-1 h-[2px]' />
                 {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */}
                 {/* part 2  */}
-                <div className='flex flex-col gap-5 px-12 pt-2 '>
+                <div className='flex flex-col gap-3 px-12 pt-2 '>
                     <div className='grid grid-cols-2 '>
                         <h1 className='font-bold'>Joining Date:-</h1>
                         <h6 className='text-[#AEAEAE]'>
                             <span className=''> {singleuser?.user?.subscription?.joiningDate
- }</span></h6>
+                            }</span></h6>
                     </div>
                     {/* 2 */}
                     <div className='grid grid-cols-2 '>
@@ -86,7 +86,7 @@ console.log(singleuser)
                     <div className='grid grid-cols-2'>
                         <h1 className='font-bold'>No. of Additional pages:-</h1>
                         <h6 className='text-[#AEAEAE]'>{singleuser?.user?.subscription?.additionalPages
-}</h6>
+                        }</h6>
                     </div>
                     {/* 6 */}
                     <div className='grid grid-cols-2'>
