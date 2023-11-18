@@ -15,7 +15,7 @@ const Testimonials = () => {
             </div>
           </div>
           <div className="">
-            <p className="pt-10 sm:text-mp xs:text-tp md:text-p md:text-center text-[#494949] lg:max-w-[95%]">
+            <p className="pt-10 sm:text-mp xs:text-tp md:text-p  text-[#494949] lg:max-w-[95%]">
               “Currently, we are working with Next Tech Waves, and the service and the UI design for our website they are providing to us are fantastic. They are always there to help you out, and the price range they are providing is literally mind-blowing.”
             </p>
             <div className="flex justify-between items-center">
