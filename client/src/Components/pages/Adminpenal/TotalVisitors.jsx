@@ -328,7 +328,7 @@ export const TotalVisitors = () => {
                         <Area type="monotone" dataKey="uv" stroke="#2D9CDB" strokeWidth={3} fill="#6EC8EF" />
                     </AreaChart>
 
-                    <div className="relative w-[20%]">
+                    <div className="relative w-[20%]  m-auto">
                         <input
                             className="w-full cursor-pointer rounded-lg border-2 border-[#D9D9D9] text-lg text-center"
                             type="text"
