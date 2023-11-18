@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import axios from 'axios'; // Import axios here
@@ -15,6 +15,8 @@ import {
     CartesianGrid,
     Tooltip as RechartsTooltip
 } from "recharts";
+import { useSelector } from 'react-redux';
+import toast from 'react-hot-toast';
 
 export const TotalVisitors = () => {
     const [totaluser, setTotaluser] = useState();
@@ -178,6 +180,16 @@ export const TotalVisitors = () => {
 
     // ,,,,,,
 
+
+    const { user } = useSelector(state => state.user)
+    const navigate = useNavigate()
+    useEffect(() => {
+        if (user.role !== 'admin') {
+            toast.error('you are not Autorised')
+            navigate("/")
+        }
+        console.log(user)
+    }, [user])
 
 
     return (

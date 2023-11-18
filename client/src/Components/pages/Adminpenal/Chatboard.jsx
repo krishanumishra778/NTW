@@ -1,6 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import toast from 'react-hot-toast'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 export const Chatboard = () => {
+
+    const { user } = useSelector(state => state.user)
+    const navigate = useNavigate()
+    useEffect(() => {
+        if (user.role !== 'admin') {
+            toast.error('you are not Autorised')
+            navigate("/")
+        }
+        console.log(user)
+    }, [user])
     return (
         <div className="mx-auto flex justify-center max-w-[1300px] pt-1 ">
             <div className=" bg-[#00B2FF]  text-white w-[20%] text-center pt-13 pb-16">

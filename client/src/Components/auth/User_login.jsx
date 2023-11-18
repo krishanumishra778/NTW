@@ -61,14 +61,15 @@ export const User_login = () => {
     if (email_verified == true) {
 
       if (isAuthenticated) {
-
         console.log(user)
         console.log(logindata)
-        if(logindata?.token){
-          // localStorage.setItem('token',logindata?.token)
-          toast.success('login SuccessFully...')
-          navigate("/");
+        if (logindata?.token) {
+          // navigate user according to the role 
+          user.role === "admin"
+            ? (toast.success('Login Successfully...'), navigate("/adminpanel"))
+            : (toast.success('Login Successfully...'), navigate("/"));
         }
+
       }
     }
     else if (email_verified == false) {

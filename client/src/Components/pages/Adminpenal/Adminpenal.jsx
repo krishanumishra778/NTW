@@ -1,9 +1,22 @@
 // import Link from 'antd/es/typography/Link';
 // import React, { useState } from 'react';
 
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import toast from "react-hot-toast";
+import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 
 const AdminPanel = () => {
+    const { user } = useSelector(state => state.user)
+    const navigate = useNavigate()
+    useEffect(() => {
+        if (user.role !== 'admin') {
+            toast.error('you are not Autorised')
+            navigate("/")
+        }
+        console.log(user)
+    }, [user])
+
 
     return (
         <div className="mx-auto flex justify-center max-w-[1300px]">
