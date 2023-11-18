@@ -7,8 +7,6 @@ import Modal from 'react-modal';
 import CalendarComponent from './CalendarComponent'; // Import your calendar component here
 
 
-
-
 import {
     AreaChart,
     Area,
@@ -24,9 +22,7 @@ export const TotalVisitors = () => {
     const [totalactive, setTotalactive] = useState(0);
 
 
-    const [selectedDate, setSelectedDate] = useState(''); // Initialize selectedDate state variable
-
-
+    const [selectedDate, setSelectedDate] = useState('');
 
 
 
@@ -320,10 +316,6 @@ export const TotalVisitors = () => {
                         <Area type="monotone" dataKey="uv" stroke="#2D9CDB" strokeWidth={3} fill="#6EC8EF" />
                     </AreaChart>
 
-
-
-
-
                     <div className="relative w-[20%]">
                         <input
                             className="w-full cursor-pointer rounded-lg border-2 border-[#D9D9D9] text-lg text-center"
@@ -347,14 +339,16 @@ export const TotalVisitors = () => {
                                 content: {
                                     width: '40%',
                                     height: '55%',
-                                    top: '50%',
+                                    top: '45%',
                                     left: '50%',
                                     transform: 'translate(-50%, -50%)',
-                                    display: 'flex',  // Add this line
-                                    flexDirection: 'column',  // Add this line
-                                    justifyContent: 'center',  // Add this line
-                                    alignItems: 'center',  // Add this line
-                                }
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                },
+                                overlay: {
+                                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                                },
                             }}
                         >
                             <CalendarComponent
@@ -363,19 +357,10 @@ export const TotalVisitors = () => {
                                 closeCalendar={closeModal}
                             />
                         </Modal>
-
-
-
-
                     </div>
-
-
-
-
                 </div>
             </div>
         </div>
     );
 }
-
 export default TotalVisitors;

@@ -12,10 +12,8 @@ import { Editprofile } from "./Components/pages/Editprofile";
 import { Changepassword } from "./Components/pages/Changepassword";
 import { Pages } from "./Components/pages/Pages";
 import { useState } from "react";
-
 import { Forgot_password } from "./Components/auth/Forgot_password/Forgot_password";
 import { Email } from "./Components/auth/Forgot_Password/Email";
-
 import { useEffect } from "react";
 import { Preloader } from "./Components/pages/Preloader";
 import { LoadUser } from "./actions/userAction";
