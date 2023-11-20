@@ -82,6 +82,7 @@ export default function App() {
         <Router>
           <Routes>
             <Route path='/' element={<Home />} />
+            
             <Route path='/about' element={<Mainabout />} />
             <Route path='/services' element={<Mainservice />} />
 
