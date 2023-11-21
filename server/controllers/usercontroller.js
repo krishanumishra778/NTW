@@ -383,30 +383,28 @@ const updateProfile = async (req, res) => {
 // upload image controller
 const uploadImage = async (req, res) => {
   try {
-    const profile = req.file.filename
-    const User = await user.findByIdAndUpdate(req.user._id, { profile: profile })
-    res.send({ success: true, message: "profile added" })
-
+    const profile = req.file.filename;
+    const User = await user.findByIdAndUpdate(req.user._id, {
+      profile: profile,
+    });
+    res.send({ success: true, message: "profile added" });
   } catch (error) {
-    res.send({ sucess: false, message: "error in image uploading" })
-    console.log(error)
-
+    res.send({ sucess: false, message: "error in image uploading" });
+    console.log(error);
   }
-}
+};
 
 //remove image controller
 const removeImage = async (req, res) => {
-
   try {
-
-    const { imageName } = req.body
-    await user.findByIdAndUpdate(req.user._id, { profile: null })
-    res.send({ success: true, message: "profile removed" })
+    const { imageName } = req.body;
+    await user.findByIdAndUpdate(req.user._id, { profile: null });
+    res.send({ success: true, message: "profile removed" });
   } catch (error) {
-    res.send({ success: false, message: "error in image removing" })
-    console.log(error)
+    res.send({ success: false, message: "error in image removing" });
+    console.log(error);
   }
-}
+};
 ////make payments
 
 const makePayment = async (req, res) => {
@@ -442,8 +440,10 @@ const review = async (req, res) => {
   try {
     const { rating, comment } = req.body;
     const getReview = await reviewmodel.findOne({ userId: req.user._id });
+
     if (getReview) {
-      await reviewmodel.findByIdAndUpdate(getReview, {
+      const id = getReview.id;
+      await reviewmodel.findByIdAndUpdate(id, {
         rating: rating,
         comment: comment,
       });
@@ -466,6 +466,21 @@ const review = async (req, res) => {
     }
   } catch (error) {
     res.status(401).send({ success: false, message: `${error.message}` });
+  }
+};
+
+/// get review and feedback controller
+const getReviews = async (req, res) => {
+  try {
+    const getUser = await reviewmodel.findOne({ userId: req.user._id });
+    if (getUser) {
+      res.send({ success: true, review: getUser });
+    } else {
+      res.send({ success: false, message: "review not found" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.send({ success: false, message: "error in getting review" });
   }
 };
 
@@ -605,5 +620,6 @@ module.exports = {
   playPlan,
   planDetails,
   uploadImage,
-  removeImage
+  removeImage,
+  getReviews,
 };
