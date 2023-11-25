@@ -77,7 +77,7 @@ const Feedback = () => {
                                         <img className='rounded-full w-12' src="./images/user.png" alt="" />
                                     </div>
                                     <div className=' flex flex-col gap-1 py-2'>
-                                        <p className='leading-5 font-bold ]'>{items.name}</p>
+                                        <p className='leading-5 font-bold'>{items.name}</p>
                                         <p className='flex'>
                                             {[...Array(5)].map((star, index) => {
                                                 let currenrating = index + 1;
@@ -89,7 +89,7 @@ const Feedback = () => {
                                                             value={items?.rating}
                                                             className='hidden'
                                                         />
-                                                        <FaStar className='cursor-pointer xs:text-[20px] sm:text-[30px] md:text-[35px]'
+                                                        <FaStar className='cursor-pointer text-[20px]'
                                                             color={currenrating <= items?.rating ? "#ffc107" : "#e4e5e9"}
                                                         />
 
@@ -99,7 +99,7 @@ const Feedback = () => {
                                         </p>
 
 
-                                        <p className='leading-5 font-bold ]'>{items.comment}</p>
+                                        <p className='leading-5 '>{items.comment}</p>
                                     </div>
                                 </div>
 
