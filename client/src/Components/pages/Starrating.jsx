@@ -29,6 +29,7 @@ const Starrating = () => {
             axios.post('http://localhost:4000/review', { rating, comment }, { withCredentials: true }).then(res => {
                 setIsComponentOpen(false);
                 // console.log(res)
+                
             })
         )
 

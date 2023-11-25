@@ -39,6 +39,8 @@ import { SubscriberBiodata } from "./Components/pages/Adminpenal/SubscriberBioda
 import { SubscriberBiodata1 } from "./Components/pages/Adminpenal/SubscriberBiodata1";
 import { Paymentcheckoutpage } from "./Components/pages/Paymentcheckoutpage";
 import { CalendarComponent } from "./Components/pages/Adminpenal/CalendarComponent";
+import Feedback from "./Components/pages/Adminpenal/Feedback";
+import Starrating from "./Components/pages/Starrating";
 
 export default function App() {
   ///country api
@@ -80,6 +82,7 @@ export default function App() {
     <>
       {isLoading ? <Preloader /> : <>
         <Router>
+          
           <Routes>
             <Route path='/' element={<Home />} />
             
@@ -213,6 +216,9 @@ export default function App() {
                 </ProtectedRoute>
               }
             />
+{/* review and feedback router */}
+<Route path="/Starrating" element={<Starrating/>}/>
+<Route path="/feedback" element={<Feedback/>}/>
 
           </Routes>
         </Router>

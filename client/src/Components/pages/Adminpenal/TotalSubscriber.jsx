@@ -58,7 +58,7 @@ export const TotalSubscriber = () => {
                     <Link to="/totalcustomers" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold ">
                         <li>Total Costumers</li>
                     </Link>
-                    <Link to="" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
+                    <Link to="/feedback" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
                         <li >feedback & review</li>
                     </Link>
                     <Link to="" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">

@@ -1,18 +1,27 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { FaStar } from 'react-icons/fa'
 
 import axios from 'axios';
-import { MdOutlineStarOutline } from "react-icons/md";
+
 
 import { Link } from 'react-router-dom';
 const Feedback = () => {
-    //     axios.get('http://localhost:4000/review')
-    //   .then(response => {
-    //     console.log(response);
-    //   })
-    //   .catch(error => {
-    //     console.error(error);
-    //   });
+
+    const [reviewdata, SetReviewdata] = useState([]);
+    useEffect(() => {
+        axios.get('http://localhost:4000/get/review', {
+            withCredentials: true,
+        })
+            .then(response => {
+                console.log(response.data);
+                SetReviewdata(response?.data?.review)
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+    }, [])
     return (
         <div className="mx-auto flex justify-center max-w-[1300px] ">
 
@@ -23,7 +32,7 @@ const Feedback = () => {
                         <li >Message</li>
                     </Link>
 
-                    <Link to="/totalsubscriber" className="  font-bold bg-[#0091CF] py-1 rounded-full ">
+                    <Link to="/totalsubscriber" className="  font-bold hover:bg-[#0091CF] py-1 rounded-full ">
                         <li >Total Subscriber</li>
                     </Link>
 
@@ -33,7 +42,7 @@ const Feedback = () => {
                     <Link to="/totalcustomers" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold ">
                         <li>Total Costumers</li>
                     </Link>
-                    <Link to="" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
+                    <Link to="/feedback" className="py-1 bg-[#0091CF] rounded-full hover:font-bold">
                         <li >feedback & review</li>
                     </Link>
                     <Link to="" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
@@ -56,22 +65,50 @@ const Feedback = () => {
 
                 <div className='overflow-y-scroll h-[85vh] '>
 
-                    <hr className=' bg-black  h-[2.5px]' />
-                    <div
-                        className='flex m-8 gap-5 items-center cursor-pointer'>
-                        <div>
-                            <img className='rounded-full w-12' src="./images/user.png" alt="" />
-                        </div>
-                        <div className=''>
-                            <p className='leading-5 font-bold ]'>Default Name</p>
-                            <p className='flex'><   MdOutlineStarOutline />
-                                <MdOutlineStarOutline />
-                                <MdOutlineStarOutline /><MdOutlineStarOutline />
-                                <MdOutlineStarOutline />
+                
 
-                            </p>
-                        </div>
-                    </div>
+                    {reviewdata?.map((items, index) => {
+                        return (
+                            <>
+                                <hr className=' bg-black  h-[2.5px]' />
+                                <div key={index}
+                                    className='flex ml-6 my-2 gap-5 items-center cursor-pointer'>
+                                    <div>
+                                        <img className='rounded-full w-12' src="./images/user.png" alt="" />
+                                    </div>
+                                    <div className=' flex flex-col gap-1 py-2'>
+                                        <p className='leading-5 font-bold ]'>{items.name}</p>
+                                        <p className='flex'>
+                                            {[...Array(5)].map((star, index) => {
+                                                let currenrating = index + 1;
+                                                return (
+                                                    // eslint-disable-next-line react/jsx-key
+                                                    <label key={index}>
+                                                        <input
+                                                            type="radio"
+                                                            value={items?.rating}
+                                                            className='hidden'
+                                                        />
+                                                        <FaStar className='cursor-pointer xs:text-[20px] sm:text-[30px] md:text-[35px]'
+                                                            color={currenrating <= items?.rating ? "#ffc107" : "#e4e5e9"}
+                                                        />
+
+                                                    </label>
+                                                );
+                                            })}
+                                        </p>
+
+
+                                        <p className='leading-5 font-bold ]'>{items.comment}</p>
+                                    </div>
+                                </div>
+                                <hr className=' bg-black  h-[2.5px]' />
+
+                            </>
+                        )
+                    })}
+
+
 
                 </div>
             </div>
