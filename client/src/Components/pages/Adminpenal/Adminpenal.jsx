@@ -14,8 +14,8 @@ const AdminPanel = () => {
             toast.error('you are not Autorised')
             navigate("/")
         }
-        console.log(user)
-    }, [user])
+        // console.log(user)
+    }, [navigate, user])
 
 
     return (

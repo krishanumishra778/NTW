@@ -14,7 +14,7 @@ const Feedback = () => {
             withCredentials: true,
         })
             .then(response => {
-                console.log(response.data);
+                // console.log(response.data);
                 SetReviewdata(response?.data?.review)
             })
             .catch(error => {
@@ -102,7 +102,6 @@ const Feedback = () => {
                                         <p className='leading-5 font-bold ]'>{items.comment}</p>
                                     </div>
                                 </div>
-                                <hr className=' bg-black  h-[2.5px]' />
 
                             </>
                         )

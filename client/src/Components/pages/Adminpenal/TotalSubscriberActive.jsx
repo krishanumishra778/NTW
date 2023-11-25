@@ -34,7 +34,7 @@ export const TotalSubscriberActive = () => {
             <div className=" bg-[#00B2FF] h-[100vh] text-white w-[20%] text-center ">
 
                 <ul className='flex flex-col gap-10 py-14 pt-[80px]  lg:text-[17px] md:text-[13px] sm:text-[10px]'>
-                    <Link to="/adminpanel" className="  font-bold bg-[#0091CF] py-1 rounded-full ">
+                <Link to="/adminpanel" className="  font-bold hover:bg-[#0091CF] py-1 rounded-full ">
                         <li >Message</li>
                     </Link>
 
@@ -55,7 +55,7 @@ export const TotalSubscriberActive = () => {
                         <li >Affiliate marketars</li>
                     </Link>
 
-                    <Link to="/totalactive" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold ">
+                    <Link to="/totalactive"  className="py-1 bg-[#0091CF] rounded-full hover:font-bold ">
                         <li >Active Subscription</li>
                     </Link>
                 </ul>

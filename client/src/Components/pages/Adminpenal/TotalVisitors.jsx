@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
@@ -169,7 +169,7 @@ export const TotalVisitors = () => {
             const totalactiveuser = userData.filter((items, index) => {
                 return items.subscription.planStatus == true
             })
-            console.log(totalactiveuser.length)
+            // console.log(totalactiveuser.length)
             setTotalactive(totalactiveuser.length)
 
 
@@ -189,12 +189,12 @@ export const TotalVisitors = () => {
             toast.error('you are not Autorised')
             navigate("/")
         }
-        console.log(user)
-    }, [user])
+        // console.log(user)
+    }, [navigate, user])
 
 
     return (
-        <div className="mx-auto flex justify-center max-w-[1300px] h-[100vh]">
+        <div className="mx-auto flex justify-center max-w-[1300px] ">
             <div className=" bg-[#00B2FF] h-[100vh]   text-white w-[20%] text-center ">
 
                 <ul className='flex flex-col gap-10 pt-[80px]  lg:text-[17px] md:text-[13px] sm:text-[10px]'>
