@@ -11,8 +11,8 @@ export const TotalCustomers = () => {
             toast.error('you are not Autorised')
             navigate("/")
         }
-        console.log(user)
-    }, [user])
+        // console.log(user)
+    }, [navigate, user])
 
     return (
         <div className="mx-auto flex justify-center max-w-[1300px] ">
