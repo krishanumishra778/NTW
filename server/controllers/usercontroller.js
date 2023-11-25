@@ -472,7 +472,7 @@ const review = async (req, res) => {
 /// get review and feedback controller
 const getReviews = async (req, res) => {
   try {
-    const getUser = await reviewmodel.findOne({ userId: req.user._id });
+    const getUser = await reviewmodel.find({});
     if (getUser) {
       res.send({ success: true, review: getUser });
     } else {

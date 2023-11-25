@@ -41,6 +41,7 @@ const isAuthenticateduser = require("../middleware/isAuthenticate");
 const {
   emailSubscribeController,
 } = require("../controllers/emailSubscribeController");
+const isAdmin = require("../middleware/isAdmin");
 
 const router = require("express").Router();
 
@@ -85,7 +86,7 @@ router.route("/create-checkout-session").post(isAuthenticateduser, makePayment);
 router.route("/review").post(isAuthenticateduser, review);
 
 ///get reviews and feedback
-router.route("/get/review").get(isAuthenticateduser, getReviews);
+router.route("/get/review").get(isAuthenticateduser,isAdmin("admin"), getReviews);
 
 //update user model when subscribe
 router.route("/subscribe/:id").post(isAuthenticateduser, subscribeController);
