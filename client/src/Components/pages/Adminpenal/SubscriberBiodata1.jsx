@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react'
 import { Link } from 'react-router-dom';
 
@@ -22,7 +23,7 @@ export const SubscriberBiodata1 = () => {
                 <li>Total Costumers</li>
             </Link>
             <Link to="/feedback" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
-                <li >feedback & review</li>
+                <li >Feedback & review</li>
             </Link>
             <Link to="" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
                 <li >Affiliate marketars</li>

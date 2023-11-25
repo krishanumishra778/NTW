@@ -11,7 +11,7 @@ export const TotalSubscriberActive = () => {
         axios.get('http://localhost:4000/admin/users', {}, { withCredentials: true }).then((res) => {
 
             setAlluser(res?.data?.users)
-            console.log(res.data?.users)
+            // console.log(res.data?.users)
             alluser?.subscription.planStatus
 
 
@@ -22,11 +22,11 @@ export const TotalSubscriberActive = () => {
 
 
     const pausefun = () => {
-        console.log('pause')
+        // console.log('pause')
     }
 
     const playfun = () => {
-        console.log('playu')
+        // console.log('playu')
     }
 
     return (
@@ -49,7 +49,7 @@ export const TotalSubscriberActive = () => {
                         <li>Total Costumers</li>
                     </Link>
                     <Link to="/feedback" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
-                        <li >feedback & review</li>
+                        <li >Feedback & review</li>
                     </Link>
                     <Link to="" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
                         <li >Affiliate marketars</li>

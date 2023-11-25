@@ -34,7 +34,7 @@ export const TotalCustomers = () => {
                         <li>Total Costumers</li>
                     </Link>
                     <Link to="/feedback" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
-                        <li >feedback & review</li>
+                        <li >Feedback & review</li>
                     </Link>
                     <Link to="" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
                         <li >Affiliate marketars</li>
@@ -58,7 +58,7 @@ export const TotalCustomers = () => {
                     <hr className=' bg-black  h-[2.5px]' />
                     <div onClick={() => {
                         navigate("/subscriberbiodata1")
-                        console.log('next tech waves')
+                        // console.log('next tech waves')
                     }} className='flex m-8 gap-5 items-center'>
                         <div>
                             <img className='rounded-full w-12' src="./images/user.png" alt="" />
@@ -73,7 +73,7 @@ export const TotalCustomers = () => {
                     <hr className=' bg-black  h-[2.5px]' />
                     <div onClick={() => {
                         navigate("/subscriberbiodata1")
-                        console.log('next tech waves')
+                        // console.log('next tech waves')
                     }} className='flex m-8 gap-5 items-center'>
                         <div>
                             <img className='rounded-full w-12' src="./images/user.png" alt="" />
@@ -88,7 +88,7 @@ export const TotalCustomers = () => {
                     <hr className=' bg-black  h-[2.5px]' />
                     <div onClick={() => {
                         navigate("/subscriberbiodata1")
-                        console.log('next tech waves')
+                        // console.log('next tech waves')
                     }} className='flex m-8 gap-5 items-center'>
                         <div>
                             <img className='rounded-full w-12' src="./images/user.png" alt="" />
@@ -103,7 +103,7 @@ export const TotalCustomers = () => {
                     <hr className=' bg-black  h-[2.5px]' />
                     <div onClick={() => {
                         navigate("/subscriberbiodata1")
-                        console.log('next tech waves')
+                        // console.log('next tech waves')
                     }} className='flex m-8 gap-5 items-center'>
                         <div>
                             <img className='rounded-full w-12' src="./images/user.png" alt="" />
@@ -119,7 +119,7 @@ export const TotalCustomers = () => {
                     <hr className=' bg-black  h-[2.5px]' />
                     <div onClick={() => {
                         navigate("/subscriberbiodata1")
-                        console.log('next tech waves')
+                        // console.log('next tech waves')
                     }} className='flex m-8 gap-5 items-center'>
                         <div>
                             <img className='rounded-full w-12' src="./images/user.png" alt="" />
@@ -134,7 +134,7 @@ export const TotalCustomers = () => {
                     <hr className=' bg-black  h-[2.5px]' />
                     <div onClick={() => {
                         navigate("/subscriberbiodata1")
-                        console.log('next tech waves')
+                        // console.log('next tech waves')
                     }} className='flex m-8 gap-5 items-center'>
                         <div>
                             <img className='rounded-full w-12' src="./images/user.png" alt="" />
@@ -148,7 +148,7 @@ export const TotalCustomers = () => {
                     <hr className=' bg-black  h-[2.5px]' />
                     <div onClick={() => {
                         navigate("/subscriberbiodata1")
-                        console.log('next tech waves')
+                        // console.log('next tech waves')
                     }} className='flex m-8 gap-5 items-center'>
                         <div>
                             <img className='rounded-full w-12' src="./images/user.png" alt="" />
@@ -162,7 +162,7 @@ export const TotalCustomers = () => {
                     <hr className=' bg-black  h-[2.5px]' />
                     <div onClick={() => {
                         navigate("/subscriberbiodata1")
-                        console.log('next tech waves')
+                        // console.log('next tech waves')
                     }} className='flex m-8 gap-5 items-center'>
                         <div>
                             <img className='rounded-full w-12' src="./images/user.png" alt="" />
@@ -176,7 +176,7 @@ export const TotalCustomers = () => {
                     <hr className=' bg-black  h-[2.5px]' />
                     <div onClick={() => {
                         navigate("/subscriberbiodata1")
-                        console.log('next tech waves')
+                        // console.log('next tech waves')
                     }} className='flex m-8 gap-5 items-center'>
                         <div>
                             <img className='rounded-full w-12' src="./images/user.png" alt="" />
@@ -190,7 +190,7 @@ export const TotalCustomers = () => {
                     <hr className=' bg-black  h-[2.5px]' />
                     <div onClick={() => {
                         navigate("/subscriberbiodata1")
-                        console.log('next tech waves')
+                        // console.log('next tech waves')
                     }} className='flex m-8 gap-5 items-center'>
                         <div>
                             <img className='rounded-full w-12' src="./images/user.png" alt="" />

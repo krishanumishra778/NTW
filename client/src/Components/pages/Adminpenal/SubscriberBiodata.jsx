@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export const SubscriberBiodata = () => {
     const { singleuser } = useSelector(state => state.user);
-    console.log(singleuser)
+    // console.log(singleuser)
     return (
         <div className="mx-auto flex justify-center max-w-[1300px]  ">
             <div className=" bg-[#00B2FF] h-[100vh]   text-white w-[20%] text-center ">
@@ -25,7 +25,7 @@ export const SubscriberBiodata = () => {
                         <li>Total Costumers</li>
                     </Link>
                     <Link to="/feedback" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
-                        <li >feedback & review</li>
+                        <li >Feedback & review</li>
                     </Link>
                     <Link to="" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
                         <li >Affiliate marketars</li>

@@ -12,7 +12,7 @@ export const Chatboard = () => {
             toast.error('you are not Autorised')
             navigate("/")
         }
-        console.log(user)
+        // console.log(user)
     }, [user])
     return (
         <div className="mx-auto flex justify-center max-w-[1300px] pt-1 ">
@@ -23,7 +23,7 @@ export const Chatboard = () => {
                     <li className=" active:bg-[#0091CF] rounded-full ">Total Subscriber</li>
                     <li className="active:bg-[#0091CF] rounded-full">Total Visitor's</li>
                     <li className="active:bg-[#0091CF] rounded-full">Total Costumers</li>
-                    <li className="active:bg-[#0091CF] rounded-full">feedback & review</li>
+                    <li className="active:bg-[#0091CF] rounded-full">Feedback & review</li>
                     <li className="active:bg-[#0091CF]   py-1 rounded-full">Affiliate marketars</li>
 
                     <li className="active:bg-[#0091CF] rounded-full">Active Subscription</li>

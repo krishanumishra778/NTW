@@ -43,7 +43,7 @@ const Feedback = () => {
                         <li>Total Costumers</li>
                     </Link>
                     <Link to="/feedback" className="py-1 bg-[#0091CF] rounded-full hover:font-bold">
-                        <li >feedback & review</li>
+                        <li >Feedback & review</li>
                     </Link>
                     <Link to="" className="py-1 hover:bg-[#0091CF] rounded-full hover:font-bold">
                         <li >Affiliate marketars</li>
@@ -106,6 +106,10 @@ const Feedback = () => {
                             </>
                         )
                     })}
+
+                    <hr className=' bg-black  h-[2.5px]' />
+
+
                 </div>
             </div>
 
