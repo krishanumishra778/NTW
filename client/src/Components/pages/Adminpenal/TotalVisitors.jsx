@@ -3,8 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import axios from 'axios'; // Import axios here
-import Modal from 'react-modal';
-import CalendarComponent from './CalendarComponent'; // Import your calendar component here
+// import Modal from 'react-modal';
+// import CalendarComponent from './CalendarComponent'; // Import your calendar component here
 
 
 import {
@@ -22,21 +22,22 @@ export const TotalVisitors = () => {
     const [totaluser, setTotaluser] = useState();
     const [totalOrders, setTotalOrders] = useState(0);
     const [totalactive, setTotalactive] = useState(0);
+    const [TotalSignin, setTotalSignin] = useState(0);
 
 
-    const [selectedDate, setSelectedDate] = useState('');
+    // const [selectedDate, setSelectedDate] = useState('');
 
 
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    // const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const openModal = () => {
-        setIsModalOpen(true);
-    };
+    // const openModal = () => {
+    //     setIsModalOpen(true);
+    // };
 
-    const closeModal = () => {
-        setIsModalOpen(false);
-    };
+    // const closeModal = () => {
+    //     setIsModalOpen(false);
+    // };
 
 
     const data0 = [
@@ -273,7 +274,7 @@ export const TotalVisitors = () => {
                         </div>
                         <div className=''>
                             <h1 className='leading-4'>Total Sign-in</h1>
-                            <p className='text-[#AEAEAE] leading-4'>259</p>
+                            <p className='text-[#AEAEAE] leading-4'>{TotalSignin}</p>
                         </div>
                     </div>
                 </div>
@@ -328,48 +329,11 @@ export const TotalVisitors = () => {
                         <Area type="monotone" dataKey="uv" stroke="#2D9CDB" strokeWidth={3} fill="#6EC8EF" />
                     </AreaChart>
 
-                    <div className="relative w-[20%]  m-auto">
-                        <input
-                            className="w-full cursor-pointer rounded-lg border-2 border-[#D9D9D9] text-lg text-center"
-                            type="text"
-                            name="name"
-                            value={selectedDate}
-                            onClick={openModal}
-                        />
-                        <img
-                            src="images/calendericon.png"
-                            alt="Calendar Icon"
-                            className="absolute top-1/2 right-2 transform -translate-y-1/2 h-6 w-6 cursor-pointer"
-                            onClick={openModal}
-                        />
-
-                        <Modal
-                            isOpen={isModalOpen}
-                            onRequestClose={closeModal}
-                            contentLabel="Calendar Modal"
-                            style={{
-                                content: {
-                                    width: '40%',
-                                    height: '55%',
-                                    top: '45%',
-                                    left: '50%',
-                                    transform: 'translate(-50%, -50%)',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                },
-                                overlay: {
-                                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                                },
-                            }}
-                        >
-                            <CalendarComponent
-                                selectedDate={selectedDate}
-                                onDateChange={(e) => setSelectedDate(e.target.value)}
-                                closeCalendar={closeModal}
-                            />
-                        </Modal>
+                    {/* calender start */}
+                    <div className="relative w-[20%] m-auto">
+                        <input className='rounded-xl' type="date" name="" id="" />
                     </div>
+                    {/* calender  end */}
                 </div>
             </div>
         </div>

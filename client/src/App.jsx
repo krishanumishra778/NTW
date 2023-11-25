@@ -82,10 +82,10 @@ export default function App() {
     <>
       {isLoading ? <Preloader /> : <>
         <Router>
-          
+
           <Routes>
+
             <Route path='/' element={<Home />} />
-            
             <Route path='/about' element={<Mainabout />} />
             <Route path='/services' element={<Mainservice />} />
 
@@ -109,9 +109,9 @@ export default function App() {
             <Route
               path='/login'
               element={
-              
-                  <User_login />
-               
+
+                <User_login />
+
               }
             />
             <Route path='/editprofile' element={<Editprofile />} />
@@ -137,12 +137,15 @@ export default function App() {
               <ProtectedRoute>
                 <SubscriberBiodata />
               </ProtectedRoute>
-            }></Route>
+            }>
+            </Route>
+
             <Route path='/subscriberbiodata1' element={
               <ProtectedRoute>
                 <SubscriberBiodata1 />
               </ProtectedRoute>
-            }></Route>
+            }>
+            </Route>
 
             <Route
               path='/adminpanel'
@@ -152,6 +155,9 @@ export default function App() {
                 </ProtectedRoute>
               }
             />
+
+
+
             <Route
               path='/chatboard'
               element={
@@ -160,22 +166,25 @@ export default function App() {
                 </ProtectedRoute>
               }
             />
+
             <Route
               path='/totalsubscriber'
               element={
                 <ProtectedRoute>
-                <TotalSubscriber />
+                  <TotalSubscriber />
                 </ProtectedRoute>
               }
             />
+
             <Route
               path='/totalvisitors'
               element={
                 <ProtectedRoute>
-                <TotalVisitors />
-                 </ProtectedRoute>
+                  <TotalVisitors />
+                </ProtectedRoute>
               }
             />
+
             <Route
               path='/totalcustomers'
               element={
@@ -184,6 +193,7 @@ export default function App() {
                 </ProtectedRoute>
               }
             />
+
             <Route
               path='/totalactive'
               element={
@@ -192,6 +202,7 @@ export default function App() {
                 </ProtectedRoute>
               }
             />
+
             <Route
               path='/success'
               element={
@@ -200,6 +211,7 @@ export default function App() {
                 </ProtectedRoute>
               }
             />
+
             <Route
               path='/cancel'
               element={
@@ -208,6 +220,7 @@ export default function App() {
                 </ProtectedRoute>
               }
             />
+
             <Route
               path='/CalendarComponent'
               element={
@@ -216,9 +229,9 @@ export default function App() {
                 </ProtectedRoute>
               }
             />
-{/* review and feedback router */}
-<Route path="/Starrating" element={<Starrating/>}/>
-<Route path="/feedback" element={<Feedback/>}/>
+            {/* review and feedback router */}
+            <Route path="/Starrating" element={<Starrating />} />
+            <Route path="/feedback" element={<Feedback />} />
 
           </Routes>
         </Router>

@@ -1,10 +1,10 @@
 import React from 'react'
 
-export const CalendarComponent = ({ selectedDate, onDateChange, closeCalendar }) => {
+export const CalendarComponent = ({ selectedDate, onDateChange, }) => {
     return (
-        <div>
-            <h2>Select a date:</h2>
+        <div className="">
             <input
+                className=""
                 type="date"
                 value={selectedDate}
                 onChange={onDateChange}

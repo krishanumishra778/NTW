@@ -12,15 +12,15 @@ export const TotalSubscriber = () => {
     // console.log(alluser)
 
     useEffect(() => {
-        axios.get('http://localhost:4000/admin/users',{},{ withCredentials: true }).then((res) => {
+        axios.get('http://localhost:4000/admin/users', {}, { withCredentials: true }).then((res) => {
 
             setAlluser(res?.data?.users)
-            // console.log(res.data?.users)
+            console.log(res.data?.users)
 
         }).catch((error) => {
             console.log(error)
         })
-    })
+    }, [])
     // console.log(alluser)
     const Singleuser = (id) => {
         // console.log(id)
@@ -94,7 +94,8 @@ export const TotalSubscriber = () => {
                                         <p className='leading-5 font-bold ]'>{items.name}</p>
                                         <p className=''>we love  your designs .......... </p>
                                     </div>
-                                </div></>
+                                </div>
+                            </>
 
                         )
                     })}

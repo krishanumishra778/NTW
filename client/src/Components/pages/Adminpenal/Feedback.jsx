@@ -107,9 +107,6 @@ const Feedback = () => {
                             </>
                         )
                     })}
-
-
-
                 </div>
             </div>
 
