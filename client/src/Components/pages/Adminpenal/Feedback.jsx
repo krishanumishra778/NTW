@@ -72,12 +72,12 @@ const Feedback = () => {
                             <>
                                 <hr className=' bg-black  h-[2.5px]' />
                                 <div key={index}
-                                    className='flex ml-6 my-2 gap-5 items-center cursor-pointer'>
+                                    className='flex ml-6  gap-5 items-center cursor-pointer'>
                                     <div>
                                         <img className='rounded-full w-12' src="./images/user.png" alt="" />
                                     </div>
-                                    <div className=' flex flex-col gap-1 py-2'>
-                                        <p className='leading-5 font-bold'>{items.name}</p>
+                                    <div className=' flex flex-col  py-2'>
+                                        <p className='text-[15px] '>{items.name}</p>
                                         <p className='flex'>
                                             {[...Array(5)].map((star, index) => {
                                                 let currenrating = index + 1;
@@ -89,7 +89,7 @@ const Feedback = () => {
                                                             value={items?.rating}
                                                             className='hidden'
                                                         />
-                                                        <FaStar className='cursor-pointer text-[20px]'
+                                                        <FaStar className='cursor-pointer text-[15px]'
                                                             color={currenrating <= items?.rating ? "#ffc107" : "#e4e5e9"}
                                                         />
 
@@ -99,7 +99,7 @@ const Feedback = () => {
                                         </p>
 
 
-                                        <p className='leading-5 '>{items.comment}</p>
+                                        <p className=''>{items.comment}</p>
                                     </div>
                                 </div>
 
